@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: Calibre Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  text-align: center;
+  margin: 0px auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+* {
+  box-sizing: border-box;
+}
+
+.topNavigation_container {
+  padding: 0 25px;
+}
+.topNavigation_container .topNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  font-size: 0.775rem;
+  line-height: 1.4285714286;
+  height: 2.125rem;
+  margin: 0px 0px 0px 24px;
+  box-sizing: border-box;
+}
+.topNavigation_container .topNav .navItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 14px;
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+.topNavigation_container .topNav .navItem .navName {
+  position: relative;
+}
+.topNavigation_container .topNav .navItem .navName::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d31334;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+.topNavigation_container .topNav .navItem .navName:hover {
+  cursor: pointer;
+}
+.topNavigation_container .topNav .navItem .navName:hover::after {
+  transform: scaleX(1);
+  transform-origin: top left;
+}
+.topNavigation_container .topNav .navItem .icon {
+  padding-right: 5px;
+  width: 15px;
+  height: 17px;
+}
+
+/*# sourceMappingURL=TopNav.css.map */

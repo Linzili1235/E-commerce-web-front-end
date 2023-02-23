@@ -1,0 +1,35 @@
+@use './src/index.scss' as css;
+
+.product_main {
+  .main_container {
+    margin: auto;
+
+
+    display: flex;
+    justify-content: center;
+
+    .sideBar_container {
+      //flex: 1 1 0;
+      flex-basis: 25%;
+      max-width: 25%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      box-sizing: border-box;
+      background-color: css.$bg_white;
+      padding: 0 16px;
+    }
+    .product_container {
+      //flex: 3 1 0;
+      box-sizing: border-box;
+      margin-right: auto;
+      margin-left: auto;
+      flex-basis: 75%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      max-width: 75%;
+      padding: 0 12.5px;
+
+    }
+
+  }
+}

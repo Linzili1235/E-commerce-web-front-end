@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: Calibre Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  text-align: center;
+  margin: 0px auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+* {
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=index.css.map */

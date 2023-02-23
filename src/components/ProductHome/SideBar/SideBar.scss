@@ -1,0 +1,19 @@
+@use "../../../index" as css;
+
+
+.sideBar {
+  text-transform: capitalize;
+  .sideBarTitle {
+    display: flex;
+    align-items: flex-start;
+    h1 {
+      font-size: 1.875rem;
+      line-height: 1.0666666667;
+    }
+
+
+  }
+
+
+
+}

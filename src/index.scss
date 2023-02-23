@@ -1,0 +1,35 @@
+$font_Calibre: Calibre;
+$font_family: Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+$hover_color: #d31334;
+$padding_main: 0 25px;
+$bg_white:#ffffff;
+$font_light_color: #57585b;
+$border_color: #e6e6e6;
+body {
+  margin: 0;
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: $font_Calibre $font_family;
+  display: flex;
+  flex-direction: column;
+
+}
+
+section {
+  text-align: center;
+  margin: 0px auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: $font_Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+
+* {
+  box-sizing: border-box;
+}

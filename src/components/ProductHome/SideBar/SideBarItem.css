@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: Calibre Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  text-align: center;
+  margin: 0px auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+* {
+  box-sizing: border-box;
+}
+
+.sideBarItem {
+  border-bottom: 0.0625rem solid #e6e6e6;
+  border-top: 0.0625rem solid #e6e6e6;
+  box-sizing: border-box;
+}
+.sideBarItem .itemExpand {
+  padding: 16px 8px 16px 0;
+  box-sizing: border-box;
+}
+.sideBarItem .itemExpand .itemHead {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sideBarItem .itemExpand .itemHead:hover {
+  cursor: pointer;
+}
+.sideBarItem .itemExpand .itemHead .filterTitle {
+  font-size: 16px;
+  line-height: 1.26316;
+  font-weight: 550 !important;
+}
+.sideBarItem .itemExpand .itemBody .itemList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+.sideBarItem .itemExpand .itemBody .itemList li {
+  padding: 0 12.5px;
+  margin: 0 0 10px;
+}
+.sideBarItem .itemExpand .itemBody .itemList li .itemName {
+  margin-left: 5px;
+}
+.sideBarItem .itemExpand .itemBody .viewMore {
+  color: #57585b;
+  display: flex;
+  flex-direction: row;
+}
+.sideBarItem .itemExpand .itemBody .viewMore:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=SideBarItem.css.map */

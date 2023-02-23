@@ -1,0 +1,135 @@
+@use "./src/index.scss" as css;
+
+
+
+
+.productNav {
+  .img_container {
+  }
+  .productMainNav_container {
+    background-color: css.$bg_white;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    position: relative;
+
+    .productMainNavList {
+      background-color: css.$bg_white;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 0 50px;
+
+      .productMainNavItem {
+        padding: 0 30px;
+
+
+        a {
+          text-transform: capitalize;
+          color: black;
+          font-size: 17px;
+          font-weight: 400;
+          text-decoration: none;
+          margin: 7px 0;
+          padding: 10px 0;
+
+          &:hover {
+            &:after {
+              content: "";
+              background: css.$hover_color;
+              top: 1.0625rem;
+              display: block;
+              height: 0.2rem;
+              position: relative;
+              transition: background 0.3s ease-in-out;
+
+            }
+          }
+        }
+      }
+    }
+
+  }
+  .productMiddleNav_container {
+    margin-top: 30px;
+    //display: flex;
+    //align-items: flex-start;
+    width: border-box;
+
+    .storeNearBy {
+      appearance: textfield;
+      width: 100%;
+      outline: none;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      text-align: left;
+      line-height: 1.875rem;
+      background-color: #e0e0e0;
+      border: none;
+      cursor: pointer;
+      display: block;
+      padding: 1px 6px;
+
+    }
+    .sortBar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 11px 0 0 ;
+      border-bottom: 0.0625rem solid css.$border_color;
+      .sortBarLeft {
+
+
+        .sortBarLeft_button_1 {
+          background: none;
+          outline: none;
+          appearance: textfield;
+          //margin-bottom: -0.3375rem;
+          font-size: 1rem;
+          text-align: left;
+          line-height: 1.875rem;
+          border: none;
+          cursor: pointer;
+          display: inline-block;
+          padding: 1px 6px;
+          margin-right: 3.25rem;
+
+          border-bottom: 0.1875rem solid #d22030;
+        }
+        .sortBarLeft_button_2 {
+          background: none;
+          outline: none;
+          appearance: textfield;
+          //margin-bottom: 0.9375rem;
+          font-size: 1rem;
+          text-align: left;
+          line-height: 1.875rem;
+          border: none;
+          cursor: pointer;
+          display: inline-block;
+          padding: 1px 6px;
+          margin-right: 3.25rem;
+
+          &:hover {
+            &:after {
+              content: "";
+              //background: css.$hover_color;
+              top: 1.0625rem;
+              display: block;
+              border-bottom: 0.1875rem solid css.$hover_color;
+              transition: background 0.3s ease-in-out;
+
+            }
+          }
+        }
+      }
+      .sortBarRight {
+        label {
+          padding: 0 6px 0 19.2px;
+        }
+      }
+
+    }
+  }
+
+}
