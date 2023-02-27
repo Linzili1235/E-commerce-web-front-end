@@ -6,6 +6,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 export const Footer = () => {
     return <section className="footer">
+        <div className="footer_bg">
         <div className="footer_container">
             <div className="footerItem">
                 <a href="" className="footer_title">My Account</a>
@@ -94,7 +95,7 @@ export const Footer = () => {
             </div>
 
 
-        </div>
+        </div></div>
 
     </section>
 }

@@ -1,13 +1,17 @@
 import './MainNav.scss'
 import SearchIcon from '@mui/icons-material/Search';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import {logo} from '../../assets/logo/logo'
 export const MainNav = () => {
     return <div className="mainNavigation">
-        <div className="productNav_container">
-            {/*TODO: put in the image*/}
-            {/*<div className="logo">*/}
+        <div className="navigation_bg">
 
-            {/*    <img src="../src/assets/logo/lululemon-logo2.webp" alt="" />*/}
-            {/*</div>*/}
+        <div className="productNav_container">
+            <div className="logo">
+                <a href="">
+                    <img src={logo} alt="logo" />
+                </a>
+            </div>
         <ul className="productNav">
             <li className="productItem">
                 <a href="lululemon/src/components/ProductHome/Header">Women</a></li>
@@ -25,16 +29,17 @@ export const MainNav = () => {
         </div>
         <div className="searchBar_container">
             <form className="searchForm">
-                    {/*TODO: The search icon position*/}
                     <SearchIcon className="searchIcon"/>
                 <input className="searchInput" type="text" placeholder="Search"/>
-
             </form>
+            <ShoppingBagIcon className="shoppingBag"/>
 
 
 
 
 
+
+        </div>
         </div>
 
     </div>

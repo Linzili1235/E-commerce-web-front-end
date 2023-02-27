@@ -23,75 +23,105 @@ section {
 }
 * {
   box-sizing: border-box;
+  font-size: 97.5%;
 }
 
 .mainNavigation {
   background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
-.mainNavigation .productNav_container {
+.mainNavigation .navigation_bg {
+  display: flex;
+  max-width: 85.75rem;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 1.5625rem;
+}
+.mainNavigation .navigation_bg .productNav_container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   box-sizing: border-box;
+  line-height: 1.2;
 }
-.mainNavigation .productNav_container .productNav {
+.mainNavigation .navigation_bg .productNav_container .logo {
+  display: flex;
+  grid-area: logo;
+  align-items: center;
+  position: relative;
+  padding-left: 1.5625rem;
+}
+.mainNavigation .navigation_bg .productNav_container .logo a {
+  cursor: pointer;
+}
+.mainNavigation .navigation_bg .productNav_container .logo a img {
+  overflow-clip-margin: content-box;
+  overflow: hidden;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mainNavigation .navigation_bg .productNav_container .productNav {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.mainNavigation .productNav_container .productNav .productItem {
+.mainNavigation .navigation_bg .productNav_container .productNav .productItem {
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.075rem;
   line-height: 1.25rem;
-  padding: 5px 20px;
+  padding: 0.3125rem 1rem;
   position: relative;
 }
-.mainNavigation .productNav_container .productNav .productItem a {
-  text-decoration: none;
+.mainNavigation .navigation_bg .productNav_container .productNav .productItem a {
   text-transform: uppercase;
-  color: black;
 }
-.mainNavigation .productNav_container .productNav .productItem a::after {
+.mainNavigation .navigation_bg .productNav_container .productNav .productItem a::after {
   content: "";
   position: absolute;
   transform: scaleX(0);
   height: 0.25rem;
-  width: 25px;
+  width: 1.5rem;
   bottom: -0.3125rem;
   top: auto;
-  left: 20px;
+  left: 1.25rem;
   right: 100%;
   background-color: #d31334;
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
-.mainNavigation .productNav_container .productNav .productItem a:hover {
+.mainNavigation .navigation_bg .productNav_container .productNav .productItem a:hover {
   cursor: pointer;
 }
-.mainNavigation .productNav_container .productNav .productItem a:hover::after {
+.mainNavigation .navigation_bg .productNav_container .productNav .productItem a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-.mainNavigation .searchBar_container {
-  box-sizing: border-box;
-  padding: 18px 0;
+.mainNavigation .navigation_bg .searchBar_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1.125rem 0;
+  justify-content: space-between;
 }
-.mainNavigation .searchBar_container .searchInput {
+.mainNavigation .navigation_bg .searchBar_container .searchForm {
+  display: flex;
+  justify-content: flex-start;
+}
+.mainNavigation .navigation_bg .searchBar_container .searchForm .searchInput {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   height: 3rem;
   padding: 0 2rem;
   border-radius: 0.25rem;
   border: 0.0625rem solid #2c282e;
   color: #57585b;
   min-width: 264px;
+  height: 3.125rem;
 }
-.mainNavigation .searchBar_container .searchIcon {
+.mainNavigation .navigation_bg .searchBar_container .searchForm .searchIcon {
   position: relative;
-  left: 30px;
-  top: 8px;
+  left: 1.7rem;
+  top: 0.5rem;
   cursor: pointer;
 }
 

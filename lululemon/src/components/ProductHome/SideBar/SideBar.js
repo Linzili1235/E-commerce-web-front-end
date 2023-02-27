@@ -14,7 +14,7 @@ export const SideBar = () => {
 
     return <section className="sideBar">
         <div className="sideBarTitle">
-            <h1>What's New</h1>
+            <h1>Women's What's New</h1>
         </div>
         <div className="sideBarItem_container">
             {

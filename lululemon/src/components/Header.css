@@ -23,6 +23,7 @@ section {
 }
 * {
   box-sizing: border-box;
+  font-size: 97.5%;
 }
 
 ul {

@@ -5,6 +5,7 @@ export const FETCH_ALL_API = "http://api-lulu.hibitbyte.com/product/allProducts?
 export const actionType = {
     // define action types
     "SELECT_ALL_FILTER": "SELECT_ALL_FILTER",
-    "SELECT_SOME_FILTER": "SELECT_SOME_FILTER",
+    "UPDATE_FILTERS":"UPDATE_FILTERS",
+    "FETCH_ALL_ITEMS":"FETCH_ALL_ITEMS",
     "FETCH_ONE_ITEM": "FETCH_ONE_ITEM"
 }

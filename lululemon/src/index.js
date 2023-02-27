@@ -11,8 +11,7 @@ import actions from "./actions";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = createStore(reducers, applyMiddleware(thunk))
-store.dispatch(actions.filterAction.selectAllFilters())
-store.dispatch(actions.productAction.getProductItem())
+
 root.render(
   <Provider store={store}>
       <App/>

@@ -2,108 +2,134 @@
 
 .mainNavigation {
   background-color: css.$bg_white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  .productNav_container {
+  //display: flex;
+  //justify-content: center;
+  .navigation_bg {
     display: flex;
-    flex-direction: row;
+    max-width: 85.75rem;
     justify-content: space-between;
-    box-sizing: border-box;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 1.5625rem;
 
-    //.logo {
-    //  width: 50px;
-    //  img {
-    //    width: 50px;
-    //    height: 50px;
-    //  }
-    //}
 
-    .productNav {
+    .productNav_container {
       display: flex;
       flex-direction: row;
-      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      line-height: 1.2;
 
-
-
-      .productItem {
-        font-size:.9375rem;
-        font-weight: 600;
-        letter-spacing: .075rem;
-        line-height: 1.25rem;
-        padding: 5px 20px;
+      .logo {
+        display: flex;
+        grid-area: logo;
+        align-items: center;
         position: relative;
-
-
+        padding-left: 1.5625rem;
 
         a {
-          text-decoration: none;
-          text-transform: uppercase;
-          color: black;
-
-          &::after {
-            content: '';
-            position: absolute;
-            transform: scaleX(0);
-            height: 0.25rem;
-            width: 25px;
-            bottom: -0.3125rem;
-            top: auto;
-            left: 20px;
-            right: 100%;
-            background-color: css.$hover_color;
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
-          }
+          cursor: pointer;
 
 
-          &:hover {
-            cursor: pointer;
 
-            &::after {
-              transform: scaleX(1);
-              transform-origin: bottom left;
-            }
-
+          img {
+            overflow-clip-margin: content-box;
+            overflow: hidden;
+            width: 2.5rem;
+            height: 2.5rem;
           }
         }
       }
 
 
-
-    }
-  }
-
-  .searchBar_container {
-    box-sizing: border-box;
-    padding: 18px 0;
+      .productNav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
 
+        .productItem {
+          font-size: .9375rem;
+          font-weight: 600;
+          letter-spacing: .075rem;
+          line-height: 1.25rem;
+          padding: 0.3125rem 1rem;
+          position: relative;
 
-      .searchInput {
 
-        height: 3rem;
-        padding: 0 2rem;
-        border-radius: 0.25rem;
-        border: 0.0625rem solid #2c282e;
-        color: #57585b;
-        min-width: 264px
+          a {
+            text-transform: uppercase;
+
+
+            &::after {
+              content: '';
+              position: absolute;
+              transform: scaleX(0);
+              height: 0.25rem;
+              width: 1.5rem;
+              bottom: -0.3125rem;
+              top: auto;
+              left: 1.25rem;
+              right: 100%;
+              background-color: css.$hover_color;
+              transform-origin: bottom right;
+              transition: transform 0.3s ease-out;
+            }
+
+
+            &:hover {
+              cursor: pointer;
+
+              &::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+              }
+
+            }
+          }
+        }
+
 
       }
-      .searchIcon {
-        position: relative;
-        left: 30px;
-        top: 8px;
-        cursor: pointer;
-
-
-
     }
 
+    .searchBar_container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 1.125rem 0;
+      justify-content: space-between;
+
+.searchForm {
+  display: flex;
+  justify-content: flex-start;
+
+        .searchInput {
+          box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+          height: 3rem;
+          padding: 0 2rem;
+          border-radius: 0.25rem;
+          border: 0.0625rem solid #2c282e;
+          color: #57585b;
+          min-width: 264px;
+          height: 3.125rem;
+
+        }
+
+        .searchIcon {
+          position: relative;
+          left: 1.7rem;;
+          top: 0.5rem;
+          cursor: pointer;
 
 
+        }}
+
+        .shoppingBag {
+
+        }
 
 
-
+      }
+    }
   }
-}

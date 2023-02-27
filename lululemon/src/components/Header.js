@@ -4,9 +4,10 @@ import {MainNav} from "./Header/MainNav";
 
 export const Header = () => {
     return <section className="header">
-        <TopNav/>
+            <TopNav/>
 
-        <MainNav/>
+            <MainNav/>
+
 
     </section>
 }

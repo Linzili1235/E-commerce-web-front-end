@@ -2,25 +2,26 @@
 .sideBarItem {
   border-bottom: 0.0625rem solid css.$border_color;
   border-top: 0.0625rem solid css.$border_color;
-  box-sizing: border-box;
 
   .itemExpand {
-    padding: 16px 8px 16px 0;
-    box-sizing: border-box;
 
     .itemHead {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      padding: 1rem 1rem 1rem 0;
+
       &:hover {
 
         cursor: pointer;
 
       }
       .filterTitle {
-        font-size:16px;
+        text-align: left;
+        flex-grow: 2;
+        font-size:1.1875rem;
         line-height: 1.26316;
-        font-weight: 550!important;
+        font-weight: 500!important;
       }
 
 
@@ -28,17 +29,29 @@
 
     }
     .itemBody {
+      padding-left: 0;
+      font-size: 1.0625rem;
+      font-weight: 400;
+      line-height: 1.1764705882;
       .itemList {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding-left: 0;
-        box-sizing: border-box;
+        margin: 0;
 
+
+        li[class*=col-] {
+          padding-right: 0.78125rem;
+          padding-left: 0.78125rem;
+
+        }
         li {
-          padding: 0 12.5px;
-          margin: 0 0 10px;
+          margin: 0 0 0.625rem;
+          flex-grow: 2;
+          text-align: left;
 
+          display: list-item;
           .icon {
             //TODO: put icon in the same height
             //width: 24px;
@@ -49,6 +62,8 @@
           }
           .itemName {
             margin-left: 5px;
+            position: relative;
+            top: -0.3rem;
             //margin-bottom: 10px;
             //padding-bottom: 15px;
           }
@@ -58,13 +73,20 @@
         color: css.$font_light_color;
         display: flex;
         flex-direction: row;
+        align-items: center;
+        padding: 0.6875rem 0 0.5rem;
+        width: 100%;
 
         &:hover {
           cursor: pointer;
         }
 
-        .view {
+        .viewMoreTitle {
+          position: relative;
+          top: -0.15rem;
         }
+
+
       }
     }
   }

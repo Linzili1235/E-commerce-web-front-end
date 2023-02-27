@@ -2,32 +2,28 @@
 
 .product_main {
   .main_container {
-    margin: auto;
-
-
+    padding-right: 1.5625rem;
+    padding-left: 1.5625rem;
     display: flex;
     justify-content: center;
 
     .sideBar_container {
-      //flex: 1 1 0;
       flex-basis: 25%;
       max-width: 25%;
       flex-grow: 0;
       flex-shrink: 0;
-      box-sizing: border-box;
       background-color: css.$bg_white;
-      padding: 0 16px;
+      padding: 0 1rem;
     }
     .product_container {
-      //flex: 3 1 0;
-      box-sizing: border-box;
       margin-right: auto;
       margin-left: auto;
       flex-basis: 75%;
       flex-grow: 0;
       flex-shrink: 0;
       max-width: 75%;
-      padding: 0 12.5px;
+      padding-right: 0.78125rem;
+      padding-left: 0.78125rem;
 
     }
 

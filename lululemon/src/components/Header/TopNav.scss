@@ -2,68 +2,91 @@
 
 
 .topNavigation_container {
-  padding: css.$padding_main;
+
+
+  .topNavigation_bg{
+    padding: css.$padding_main;
+    height: 2.125rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 85.75rem;
+    padding: 0.5rem 1.5625rem;
+    width: 100%;
+
   .topNav {
     //float: right;
     display: flex;
     flex-direction: row;
     justify-content: right;
-    font-size: .775rem;
     line-height: 1.4285714286;
     height: 2.125rem;
-    margin: 0px 0px 0px 24px;
-    box-sizing: border-box;
+    align-items: center;
 
+    .navItem:not(:last-child) {
+      margin-right: 1.5rem;
+    }
 
     .navItem {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      padding-left: 14px;
-      padding-top: 10px;
-      //padding: 12px 14px 18px;
-      box-sizing: border-box;
 
-      .navName {
-        position: relative;
-
-        &::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          transform: scaleX(0);
-          height: 2px;
-          bottom: 0;
-          left: 0;
-          background-color: css.$hover_color;
-          transform-origin: bottom right;
-          transition: transform 0.3s ease-out;
-        }
+      a {
+        font-size: .675rem;
+        font-weight: 400;
 
 
-        &:hover {
-          cursor: pointer;
+        .navName {
+          position: relative;
+          top: -0.2rem;
 
           &::after {
-            transform: scaleX(1);
-            transform-origin: top left;
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: css.$hover_color;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+          }
+
+
+          &:hover {
+            cursor: pointer;
+
+            &::after {
+              transform: scaleX(1);
+              transform-origin: top left;
+            }
+
           }
 
         }
 
+        .icon {
+          height: 1rem;
+          width: 1rem;
+          margin-right: 0.5rem;
+
+          align-items: center;
+          display: inline-flex;
+          position: relative;
+          //padding-top: 0.5rem;
+          //padding-right: 5px;
+          //width: 15px;
+          //height: 17px;
+
+        }
       }
-
-      .icon {
-        padding-right: 5px;
-        width: 15px;
-        height: 17px;
-
-      }
-
 
     }
 
-  }
+  }}
 }
 
 

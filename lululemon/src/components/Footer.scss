@@ -2,6 +2,10 @@
 .footer {
   margin-top: auto;
   background-color: css.$bg_white;
+.footer_bg {
+  max-width: 85.75rem;
+  margin: 0 auto;
+  padding: 0;
 
 
 
@@ -16,23 +20,25 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: 24px 0 0 ;
-    padding: 0 25px;
+    //justify-content: flex-start;
+    padding-left: 1.5625rem;
+    padding-right: 1.5625rem;
+    margin-top: 1.5rem;
+
 
 
     .footerItem {
-      //flex: 0 0 21%;
-      flex-basis: 21%;
-      padding: 16px 0 0;
-      margin-right: 25px;
+      flex-basis: 25%;
+      padding: 1rem 0 0;
+      //margin-right: 25px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       .footer_title {
         color: black;
         font-weight: 600;
-        font-size: 14px;
+        font-size: .875rem;
+        line-height: 1.42857;
         letter-spacing: .075rem;
         text-transform: uppercase;
       }
@@ -40,45 +46,37 @@
 
 
       .footerList {
-        padding: 24px 0;
+        padding: 1.5rem 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        font-size: 14px;
-
+        font-size: 1.0625rem;
         li {
-          margin: 10px 0;
+          padding-top: 1rem;
         }
 
         .otherItem {
           font-weight: 600;
-          font-size: 14px;
+          font-size: .875rem;
           letter-spacing: .075rem;
           text-transform: uppercase;
-          padding-bottom: 15px;
+          padding-bottom: 1rem;
 
         }
 
         .legacyItem {
           text-align: left;
-          padding-bottom: 15px;
+          padding-bottom: 1rem;
           .bold {
             letter-spacing: .075rem;
             text-transform: uppercase;
             font-weight: 600;
-            font-size: 14px;
+            font-size: .875rem;
           }
 
         }
-//TODO:put the social media item in a line
-        .socialMedia_list {
-          display: inline;
-          .socialMedia_item {
-            padding-bottom: 10px;
-          }
 
-
-        }
 
 
 
@@ -87,8 +85,20 @@
 
 
       }
+      .socialMedia_list {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .socialMedia_item {
+        }
+
+
+      }
+
     }
 
 
   }
+}
 }
