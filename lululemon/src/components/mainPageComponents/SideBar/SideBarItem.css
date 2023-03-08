@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: Calibre Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  text-align: center;
+  margin: 0px auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+* {
+  box-sizing: border-box;
+  font-size: 97.5%;
+}
+
+.sideBarItem {
+  border-bottom: 0.0625rem solid #e6e6e6;
+  border-top: 0.0625rem solid #e6e6e6;
+}
+.sideBarItem .itemExpand .itemHead {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 1rem 1rem 0;
+}
+.sideBarItem .itemExpand .itemHead:hover {
+  cursor: pointer;
+}
+.sideBarItem .itemExpand .itemHead .filterTitle {
+  text-align: left;
+  flex-grow: 2;
+  font-size: 1.1875rem;
+  line-height: 1.26316;
+  font-weight: 500 !important;
+}
+.sideBarItem .itemExpand .swatch-filter {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  width: 50%;
+  padding: 1rem 0;
+}
+.sideBarItem .itemExpand .swatch-filter img {
+  border-radius: 50%;
+  width: 2.5rem;
+}
+.sideBarItem .itemExpand .swatch-filter .swatchAlt {
+  display: inline-block;
+  position: relative;
+  bottom: 0.8rem;
+  left: 0.5rem;
+}
+.sideBarItem .itemExpand .itemBody {
+  padding-left: 0;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.1764705882;
+}
+.sideBarItem .itemExpand .itemBody .itemList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 0;
+  margin: 0;
+}
+.sideBarItem .itemExpand .itemBody .itemList li[class*=col-] {
+  padding-right: 0.78125rem;
+  padding-left: 0.78125rem;
+}
+.sideBarItem .itemExpand .itemBody .itemList li {
+  margin: 0 0 0.625rem;
+  flex-grow: 2;
+  text-align: left;
+  display: flex;
+}
+.sideBarItem .itemExpand .itemBody .itemList li .filterName {
+  padding-left: 0.3rem;
+  display: inline;
+  padding-top: 0.2rem;
+}
+.sideBarItem .itemExpand .viewMore {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #57585b;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.6875rem 0 0.5rem;
+  width: 100%;
+}
+.sideBarItem .itemExpand .viewMore:hover {
+  cursor: pointer;
+}
+.sideBarItem .itemExpand .viewMore .viewMoreTitle {
+  position: relative;
+  top: -0.15rem;
+}
+
+/*# sourceMappingURL=SideBarItem.css.map */

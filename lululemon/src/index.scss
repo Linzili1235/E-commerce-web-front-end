@@ -5,9 +5,10 @@ $padding_main: 0 25px;
 $bg_white:#ffffff;
 $font_light_color: #57585b;
 $border_color: #e6e6e6;
+$bg_color: #fafafa;
 body {
   margin: 0;
-  background: #fafafa;
+  background: $bg_color;
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;

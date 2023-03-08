@@ -1,5 +1,5 @@
-import filterAction from "./filterAction";
-import productAction from "./productAction";
+import filterActions from "./filterActions";
+import productActions from "./productActions";
 export default {
-    filterAction, productAction
+    filterActions, productActions
 }

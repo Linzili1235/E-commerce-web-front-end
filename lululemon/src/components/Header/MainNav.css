@@ -124,5 +124,8 @@ section {
   top: 0.5rem;
   cursor: pointer;
 }
+.mainNavigation .navigation_bg .searchBar_container .shoppingBag {
+  margin-left: 2rem;
+}
 
 /*# sourceMappingURL=MainNav.css.map */

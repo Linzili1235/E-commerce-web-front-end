@@ -1,0 +1,10 @@
+.image-slider {
+  border: solid 1px green;
+  display: inline-block;
+  flex-direction: row;
+  width: 50%;
+  height: 60rem;
+  padding: 0 1rem;
+}
+
+/*# sourceMappingURL=Slider.css.map */
