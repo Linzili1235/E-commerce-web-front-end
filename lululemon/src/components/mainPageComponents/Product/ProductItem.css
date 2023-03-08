@@ -130,8 +130,19 @@ section {
   justify-content: space-between;
   padding-bottom: 2rem;
   font-weight: 500;
+  font-size: 1.1875rem;
+  line-height: 1.2631578947;
   text-align: left;
   margin-top: 0.5rem;
+}
+.productTile .productTile_details .productTile_attributes .productName {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.productTile .productTile_details .productTile_attributes .productPrice {
+  margin-left: 5.1326%;
+  margin-right: -0.25rem;
+  text-align: right;
 }
 
 /*# sourceMappingURL=ProductItem.css.map */

@@ -129,8 +129,20 @@
      justify-content: space-between;
      padding-bottom: 2rem;
      font-weight: 500;
+     font-size: 1.1875rem;
+     line-height: 1.2631578947;
      text-align: left;
      margin-top: 0.5rem;
+
+     .productName {
+       margin: 0;
+       white-space: pre-wrap;
+     }
+     .productPrice {
+       margin-left: 5.1326%;
+       margin-right: -0.25rem;
+       text-align: right;
+     }
    }
 
  }

@@ -69,7 +69,7 @@ export const ProductItem = ({product}) => {
 
             <div className="productTile_attributes">
                 <div className="productName">
-                    <a href="#">{productName}</a>
+                    <a href="#"><strong>{productName}</strong></a>
                 </div>
                 <div className="productPrice">
                     <span>{productPrice}</span>
