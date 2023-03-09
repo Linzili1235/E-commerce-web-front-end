@@ -4,7 +4,6 @@ import {useEffect} from "react";
 import actions from "../../../actions";
 import "./SideBar.scss"
 export const SideBar = () => {
-    const dispatch = useDispatch()
     // when first rendered, checked and render all filters
     // I render the things in index.js
     // special for redux method, not using useEffect

@@ -1,15 +1,31 @@
 import {SideBar} from "./SideBar/SideBar";
 import './Main.scss'
-import {useDispatch} from "react-redux";
-import {useEffect} from "react";
-import {actionType, GET_FILTER_API} from "../../Helper";
-import actions from "../../actions";
 import {ProductShow} from "./Product/ProductShow";
-import {ProductList} from "./Product/ProductList";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import actions from "../../actions";
 export const Main = () => {
 
+    const [isLoading, setLoading] = useState(true)
+    const dispatch = useDispatch();
+    const {sortingId, pageNum} = useParams();
 
-    return <div className="product_main">
+    // Fetch all filters
+    useEffect(() => {
+        dispatch(actions?.filterActions?.getFilters())
+            .then(()=> setLoading(false))
+    },[]);
+
+    // update the URL params based on the current URL (page and sortingId)
+    useEffect(() => {
+        actions?.filterActions?.urlParamsSaver(dispatch)(pageNum, sortingId)
+            .then(() => true)
+    }, [sortingId, pageNum]);
+
+    return isLoading ? (
+        <div>loading...</div>
+    ) :  <div className="product_main">
         <div className="main_container">
             <div className="sideBar_container"><SideBar/></div>
             <div className="product_container"><ProductShow/></div>

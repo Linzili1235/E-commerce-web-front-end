@@ -1,5 +1,6 @@
 import axios from "axios";
 import {actionType, FETCH_ALL_URL, GET_FILTERS_URL} from "../Helper";
+import { logDOM } from "@testing-library/react";
 //  implicit return statement
 
 // In this case, it is common to put dispatch second in the argument list,
@@ -39,9 +40,40 @@ const updateFilter = (dispatch) => async (ele) => {
     }
 }
 
+// Store pageNum and sortingId to the global store
+const urlParamsSaver = (dispatch) => async (pageNum, sortingId) => {
+    try {
+        dispatch({
+            type: actionType.URL_PARAMS_SAVER,
+            payload: {pageNum, sortingId}
+        })
+        return true
+    } catch (e) {
+        console.log('[Save URL params error]', e)
+        return false
+    }
+}
+// todo:
+// 1. 添加更新后的filter给action creators，这样就可以保证状态一致
+// 2。同样的方法做一个pagination的action creator，发送 pageNum 和 filter
+// Change sortingId
+const changeSortId = (dispatch) => async (sortingId) => {
+    try {
+        dispatch({
+            type: actionType.SORT_ID,
+            payload: sortingId
+        })
+        return true
+    } catch (e) {
+        console.log('[Save URL params error]', e)
+        return false
+    }
+}
 
 
 export default {
     getFilters,
     updateFilter,
+    urlParamsSaver,
+    changeSortId
 }

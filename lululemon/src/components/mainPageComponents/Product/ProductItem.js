@@ -1,15 +1,15 @@
 import "./ProductItem.scss"
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import {MainCarousel} from "./MainCarousel";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 export const ProductItem = ({product}) => {
     const navigate = useNavigate();
-
     const images = product?.images;
     // console.log(`imgArray`, imgArray)
-    const swatchesArray = product?.swatches;
+    const swatchesArray = product?.swatches || [];
     const productName = product?.name;
     const productPrice = product?.price;
     const lenSwatchArray = swatchesArray.length

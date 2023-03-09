@@ -1,0 +1,61 @@
+.sortingTabs {
+  padding: 1.5rem 0;
+  .dropdown {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+    height: 30px;
+    cursor: pointer;
+    .hide {
+      display: none;
+    }
+    .display {
+      position: absolute;
+      font-size: 1.4rem;
+      background-color: #f1f1f1;
+      min-width: 20rem;
+      overflow: auto;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      z-index: 1;
+      ul {
+        margin: 0 auto;
+        list-style: none;
+        text-align: center;
+        padding-left: 0;
+        li {
+          padding: 1.5rem 0;
+          &:hover {
+            background-color: lightgrey;
+          }
+        }
+      }
+    }
+  }
+
+  .options {
+    display: inline-block;
+    width: 30%;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      font-weight: bold;
+    }
+    &::after {
+      position: relative;
+      bottom: -10px;
+      left: 0;
+      width: 0;
+      height: 6px;
+      background-color: darkred;
+      transition: all 0.1s ease-in-out;
+      content: "";
+      display: block;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

@@ -5,13 +5,13 @@ import {useDispatch, useSelector} from "react-redux";
 import actions from "../../../actions";
 export const SideBarItem = ({item}) => {
     const dispatch = useDispatch()
+
     const [itemChecked, updateItemChecked] = useState(false)
     const [titleChecked, updateTitleChecked] = useState(true)
     // Problem: simple true State will lead to change to all filters in one sideBarItem
     // create a list of false which corresponds to the specific filter
     const name = item[0]
     const filterList = item[1]
-    console.log("item",item)
     const allFilters = useSelector(state => state?.productReducer?.filters)
     const onClickItemChecked = () => {
         updateItemChecked(prevState => !prevState)}
@@ -19,13 +19,16 @@ export const SideBarItem = ({item}) => {
     const onClickTitleChecked = () => {
         updateTitleChecked(prevState => !prevState)
     }
+    // Grab url params and use them to dispatch actions
+    const urlParams = useSelector(state => state?.productReducer?.params)
+    const page = urlParams.pageNum;
+    const sortingId = urlParams.sortingId;
 
-
-
-    const onClickFilterChecked = (name) => {
+    // name is an entry here
+    const onClickFilterChecked = (name, page, sortingId) => {
         actions.filterActions.updateFilter(dispatch)(name)
             .then( rs => {
-                rs && actions.productActions.fetchAllProductsWithFilter(dispatch)(allFilters)
+                rs && actions.productActions.fetchAllProductsWithFilter(dispatch, page, sortingId)(allFilters)
             })
     }
     return <div className="sideBarItem">
@@ -50,16 +53,16 @@ export const SideBarItem = ({item}) => {
              && <div className="itemBody">
                 <ul className="itemList">
                     {filterList.map(({name},index)=>
-                    index<= 4 && <li key={index} onClick={
-                        ()=>{
-                        console.log("print name outside of checkbox",name)
-                        onClickFilterChecked(name)}} >
+                    index<= 4 && <li key={index}
+                                     onClick={()=>{ onClickFilterChecked(name, page, sortingId)}} >
                         <CheckedBoxIcon  checked={name} />
-                            <div className="filterName"><span>{name}</span></div>
+                        <div className="filterName">
+                            <span>{name}</span>
+                        </div>
                     </li>
                     )}
                     {filterList.map(({name, isChecked},index)=>
-                            index> 4 && itemChecked && <li key={index} onClick={() => onClickFilterChecked(name)}>
+                            index> 4 && itemChecked && <li key={index} onClick={() => onClickFilterChecked(name, page, sortingId)}>
                             <CheckedBoxIcon checked={name} />
                                 <div className="filterName"><span className="itemName">{name}</span></div>
                             </li>)}

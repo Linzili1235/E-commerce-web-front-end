@@ -2,7 +2,7 @@ import "./ProductShow.scss"
 import productImg from "../../../assets/productImg/manProduct.png"
 import {Notification} from "./Notification";
 import {ProductList} from "./ProductList";
-import {SortingTabs} from "./SortingTabs";
+import SortingTabs from "./SortingTabs";
 
 export const ProductShow = () => {
     return <>
@@ -21,28 +21,8 @@ export const ProductShow = () => {
 
            <div className="productMiddleNav_container">
             <Notification/>
-
-            {/*main product content*/}
-
-            {/*<div className="sortBar">*/}
-            {/*    /!*TODO:make left and right the same line height *!/*/}
-            {/*    <div className="sortBarLeft">*/}
-            {/*        /!*# TODO change to product length in 156*!/*/}
-            {/*        /!*TODO:  .sortBarLeft_button_2, how to get*!/*/}
-            {/*        <button className="sortBarLeft_button_1"><strong >All Items(156)</strong></button>*/}
-            {/*        <button className="sortBarLeft_button_2">Available Near You</button>*/}
-            {/*    </div>*/}
-            {/*    <div className="sortBarRight">*/}
-            {/*        <label htmlFor="">Sort by</label>*/}
-            {/*        <span>Featured</span>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-
             <SortingTabs/>
-
-
         </div>
-
 
         </div>
         <div className="productMain_container">
