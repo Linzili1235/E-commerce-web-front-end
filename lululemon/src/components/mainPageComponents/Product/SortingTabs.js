@@ -50,6 +50,7 @@ const SortingTabs = () => {
     return isLoading ? <div>Loading...</div> : (
         <>
             <div className="sortingTabs">
+                <div className="sortingTabs_left">
                 {
                     !!products &&
                     <div className="options">
@@ -57,6 +58,8 @@ const SortingTabs = () => {
                     </div>
                 }
                 <div className="options">Available Near You</div>
+                </div>
+                <div className="sortingTabs_right">
                 <div className='dropdown' onClick={toggleFunc}>
                     <a className='sort-by'>Sort by:  {sortTab}</a>
                     <div className={toggleClass}>
@@ -82,8 +85,10 @@ const SortingTabs = () => {
                         </ul>
                     </div>
                 </div>
-                <hr/>
+                </div>
             </div>
+            <hr/>
+
         </>
     );
 };

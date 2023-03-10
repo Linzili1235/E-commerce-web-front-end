@@ -38,19 +38,20 @@ export const SideBarItem = ({item}) => {
                 <TitleCheckedIcon checked={titleChecked} />
             </div>
             {/*Special design for filter Color*/}
-            {name === "Colour"? filterList.map((swatchObject,index) => {
-                return <div className="swatch-filter" key={index}>
+            {name === "Colour"? titleChecked &&
+                <ul className="colorList">
+                    {filterList.map((swatchObject,index) => {
+                return <li className="swatch-filter" key={index}>
                     <img src={swatchObject.swatch} alt={swatchObject.alt}/>
-                    <div className="swatchAlt">
+                    <span className="swatchAlt">
                         {swatchObject.alt}
-                    </div>
-                </div>
-            }) :
+                    </span>
+                </li>
+            })} </ul>:
 
                 // for other filters
 
-                titleChecked
-             && <div className="itemBody">
+                <div className={`itemBody ${titleChecked? "showTitle": ""}`}>
                 <ul className="itemList">
                     {filterList.map(({name},index)=>
                     index<= 4 && <li key={index}
@@ -61,19 +62,25 @@ export const SideBarItem = ({item}) => {
                         </div>
                     </li>
                     )}
+                </ul>
+
+
+                    <ul className= {`itemList_expanded ${itemChecked? "show": ""}`}>
                     {filterList.map(({name, isChecked},index)=>
-                            index> 4 && itemChecked && <li key={index} onClick={() => onClickFilterChecked(name, page, sortingId)}>
+                            index> 4 && <li key={index} onClick={() => onClickFilterChecked(name, page, sortingId)}>
                             <CheckedBoxIcon checked={name} />
                                 <div className="filterName"><span className="itemName">{name}</span></div>
                             </li>)}
-                </ul>
+                    </ul>
+                    {titleChecked && filterList.length > 5 && <div className="viewMore" onClick={onClickItemChecked}>
+                        <span className="viewMoreTitle">View More</span>
+                        <ItemCheckedIcon checked={itemChecked}/>
+                    </div>}
+
             </div>
 
             }
-            {filterList.length > 5 && <div className="viewMore" onClick={onClickItemChecked}>
-            <span className="viewMoreTitle">View More</span>
-            <ItemCheckedIcon checked={itemChecked}/>
-        </div>}
+
 
 
 

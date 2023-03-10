@@ -2,14 +2,18 @@
 .sideBarItem {
   border-bottom: 0.0625rem solid css.$border_color;
   border-top: 0.0625rem solid css.$border_color;
-
   .itemExpand {
+    animation: rotate 2s linear infinite;
 
     .itemHead {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       padding: 1rem 1rem 1rem 0;
+      //font-weight: 600;
+
+
+
 
       &:hover {
 
@@ -28,17 +32,28 @@
 
 
     }
+    .colorList {
+      padding-left: 0.1rem;
     .swatch-filter {
       display: inline-block;
       position: relative;
       text-align: left;
       width: 50%;
-      padding: 1rem 0;
+      padding: 1rem 0 0 0;
+      line-height: 1.2;
       img {
         //position: relative;
         //left: 0;
         border-radius: 50%;
-        width: 2.5rem;
+        width: 2rem;
+        border: darkgrey 1px solid;
+
+        &:hover {
+          //box-sizing: unset;
+          box-shadow: 0 0 0 1px darkgrey;
+          padding: 0.2rem;
+          //z-index: 1;
+        }
 
       }
       .swatchAlt {
@@ -47,18 +62,22 @@
         bottom: 0.8rem;
         left: 0.5rem;
       }
-    }
+    }}
     .itemBody {
       padding-left: 0;
       font-size: 1.0625rem;
       font-weight: 400;
       line-height: 1.1764705882;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease-in-out;
       .itemList {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding-left: 0;
         margin: 0;
+
 
 
         li[class*=col-] {
@@ -71,6 +90,8 @@
           flex-grow: 2;
           text-align: left;
           display: flex;
+
+
 
           .icon {
             //TODO: put icon in the same height
@@ -92,28 +113,84 @@
         }
       }
 
+
+      .itemList_expanded {
+        margin-top: 0;
+        padding-left: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+
+        li[class*=col-] {
+          padding-right: 0.78125rem;
+          padding-left: 0.78125rem;
+
+        }
+        li {
+          margin: 0 0 0.625rem;
+          flex-grow: 2;
+          text-align: left;
+          display: flex;
+
+
+
+          .icon {
+            //TODO: put icon in the same height
+            //width: 24px;
+            //position: relative;
+            //margin-top: 10px;
+
+
+          }
+          .filterName {
+            //margin-left: 1.7rem;
+            //position: relative;
+            //top: -1.6rem;
+            padding-left: 0.3rem;
+            display: inline;
+            //margin-bottom: 10px;
+            padding-top: 0.2rem;
+          }
+        }
+      }
+      .show {
+        max-height: 1000px;
+        //overflow: visible;
+        //opacity: 1;
+        //display: flex;
+        //flex-direction: column;
+        //align-items: flex-start;
+        //padding-left: 0;
+        //margin: 0;
+        //background-color: blue;
+      }
+      .viewMore {
+        font-size: 1.0625rem;
+        font-weight: 400;
+        color: css.$font_light_color;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.6875rem 0 0.5rem;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .viewMoreTitle {
+
+          position: relative;
+          top: -0.15rem;
+        }
+
+
+      }
     }
-    .viewMore {
-      font-size: 1.0625rem;
-      font-weight: 400;
-      color: css.$font_light_color;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 0.6875rem 0 0.5rem;
-      width: 100%;
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      .viewMoreTitle {
-
-        position: relative;
-        top: -0.15rem;
-      }
-
-
+    .showTitle {
+      max-height: 2000px;
     }
   }
 }

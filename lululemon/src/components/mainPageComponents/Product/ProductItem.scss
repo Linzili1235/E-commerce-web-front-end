@@ -107,13 +107,18 @@
 
 
          img {
-           width: 25px;
-           height: 25px;
+           width: 30px;
+           height: 30px;
            border-radius: 100px;
+           //box-sizing: border-box;
+           //box-shadow: 0 0 0 1px black;
+           //padding: 0.2rem;
+           border: darkgrey 0.5px groove;
+           //margin: 0.5rem;
 
            //TODO: MOVE THIS TO PEIDONG PROJECT
            &:hover {
-             box-sizing: unset;
+             box-sizing: border-box;
              box-shadow: 0 0 0 1px black;
              padding: 0.2rem;
              z-index: 1;
