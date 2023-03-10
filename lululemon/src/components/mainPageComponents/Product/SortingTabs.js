@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions";
 import { useNavigate } from "react-router-dom";
@@ -7,16 +7,29 @@ import './SortingTabs.scss'
 const SortingTabs = () => {
     //////////////////////////////// SortTab ////////////////////////////////
     // handle sort tab name
+    const menuRef = useRef(null)
     const [sortTab, setSortTab]  = useState('Featured')
     // handle toggle state
-    const [toggleClass, setToggleClass] = useState('hide')
+    const [isOn, setIsOn] = useState(false)
+    const [toggleName, setToggleName] = useState('hide')
+
     // toggle function to display/hide the sorting tab
-    const toggleFunc = () => {
-        if (toggleClass === 'hide')
-            setToggleClass(() => 'display')
-        else
-            setToggleClass(() => 'hide')
-    }
+
+    useEffect(() => {
+        const toggleFunc = (evt) => {
+            if (menuRef.current && !menuRef.current.contains(evt.target)) {
+                setIsOn(false);
+            } else {
+                setIsOn(isOn => !isOn);
+            }
+        };
+        document.addEventListener('click', toggleFunc)
+        isOn ? setToggleName('display') : setToggleName('hide')
+        return () => {
+            document.removeEventListener('click', toggleFunc)
+        }
+    })
+
     ////////////////////////////////////////////////////////////////////////
 
     // get data from the global store
@@ -29,8 +42,6 @@ const SortingTabs = () => {
     // Fetch all products with page and sorting
     const dispatch = useDispatch();
     const [isLoading, setLoading] = useState(true)
-
-
     useEffect( () => {
         dispatch(actions?.productActions?.fetchProductsPageSorting(page, sortingId))
             .then(()=> setLoading( false))
@@ -60,9 +71,9 @@ const SortingTabs = () => {
                 <div className="options">Available Near You</div>
                 </div>
                 <div className="sortingTabs_right">
-                <div className='dropdown' onClick={toggleFunc}>
+                <div className='dropdown' ref={menuRef}>
                     <a className='sort-by'>Sort by:  {sortTab}</a>
-                    <div className={toggleClass}>
+                    <div className={toggleName}>
                         <ul>
                             <li id='1'
                                 data-id='1'
@@ -86,9 +97,9 @@ const SortingTabs = () => {
                     </div>
                 </div>
                 </div>
+
             </div>
             <hr/>
-
         </>
     );
 };
