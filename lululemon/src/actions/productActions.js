@@ -37,11 +37,11 @@ const fetchOneProduct = ({id}) => async dispatch => {
 //     }
 // }
 
-// fetch with page and sorting
-const fetchProductsPageSorting = (page, sorting) => async dispatch => {
+// fetch with sorting tab
+const fetchProductsPageSorting = (page, sorting, filters) => async dispatch => {
     try {
         // console.log(`[Action] sortingId=${sorting}&page=${page}`)
-        const response = await axios.post(`http://api-lulu.hibitbyte.com/product/allProducts?sortingId=${sorting}&page=${page}&${KEYS_URL}`)
+        const response = await axios.post(`http://api-lulu.hibitbyte.com/product/allProducts?sortingId=${sorting}&page=${page}&${KEYS_URL}`, filters)
         const data = response?.data?.rs;
         // console.log('[Action] data:',data)
         dispatch({

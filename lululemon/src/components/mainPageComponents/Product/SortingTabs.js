@@ -14,7 +14,10 @@ const SortingTabs = () => {
     const [toggleName, setToggleName] = useState('hide')
 
     // toggle function to display/hide the sorting tab
-
+    // it checks if the click happened outside of a specified element (in this case, the menuRef element),
+    // and if so, it sets isOn state to false. Otherwise, it toggles the isOn state to true or false depending on its
+    // current value. It also updates the toggleName state depending on the value of isOn. Finally, it removes the event
+    // listener when the component unmounts.
     useEffect(() => {
         const toggleFunc = (evt) => {
             if (menuRef.current && !menuRef.current.contains(evt.target)) {
@@ -35,6 +38,8 @@ const SortingTabs = () => {
     // get data from the global store
     const products = useSelector(state => state?.productReducer?.pageProducts)
     const urlParams = useSelector(state => state?.productReducer?.params)
+    let filters = useSelector(state => state?.productReducer?.filters)
+
     const page = urlParams.pageNum;
     const sortingId = urlParams.sortingId;
 
@@ -43,7 +48,7 @@ const SortingTabs = () => {
     const dispatch = useDispatch();
     const [isLoading, setLoading] = useState(true)
     useEffect( () => {
-        dispatch(actions?.productActions?.fetchProductsPageSorting(page, sortingId))
+        dispatch(actions?.productActions?.fetchProductsPageSorting(page, sortingId,filters))
             .then(()=> setLoading( false))
     },[page, sortingId]);
 
