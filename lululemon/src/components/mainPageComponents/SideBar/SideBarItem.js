@@ -72,7 +72,7 @@ export const SideBarItem = ({item}) => {
                                 <div className="filterName"><span className="itemName">{name}</span></div>
                             </li>)}
                     </ul>
-                    {titleChecked && filterList.length > 5 && <div className="viewMore" onClick={onClickItemChecked}>
+                    {filterList.length > 5 && <div className={`viewMore ${titleChecked?"":"showView"}`} onClick={onClickItemChecked}>
                         <span className="viewMoreTitle">View More</span>
                         <ItemCheckedIcon checked={itemChecked}/>
                     </div>}

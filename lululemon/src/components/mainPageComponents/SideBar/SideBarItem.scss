@@ -69,7 +69,9 @@
       font-weight: 400;
       line-height: 1.1764705882;
       max-height: 0;
-      overflow: hidden;
+      //overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
       transition: all 0.5s ease-in-out;
       .itemList {
         display: flex;
@@ -173,7 +175,10 @@
         align-items: center;
         padding: 0.6875rem 0 0.5rem;
         width: 100%;
-        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        max-height: 50px;
+        pointer-events: all;
+        transition: all 0.5s ease-in-out;
 
 
         &:hover {
@@ -191,6 +196,16 @@
     }
     .showTitle {
       max-height: 2000px;
+      opacity: 1;
+      pointer-events: all;
+
+    }
+
+    .showView {
+      pointer-events: none;
+      opacity: 0;
+      max-height: 0;
+
     }
   }
 }
