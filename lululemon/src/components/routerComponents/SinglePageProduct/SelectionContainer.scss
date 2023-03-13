@@ -1,7 +1,250 @@
+@use '../../../index.scss' as css;
+
 .selection-container {
   border: solid 1px orange;
   display: inline-block;
-  width: 50%;
+  flex-basis: 41.6666666667%;
+  max-width: 41.6666666667%;
   padding: 0 1rem;
   height: 60rem;
-}
+
+  .selection-details {
+    width: 26.5625rem;
+    box-sizing: content-box;
+    padding-left: 2.25rem;
+
+    .product-field {
+      .product-field-list {
+        padding-left: 0;
+        margin: 1rem 0 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+
+        .field {
+          font-size: .875rem;
+          -webkit-font-smoothing: antialiased;
+          line-height: 1.4285714286;
+          font-weight: 500;
+          text-transform: capitalize;
+
+          a {
+            position: static;
+            text-decoration: underline;
+            text-decoration-color: css.$line_color;
+            text-decoration-thickness: 0.0625rem;
+            text-underline-offset: 0.375rem;
+          }
+
+          &:after {
+            color: css.$line_color;
+            content: attr(data-slash);
+            display: inline-block;
+            font-weight: 300;
+            margin: 0 0.5rem;
+          }
+        }
+      }
+    }
+
+    .product-title {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      flex-basis: 83.3333333333%;
+      max-width: 83.3333333333%;
+
+
+      .h1 {
+        font-size: 2.25rem;
+        line-height: 2rem;
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .productNew {
+
+        .new-style {
+          margin-top: 0.65625rem;
+          margin-bottom: 1rem;
+          background-color: css.$bg_white;
+          border-color: css.$border_color;
+          color: #000;
+          font-size: .875rem;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          line-height: 1.4285714286;
+          font-weight: 600;
+          letter-spacing: .075rem;
+          text-transform: uppercase;
+          align-items: center;
+          border-radius: 0.25rem;
+          border-style: solid;
+          border-width: 0.0625rem;
+          display: inline-flex;
+          height: 1.625rem;
+          padding: 0 0.4375rem 0 0.5rem;
+        }
+      }
+      .product-price {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+    }
+    .colorSelection {
+      .colorName {
+        display: flex;
+        justify-content: flex-start;
+        //justify-content: space-between;
+        margin-bottom: 0.5rem;
+        .color {
+          margin-right: 0.5rem;
+          font-weight: 600;
+          font-size: 1.0625rem;
+          line-height: 1.1764705882;
+        }
+        .specific-color {
+          text-transform: capitalize;
+          line-height: 1.25rem;
+          font-size: 1.0625rem;
+        }
+      }
+      .availableColor {
+        margin: 0;
+        width: inherit;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        .colorItem {
+
+          margin: 0 0.9rem 0.5rem 0;
+
+          img {
+            align-items: center;
+            border-radius: 50%;
+            display: flex;
+            height: 2.125rem;
+            justify-content: center;
+            line-height: 0;
+            margin: 0.3125rem 0;
+            position: relative;
+            width: 2.125rem;
+            cursor: pointer;
+            box-shadow: 0 0 0 0.09375rem #d5d5d5;
+            background-color: transparent;
+            border: none;
+
+            padding: 0;
+
+            &:hover {
+                  box-sizing: border-box;
+                  box-shadow: 0 0 0 1px darkgrey;
+                  padding: 0.25rem;
+                  z-index: 1;
+
+            }
+          }
+
+          .border {
+            box-shadow: 0 0 0 1px black;
+            padding:0.25rem ;
+
+          }
+        }
+      }
+    }
+    .sizeSelection {
+      text-transform: capitalize;
+    .sizeTitle {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 0.5rem;
+
+      .selectSize {
+        font-weight: 600;
+        font-size: 1.0625rem;
+        line-height: 1.1764705882;
+      }
+      .oneSize {
+        font-size: 1.0625rem;
+
+      }
+      .sizeGuide {
+        margin-left: auto;
+        font-weight: 600;
+        font-size: 1.0625rem;
+        line-height: 1;
+        text-decoration: underline;
+        text-decoration-color: css.$line_color;
+        text-decoration-thickness: 0.0625rem;
+        text-underline-offset: 0.375rem;
+        transition: all ease-in-out;
+        cursor: pointer;
+        white-space: nowrap;
+        padding-bottom: 0.25rem;
+
+
+        &:hover {
+
+          text-decoration-color: css.$hover_color;
+
+        }
+
+
+      }
+
+    }
+      .sizeButtons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: -0.25rem;
+        margin-right: -0.25rem;
+        width: calc(100% + 1rem);
+        margin: 0 -0.3125rem -1rem;
+
+        .sizeOut {
+          margin-left: 0.25rem;
+          margin-right: 0.25rem;
+          margin-bottom: 1rem;
+        .sizeItem {
+          font-size: 1.1875rem;
+          -webkit-font-smoothing: antialiased;
+          font-weight: 600;
+          align-items: center;
+          background-color: #fff;
+          border-radius: 0.25rem;
+          border: 0.0625rem solid #d5d5d5;
+          box-shadow: 0 0 0 0.03125rem #d5d5d5;
+          color: #000;
+          display: inline-flex;
+          height: 2.25rem;
+          justify-content: center;
+          line-height: 0;
+          min-width: 2.25rem;
+          padding: 0 0.53125rem;
+
+          &:hover {
+            border: 0.1rem solid black;
+          }
+        }
+        .sizeBool {
+          border-color: #000;
+          box-shadow: 0 0 0 0.03125rem #000;
+          background-color: #000;
+          color: white;
+        }
+        }
+      }
+      .one {
+      justify-content: space-between;
+    }
+      .two {
+        justify-content: flex-start;
+      }
+    }
+
+  }
+
+  }
