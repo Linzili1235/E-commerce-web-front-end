@@ -69,7 +69,7 @@ export const ProductItem = ({product}) => {
 
             <div className="productTile_attributes">
                 <div className="productName">
-                    <a href="#"><strong>{productName}</strong></a>
+                    <a href={`/singleProduct/${productID}`}><strong>{productName}</strong></a>
                 </div>
                 <div className="productPrice">
                     <span>{productPrice}</span>

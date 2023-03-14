@@ -2,8 +2,12 @@ import React from 'react';
 import './SelectionContainer.scss'
 import {useSelector} from "react-redux"
 import {useState,useEffect} from "react"
-
-export const SelectionContainer = () => {
+import AdjustRoundedIcon from '@mui/icons-material/AdjustRounded';
+import {ItemCheckedIcon} from "../../mainPageComponents/SideBar/SideBarIcon";
+import HouseSidingRoundedIcon from '@mui/icons-material/HouseSidingRounded';
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';export const SelectionContainer = () => {
     const productOne = useSelector(state => state?.productReducer?.one_product)
     console.log(productOne)
     const {swatches,sizes} = productOne
@@ -114,6 +118,90 @@ export const SelectionContainer = () => {
                             </div>
                         </>}
 
+                    </div>
+                    <div className="shoppingMethod">
+                        <div className="shipToMeContainer">
+                            <div className="shipToMeButton">
+                                <div className="shipBig">
+                                    <AdjustRoundedIcon className="roundedButton"/>
+                                    <span className="shipSpan">Ship it to me</span>
+                                </div>
+                                <div className="shipSmall">
+                                    <span className="freeReturnSpan">Free shipping and returns</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div className="pickUp">
+                            <div className="storePickUp">
+                                <HouseSidingRoundedIcon className="house"/>
+                                <span className="pickUpSpan">Pick up in-store</span>
+                            </div>
+                            <ItemCheckedIcon checked = {false}/>
+                        </div>
+                        <div className="addingButtonContainer">
+                            <button className="addingButton">
+                                Add To Bag
+                            </button>
+                        </div>
+
+                    </div>
+                    <div className="customerEngagement">
+                        <div className="customerEngagementWrapper">
+                            <button className="customerButton">
+                            <FavoriteBorderRoundedIcon/>
+                            <span className="customerEngagementSpan">Add to Wish List</span>
+                            </button>
+                        </div>
+                        <div className="customerEngagementWrapper">
+                            <button className="customerButton">
+                            <StarBorderRoundedIcon/>
+                            <span className="customerEngagementSpan">Reviews(10)</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="productDetails">
+                        <p>Details</p>
+                        <ul className="specificDetails">
+                            <li className="specificDetailItem">
+                                <img className="designedIcon"
+                                    src="https://shop.lululemon.com/static/ecom-web-app/_next/static/images/sprite-402634.svg#icon_train-usage"
+                                    alt="" />
+                                <button className="designedLink">
+                                    Design for Running and Training
+                                </button>
+                            </li>
+                            <li className="specificDetailItem">
+                                <img className="designedIcon"
+                                     src="https://shop.lululemon.com/static/ecom-web-app/_next/static/images/sprite-402634.svg#fabric_generic-usage"
+                                     alt="" />
+                                <button className="designedLink">
+                                    Skip-the-Chafe, Seamless Construction
+                                </button>
+                            </li>
+                            <li className="specificDetailItem">
+                                <img className="designedIcon"
+                                     src="https://shop.lululemon.com/static/ecom-web-app/_next/static/images/sprite-402634.svg#icon_silhouette-usage"
+                                     alt="" />
+                                <button className="designedLink">
+                                    Slim Fit, Cropped Length
+                                </button>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <div className="questionContainer">
+                        <div className="contentQuestion">
+                            <span className="bigQuestion">
+                                Questions? Bring them on (all of them)
+                            </span>
+                            <span className="smallQuestion">
+                                Virtual Shop with one of our educators
+                            </span>
+                        </div>
+                        <ArrowForwardRoundedIcon className="arrowIcon"/>
                     </div>
                 </div>
             </div>
