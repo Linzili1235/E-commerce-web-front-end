@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Slider} from "./Slider";
 import {SelectionContainer} from "./SelectionContainer";
 import './SinglePageProduct.scss'
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import actions from "../../../actions";
+import Carousel from "./Carousel";
 
 export const SinglePageProduct = () => {
     //get the product id from URL with useParams hook
@@ -18,16 +18,12 @@ export const SinglePageProduct = () => {
             .then(()=> setIsLoading( false))
     },[]);
 
-
-    // useEffect(()=> console.log("productId", productOne.productId),[productOne])
-
-
     return isLoading ? (
         <div>loading...</div>
     ) : (
         <>
             <div className="product-main-container">
-                <Slider/>
+                <Carousel/>
                 <SelectionContainer />
             </div>
         </>
