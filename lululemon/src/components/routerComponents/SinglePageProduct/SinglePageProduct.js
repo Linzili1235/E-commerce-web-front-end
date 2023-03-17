@@ -18,13 +18,33 @@ export const SinglePageProduct = () => {
             .then(()=> setIsLoading( false))
     },[]);
 
+    // Need to grab the selected index from the SelectionContainer and pass it to the Carousel to update the imgArray
+    // 1. set up the parent component (SinglePageProduct)
+    const [selectedColorIndex, setSelectedColorIndex] = useState(0)
+    const handleColorChange = (indx) => {
+        setSelectedColorIndex(indx)
+    }
+
+    // grab zoom in state from carousel magnifier icon
+    const [zoomIn, setZoomIn] = useState(false)
+    // control opacity of the entire page
+    const [divOpacity, setDivOpacity] = useState(1)
+
+    const handleZoomChange = (mag) => {
+        setZoomIn(mag)
+    }
+    // to avoid the delay issue
+    useEffect(() => {
+        zoomIn ? setDivOpacity(0) : setDivOpacity(1)
+    }, [zoomIn])
+
     return isLoading ? (
         <div>loading...</div>
     ) : (
         <>
-            <div className="product-main-container">
-                <Carousel/>
-                <SelectionContainer />
+            <div className="product-main-container" style={{opacity: divOpacity}}>
+                <Carousel selectedColorIndex={selectedColorIndex} onZoomChange={handleZoomChange}/>
+                <SelectionContainer onColorChange={handleColorChange}/>
             </div>
         </>
     );

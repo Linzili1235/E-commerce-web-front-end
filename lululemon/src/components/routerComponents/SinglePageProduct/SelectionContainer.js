@@ -9,7 +9,7 @@ import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
-export const SelectionContainer = () => {
+export const SelectionContainer = ({onColorChange}) => {
     const productOne = useSelector(state => state?.productReducer?.one_product)
     // console.log(productOne)
     const {swatches,sizes} = productOne
@@ -43,6 +43,9 @@ export const SelectionContainer = () => {
             newState[ind] = true
             return newState
         })
+
+        // pass it to the Parent component and then to the Carousel
+        onColorChange(ind)
     }
 
     const onClickChangeSize = (ind) => {
@@ -78,7 +81,7 @@ export const SelectionContainer = () => {
                         </div>
                         <div className="availableColor">
                             {swatches.map((item,index) =>
-                                <div className="colorItem">
+                                <div key={index} className="colorItem">
                                     <img className={`${borderBool[index]?"border":""}`} key={index} src={item.swatch}
                                          alt={item.swatchAlt}
                                          onClick={() => onClickChangeColor(index)}/>
@@ -100,7 +103,7 @@ export const SelectionContainer = () => {
                             </div>
                             <div className="sizeButtons">
                                 {sizes[0].details.map((item,index) =>
-                                    <div className="sizeOut">
+                                    <div key={index} className="sizeOut">
                                     <span className={`sizeItem ${sizeBool[index]?"sizeBool":""}`} key={index}
                                     onClick={() => onClickChangeSize(index)}
                                     >{item}</span>
