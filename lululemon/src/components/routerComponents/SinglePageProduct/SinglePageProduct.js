@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {SelectionContainer} from "./SelectionContainer";
 import './SinglePageProduct.scss'
 import {useParams} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
 import actions from "../../../actions";
 import Carousel from "./Carousel";
+import {useDispatch} from "react-redux";
 
 export const SinglePageProduct = () => {
     //get the product id from URL with useParams hook
@@ -27,24 +27,17 @@ export const SinglePageProduct = () => {
 
     // grab zoom in state from carousel magnifier icon
     const [zoomIn, setZoomIn] = useState(false)
-    // control opacity of the entire page
-    const [divOpacity, setDivOpacity] = useState(1)
-
     const handleZoomChange = (mag) => {
         setZoomIn(mag)
     }
-    // to avoid the delay issue
-    useEffect(() => {
-        zoomIn ? setDivOpacity(0) : setDivOpacity(1)
-    }, [zoomIn])
 
     return isLoading ? (
         <div>loading...</div>
     ) : (
         <>
-            <div className="product-main-container" style={{opacity: divOpacity}}>
-                <Carousel selectedColorIndex={selectedColorIndex} onZoomChange={handleZoomChange}/>
-                <SelectionContainer onColorChange={handleColorChange}/>
+            <div className='product-main-container'>
+                <Carousel selectedColorIndex={selectedColorIndex} onZoomChange={handleZoomChange} zoomIn={zoomIn}/>
+                <SelectionContainer onColorChange={handleColorChange} zoomIn={zoomIn}/>
             </div>
         </>
     );

@@ -9,7 +9,7 @@ import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
-export const SelectionContainer = ({onColorChange}) => {
+export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const productOne = useSelector(state => state?.productReducer?.one_product)
     // console.log(productOne)
     const {swatches,sizes} = productOne
@@ -21,7 +21,7 @@ export const SelectionContainer = ({onColorChange}) => {
     // console.log(borderArray)
 
     // default border with first item
-    useEffect(()=>updateBorderBool(prevState => {
+    useEffect(()=> updateBorderBool(prevState => {
         const newState = [...prevState]
         newState[0] = true
         return newState
@@ -58,7 +58,7 @@ export const SelectionContainer = ({onColorChange}) => {
     }
     return (
         <>
-            <div className="selection-container">
+            <div className={ zoomIn ? "hidden" : "selection-container"}>
                 <div className="selection-details">
                 <div className="product-field">
                     <ul className="product-field-list">
