@@ -52,7 +52,7 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
       display: flex;
       justify-content: flex-end;
       position: relative;
-      bottom: 15rem;
+      bottom: 8rem;
       width: 100%;
       cursor: pointer;
 
@@ -91,7 +91,6 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
       img {
         width: 100%;
         height: 100%;
-        margin-bottom: 5rem;
         object-fit: cover;
         &.selected-thumbnail {
           box-shadow: 0 3px 0 0 #000
@@ -108,3 +107,33 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
   }
 }
 
+.hidden {
+  display: none;
+}
+
+.zoomIn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .header-container {
+    display: flex;
+    align-items: center;
+    .image-alt {
+      margin: 1rem auto;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .back-button {
+      position: absolute;
+      left: 7rem;
+      color: red;
+
+    }
+  }
+
+  .zoomInImage {
+    width: 80%;
+    cursor: pointer;
+  }
+}
