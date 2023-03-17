@@ -7,9 +7,11 @@ import {ItemCheckedIcon} from "../../mainPageComponents/SideBar/SideBarIcon";
 import HouseSidingRoundedIcon from '@mui/icons-material/HouseSidingRounded';
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';export const SelectionContainer = () => {
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+
+export const SelectionContainer = ({onColorChange}) => {
     const productOne = useSelector(state => state?.productReducer?.one_product)
-    console.log(productOne)
+    // console.log(productOne)
     const {swatches,sizes} = productOne
     const [colorIndex, updateColorIndex] = useState(0)
     // create an array to deal with onClick border
@@ -41,6 +43,9 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
             newState[ind] = true
             return newState
         })
+
+        // pass it to the Parent component and then to the Carousel
+        onColorChange(ind)
     }
 
     const onClickChangeSize = (ind) => {
@@ -57,8 +62,8 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
                 <div className="selection-details">
                 <div className="product-field">
                     <ul className="product-field-list">
-                        <li className="field"><a href="">Woman's clothes</a></li>
-                        <li className="field"><a href="">Short</a></li>
+                        <li key='women' className="field"><a href="">Woman's clothes</a></li>
+                        <li key='short' className="field"><a href="">Short</a></li>
                     </ul>
                 </div>
                     <div className="product-title">
@@ -76,7 +81,7 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
                         </div>
                         <div className="availableColor">
                             {swatches.map((item,index) =>
-                                <div className="colorItem">
+                                <div key={index} className="colorItem">
                                     <img className={`${borderBool[index]?"border":""}`} key={index} src={item.swatch}
                                          alt={item.swatchAlt}
                                          onClick={() => onClickChangeColor(index)}/>
@@ -98,7 +103,7 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
                             </div>
                             <div className="sizeButtons">
                                 {sizes[0].details.map((item,index) =>
-                                    <div className="sizeOut">
+                                    <div key={index} className="sizeOut">
                                     <span className={`sizeItem ${sizeBool[index]?"sizeBool":""}`} key={index}
                                     onClick={() => onClickChangeSize(index)}
                                     >{item}</span>
@@ -164,7 +169,7 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
                     <div className="productDetails">
                         <p>Details</p>
                         <ul className="specificDetails">
-                            <li className="specificDetailItem">
+                            <li key='design1' className="specificDetailItem">
                                 <img className="designedIcon"
                                     src="https://shop.lululemon.com/static/ecom-web-app/_next/static/images/sprite-402634.svg#icon_train-usage"
                                     alt="" />
@@ -172,7 +177,7 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
                                     Design for Running and Training
                                 </button>
                             </li>
-                            <li className="specificDetailItem">
+                            <li key='design2' className="specificDetailItem">
                                 <img className="designedIcon"
                                      src="https://shop.lululemon.com/static/ecom-web-app/_next/static/images/sprite-402634.svg#fabric_generic-usage"
                                      alt="" />
@@ -180,7 +185,7 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
                                     Skip-the-Chafe, Seamless Construction
                                 </button>
                             </li>
-                            <li className="specificDetailItem">
+                            <li key='design3' className="specificDetailItem">
                                 <img className="designedIcon"
                                      src="https://shop.lululemon.com/static/ecom-web-app/_next/static/images/sprite-402634.svg#icon_silhouette-usage"
                                      alt="" />
