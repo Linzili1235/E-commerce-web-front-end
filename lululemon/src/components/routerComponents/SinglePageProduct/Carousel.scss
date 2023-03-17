@@ -8,7 +8,8 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
   padding: 0 1rem;
 
   .product-img-container{
-    position: relative;
+    position: sticky;
+    top: 0;
     .button-container {
       display: flex;
       flex-direction: row;
