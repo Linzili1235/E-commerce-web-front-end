@@ -1,6 +1,6 @@
 import React from 'react';
 import './SelectionContainer.scss'
-import {useSelector} from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import {useState,useEffect} from "react"
 import AdjustRoundedIcon from '@mui/icons-material/AdjustRounded';
 import {ItemCheckedIcon} from "../../mainPageComponents/SideBar/SideBarIcon";
@@ -8,12 +8,15 @@ import HouseSidingRoundedIcon from '@mui/icons-material/HouseSidingRounded';
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import { actionType } from "../../../Helper";
 
 export const SelectionContainer = ({ zoomIn, onColorChange }) => {
+    const dispatch = useDispatch();
     const productOne = useSelector(state => state?.productReducer?.one_product)
     // console.log(productOne)
     const {swatches,sizes} = productOne
     const [colorIndex, updateColorIndex] = useState(0)
+    const [sizeIndex, updateSizeIndex] = useState(0)
     // create an array to deal with onClick border
     // false: no border, true: with border
     const borderArray = Array(swatches.length).fill(false)
@@ -49,13 +52,25 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     }
 
     const onClickChangeSize = (ind) => {
+        updateSizeIndex(ind)
         updateBool(prevState => {
             const newState = sizeArray
             newState[ind] = true
             return newState
         })
-
     }
+
+    //todo:
+    const handleAddToBag = () => {
+        console.log('color index', colorIndex)
+        console.log('size', sizeIndex)
+        dispatch({
+            type: actionType.ADDED_PRODUCT_INFO,
+            payload: {
+            }
+        })
+    }
+
     return (
         <>
             <div className={ zoomIn ? "hidden" : "selection-container"}>
@@ -146,7 +161,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                             <ItemCheckedIcon checked = {false}/>
                         </div>
                         <div className="addingButtonContainer">
-                            <button className="addingButton">
+                            <button className="addingButton" onClick={handleAddToBag}>
                                 Add To Bag
                             </button>
                         </div>

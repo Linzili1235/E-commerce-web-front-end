@@ -7,7 +7,10 @@ const initialState = {
     filters: {},
     addedProducts:[],
     params: {},   // if pagination is enabled, we need to change the params to separately control page
-    sortId: '1'
+    sortId: '1',
+    // addedProductsInfo: [  {obj1}: quantity, {obj2},{obj1}
+    //     {productId:'xxx', index1, index2}
+    // ]
 }
 
 export const productReducer = (state=initialState, action) => {
@@ -47,6 +50,12 @@ export const productReducer = (state=initialState, action) => {
         case actionType.SORT_ID:
             console.log('[reducers] get sortId', action.payload);
             return {...state, sortId: action.payload};
+        case actionType.ADDED_PRODUCT_INFO:
+            //判断是否payload 1 === payload 2，如果是一样,
+
+            // const newState = {...state, addedProductsInfo: [...state.addedProductsInfo, action.payload]}
+            // console.log(newState.addedProductsSizeColor)
+            // return newState;
         default:
             return {...state}
     }
