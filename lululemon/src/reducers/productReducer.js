@@ -8,9 +8,6 @@ const initialState = {
     addedProducts:[],
     params: {},   // if pagination is enabled, we need to change the params to separately control page
     sortId: '1',
-    // addedProductsInfo: [  {obj1}: quantity, {obj2},{obj1}
-    //     {productId:'xxx', index1, index2}
-    // ]
 }
 
 export const productReducer = (state=initialState, action) => {
@@ -50,12 +47,33 @@ export const productReducer = (state=initialState, action) => {
         case actionType.SORT_ID:
             console.log('[reducers] get sortId', action.payload);
             return {...state, sortId: action.payload};
-        case actionType.ADDED_PRODUCT_INFO:
-            //判断是否payload 1 === payload 2，如果是一样,
 
-            // const newState = {...state, addedProductsInfo: [...state.addedProductsInfo, action.payload]}
-            // console.log(newState.addedProductsSizeColor)
-            // return newState;
+        case actionType.ADDED_PRODUCT_INFO:
+            const addedProductString = JSON.stringify(action.payload.productInfo)
+            const tempProducts = [...state.addedProducts]  // prevent to change the state directly
+            let foundSame = false;
+            if (!tempProducts.length) {
+                const firstItem = {...state, addedProducts: [action.payload] }
+                console.log('first item added', firstItem.addedProducts)
+                return firstItem
+            } else {
+                tempProducts.forEach((currProduct, indx) => {
+                    const currProductString = JSON.stringify(currProduct.productInfo)
+                    if (addedProductString === currProductString) {
+                        currProduct.quantity ++;
+                        foundSame = true;
+                    }
+                })
+            }
+g
+            if (!foundSame) {
+                tempProducts.push(action.payload)
+            }
+
+            const final = {...state, addedProducts: [...tempProducts]}
+            console.log('added:', final.addedProducts)
+            return final
+
         default:
             return {...state}
     }

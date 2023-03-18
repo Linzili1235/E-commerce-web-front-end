@@ -60,14 +60,17 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         })
     }
 
-    //todo:
+    // pass img, title, price, size to the reducer
     const handleAddToBag = () => {
-        console.log('color index', colorIndex)
-        console.log('size', sizeIndex)
+        // first image at the color index
+        const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
+        const title = productOne.images[colorIndex].mainCarousel.alt
+        const price = productOne.price
+        const size = productOne.sizes[0].details[sizeIndex]
+        // console.log('size', sizeIndex, title, price,size)
         dispatch({
             type: actionType.ADDED_PRODUCT_INFO,
-            payload: {
-            }
+            payload: {quantity: 1, productInfo: {img, title, price, size}}
         })
     }
 
