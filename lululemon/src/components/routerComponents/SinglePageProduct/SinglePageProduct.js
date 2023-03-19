@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import actions from "../../../actions";
 import Carousel from "./Carousel";
 import {useDispatch} from "react-redux";
+import AddToBagSummary from "./AddToBagSummary";
 
 export const SinglePageProduct = () => {
     //get the product id from URL with useParams hook
@@ -39,6 +40,7 @@ export const SinglePageProduct = () => {
                 <Carousel selectedColorIndex={selectedColorIndex} onZoomChange={handleZoomChange} zoomIn={zoomIn}/>
                 <SelectionContainer onColorChange={handleColorChange} zoomIn={zoomIn}/>
             </div>
+            <AddToBagSummary />
         </>
     );
 };
