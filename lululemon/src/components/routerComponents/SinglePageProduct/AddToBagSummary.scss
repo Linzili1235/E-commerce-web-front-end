@@ -27,9 +27,10 @@ $breakLineClr: #E5E4E2;
     top: 1rem;
     min-width: 60rem;
     max-width: 70rem;
-    height: 50rem;
+    min-height: 50rem;
     margin-top: 5rem;
     opacity: 1;
+    overflow-y: auto;
     background-color: $box-backgroundClr;
 
     .summary-content{
@@ -54,6 +55,7 @@ $breakLineClr: #E5E4E2;
         position: absolute;
         top: 2rem;
         right: 2rem;
+        cursor: pointer;
       }
       .breakLine {
         display: inline-block;
@@ -66,12 +68,45 @@ $breakLineClr: #E5E4E2;
         font-size: 1.4rem;
       }
 ///////////////   Product Summary /////////////
-      .product-summary {
-        background-color: lightgreen;
+      .product-summary-list {
         display: flex;
-        flex-direction: row;
-        border: 1px solid red;
-        height: 5rem;
+        flex-direction: column;
+        height: 80%;
+        .product-summary {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: stretch;
+          margin: 1rem 0;
+          .product-img{
+            max-width: 20%;
+            border-radius: 1rem;
+          }
+          .title-price-container {
+            display:flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 1rem 1rem;
+            .product-title{
+              text-align: left;
+              max-width: 25rem;
+              font-size: x-large;
+              font-weight: bold;
+              margin-bottom: 1rem;
+            }
+            .product-size {
+              font-size:large;
+              margin-bottom: 1rem;
+
+            }
+            .product-price {
+              font-size: large;
+              margin-bottom: 1rem;
+
+            }
+          }
+        }
       }
     }
   }

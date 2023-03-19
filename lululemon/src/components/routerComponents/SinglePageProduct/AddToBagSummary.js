@@ -4,11 +4,10 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useDispatch, useSelector } from "react-redux";
 import { actionType } from "../../../Helper";
 
-
 const AddToBagSummary = () => {
     const dispatch = useDispatch()
-    const { isClosed } = useSelector(state => state?.productReducer)
-
+    const { addedProducts, isClosed } = useSelector(state => state?.productReducer)
+    console.log('added products', addedProducts)
     const handleClose = () => {
         dispatch({
             type: actionType.TOGGLE_SUMMARY_BOX,
@@ -25,8 +24,8 @@ const AddToBagSummary = () => {
                             <div className="summary-title">
                                 Added To Your Bag
                             </div>
-                            <div className="shopping-bag">
-                            {/*  Todo */}
+                            <div className="shopping-bag-icon">
+                            {/*   todo: Add shopping bag icon    */}
                             </div>
                         </div>
                         <div className="close-button">
@@ -37,8 +36,28 @@ const AddToBagSummary = () => {
                             <p>Items are not reserved. Checkout now to get your gear.</p>
                         </div>
 
-                        <div className="product-summary">
+                        <div className="product-summary-list">
+                            {
+                                addedProducts.map((product, indx) => {
+                                    const {img, title, price, size} = product.productInfo
+                                    const {quantity} = product
+                                    const numericValue = parseFloat(price.replace(/[^0-9.]/g, ''));
 
+                                    return <div className='product-summary' key={indx}>
+                                        <img className='product-img' src={img} alt="product-img"/>
+                                        <div className="title-price-container">
+                                            <div className="product-title">{title}</div>
+                                            <div className="product-size">Size: {size}</div>
+                                            <div className="product-price">
+                                                {
+                                                    quantity > 1 ? `$${(numericValue * quantity).toFixed(2)} CAD` : `$${numericValue.toFixed(2)} CAD`
+                                                }
+                                            </div>
+                                            <div className="product-quantity">{quantity}</div>
+                                        </div>
+                                    </div>
+                                })
+                            }
                         </div>
                     </div>
 
