@@ -7,8 +7,8 @@ import { actionType } from "../../../Helper";
 
 const AddToBagSummary = () => {
     const dispatch = useDispatch()
-    const isClosed_status = useSelector(state => state?.productReducer?.isClosed)
-    const isClosed = isClosed_status.isClosed
+    const isClosed = useSelector(state => state?.productReducer?.isClosed)
+    console.log('add to bag', isClosed)
 
     const handleClose = () => {
         dispatch({
@@ -16,10 +16,9 @@ const AddToBagSummary = () => {
             payload: {isClosed: true}
         })
     }
-
     return (
         <>
-            <div className={ isClosed ? 'hidden' : 'summary-container'}>
+            <div className={ isClosed ? 'hidden-summary-box' : 'summary-container' }>
                 <div className="summary-container-background"></div>
                 <div className="summary-box">
                     <div className="summary-content">

@@ -4,8 +4,8 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
 .carousel-container {
   display: inline-block;
   width: 50%;
-  height: 60rem;
-  padding: 0 1rem;
+  position: relative;
+  top: 0;
 
   .product-img-container{
     position: sticky;

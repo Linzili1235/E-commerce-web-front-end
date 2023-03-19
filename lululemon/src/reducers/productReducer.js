@@ -74,7 +74,7 @@ export const productReducer = (state=initialState, action) => {
             return final
 
         case actionType.TOGGLE_SUMMARY_BOX:
-            return {...state, isClosed: action.payload};
+            return {...state, isClosed: action.payload.isClosed};
         default:
             return {...state}
     }
