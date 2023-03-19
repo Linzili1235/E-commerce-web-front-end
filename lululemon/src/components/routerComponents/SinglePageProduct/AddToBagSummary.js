@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './AddToBagSummary.scss'
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useDispatch, useSelector } from "react-redux";
@@ -7,8 +7,7 @@ import { actionType } from "../../../Helper";
 
 const AddToBagSummary = () => {
     const dispatch = useDispatch()
-    const isClosed = useSelector(state => state?.productReducer?.isClosed)
-    console.log('add to bag', isClosed)
+    const { isClosed } = useSelector(state => state?.productReducer)
 
     const handleClose = () => {
         dispatch({

@@ -9,6 +9,7 @@ import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import { actionType } from "../../../Helper";
+import { CircularProgress } from '@mui/material';
 
 export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const dispatch = useDispatch();
@@ -60,6 +61,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         })
     }
 
+    const [added, setAdded] = useState(false)
     // pass img, title, price, size to the reducer
     const handleAddToBag = () => {
         // first image at the color index
@@ -72,10 +74,17 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
             type: actionType.ADDED_PRODUCT_INFO,
             payload: {quantity: 1, productInfo: {img, title, price, size}}
         })
-        dispatch({
-            type: actionType.TOGGLE_SUMMARY_BOX,
-            payload: {isClosed: false}
-        })
+
+        setAdded(prevState => !prevState)
+
+        setTimeout(()=>{
+            dispatch({
+                type: actionType.TOGGLE_SUMMARY_BOX,
+                payload: {isClosed: false}
+            })
+            setAdded(prevState => !prevState)
+        }, 1000)
+
     }
 
     return (
@@ -169,7 +178,8 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                         </div>
                         <div className="addingButtonContainer">
                             <button className="addingButton" onClick={handleAddToBag}>
-                                Add To Bag
+                                <span className={added ? 'hide' : 'display-button'}>Add to bag</span>
+                                <CircularProgress className={added ? 'display-button' : 'hide'} size={30} color={'inherit'}/>
                             </button>
                         </div>
 

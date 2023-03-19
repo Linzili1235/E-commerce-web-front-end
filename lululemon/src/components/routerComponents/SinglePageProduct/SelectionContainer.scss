@@ -332,6 +332,7 @@
           font-weight: 600;
           display: flex;
           width: 95%;
+          height: 3.2rem;
           background-color: css.$hover_color;
           color: #fff;
           border: 0.0625rem solid css.$hover_color;
@@ -346,6 +347,12 @@
             background-color: #a40c0f ;
           }
 
+          .hide {
+            display: none;
+          }
+          .display-button{
+            display: block;
+          }
         }
       }
     }
