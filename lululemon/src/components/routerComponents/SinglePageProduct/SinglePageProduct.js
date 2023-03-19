@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import actions from "../../../actions";
 import Carousel from "./Carousel";
 import {useDispatch} from "react-redux";
+import AddToBagSummary from "./AddToBagSummary";
 import {WhyWeMadeThis} from "./WhyWeMadeThis";
 
 export const SinglePageProduct = () => {
@@ -43,6 +44,7 @@ export const SinglePageProduct = () => {
             <div className="characteristic-container">
                 <WhyWeMadeThis color={selectedColorIndex}/>
             </div>
+            <AddToBagSummary />
         </section>
     );
 };

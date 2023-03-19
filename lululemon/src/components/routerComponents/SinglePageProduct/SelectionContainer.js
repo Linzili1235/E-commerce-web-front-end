@@ -72,6 +72,10 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
             type: actionType.ADDED_PRODUCT_INFO,
             payload: {quantity: 1, productInfo: {img, title, price, size}}
         })
+        dispatch({
+            type: actionType.TOGGLE_SUMMARY_BOX,
+            payload: {isClosed: false}
+        })
     }
 
     return (

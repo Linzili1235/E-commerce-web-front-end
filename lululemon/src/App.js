@@ -21,13 +21,6 @@ function App() {
 
           <Route path='/mainPage/:sortingId/:pageNum' element={<Main />}/>
 
-          {/*<Route path='/mainPage/:pageNum' element={*/}
-          {/*    <Suspense fallback={<div>Loading...</div>}>*/}
-          {/*        <MainPage />*/}
-          {/*    </Suspense>*/}
-          {/*}/>*/}
-
-
           <Route path='/singleProduct/:id' element={<SinglePageProduct />}/>
           <Route path='/cart' element={<Cart />}/>
           <Route path='/review' element={<Review />}/>

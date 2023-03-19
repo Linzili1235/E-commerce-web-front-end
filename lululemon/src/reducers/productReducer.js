@@ -8,6 +8,7 @@ const initialState = {
     addedProducts:[],
     params: {},   // if pagination is enabled, we need to change the params to separately control page
     sortId: '1',
+    isClosed: true
 }
 
 export const productReducer = (state=initialState, action) => {
@@ -45,7 +46,7 @@ export const productReducer = (state=initialState, action) => {
         case actionType.URL_PARAMS_SAVER:
             return {...state, params: action.payload}
         case actionType.SORT_ID:
-            console.log('[reducers] get sortId', action.payload);
+            // console.log('[reducers] get sortId', action.payload);
             return {...state, sortId: action.payload};
 
         case actionType.ADDED_PRODUCT_INFO:
@@ -53,9 +54,7 @@ export const productReducer = (state=initialState, action) => {
             const tempProducts = [...state.addedProducts]  // prevent to change the state directly
             let foundSame = false;
             if (!tempProducts.length) {
-                const firstItem = {...state, addedProducts: [action.payload] }
-                console.log('first item added', firstItem.addedProducts)
-                return firstItem
+                return {...state, addedProducts: [action.payload] }
             } else {
                 tempProducts.forEach((currProduct, indx) => {
                     const currProductString = JSON.stringify(currProduct.productInfo)
@@ -65,6 +64,7 @@ export const productReducer = (state=initialState, action) => {
                     }
                 })
             }
+
             if (!foundSame) {
                 tempProducts.push(action.payload)
             }
@@ -73,6 +73,8 @@ export const productReducer = (state=initialState, action) => {
             console.log('added:', final.addedProducts)
             return final
 
+        case actionType.TOGGLE_SUMMARY_BOX:
+            return {...state, isClosed: action.payload};
         default:
             return {...state}
     }
