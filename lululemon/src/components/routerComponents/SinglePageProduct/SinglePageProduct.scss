@@ -1,6 +1,10 @@
-.product-main-container {
+.main-component-wrapper {
   max-width: 85.75rem;
   margin: 0 auto;
   min-width: 63rem;
   display: flex;
+  flex-direction: column;
+
+
+
 }

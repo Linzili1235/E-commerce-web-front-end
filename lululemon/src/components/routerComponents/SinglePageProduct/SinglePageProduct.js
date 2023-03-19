@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import actions from "../../../actions";
 import Carousel from "./Carousel";
 import {useDispatch} from "react-redux";
+import {WhyWeMadeThis} from "./WhyWeMadeThis";
 
 export const SinglePageProduct = () => {
     //get the product id from URL with useParams hook
@@ -34,11 +35,14 @@ export const SinglePageProduct = () => {
     return isLoading ? (
         <div>loading...</div>
     ) : (
-        <>
+        <section className="main-component-wrapper">
             <div className='product-main-container'>
                 <Carousel selectedColorIndex={selectedColorIndex} onZoomChange={handleZoomChange} zoomIn={zoomIn}/>
                 <SelectionContainer onColorChange={handleColorChange} zoomIn={zoomIn}/>
             </div>
-        </>
+            <div className="characteristic-container">
+                <WhyWeMadeThis color={selectedColorIndex}/>
+            </div>
+        </section>
     );
 };

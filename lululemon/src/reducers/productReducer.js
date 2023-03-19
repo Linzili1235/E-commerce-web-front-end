@@ -65,7 +65,6 @@ export const productReducer = (state=initialState, action) => {
                     }
                 })
             }
-g
             if (!foundSame) {
                 tempProducts.push(action.payload)
             }
