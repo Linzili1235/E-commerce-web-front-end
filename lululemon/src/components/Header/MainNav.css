@@ -26,6 +26,35 @@ section {
   font-size: 97.5%;
 }
 
+.product-education-accordion-links_productEducationAccordionLinks__1LYq9 .product-education-accordion-links_details__nAvvp {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.paragraph, p {
+  line-height: 1.25;
+  margin: 0 auto 1.875rem;
+}
+
+.paragraph, p {
+  line-height: 1.25;
+  margin: 0 auto 1.875rem;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 .mainNavigation {
   background-color: #ffffff;
 }
@@ -121,11 +150,14 @@ section {
 .mainNavigation .navigation_bg .searchBar_container .searchForm .searchIcon {
   position: relative;
   left: 1.7rem;
-  top: 0.5rem;
+  top: 0.85rem;
   cursor: pointer;
 }
 .mainNavigation .navigation_bg .searchBar_container .shoppingBag {
   margin-left: 2rem;
+  color: white;
+  stroke: black;
+  stroke-width: 1.5px;
 }
 
 /*# sourceMappingURL=MainNav.css.map */

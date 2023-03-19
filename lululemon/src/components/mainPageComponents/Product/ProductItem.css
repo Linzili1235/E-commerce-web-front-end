@@ -26,6 +26,35 @@ section {
   font-size: 97.5%;
 }
 
+.product-education-accordion-links_productEducationAccordionLinks__1LYq9 .product-education-accordion-links_details__nAvvp {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.paragraph, p {
+  line-height: 1.25;
+  margin: 0 auto 1.875rem;
+}
+
+.paragraph, p {
+  line-height: 1.25;
+  margin: 0 auto 1.875rem;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 .productTile {
   display: flex;
   flex-direction: column;
@@ -115,14 +144,15 @@ section {
   height: 2.2rem;
 }
 .productTile .productTile_details .swatchList .realSwatchList .swatchItem img {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 100px;
+  border: darkgrey 0.5px groove;
 }
 .productTile .productTile_details .swatchList .realSwatchList .swatchItem img:hover {
-  box-sizing: unset;
+  box-sizing: border-box;
   box-shadow: 0 0 0 1px black;
-  padding: 0.2rem;
+  padding: 0.25rem;
   z-index: 1;
 }
 .productTile .productTile_details .productTile_attributes {

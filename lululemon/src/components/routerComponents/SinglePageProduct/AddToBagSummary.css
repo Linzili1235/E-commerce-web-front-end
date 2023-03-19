@@ -1,0 +1,73 @@
+.hidden {
+  display: none;
+}
+
+.summary-container {
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 200%;
+}
+.summary-container .summary-container-background {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 200%;
+  opacity: 0.5;
+  z-index: -1;
+  background-color: #57585b;
+}
+.summary-container .summary-box {
+  display: inline-block;
+  position: sticky;
+  top: 1rem;
+  min-width: 60rem;
+  max-width: 70rem;
+  height: 50rem;
+  margin-top: 5rem;
+  opacity: 1;
+  background-color: #fafafa;
+}
+.summary-container .summary-box .summary-content {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 2rem;
+}
+.summary-container .summary-box .summary-content .summary-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.summary-container .summary-box .summary-content .summary-header .summary-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.summary-container .summary-box .summary-content .close-button {
+  display: inline-block;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+.summary-container .summary-box .summary-content .breakLine {
+  display: inline-block;
+  width: 100%;
+  height: 2px;
+  background-color: #E5E4E2;
+}
+.summary-container .summary-box .summary-content .notification {
+  text-align: left;
+  font-size: 1.4rem;
+}
+.summary-container .summary-box .summary-content .product-summary {
+  background-color: lightgreen;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+  height: 5rem;
+}
+
+/*# sourceMappingURL=AddToBagSummary.css.map */

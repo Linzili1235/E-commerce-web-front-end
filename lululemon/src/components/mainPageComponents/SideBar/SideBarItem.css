@@ -26,9 +26,41 @@ section {
   font-size: 97.5%;
 }
 
+.product-education-accordion-links_productEducationAccordionLinks__1LYq9 .product-education-accordion-links_details__nAvvp {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.paragraph, p {
+  line-height: 1.25;
+  margin: 0 auto 1.875rem;
+}
+
+.paragraph, p {
+  line-height: 1.25;
+  margin: 0 auto 1.875rem;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 .sideBarItem {
   border-bottom: 0.0625rem solid #e6e6e6;
   border-top: 0.0625rem solid #e6e6e6;
+}
+.sideBarItem .itemExpand {
+  animation: rotate 2s linear infinite;
 }
 .sideBarItem .itemExpand .itemHead {
   display: flex;
@@ -46,18 +78,27 @@ section {
   line-height: 1.26316;
   font-weight: 500 !important;
 }
-.sideBarItem .itemExpand .swatch-filter {
+.sideBarItem .itemExpand .colorList {
+  padding-left: 0.1rem;
+}
+.sideBarItem .itemExpand .colorList .swatch-filter {
   display: inline-block;
   position: relative;
   text-align: left;
   width: 50%;
-  padding: 1rem 0;
+  padding: 1rem 0 0 0;
+  line-height: 1.2;
 }
-.sideBarItem .itemExpand .swatch-filter img {
+.sideBarItem .itemExpand .colorList .swatch-filter img {
   border-radius: 50%;
-  width: 2.5rem;
+  width: 2rem;
+  border: darkgrey 1px solid;
 }
-.sideBarItem .itemExpand .swatch-filter .swatchAlt {
+.sideBarItem .itemExpand .colorList .swatch-filter img:hover {
+  box-shadow: 0 0 0 1px darkgrey;
+  padding: 0.2rem;
+}
+.sideBarItem .itemExpand .colorList .swatch-filter .swatchAlt {
   display: inline-block;
   position: relative;
   bottom: 0.8rem;
@@ -68,6 +109,10 @@ section {
   font-size: 1.0625rem;
   font-weight: 400;
   line-height: 1.1764705882;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
 }
 .sideBarItem .itemExpand .itemBody .itemList {
   display: flex;
@@ -91,7 +136,32 @@ section {
   display: inline;
   padding-top: 0.2rem;
 }
-.sideBarItem .itemExpand .viewMore {
+.sideBarItem .itemExpand .itemBody .itemList_expanded {
+  margin-top: 0;
+  padding-left: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.sideBarItem .itemExpand .itemBody .itemList_expanded li[class*=col-] {
+  padding-right: 0.78125rem;
+  padding-left: 0.78125rem;
+}
+.sideBarItem .itemExpand .itemBody .itemList_expanded li {
+  margin: 0 0 0.625rem;
+  flex-grow: 2;
+  text-align: left;
+  display: flex;
+}
+.sideBarItem .itemExpand .itemBody .itemList_expanded li .filterName {
+  padding-left: 0.3rem;
+  display: inline;
+  padding-top: 0.2rem;
+}
+.sideBarItem .itemExpand .itemBody .show {
+  max-height: 1000px;
+}
+.sideBarItem .itemExpand .itemBody .viewMore {
   font-size: 1.0625rem;
   font-weight: 400;
   color: #57585b;
@@ -100,13 +170,27 @@ section {
   align-items: center;
   padding: 0.6875rem 0 0.5rem;
   width: 100%;
+  opacity: 1;
+  max-height: 50px;
+  pointer-events: all;
+  transition: all 0.5s ease-in-out;
 }
-.sideBarItem .itemExpand .viewMore:hover {
+.sideBarItem .itemExpand .itemBody .viewMore:hover {
   cursor: pointer;
 }
-.sideBarItem .itemExpand .viewMore .viewMoreTitle {
+.sideBarItem .itemExpand .itemBody .viewMore .viewMoreTitle {
   position: relative;
   top: -0.15rem;
+}
+.sideBarItem .itemExpand .showTitle {
+  max-height: 2000px;
+  opacity: 1;
+  pointer-events: all;
+}
+.sideBarItem .itemExpand .showView {
+  pointer-events: none;
+  opacity: 0;
+  max-height: 0;
 }
 
 /*# sourceMappingURL=SideBarItem.css.map */
