@@ -36,6 +36,7 @@ export const SinglePageProduct = () => {
     return isLoading ? (
         <div>loading...</div>
     ) : (
+        <>
         <section className="main-component-wrapper">
             <div className='product-main-container'>
                 <Carousel selectedColorIndex={selectedColorIndex} onZoomChange={handleZoomChange} zoomIn={zoomIn}/>
@@ -44,7 +45,9 @@ export const SinglePageProduct = () => {
             <div className="characteristic-container">
                 <WhyWeMadeThis color={selectedColorIndex}/>
             </div>
-            <AddToBagSummary />
+
         </section>
+            <AddToBagSummary />
+        </>
     );
 };
