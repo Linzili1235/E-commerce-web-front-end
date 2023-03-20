@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 export const MainNav = () => {
     const navigate = useNavigate();
-    const handleNavigate = () => {
+    const handleNavigate = (e) => {
+        e.preventDefault();
         navigate('/mainPage/1/1')
     }
 
