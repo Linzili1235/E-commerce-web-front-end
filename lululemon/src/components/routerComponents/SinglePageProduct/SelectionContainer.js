@@ -75,6 +75,12 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
             payload: {quantity: 1, productInfo: {img, title, price, size}}
         })
 
+        dispatch({
+            type: actionType.TOTAL_PRICE,
+            payload: {currTotal: price}
+        })
+
+
         setAdded(prevState => !prevState)
 
         setTimeout(()=>{

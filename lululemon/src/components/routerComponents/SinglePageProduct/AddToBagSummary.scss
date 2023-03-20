@@ -10,7 +10,6 @@ $breakLineClr: #E5E4E2;
   top: 0;
   z-index: 1000;
   width: 100%;
-  height: 150%;
   .summary-container-background {
     display: block;
     position: absolute;
@@ -71,7 +70,7 @@ $breakLineClr: #E5E4E2;
       .product-summary-list {
         display: flex;
         flex-direction: column;
-        height: 80%;
+        position: relative;
         .product-summary {
           display: flex;
           flex-direction: row;
@@ -98,16 +97,72 @@ $breakLineClr: #E5E4E2;
             .product-size {
               font-size:large;
               margin-bottom: 1rem;
-
             }
             .product-price {
               font-size: large;
               margin-bottom: 1rem;
-
+            }
+            .product-quantity {
+              font-size: large;
             }
           }
         }
+        .vertical-break-line {
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 40%;
+          width: 2px;
+          height: 100%;
+          background-color: $breakLineClr;
+        }
+        .checkout-area {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 0;
+          right: 1rem;
+          width: 35%;
+          height: 40%;
+          .checkout-button-container {
+            display: flex;
+            height: 4rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            background-color: #d31334;
+            margin: 1rem 0;
+            .checkout-button {
+              -webkit-font-smoothing: antialiased;
+              letter-spacing: 0.075rem;
+              text-transform: uppercase;
+              color: #fff;
+              font-weight: 600;
+              font-size: 1rem;
+            }
+            &:hover {
+              background-color: #a40c0f ;
+            }
+          }
+          .subtotal {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 400;
+          }
+          .continue-button {
+            font-size: 1.2rem;
+            font-weight: 600;
+
+          }
+        }
       }
+
     }
   }
 }

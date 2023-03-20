@@ -4,20 +4,27 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useDispatch, useSelector } from "react-redux";
 import { actionType } from "../../../Helper";
 
+
 const AddToBagSummary = () => {
     const dispatch = useDispatch()
-    const { addedProducts, isClosed } = useSelector(state => state?.productReducer)
-    console.log('added products', addedProducts)
-    const handleClose = () => {
+    const { addedProducts, isClosed, currTotal } = useSelector(state => state?.productReducer)
+    const handleClose = (e) => {
+        // preventing the default behavior of the anchor tag (a tag)
+        // (i.e., navigating to an empty href), which might cause a page refresh
+        // and lead to losing the current state of your application.
+        e.preventDefault();
         dispatch({
             type: actionType.TOGGLE_SUMMARY_BOX,
             payload: {isClosed: true}
         })
     }
+
+
+
     return (
         <>
             <div className={ isClosed ? 'hidden-summary-box' : 'summary-container' }>
-                <div className="summary-container-background"></div>
+                <div className="summary-container-background" onClick={handleClose}></div>
                 <div className="summary-box">
                     <div className="summary-content">
                         <div className="summary-header">
@@ -53,12 +60,30 @@ const AddToBagSummary = () => {
                                                     quantity > 1 ? `$${(numericValue * quantity).toFixed(2)} CAD` : `$${numericValue.toFixed(2)} CAD`
                                                 }
                                             </div>
-                                            <div className="product-quantity">{quantity}</div>
+                                            <div className="product-quantity">Quantity: {quantity}</div>
                                         </div>
                                     </div>
                                 })
                             }
+                            <div className="vertical-break-line"></div>
+                            <div className="checkout-area">
+                                <div className="subtotal">
+                                    <div className="sub-left">
+                                        Subtotal:
+                                    </div>
+                                    <div className="sub-right">
+                                        ${currTotal.toFixed(2)} CAD
+                                    </div>
+                                </div>
+                                <div className="checkout-button-container">
+                                    <div className="checkout-button">VIEW BAG & CHECKOUT</div>
+                                </div>
+                                <div className="continue-button">
+                                    <a href="" onClick={handleClose}>CONTINUE SHOPPING</a>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>

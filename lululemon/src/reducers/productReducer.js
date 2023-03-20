@@ -8,7 +8,8 @@ const initialState = {
     addedProducts:[],
     params: {},   // if pagination is enabled, we need to change the params to separately control page
     sortId: '1',
-    isClosed: true
+    isClosed: true,
+    currTotal: 0
 }
 
 export const productReducer = (state=initialState, action) => {
@@ -75,6 +76,12 @@ export const productReducer = (state=initialState, action) => {
 
         case actionType.TOGGLE_SUMMARY_BOX:
             return {...state, isClosed: action.payload.isClosed};
+
+        case actionType.TOTAL_PRICE:
+            const numericValue = parseFloat(action.payload.currTotal.replace(/[^0-9.]/g, ''));
+            let total_price = state.currTotal + numericValue
+            return {...state, currTotal: total_price}
+
         default:
             return {...state}
     }
