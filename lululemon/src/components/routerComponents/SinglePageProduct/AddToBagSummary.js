@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './AddToBagSummary.scss'
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,35 @@ import { actionType } from "../../../Helper";
 
 const AddToBagSummary = () => {
     const dispatch = useDispatch()
-    const { addedProducts, isClosed, currTotal } = useSelector(state => state?.productReducer)
+    const addedProducts = useSelector(state => state?.productReducer.addedProducts)
+    const currTotal = useSelector(state => state?.productReducer.currTotal)
+    const { isClosed } = useSelector(state => state?.productReducer)
+
+    /////////////////////////   Local storage   //////////////////////////////////
+    const [addedItems, setAddedItems] = useState([])
+    const [loaded, setLoaded] = useState(false)
+    console.log('added items length',addedItems.length)
+    useEffect(() => {
+        const data = window.localStorage.getItem('Added Products')
+        if (data) {
+            setAddedItems(JSON.parse(data))
+        } else {
+            setAddedItems(addedProducts)
+        }
+        setLoaded(true)
+    }, [])
+
+    useEffect(() => {
+        if (loaded) {
+            const updatedAddedItems = [...addedItems, ...addedProducts];
+            console.log('updated added', updatedAddedItems)
+            setAddedItems(updatedAddedItems);
+            window.localStorage.setItem('Added Products', JSON.stringify(updatedAddedItems));
+        }
+    }, [addedProducts]);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
     const handleClose = (e) => {
         // preventing the default behavior of the anchor tag (a tag)
         // (i.e., navigating to an empty href), which might cause a page refresh
@@ -18,12 +46,15 @@ const AddToBagSummary = () => {
             payload: {isClosed: true}
         })
     }
-
-
+    const removeLocal = () => {
+        setAddedItems([])
+        window.localStorage.removeItem('Added Products');
+    }
 
     return (
         <>
             <div className={ isClosed ? 'hidden-summary-box' : 'summary-container' }>
+                <button onClick={removeLocal}>Remove</button>
                 <div className="summary-container-background" onClick={handleClose}></div>
                 <div className="summary-box">
                     <div className="summary-content">
@@ -45,7 +76,7 @@ const AddToBagSummary = () => {
 
                         <div className="product-summary-list">
                             {
-                                addedProducts.map((product, indx) => {
+                                addedItems && addedItems.filter(product => product !== null).map((product, indx) => {
                                     const {img, title, price, size} = product.productInfo
                                     const {quantity} = product
                                     const numericValue = parseFloat(price.replace(/[^0-9.]/g, ''));
