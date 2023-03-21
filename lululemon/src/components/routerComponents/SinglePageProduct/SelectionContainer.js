@@ -14,7 +14,8 @@ import { CircularProgress } from '@mui/material';
 export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const dispatch = useDispatch();
     const productOne = useSelector(state => state?.productReducer?.one_product)
-    // console.log(productOne)
+
+    // LOCAL STORAGE to store added products info
     const {swatches,sizes} = productOne
     const [colorIndex, updateColorIndex] = useState(0)
     const [sizeIndex, updateSizeIndex] = useState(0)

@@ -70,9 +70,7 @@ export const productReducer = (state=initialState, action) => {
                 tempProducts.push(action.payload)
             }
 
-            const final = {...state, addedProducts: [...tempProducts]}
-            console.log('added:', final.addedProducts)
-            return final
+            return {...state, addedProducts: [...tempProducts]}
 
         case actionType.TOGGLE_SUMMARY_BOX:
             return {...state, isClosed: action.payload.isClosed};
