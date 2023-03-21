@@ -3,6 +3,7 @@ import './AddToBagSummary.scss'
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useDispatch, useSelector } from "react-redux";
 import { actionType } from "../../../Helper";
+import actions from "../../../actions";
 
 
 const AddToBagSummary = () => {
@@ -14,25 +15,28 @@ const AddToBagSummary = () => {
     /////////////////////////   Local storage   //////////////////////////////////
     const [addedItems, setAddedItems] = useState([])
     const [loaded, setLoaded] = useState(false)
-    console.log('added items length',addedItems.length)
-    useEffect(() => {
-        const data = window.localStorage.getItem('Added Products')
-        if (data) {
-            setAddedItems(JSON.parse(data))
-        } else {
-            setAddedItems(addedProducts)
-        }
-        setLoaded(true)
-    }, [])
+    // useEffect(() => {
+    //     const data = window.localStorage.getItem('Added Products')
+    //     if (data) {
+    //         setAddedItems(JSON.parse(data))
+    //         console.log("new item", JSON.parse(data))
+    //     } else {
+    //         setAddedItems(addedProducts)
+    //     }
+    //     setLoaded(true)
+    // }, [])
 
     useEffect(() => {
-        if (loaded) {
-            const updatedAddedItems = [...addedItems, ...addedProducts];
+        // if (loaded) {
+            const updatedAddedItems = [...addedProducts]
+            // const updatedAddedItems = [...addedItems, ...addedProducts];
             console.log('updated added', updatedAddedItems)
             setAddedItems(updatedAddedItems);
             window.localStorage.setItem('Added Products', JSON.stringify(updatedAddedItems));
-        }
+        // }
     }, [addedProducts]);
+    console.log('added items length',addedItems.length)
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -41,14 +45,14 @@ const AddToBagSummary = () => {
         // (i.e., navigating to an empty href), which might cause a page refresh
         // and lead to losing the current state of your application.
         e.preventDefault();
-        dispatch({
-            type: actionType.TOGGLE_SUMMARY_BOX,
-            payload: {isClosed: true}
-        })
+        dispatch(actions?.productActions?.toggleSummaryBox(true)).then()
     }
     const removeLocal = () => {
         setAddedItems([])
         window.localStorage.removeItem('Added Products');
+        dispatch(actions?.productActions?.removeProduct()).then()
+        console.log("addedProduct after removal", addedProducts)
+
     }
 
     return (

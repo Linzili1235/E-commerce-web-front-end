@@ -10,6 +10,7 @@ import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import { actionType } from "../../../Helper";
 import { CircularProgress } from '@mui/material';
+import actions from "../../../actions";
 
 export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const dispatch = useDispatch();
@@ -71,26 +72,16 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         const price = productOne.price
         const size = productOne.sizes[0].details[sizeIndex]
         // console.log('size', sizeIndex, title, price,size)
-        dispatch({
-            type: actionType.ADDED_PRODUCT_INFO,
-            payload: {quantity: 1, productInfo: {img, title, price, size}}
-        })
+        dispatch(actions?.productActions?.addToBag(img, title, price, size))
+            .then(() => setAdded(prevState => !prevState) )
 
-        dispatch({
-            type: actionType.TOTAL_PRICE,
-            payload: {currTotal: price}
-        })
+        dispatch(actions?.productActions?.toggleSummaryBox(false))
+            .then(() => setAdded(prevState => !prevState))
 
-
-        setAdded(prevState => !prevState)
-
-        setTimeout(()=>{
-            dispatch({
-                type: actionType.TOGGLE_SUMMARY_BOX,
-                payload: {isClosed: false}
-            })
-            setAdded(prevState => !prevState)
-        }, 1000)
+        // setTimeout(()=>{
+        //     dispatch(actions?.productActions?.toggleSummaryBox(false))
+        //         .then(() => setAdded(prevState => !prevState))
+        // }, 300)
 
     }
 

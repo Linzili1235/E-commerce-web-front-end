@@ -52,6 +52,7 @@ export const productReducer = (state=initialState, action) => {
 
         case actionType.ADDED_PRODUCT_INFO:
             const addedProductString = JSON.stringify(action.payload.productInfo)
+            console.log("addedProductString", addedProductString)
             const tempProducts = [...state.addedProducts]  // prevent to change the state directly
             let foundSame = false;
             if (!tempProducts.length) {
@@ -59,6 +60,7 @@ export const productReducer = (state=initialState, action) => {
             } else {
                 tempProducts.forEach((currProduct, indx) => {
                     const currProductString = JSON.stringify(currProduct.productInfo)
+                    console.log("currentProduct", currProductString)
                     if (addedProductString === currProductString) {
                         currProduct.quantity ++;
                         foundSame = true;
@@ -69,6 +71,7 @@ export const productReducer = (state=initialState, action) => {
             if (!foundSame) {
                 tempProducts.push(action.payload)
             }
+            console.log("all the products added", state.addedProducts)
 
             return {...state, addedProducts: [...tempProducts]}
 
@@ -79,6 +82,11 @@ export const productReducer = (state=initialState, action) => {
             const numericValue = parseFloat(action.payload.currTotal.replace(/[^0-9.]/g, ''));
             let total_price = state.currTotal + numericValue
             return {...state, currTotal: total_price}
+
+        case actionType.REMOVE_PRODUCT:
+            console.log("remove payload", action.payload)
+            return {...state, addedProducts: action?.payload?.remainProduct,
+            currTotal: action?.payload?.totalPrice}
 
         default:
             return {...state}

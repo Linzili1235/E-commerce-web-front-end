@@ -69,11 +69,43 @@ const fetchAllProductsWithFilter = (dispatch, page, sorting) => async (filters) 
     }
 }
 
+// Actions for the Add To Bag
+const removeProduct = () => async dispatch => {
+    dispatch({
+        type: actionType.REMOVE_PRODUCT,
+        payload: {remainProduct:[], totalPrice: 0}
+    })
+}
+
+const addToBag = (img, title, price, size) => async dispatch => {
+    dispatch({
+        type: actionType.ADDED_PRODUCT_INFO,
+        payload: {quantity: 1, productInfo: {img, title, price, size}}
+    })
+
+    dispatch({
+        type: actionType.TOTAL_PRICE,
+        payload: {currTotal: price}
+    })
+}
+
+const toggleSummaryBox = (bool) => async dispatch => {
+    dispatch({
+        type: actionType.TOGGLE_SUMMARY_BOX,
+        payload: {isClosed: bool}
+    })
+
+}
+
 
 
 export default {
     fetchOneProduct,
     // fetchAllProducts,
     fetchAllProductsWithFilter,
-    fetchProductsPageSorting
+    fetchProductsPageSorting,
+    removeProduct,
+    addToBag,
+    toggleSummaryBox
+
 }
