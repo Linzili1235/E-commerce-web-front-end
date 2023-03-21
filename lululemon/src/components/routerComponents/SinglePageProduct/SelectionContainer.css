@@ -202,8 +202,9 @@ p {
   font-size: 1.0625rem;
   line-height: 1.1764705882;
 }
-.selection-container .selection-details .sizeSelection .sizeTitle .oneSize {
+.selection-container .selection-details .sizeSelection .sizeTitle .oneSize-text {
   font-size: 1.0625rem;
+  padding-left: 0.5rem;
 }
 .selection-container .selection-details .sizeSelection .sizeTitle .sizeGuide {
   margin-left: auto;
@@ -230,6 +231,29 @@ p {
   margin-right: -0.25rem;
   width: calc(100% + 1rem);
   margin: 0 -0.3125rem -1rem;
+  margin-bottom: 1rem;
+}
+.selection-container .selection-details .sizeSelection .sizeButtons .oneSize {
+  font-size: 1.1rem;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  align-items: center;
+  background-color: black;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #d5d5d5;
+  box-shadow: 0 0 0 0.03125rem #d5d5d5;
+  color: #fff;
+  display: inline-flex;
+  height: 2.5rem;
+  justify-content: center;
+  line-height: 0;
+  min-width: 2.5rem;
+  padding: 0.53125rem 0.53125rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 .selection-container .selection-details .sizeSelection .sizeButtons .sizeOut {
   margin-left: 0.25rem;
@@ -340,6 +364,7 @@ p {
   font-weight: 600;
   display: flex;
   width: 95%;
+  height: 3.2rem;
   background-color: #d31334;
   color: #fff;
   border: 0.0625rem solid #d31334;
@@ -352,6 +377,12 @@ p {
 }
 .selection-container .selection-details .shoppingMethod .addingButtonContainer .addingButton:hover {
   background-color: #a40c0f;
+}
+.selection-container .selection-details .shoppingMethod .addingButtonContainer .addingButton .hide {
+  display: none;
+}
+.selection-container .selection-details .shoppingMethod .addingButtonContainer .addingButton .display-button {
+  display: block;
 }
 .selection-container .selection-details .customerEngagement {
   display: flex;

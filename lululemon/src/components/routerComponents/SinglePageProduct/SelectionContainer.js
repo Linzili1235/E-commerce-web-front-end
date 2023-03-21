@@ -154,9 +154,10 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                             <span className="selectSize">
                                 {sizes[0].title}
                             </span>
-                                <span className="oneSize">One Size</span>
+                                <span className="oneSize-text">One Size</span>
                             </div>
                             <div className="sizeButtons">
+                                <span className="oneSize">One Size</span>
                             </div>
                         </>}
 

@@ -172,10 +172,11 @@
         font-size: 1.0625rem;
         line-height: 1.1764705882;
       }
-      .oneSize {
+      .oneSize-text {
         font-size: 1.0625rem;
-
+        padding-left: 0.5rem;
       }
+
       .sizeGuide {
         margin-left: auto;
         font-weight: 600;
@@ -209,6 +210,30 @@
         margin-right: -0.25rem;
         width: calc(100% + 1rem);
         margin: 0 -0.3125rem -1rem;
+        margin-bottom: 1rem;
+
+        .oneSize {
+          font-size: 1.1rem;
+          -webkit-font-smoothing: antialiased;
+          font-weight: 600;
+          align-items: center;
+          background-color: black;
+          border-radius: 0.25rem;
+          border: 0.0625rem solid #d5d5d5;
+          box-shadow: 0 0 0 0.03125rem #d5d5d5;
+          color: #fff;
+          display: inline-flex;
+          height: 2.5rem;
+          justify-content: center;
+          line-height: 0;
+          min-width: 2.5rem;
+          padding: 0.53125rem 0.53125rem;
+          margin-left: 0.25rem;
+          margin-right: 0.25rem;
+          margin-bottom: 1rem;
+          cursor: pointer;
+          text-transform: uppercase;
+        }
 
         .sizeOut {
           margin-left: 0.25rem;

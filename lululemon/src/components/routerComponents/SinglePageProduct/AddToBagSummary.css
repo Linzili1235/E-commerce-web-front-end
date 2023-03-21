@@ -1,4 +1,4 @@
-.hidden {
+.hidden-summary-box {
   display: none;
 }
 
@@ -8,15 +8,13 @@
   top: 0;
   z-index: 1000;
   width: 100%;
-  height: 200%;
 }
 .summary-container .summary-container-background {
   display: block;
   position: absolute;
   top: 0;
-  left: -10rem;
-  width: 130%;
-  height: 180%;
+  width: 100%;
+  height: 220%;
   opacity: 0.5;
   z-index: -1;
   background-color: #57585b;
@@ -27,9 +25,10 @@
   top: 1rem;
   min-width: 60rem;
   max-width: 70rem;
-  height: 50rem;
+  min-height: 50rem;
   margin-top: 5rem;
   opacity: 1;
+  overflow-y: auto;
   background-color: #fafafa;
 }
 .summary-container .summary-box .summary-content {
@@ -52,6 +51,7 @@
   position: absolute;
   top: 2rem;
   right: 2rem;
+  cursor: pointer;
 }
 .summary-container .summary-box .summary-content .breakLine {
   display: inline-block;
@@ -63,12 +63,99 @@
   text-align: left;
   font-size: 1.4rem;
 }
-.summary-container .summary-box .summary-content .product-summary {
-  background-color: lightgreen;
+.summary-container .summary-box .summary-content .product-summary-list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.summary-container .summary-box .summary-content .product-summary-list .product-summary {
   display: flex;
   flex-direction: row;
-  border: 1px solid red;
-  height: 5rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 1rem 0;
+}
+.summary-container .summary-box .summary-content .product-summary-list .product-summary .product-img {
+  max-width: 20%;
+  border-radius: 1rem;
+}
+.summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem 1rem;
+}
+.summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container .product-title {
+  text-align: left;
+  max-width: 25rem;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container .product-size {
+  font-size: large;
+  margin-bottom: 1rem;
+}
+.summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container .product-price {
+  font-size: large;
+  margin-bottom: 1rem;
+}
+.summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container .product-quantity {
+  font-size: large;
+}
+.summary-container .summary-box .summary-content .product-summary-list .vertical-break-line {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 40%;
+  width: 2px;
+  height: 100%;
+  background-color: #E5E4E2;
+}
+.summary-container .summary-box .summary-content .product-summary-list .checkout-area {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  width: 35%;
+  height: 40%;
+}
+.summary-container .summary-box .summary-content .product-summary-list .checkout-area .checkout-button-container {
+  display: flex;
+  height: 4rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: #d31334;
+  margin: 1rem 0;
+}
+.summary-container .summary-box .summary-content .product-summary-list .checkout-area .checkout-button-container .checkout-button {
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.summary-container .summary-box .summary-content .product-summary-list .checkout-area .checkout-button-container:hover {
+  background-color: #a40c0f;
+}
+.summary-container .summary-box .summary-content .product-summary-list .checkout-area .subtotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.summary-container .summary-box .summary-content .product-summary-list .checkout-area .continue-button {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=AddToBagSummary.css.map */

@@ -1,0 +1,130 @@
+.carousel-container {
+  display: inline-block;
+  width: 50%;
+  position: relative;
+  top: 0;
+}
+.carousel-container .product-img-container {
+  position: sticky;
+  top: 0;
+}
+.carousel-container .product-img-container .button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin-top: 60%;
+  height: 4rem;
+}
+.carousel-container .product-img-container .button-container .switchButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: hsla(0deg, 0%, 100%, 0.75);
+  border-radius: 10%;
+  opacity: 80%;
+}
+.carousel-container .product-img-container .button-container .switchButton.leftButton {
+  cursor: pointer;
+  margin-left: 1rem;
+  padding-left: 10px;
+}
+.carousel-container .product-img-container .button-container .switchButton.leftButton:hover {
+  transition: opacity ease-in-out 0.2s;
+  opacity: 100%;
+}
+.carousel-container .product-img-container .button-container .switchButton.rightButton {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.carousel-container .product-img-container .button-container .switchButton.rightButton:hover {
+  transition: opacity ease-in-out 0.2s;
+  opacity: 100%;
+}
+.carousel-container .product-img-container .magnifier {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 8rem;
+  width: 100%;
+  cursor: pointer;
+}
+.carousel-container .product-img-container .magnifier .zoom-icon-container {
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  opacity: 70%;
+  border-radius: 15%;
+  transition: opacity ease-in-out 0.2s;
+}
+.carousel-container .product-img-container .magnifier .zoom-icon-container:hover {
+  opacity: 100%;
+}
+.carousel-container .product-img-container img {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+.carousel-container .product-img-container .img-swatch-display {
+  display: inline-block;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 1rem 0.25rem 0 0.25rem;
+  position: relative;
+  transition: box-shadow 1s ease;
+  cursor: pointer;
+}
+.carousel-container .product-img-container .img-swatch-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel-container .product-img-container .img-swatch-display img.selected-thumbnail {
+  box-shadow: 0 3px 0 0 #000;
+}
+.carousel-container .product-img-container .img-swatch-display img.not-selected:hover {
+  box-shadow: 0 3px 0 0 darkgrey;
+}
+
+.hidden {
+  display: none;
+}
+
+.zoomIn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.zoomIn-container .header-container {
+  display: flex;
+  align-items: center;
+}
+.zoomIn-container .header-container .image-alt {
+  margin: 1rem auto;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.zoomIn-container .header-container .back-button {
+  position: absolute;
+  left: 7rem;
+  color: red;
+}
+.zoomIn-container .zoomInImage {
+  width: 80%;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=Carousel.css.map */
