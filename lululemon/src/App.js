@@ -11,7 +11,7 @@ import {Review} from "./components/routerComponents/Review"
 import {Payment} from "./components/routerComponents/Payment"
 import {PageNotFound} from "./components/routerComponents/PageNotFound";
 import {SinglePageProduct} from "./components/routerComponents/SinglePageProduct/SinglePageProduct";
-
+import './components/globalStyle-module.scss'
 function App() {
   return (
       <div className="App">

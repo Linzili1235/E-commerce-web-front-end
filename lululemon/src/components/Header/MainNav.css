@@ -1,60 +1,7 @@
-body {
-  margin: 0;
-  background: #fafafa;
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  font-family: Calibre Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-}
-
-section {
-  text-align: center;
-  margin: 0px auto;
-  width: 100%;
-  overflow: hidden;
-}
-
 @font-face {
   font-family: Calibre;
   src: url("assets/font/calibre/CalibreRegular.otf");
 }
-* {
-  box-sizing: border-box;
-  font-size: 97.5%;
-}
-
-.product-education-accordion-links_productEducationAccordionLinks__1LYq9 .product-education-accordion-links_details__nAvvp {
-  font-size: 1.1875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
-  margin: 1.5rem 0 1rem;
-}
-
-.paragraph, p {
-  line-height: 1.25;
-  margin: 0 auto 1.875rem;
-}
-
-.paragraph, p {
-  line-height: 1.25;
-  margin: 0 auto 1.875rem;
-}
-
-*, :after, :before {
-  box-sizing: border-box;
-}
-
-p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
-
 .mainNavigation {
   background-color: #ffffff;
 }
@@ -133,13 +80,23 @@ p {
   padding: 1.125rem 0;
   justify-content: space-between;
 }
+.mainNavigation .navigation_bg .searchBar_container .logIn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+.mainNavigation .navigation_bg .searchBar_container .logIn .signIn {
+  margin: 0 0.5rem;
+}
 .mainNavigation .navigation_bg .searchBar_container .searchForm {
   display: flex;
   justify-content: flex-start;
 }
 .mainNavigation .navigation_bg .searchBar_container .searchForm .searchInput {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  height: 3rem;
   padding: 0 2rem;
   border-radius: 0.25rem;
   border: 0.0625rem solid #2c282e;
