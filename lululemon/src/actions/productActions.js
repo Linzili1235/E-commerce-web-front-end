@@ -89,6 +89,13 @@ const addToBag = (img, title, price, size) => async dispatch => {
     })
 }
 
+const addWhenRefresh = (data) => async dispatch => {
+    dispatch({
+        type: actionType.ADD_WHEN_REFRESH,
+        payload: data
+    })
+}
+
 const toggleSummaryBox = (bool) => async dispatch => {
     dispatch({
         type: actionType.TOGGLE_SUMMARY_BOX,
@@ -106,6 +113,7 @@ export default {
     fetchProductsPageSorting,
     removeProduct,
     addToBag,
-    toggleSummaryBox
+    toggleSummaryBox,
+    addWhenRefresh
 
 }

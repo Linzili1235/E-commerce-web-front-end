@@ -79,14 +79,30 @@ export const productReducer = (state=initialState, action) => {
             return {...state, isClosed: action.payload.isClosed};
 
         case actionType.TOTAL_PRICE:
-            const numericValue = parseFloat(action.payload.currTotal.replace(/[^0-9.]/g, ''));
-            let total_price = state.currTotal + numericValue
-            return {...state, currTotal: total_price}
+            let count = 0
+            const tempProduct = [...state?.addedProducts]
+            tempProduct.forEach((product, ind) => {
+                const {productInfo} = product
+                const {price} = productInfo
+                const {quantity} = product
+                const numericValue = parseFloat(price.replace(/[^0-9.]/g, ''))
+                count += numericValue * quantity
+
+
+        })
+            return {...state, currTotal: count}
+
+            // const numericValue = parseFloat(action.payload.currTotal.replace(/[^0-9.]/g, ''));
+            // let total_price = state.currTotal + numericValue
+            // return {...state, currTotal: total_price}
 
         case actionType.REMOVE_PRODUCT:
-            console.log("remove payload", action.payload)
             return {...state, addedProducts: action?.payload?.remainProduct,
             currTotal: action?.payload?.totalPrice}
+        case actionType.ADD_WHEN_REFRESH:
+            console.log("recover data look like ", action?.payload)
+            return {...state, addedProducts: action?.payload}
+
 
         default:
             return {...state}

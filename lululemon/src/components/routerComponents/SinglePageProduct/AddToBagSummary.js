@@ -13,7 +13,7 @@ const AddToBagSummary = () => {
     const { isClosed } = useSelector(state => state?.productReducer)
 
     /////////////////////////   Local storage   //////////////////////////////////
-    const [addedItems, setAddedItems] = useState([])
+    // const [addedItems, setAddedItems] = useState([])
     const [loaded, setLoaded] = useState(false)
     // useEffect(() => {
     //     const data = window.localStorage.getItem('Added Products')
@@ -25,17 +25,35 @@ const AddToBagSummary = () => {
     //     }
     //     setLoaded(true)
     // }, [])
+    useEffect(() => {
+        const data = window.localStorage.getItem('Added Products')
+        console.log("print once refresh", JSON.parse(data))
+        const recoveredProduct = JSON.parse(data)
+        // when refreshing, data in redux store will lose, then should recover data using localStorage
+        dispatch(actions?.productActions?.addWhenRefresh(recoveredProduct)).then()
+        // if (data) {
+        //     const item = JSON.parse(data)
+        //     setAddedItems(prevState => [...prevState, item])
+        //     console.log("new item", JSON.parse(data))
+        //     console.log("whether added to bag", addedItems)
+        //         } else {
+        //             setAddedItems(addedProducts)
+        //         }
+
+    },[])
+
 
     useEffect(() => {
         // if (loaded) {
-            const updatedAddedItems = [...addedProducts]
+        //     const updatedAddedItems = [...addedProducts]
             // const updatedAddedItems = [...addedItems, ...addedProducts];
-            console.log('updated added', updatedAddedItems)
-            setAddedItems(updatedAddedItems);
-            window.localStorage.setItem('Added Products', JSON.stringify(updatedAddedItems));
+            // console.log('updated added', updatedAddedItems)
+            // setAddedItems(addedProducts);
+            window.localStorage.setItem('Added Products', JSON.stringify(addedProducts));
+        // const items = JSON.parse(data)
         // }
     }, [addedProducts]);
-    console.log('added items length',addedItems.length)
+    // console.log('added items length',addedItems.length)
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,7 +66,7 @@ const AddToBagSummary = () => {
         dispatch(actions?.productActions?.toggleSummaryBox(true)).then()
     }
     const removeLocal = () => {
-        setAddedItems([])
+        // setAddedItems([])
         window.localStorage.removeItem('Added Products');
         dispatch(actions?.productActions?.removeProduct()).then()
         console.log("addedProduct after removal", addedProducts)
@@ -80,7 +98,7 @@ const AddToBagSummary = () => {
 
                         <div className="product-summary-list">
                             {
-                                addedItems && addedItems.filter(product => product !== null).map((product, indx) => {
+                                addedProducts && addedProducts.filter(product => product !== null).map((product, indx) => {
                                     const {img, title, price, size} = product.productInfo
                                     const {quantity} = product
                                     const numericValue = parseFloat(price.replace(/[^0-9.]/g, ''));
