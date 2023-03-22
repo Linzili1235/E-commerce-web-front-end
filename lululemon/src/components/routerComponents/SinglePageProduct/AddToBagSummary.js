@@ -3,9 +3,11 @@ import './AddToBagSummary.scss'
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions";
+import {useNavigate} from "react-router-dom";
 
 const AddToBagSummary = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const addedProducts = useSelector(state => state?.productReducer.addedProducts)
     const currTotal = useSelector(state => state?.productReducer.currTotal)
     const { isClosed } = useSelector(state => state?.productReducer)
@@ -37,6 +39,10 @@ const AddToBagSummary = () => {
         dispatch(actions?.productActions?.removeProduct())
     }
 
+    const goToCart = () => {
+        navigate('/mybag')
+    }
+
     return (
         <>
             <div className={ isClosed ? 'hidden-summary-box' : 'summary-container' }>
@@ -65,7 +71,8 @@ const AddToBagSummary = () => {
                                 addedProducts && addedProducts.filter(product => product !== null).reverse().map((product, indx) => {
                                     const {img, title, price, size} = product.productInfo
                                     const {quantity} = product
-                                    const numericValue = parseFloat(price.replace(/[^0-9.]/g, ''));
+                                    const updatedPrice = price.split("-")[0]
+                                    const numericValue = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''));
 
                                     return <div className='product-summary' key={indx}>
                                         <img className='product-img' src={img} alt="product-img"/>
@@ -92,7 +99,7 @@ const AddToBagSummary = () => {
                                         ${currTotal.toFixed(2)} CAD
                                     </div>
                                 </div>
-                                <div className="checkout-button-container">
+                                <div className="checkout-button-container" onClick={()=>goToCart()}>
                                     <div className="checkout-button">VIEW BAG & CHECKOUT</div>
                                 </div>
                                 <div className="continue-button">
