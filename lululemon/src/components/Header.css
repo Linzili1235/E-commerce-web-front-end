@@ -6,4 +6,46 @@ ul {
   list-style-type: none;
 }
 
+.header1 {
+  background: #ffffff;
+  color: #000;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 1rem 0;
+  text-align: center;
+}
+.header1 .simple-nav {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 85.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+  width: 100%;
+}
+.header1 .simple-nav .brand-logo {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+}
+.header1 .simple-nav .logIn {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  margin: 0.5rem 1rem 0;
+}
+.header1 .simple-nav .logIn .signIn {
+  min-width: 3rem;
+  margin-left: 0.5rem;
+}
+
 /*# sourceMappingURL=Header.css.map */

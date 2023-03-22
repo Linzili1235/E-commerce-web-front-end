@@ -89,7 +89,8 @@
   margin: 0 1rem;
 }
 .mainNavigation .navigation_bg .searchBar_container .logIn .signIn {
-  margin: 0 0.5rem;
+  min-width: 3rem;
+  margin-left: 0.5rem;
 }
 .mainNavigation .navigation_bg .searchBar_container .searchForm {
   display: flex;
