@@ -22,7 +22,7 @@ function App() {
           <Route path='/mainPage/:sortingId/:pageNum' element={<Main />}/>
 
           <Route path='/singleProduct/:id' element={<SinglePageProduct />}/>
-          <Route path='/cart' element={<Cart />}/>
+          <Route path='/mybag' element={<Cart />}/>
           <Route path='/review' element={<Review />}/>
           <Route path='/payment' element={<Payment />}/>
 
