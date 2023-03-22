@@ -90,7 +90,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
 
         setTimeout(()=>{
             dispatch(actions?.productActions?.toggleSummaryBox(false))
-                .then(() => setAdded(prevState => !prevState))
+            setAdded(prevState => !prevState)
         }, 300)}
 
     }

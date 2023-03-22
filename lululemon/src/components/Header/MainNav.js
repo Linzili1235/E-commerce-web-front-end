@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import {logo} from '../../assets/logo/logo'
 import { useNavigate } from "react-router-dom";
-
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 export const MainNav = () => {
     const navigate = useNavigate();
     const handleNavigate = (e) => {
@@ -11,6 +11,9 @@ export const MainNav = () => {
         navigate('/mainPage/1/1')
     }
 
+    const handleSignIn = () => {
+        alert('Sign In')
+    }
     return <div className="mainNavigation">
         <div className="navigation_bg">
             <div className="productNav_container">
@@ -30,8 +33,6 @@ export const MainNav = () => {
                         <a href="lululemon/src/components/ProductHome/Header">Shoe</a></li>
                     <li className="productItem">
                         <a href="lululemon/src/components/ProductHome/Header">Studio</a></li>
-                    <li className="productItem">
-                        <a href="lululemon/src/components/ProductHome/Header">Like New</a></li>
                 </ul>
             </div>
             <div className="searchBar_container">
@@ -39,6 +40,12 @@ export const MainNav = () => {
                     <SearchIcon className="searchIcon"/>
                     <input className="searchInput" type="text" placeholder="Search"/>
                 </form>
+                <div className="logIn" onClick={handleSignIn}>
+                    <AccountCircleOutlinedIcon fontSize={'large'} />
+                    <div className="signIn">
+                        Sign In
+                    </div>
+                </div>
                 <ShoppingBagIcon className="shoppingBag"/>
             </div>
         </div>

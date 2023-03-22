@@ -99,14 +99,22 @@
       align-items: center;
       padding: 1.125rem 0;
       justify-content: space-between;
-
-.searchForm {
-  display: flex;
-  justify-content: flex-start;
-
+     .logIn {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-around;
+       align-items: center;
+       cursor: pointer;
+       margin: 0 1rem;
+       .signIn {
+         margin: 0 0.5rem;
+       }
+    }
+    .searchForm {
+      display: flex;
+      justify-content: flex-start;
         .searchInput {
           box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
-          height: 3rem;
           padding: 0 2rem;
           border-radius: 0.25rem;
           border: 0.0625rem solid #2c282e;

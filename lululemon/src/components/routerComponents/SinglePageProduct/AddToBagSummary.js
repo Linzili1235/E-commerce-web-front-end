@@ -1,35 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './AddToBagSummary.scss'
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useDispatch, useSelector } from "react-redux";
-import { actionType } from "../../../Helper";
 import actions from "../../../actions";
-
 
 const AddToBagSummary = () => {
     const dispatch = useDispatch()
     const addedProducts = useSelector(state => state?.productReducer.addedProducts)
     const currTotal = useSelector(state => state?.productReducer.currTotal)
     const { isClosed } = useSelector(state => state?.productReducer)
-
-    useEffect(() => console.log("total price", currTotal), [currTotal])
-
     /////////////////////////   Local storage   //////////////////////////////////
-    const [loaded, setLoaded] = useState(false)
     useEffect(() => {
         const data = window.localStorage.getItem('Added Products')
-        console.log("print once refresh", JSON.parse(data))
         const recoveredProduct = JSON.parse(data)
         // when refreshing, data in redux store will lose, then should recover data using localStorage
-        dispatch(actions?.productActions?.addWhenRefresh(recoveredProduct)).then()
-
-
+        dispatch(actions?.productActions?.addWhenRefresh(recoveredProduct))
     },[])
 
 
     useEffect(() => {
-        console.log("changed", addedProducts)
-
             window.localStorage.setItem('Added Products', JSON.stringify(addedProducts));
     }, [addedProducts]);
 
@@ -41,14 +30,11 @@ const AddToBagSummary = () => {
         // (i.e., navigating to an empty href), which might cause a page refresh
         // and lead to losing the current state of your application.
         e.preventDefault();
-        dispatch(actions?.productActions?.toggleSummaryBox(true)).then()
+        dispatch(actions?.productActions?.toggleSummaryBox(true))
     }
     const removeLocal = () => {
-        // setAddedItems([])
         window.localStorage.removeItem('Added Products');
-        dispatch(actions?.productActions?.removeProduct()).then()
-        // console.log("addedProduct after removal", addedProducts)
-
+        dispatch(actions?.productActions?.removeProduct())
     }
 
     return (
@@ -76,11 +62,10 @@ const AddToBagSummary = () => {
 
                         <div className="product-summary-list">
                             {
-                                addedProducts && addedProducts.filter(product => product !== null).map((product, indx) => {
+                                addedProducts && addedProducts.filter(product => product !== null).reverse().map((product, indx) => {
                                     const {img, title, price, size} = product.productInfo
                                     const {quantity} = product
-                                    const updatedPrice = price.split("-")[0]
-                                    const numericValue = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''));
+                                    const numericValue = parseFloat(price.replace(/[^0-9.]/g, ''));
 
                                     return <div className='product-summary' key={indx}>
                                         <img className='product-img' src={img} alt="product-img"/>

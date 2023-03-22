@@ -70,11 +70,11 @@ const fetchAllProductsWithFilter = (dispatch, page, sorting) => async (filters) 
 }
 
 // Actions for the Add To Bag
-const removeProduct = () => async dispatch => {
-    dispatch({
+const removeProduct = ()  =>  {
+    return {
         type: actionType.REMOVE_PRODUCT,
         payload: {remainProduct:[], totalPrice: 0}
-    })
+    }
 }
 
 const addToBag = (img, title, price, size) => async dispatch => {
@@ -89,19 +89,18 @@ const addToBag = (img, title, price, size) => async dispatch => {
     })
 }
 
-const addWhenRefresh = (data) => async dispatch => {
-    dispatch({
+const addWhenRefresh = (data) => {
+    return {
         type: actionType.ADD_WHEN_REFRESH,
         payload: data
-    })
+    }
 }
 
-const toggleSummaryBox = (bool) => async dispatch => {
-    dispatch({
+const toggleSummaryBox = (bool) => {
+    return {
         type: actionType.TOGGLE_SUMMARY_BOX,
         payload: {isClosed: bool}
-    })
-
+    }
 }
 
 
