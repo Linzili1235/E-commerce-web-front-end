@@ -8,62 +8,16 @@ $border_color: #e6e6e6;
 $bg_color: #fafafa;
 $line_color: #d5d5d5;
 
-body {
-  margin: 0;
-  background: $bg_color;
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  font-family: $font_Calibre $font_family;
-  display: flex;
-  flex-direction: column;
 
-}
 
-section {
-  text-align: center;
-  margin: 0px auto;
-  width: 100%;
-  overflow: hidden;
-}
+
 
 @font-face {
   font-family: $font_Calibre;
   src: url("assets/font/calibre/CalibreRegular.otf");
 }
 
-* {
-  box-sizing: border-box;
-  font-size: 97.5%;
-}
 
 
-element.style {
-}
-.product-education-accordion-links_productEducationAccordionLinks__1LYq9 .product-education-accordion-links_details__nAvvp {
-  font-size: 1.1875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
-  margin: 1.5rem 0 1rem;
-}
-.paragraph, p {
-  line-height: 1.25;
-  margin: 0 auto 1.875rem;
-}
-.paragraph, p {
-  line-height: 1.25;
-  margin: 0 auto 1.875rem;
-}
-*, :after, :before {
-  box-sizing: border-box;
-}
-p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
 
 

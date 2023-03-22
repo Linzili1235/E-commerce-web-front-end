@@ -1,0 +1,39 @@
+@use '../index.scss' as css;
+
+body {
+  margin: 0;
+  background: css.$bg_color;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: css.$font_Calibre css.$font_family;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.paragraph, p {
+  line-height: 1.25;
+  margin: 0 auto 1.875rem;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+section {
+  text-align: center;
+  margin: 0px auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 97.5%;
+}

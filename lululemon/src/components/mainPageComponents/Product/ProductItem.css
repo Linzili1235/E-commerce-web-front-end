@@ -1,60 +1,7 @@
-body {
-  margin: 0;
-  background: #fafafa;
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  font-family: Calibre Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-}
-
-section {
-  text-align: center;
-  margin: 0px auto;
-  width: 100%;
-  overflow: hidden;
-}
-
 @font-face {
   font-family: Calibre;
   src: url("assets/font/calibre/CalibreRegular.otf");
 }
-* {
-  box-sizing: border-box;
-  font-size: 97.5%;
-}
-
-.product-education-accordion-links_productEducationAccordionLinks__1LYq9 .product-education-accordion-links_details__nAvvp {
-  font-size: 1.1875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
-  margin: 1.5rem 0 1rem;
-}
-
-.paragraph, p {
-  line-height: 1.25;
-  margin: 0 auto 1.875rem;
-}
-
-.paragraph, p {
-  line-height: 1.25;
-  margin: 0 auto 1.875rem;
-}
-
-*, :after, :before {
-  box-sizing: border-box;
-}
-
-p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
-
 .productTile {
   display: flex;
   flex-direction: column;
