@@ -10,12 +10,13 @@ $breakLineClr: #E5E4E2;
   top: 0;
   z-index: 1000;
   width: 100%;
+  height: 100%;
   .summary-container-background {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
-    height: 220%;
+    height: 100%;
     opacity: 0.5;
     z-index: -1;
     background-color: $container-backgroundClr;
@@ -24,10 +25,10 @@ $breakLineClr: #E5E4E2;
     display: inline-block;
     position: sticky;
     top: 1rem;
-    min-width: 60rem;
-    max-width: 70rem;
-    min-height: 50rem;
-    margin-top: 5rem;
+    min-width: 30rem;
+    max-width: 50rem;
+    min-height: 50%;
+    margin-top: 3rem;
     opacity: 1;
     overflow-y: auto;
     background-color: $box-backgroundClr;
@@ -42,7 +43,7 @@ $breakLineClr: #E5E4E2;
         justify-content: flex-start;
         align-items: center;
         .summary-title {
-          font-size: 2rem;
+          font-size: 1rem;
           font-weight: bold;
         }
         .shopping-bag {
@@ -64,7 +65,7 @@ $breakLineClr: #E5E4E2;
       }
       .notification {
         text-align: left;
-        font-size: 1.4rem;
+        font-size: 0.6rem;
       }
 ///////////////   Product Summary /////////////
       .product-summary-list {
@@ -77,8 +78,10 @@ $breakLineClr: #E5E4E2;
           justify-content: flex-start;
           align-items: stretch;
           margin: 1rem 0;
+          width: 60%;
           .product-img{
-            max-width: 20%;
+            width: 30%;
+            object-fit: cover;
             border-radius: 1rem;
           }
           .title-price-container {
@@ -89,21 +92,21 @@ $breakLineClr: #E5E4E2;
             padding: 1rem 1rem;
             .product-title{
               text-align: left;
-              max-width: 25rem;
-              font-size: x-large;
+              max-width: 100%;
+              font-size: small;
               font-weight: bold;
-              margin-bottom: 1rem;
+              margin-bottom: 0.5rem;
             }
             .product-size {
-              font-size:large;
-              margin-bottom: 1rem;
+              font-size:small;
+              margin-bottom: 0.5rem;
             }
             .product-price {
-              font-size: large;
-              margin-bottom: 1rem;
+              font-size: small;
+              margin-bottom: 0.5rem;
             }
             .product-quantity {
-              font-size: large;
+              font-size: small;
             }
           }
         }
@@ -142,7 +145,7 @@ $breakLineClr: #E5E4E2;
               text-transform: uppercase;
               color: #fff;
               font-weight: 600;
-              font-size: 1rem;
+              font-size: 0.8rem;
             }
             &:hover {
               background-color: #a40c0f ;
@@ -152,11 +155,11 @@ $breakLineClr: #E5E4E2;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 400;
           }
           .continue-button {
-            font-size: 1.2rem;
+            font-size: 0.7rem;
             font-weight: 600;
 
           }
