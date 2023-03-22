@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import actions from "./actions";
 import {useDispatch} from "react-redux";
 import {Main} from "./components/mainPageComponents/Main";
-import {Cart} from "./components/routerComponents/Cart";
+import {Cart} from "./components/routerComponents/Cart/Cart";
 import {Review} from "./components/routerComponents/Review"
 import {Payment} from "./components/routerComponents/Payment"
 import {PageNotFound} from "./components/routerComponents/PageNotFound";

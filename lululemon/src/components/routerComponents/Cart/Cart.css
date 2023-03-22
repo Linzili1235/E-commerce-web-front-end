@@ -1,0 +1,24 @@
+.shoppingCart {
+  flex: 1;
+}
+.shoppingCart .main-context {
+  margin-bottom: 3.5rem;
+  margin-top: 2.5rem;
+  max-width: 90rem;
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem;
+  display: flex;
+  flex-direction: row;
+}
+.shoppingCart .main-context .myBag-container {
+  flex-basis: 66.66667%;
+  border: #a40c0f 2px solid;
+  height: 60rem;
+}
+.shoppingCart .main-context .orderSummary-container {
+  flex-basis: 33.33333%;
+  border: green 2px solid;
+  height: 60rem;
+}
+
+/*# sourceMappingURL=Cart.css.map */
