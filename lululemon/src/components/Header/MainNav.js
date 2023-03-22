@@ -40,13 +40,7 @@ export const MainNav = () => {
                     <SearchIcon className="searchIcon"/>
                     <input className="searchInput" type="text" placeholder="Search"/>
                 </form>
-                <div className="logIn" onClick={handleSignIn}>
-                    <AccountCircleOutlinedIcon fontSize={'large'} />
-                    <div className="signIn">
-                        Sign In
-                    </div>
-                </div>
-                <ShoppingBagIcon className="shoppingBag"/>
+                <ShoppingBagIcon className="shoppingBag" />
             </div>
         </div>
     </div>
