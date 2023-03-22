@@ -19,7 +19,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     // LOCAL STORAGE to store added products info
     const {swatches,sizes} = productOne
     const [colorIndex, updateColorIndex] = useState(0)
-    const [sizeIndex, updateSizeIndex] = useState(0)
+    const [sizeIndex, updateSizeIndex] = useState(-1)
     // create an array to deal with onClick border
     // false: no border, true: with border
     const borderArray = Array(swatches.length).fill(false)
@@ -75,13 +75,13 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         dispatch(actions?.productActions?.addToBag(img, title, price, size))
             .then(() => setAdded(prevState => !prevState) )
 
-        dispatch(actions?.productActions?.toggleSummaryBox(false))
-            .then(() => setAdded(prevState => !prevState))
+        // dispatch(actions?.productActions?.toggleSummaryBox(false))
+        //     .then(() => setAdded(prevState => !prevState))
 
-        // setTimeout(()=>{
-        //     dispatch(actions?.productActions?.toggleSummaryBox(false))
-        //         .then(() => setAdded(prevState => !prevState))
-        // }, 300)
+        setTimeout(()=>{
+            dispatch(actions?.productActions?.toggleSummaryBox(false))
+                .then(() => setAdded(prevState => !prevState))
+        }, 300)
 
     }
 

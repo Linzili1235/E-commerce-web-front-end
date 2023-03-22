@@ -52,7 +52,6 @@ export const productReducer = (state=initialState, action) => {
 
         case actionType.ADDED_PRODUCT_INFO:
             const addedProductString = JSON.stringify(action.payload.productInfo)
-            console.log("addedProductString", addedProductString)
             const tempProducts = [...state.addedProducts]  // prevent to change the state directly
             let foundSame = false;
             if (!tempProducts.length) {
@@ -97,8 +96,7 @@ export const productReducer = (state=initialState, action) => {
             // return {...state, currTotal: total_price}
 
         case actionType.REMOVE_PRODUCT:
-            return {...state, addedProducts: action?.payload?.remainProduct,
-            currTotal: action?.payload?.totalPrice}
+            return {...state, addedProducts: action?.payload}
         case actionType.ADD_WHEN_REFRESH:
             console.log("recover data look like ", action?.payload)
             return {...state, addedProducts: action?.payload}
