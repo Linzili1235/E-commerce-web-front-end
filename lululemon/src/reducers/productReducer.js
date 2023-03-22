@@ -84,7 +84,8 @@ export const productReducer = (state=initialState, action) => {
                 const {productInfo} = product
                 const {price} = productInfo
                 const {quantity} = product
-                const numericValue = parseFloat(price.replace(/[^0-9.]/g, ''))
+                const updatedPrice = price.split("-")[0]
+                const numericValue = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''))
                 count += numericValue * quantity
 
 
@@ -96,7 +97,8 @@ export const productReducer = (state=initialState, action) => {
             // return {...state, currTotal: total_price}
 
         case actionType.REMOVE_PRODUCT:
-            return {...state, addedProducts: action?.payload}
+            return {...state, addedProducts: action?.payload?.remainProduct,
+            currTotal: action?.payload?.totalPrice}
         case actionType.ADD_WHEN_REFRESH:
             console.log("recover data look like ", action?.payload)
             return {...state, addedProducts: action?.payload}

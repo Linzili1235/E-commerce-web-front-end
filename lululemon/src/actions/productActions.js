@@ -73,7 +73,7 @@ const fetchAllProductsWithFilter = (dispatch, page, sorting) => async (filters) 
 const removeProduct = () => async dispatch => {
     dispatch({
         type: actionType.REMOVE_PRODUCT,
-        payload: []
+        payload: {remainProduct:[], totalPrice: 0}
     })
 }
 

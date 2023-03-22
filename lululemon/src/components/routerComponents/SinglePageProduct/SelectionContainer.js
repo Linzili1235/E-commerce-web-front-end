@@ -8,6 +8,7 @@ import HouseSidingRoundedIcon from '@mui/icons-material/HouseSidingRounded';
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { actionType } from "../../../Helper";
 import { CircularProgress } from '@mui/material';
 import actions from "../../../actions";
@@ -39,6 +40,10 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const sizeArray = Array(sizes[0].details.length).fill(false)
     const [sizeBool, updateBool] = useState(sizeArray)
 
+    // deal with size alert
+    const [isAlert, updateAlert] = useState(true)
+    const [showAlert, updateShowAlert] = useState(false)
+
 
     const onClickChangeColor = (ind) => {
         // change the chosen color
@@ -56,6 +61,8 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
 
     const onClickChangeSize = (ind) => {
         updateSizeIndex(ind)
+        updateAlert(false)
+        updateShowAlert(false)
         updateBool(prevState => {
             const newState = sizeArray
             newState[ind] = true
@@ -66,6 +73,9 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const [added, setAdded] = useState(false)
     // pass img, title, price, size to the reducer
     const handleAddToBag = () => {
+        if (isAlert) {
+            updateShowAlert(true)}
+        else {
         // first image at the color index
         const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
         const title = productOne.images[colorIndex].mainCarousel.alt
@@ -81,7 +91,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         setTimeout(()=>{
             dispatch(actions?.productActions?.toggleSummaryBox(false))
                 .then(() => setAdded(prevState => !prevState))
-        }, 300)
+        }, 300)}
 
     }
 
@@ -120,6 +130,13 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
 
                         </div>
 
+                    </div>
+                    <div className="sizeAlert">
+                        {showAlert && <div className="notification-alert">
+                            <ErrorOutlineIcon className="errorIcon"/>
+                            <div>Please select a size</div>
+
+                        </div>}
                     </div>
                     <div className="sizeSelection">
                         {sizes[0].title === "Select Size" ?
@@ -175,6 +192,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                             </div>
                             <ItemCheckedIcon checked = {false}/>
                         </div>
+
                         <div className="addingButtonContainer">
                             <button className="addingButton" onClick={handleAddToBag}>
                                 <span className={added ? 'hide' : 'display-button'}>Add to bag</span>

@@ -99,6 +99,7 @@
       }
     }
     .colorSelection {
+      margin-bottom: 0.5rem;
       .colorName {
         display: flex;
         justify-content: flex-start;
@@ -157,6 +158,26 @@
             padding:0.25rem ;
 
           }
+        }
+      }
+    }
+    .sizeAlert {
+      .notification-alert {
+        margin-bottom: 0.5rem;
+        background-color: #fae8ea;
+        border: 0.0625rem solid css.$hover_color;
+        font-size: 1.15rem;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 400;
+        line-height: 1.2631578947;
+        display: flex;
+        padding: 0.75rem;
+        .errorIcon {
+          color: css.$hover_color;
+          flex-shrink: 0;
+          height: 1.5rem;
+          margin-right: 0.5rem;
+          width: 1.5rem;
         }
       }
     }

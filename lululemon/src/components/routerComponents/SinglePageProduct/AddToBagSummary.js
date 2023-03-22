@@ -12,6 +12,8 @@ const AddToBagSummary = () => {
     const currTotal = useSelector(state => state?.productReducer.currTotal)
     const { isClosed } = useSelector(state => state?.productReducer)
 
+    useEffect(() => console.log("total price", currTotal), [currTotal])
+
     /////////////////////////   Local storage   //////////////////////////////////
     const [loaded, setLoaded] = useState(false)
     useEffect(() => {
@@ -26,6 +28,7 @@ const AddToBagSummary = () => {
 
 
     useEffect(() => {
+        console.log("changed", addedProducts)
 
             window.localStorage.setItem('Added Products', JSON.stringify(addedProducts));
     }, [addedProducts]);
@@ -76,7 +79,8 @@ const AddToBagSummary = () => {
                                 addedProducts && addedProducts.filter(product => product !== null).map((product, indx) => {
                                     const {img, title, price, size} = product.productInfo
                                     const {quantity} = product
-                                    const numericValue = parseFloat(price.replace(/[^0-9.]/g, ''));
+                                    const updatedPrice = price.split("-")[0]
+                                    const numericValue = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''));
 
                                     return <div className='product-summary' key={indx}>
                                         <img className='product-img' src={img} alt="product-img"/>
