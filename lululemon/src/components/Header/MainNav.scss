@@ -99,18 +99,6 @@
       align-items: center;
       padding: 1.125rem 0;
       justify-content: space-between;
-     .logIn {
-       display: flex;
-       flex-direction: row;
-       justify-content: space-around;
-       align-items: center;
-       cursor: pointer;
-       margin: 0 1rem;
-       .signIn {
-         min-width: 3rem;
-         margin-left: 0.5rem;
-       }
-    }
     .searchForm {
       display: flex;
       justify-content: flex-start;

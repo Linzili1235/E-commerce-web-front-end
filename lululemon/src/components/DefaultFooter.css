@@ -3,7 +3,7 @@
  * 1 | @use './src/index.scss' as css;
  *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *   '
- *   Footer.scss 1:1  root stylesheet */
+ *   DefaultFooter.scss 1:1  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",

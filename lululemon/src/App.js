@@ -1,10 +1,7 @@
 import './App.scss';
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
-import { Routes, Route, Navigate, useParams } from "react-router-dom";
-import {useEffect, useState} from "react";
-import actions from "./actions";
-import {useDispatch} from "react-redux";
+import { Routes, Route, Navigate } from "react-router-dom";
 import {Main} from "./components/mainPageComponents/Main";
 import {Cart} from "./components/routerComponents/Cart";
 import {Review} from "./components/routerComponents/Review"
