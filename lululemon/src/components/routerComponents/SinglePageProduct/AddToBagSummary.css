@@ -8,13 +8,14 @@
   top: 0;
   z-index: 1000;
   width: 100%;
+  height: 100%;
 }
 .summary-container .summary-container-background {
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
-  height: 220%;
+  height: 100%;
   opacity: 0.5;
   z-index: -1;
   background-color: #57585b;
@@ -23,10 +24,10 @@
   display: inline-block;
   position: sticky;
   top: 1rem;
-  min-width: 60rem;
-  max-width: 70rem;
-  min-height: 50rem;
-  margin-top: 5rem;
+  min-width: 30rem;
+  max-width: 50rem;
+  min-height: 50%;
+  margin-top: 3rem;
   opacity: 1;
   overflow-y: auto;
   background-color: #fafafa;
@@ -43,7 +44,7 @@
   align-items: center;
 }
 .summary-container .summary-box .summary-content .summary-header .summary-title {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 .summary-container .summary-box .summary-content .close-button {
@@ -61,7 +62,7 @@
 }
 .summary-container .summary-box .summary-content .notification {
   text-align: left;
-  font-size: 1.4rem;
+  font-size: 0.6rem;
 }
 .summary-container .summary-box .summary-content .product-summary-list {
   display: flex;
@@ -74,9 +75,11 @@
   justify-content: flex-start;
   align-items: stretch;
   margin: 1rem 0;
+  width: 60%;
 }
 .summary-container .summary-box .summary-content .product-summary-list .product-summary .product-img {
-  max-width: 20%;
+  width: 30%;
+  object-fit: cover;
   border-radius: 1rem;
 }
 .summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container {
@@ -88,21 +91,21 @@
 }
 .summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container .product-title {
   text-align: left;
-  max-width: 25rem;
-  font-size: x-large;
+  max-width: 100%;
+  font-size: small;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container .product-size {
-  font-size: large;
-  margin-bottom: 1rem;
+  font-size: small;
+  margin-bottom: 0.5rem;
 }
 .summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container .product-price {
-  font-size: large;
-  margin-bottom: 1rem;
+  font-size: small;
+  margin-bottom: 0.5rem;
 }
 .summary-container .summary-box .summary-content .product-summary-list .product-summary .title-price-container .product-quantity {
-  font-size: large;
+  font-size: small;
 }
 .summary-container .summary-box .summary-content .product-summary-list .vertical-break-line {
   display: inline-block;
@@ -141,7 +144,7 @@
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 .summary-container .summary-box .summary-content .product-summary-list .checkout-area .checkout-button-container:hover {
   background-color: #a40c0f;
@@ -150,11 +153,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
 }
 .summary-container .summary-box .summary-content .product-summary-list .checkout-area .continue-button {
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   font-weight: 600;
 }
 
