@@ -90,6 +90,7 @@ export const productReducer = (state=initialState, action) => {
 
 
         })
+            console.log(count)
             return {...state, currTotal: count}
 
             // const numericValue = parseFloat(action.payload.currTotal.replace(/[^0-9.]/g, ''));
@@ -103,7 +104,12 @@ export const productReducer = (state=initialState, action) => {
             console.log("recover data look like ", action?.payload)
             return {...state, addedProducts: action?.payload}
 
-
+        case actionType.CHANGE_WITH_QUANTITY:
+            const {ind, quantity} = action?.payload
+            const temp_products = [...state?.addedProducts]
+            const temp_product = temp_products[ind]
+            temp_product.quantity = quantity
+            return {...state, addedProducts: temp_products}
         default:
             return {...state}
     }

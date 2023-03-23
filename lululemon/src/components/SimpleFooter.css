@@ -1,7 +1,38 @@
 .simpleFooter {
   display: block;
   width: 100%;
-  background-color: green;
+  text-align: left;
+}
+.simpleFooter li {
+  margin: 2rem 0;
+}
+.simpleFooter li a {
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+.simpleFooter li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #d31334;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+.simpleFooter li a:hover {
+  cursor: pointer;
+}
+.simpleFooter li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: top left;
+}
+.simpleFooter .light li a {
+  font-weight: normal;
 }
 
 /*# sourceMappingURL=SimpleFooter.css.map */

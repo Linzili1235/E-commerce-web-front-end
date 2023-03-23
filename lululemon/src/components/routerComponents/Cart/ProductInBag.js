@@ -1,19 +1,30 @@
 import "./ProductInBag.scss"
-import {containerClasses} from "@mui/material";
-import {useState} from "react";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import {useEffect, useState} from "react";
 
-export const ProductInBag = ({product}) => {
+import {useDispatch} from "react-redux";
+import actions from "../../../actions";
+
+export const ProductInBag = ({product,ind}) => {
+    const dispatch = useDispatch()
     const {productInfo, quantity} = product
     const {img, title, color, price, size} = productInfo
     const numericPrice = parseFloat(price.replace(/[^0-9.]/g, ''))
-    const twoDigitPrice = `$${numericPrice.toFixed(2)} CAD`
-    const twoDigitTotalPrice = `$${(numericPrice * quantity).toFixed(2)} CAD`
+    const twoDigitPrice = `$${numericPrice.toFixed(2)}`
+    const twoDigitTotalPrice = `$${(numericPrice * quantity).toFixed(2)}`
     const optionList = Array.from({length: 10}, (_,i)=> i+1)
 
     const [selectedValue, setSelectedValue] = useState(quantity)
+    const [isOpen, setIsOpen] = useState(false)
 
-    const handleChange = (event) => {
-        setSelectedValue(event.target.value)
+    const handleChange = (value) => {
+        setSelectedValue(value)
+    }
+    // useEffect and dispatch, or the change of quantity will delay
+    useEffect(()=> dispatch(actions?.productActions?.changeWithQuantity(ind, selectedValue)), [selectedValue])
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen)
     }
     return <div className="productInBag-container">
     <div className="productInBag">
@@ -38,12 +49,23 @@ export const ProductInBag = ({product}) => {
                     </div>
                     <div className="dropDown-container">
                         <p className="detail-title">Quantity</p>
-                        <select id="dropdown" value={selectedValue} onChange={handleChange}>
-                            {optionList.map(value => {
-                                return <option key={value}>{value}</option>
+                        <div className="dropdown-selected-value" onClick={toggleDropdown}>
+                            <span>{selectedValue}</span>
+                            {isOpen ? <KeyboardArrowUpIcon className="arrow-icon open"/> : <KeyboardArrowDownIcon className="arrow-icon"/>}
+
+                        </div>
+                        {isOpen && <div className="dropdown-options"  onClick={toggleDropdown}>
+                            {optionList.map(value =>
+                            {return <div key={value}
+                                className="dropdown-option"
+                                               onClick={()=> handleChange(value)}
+                                >
+                                <div className="option-value">{value}</div>
+
+                            </div>
                             })}
 
-                        </select>
+                        </div>}
                     </div>
                     <div className="product-totalPrice">
                         <p className="detail-title">Total Price</p>
