@@ -17,15 +17,26 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const dispatch = useDispatch();
     const productOne = useSelector(state => state?.productReducer?.one_product)
 
-    // LOCAL STORAGE to store added products info
-    const {swatches,sizes} = productOne
     const [colorIndex, updateColorIndex] = useState(0)
     const [sizeIndex, updateSizeIndex] = useState(-1)
+
+
+    // LOCAL STORAGE to store added products info
+    const {swatches,sizes} = productOne
+    // first image at the color index
+    const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
+    const title = productOne.images[colorIndex].mainCarousel.alt
+    const price = productOne.price
+    const size = productOne.sizes[0].details[sizeIndex]
+    const color = swatches[colorIndex].swatchAlt
+
     // create an array to deal with onClick border
     // false: no border, true: with border
     const borderArray = Array(swatches.length).fill(false)
     const [borderBool, updateBorderBool] = useState(borderArray)
-    // console.log(borderArray)
+
+
+
 
     // default border with first item
     useEffect(()=> updateBorderBool(prevState => {
@@ -76,13 +87,9 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         if (isAlert) {
             updateShowAlert(true)}
         else {
-        // first image at the color index
-        const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
-        const title = productOne.images[colorIndex].mainCarousel.alt
-        const price = productOne.price
-        const size = productOne.sizes[0].details[sizeIndex]
+
         // console.log('size', sizeIndex, title, price,size)
-        dispatch(actions?.productActions?.addToBag(img, title, price, size))
+        dispatch(actions?.productActions?.addToBag(img, title, price, size, color))
             .then(() => setAdded(prevState => !prevState) )
 
         // dispatch(actions?.productActions?.toggleSummaryBox(false))
@@ -115,7 +122,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                     <div className="colorSelection">
                         <div className="colorName">
                             <span className="color">Colour</span>
-                            <span className="specific-color">{swatches[colorIndex].swatchAlt}</span>
+                            <span className="specific-color">{color}</span>
 
                         </div>
                         <div className="availableColor">

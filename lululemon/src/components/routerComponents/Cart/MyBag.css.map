@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"MyBag.css"}
+{"version":3,"sourceRoot":"","sources":["../../../index.scss","MyBag.scss"],"names":[],"mappings":"AAcA;EACE,aAfa;EAgBb;;ACdF;EACE;EACA;;AACA;EACE;EACA;EAEA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEF;EACE;EACA;EACA;;AAGJ;EACE,kBD1BM;EC2BN;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;;AAGJ;EACE;EACA;EACA","file":"MyBag.css"}
