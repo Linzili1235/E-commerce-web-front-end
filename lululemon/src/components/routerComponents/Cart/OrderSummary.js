@@ -1,11 +1,12 @@
 import CurrentCity from "./CurrentCity";
 import './OrderSummary.scss';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useEffect } from "react";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import invertLogo from "../../../assets/logo/invertLogo.png";
 import { useSelector } from "react-redux";
+
+import PayPalButton from "./PayPalButton";
 
 export const OrderSummary = () => {
     const { currTotal } = useSelector(state => state?.productReducer)
@@ -22,12 +23,12 @@ export const OrderSummary = () => {
                 <hr/>
                 <div className="detail">
                     <span>Shipping  &nbsp;<span>{<InfoOutlinedIcon fontSize={'small'}/>}</span></span>
-                    <span>$total</span>
+                    <span>Free</span>
                 </div>
                 <hr/>
                 <div className="detail">
                     <span>Tax &nbsp;<span>{<InfoOutlinedIcon fontSize={'small'}/>}</span></span>
-                    <span>$total</span>
+                    <span>Calculated at checkout</span>
                 </div>
                 <hr/>
             </div>
@@ -44,9 +45,7 @@ export const OrderSummary = () => {
                 <div className='quickly'>or checkout quickly with</div>
                 <div className="paypal-button">
                     {
-                        <PayPalScriptProvider options={{ "client-id": "test" }}>
-                            <PayPalButtons style={{ layout: "horizontal"}} />
-                        </PayPalScriptProvider>
+                        <PayPalButton />
                     }
                 </div>
                 <div className="ship-to">
