@@ -10,6 +10,10 @@ export const MainNav = () => {
         e.preventDefault();
         navigate('/mainPage/1/1')
     }
+    const handleBagIcon = (e) => {
+        e.preventDefault();
+        navigate('/mybag')
+    }
 
     const handleSignIn = () => {
         alert('Sign In')
@@ -19,7 +23,7 @@ export const MainNav = () => {
             <div className="productNav_container">
                 <div className="logo">
                     <a href="">
-                    <img src={logo} alt="logo" onClick={handleNavigate}/>
+                    <img id='logo' src={logo} alt="logo" onClick={handleNavigate}/>
                     </a>
                 </div>
                 <ul className="productNav">
@@ -40,7 +44,7 @@ export const MainNav = () => {
                     <SearchIcon className="searchIcon"/>
                     <input className="searchInput" type="text" placeholder="Search"/>
                 </form>
-                <ShoppingBagIcon className="shoppingBag" />
+                <ShoppingBagIcon className="shoppingBag" onClick={handleBagIcon} />
             </div>
         </div>
     </div>

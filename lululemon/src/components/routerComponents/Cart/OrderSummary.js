@@ -1,16 +1,15 @@
 import CurrentCity from "./CurrentCity";
 import './OrderSummary.scss';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
-import { useEffect } from "react";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import invertLogo from "../../../assets/logo/invertLogo.png";
 import { useSelector } from "react-redux";
 
 import PayPalButton from "./PayPalButton";
+import WeekLater from "./WeekLater";
 
 export const OrderSummary = () => {
     const { currTotal } = useSelector(state => state?.productReducer)
-    console.log(currTotal)
 
     return <>
         <section className="order-summary">
@@ -18,7 +17,7 @@ export const OrderSummary = () => {
             <div className="summary-details">
                 <div className="detail">
                     <span>Subtotal</span>
-                    <span>$total</span>
+                    <span>${currTotal.toFixed(2)}</span>
                 </div>
                 <hr/>
                 <div className="detail">
@@ -34,7 +33,7 @@ export const OrderSummary = () => {
             </div>
             <div className="estimate">
                 <span className="estTotal">Estimate Total</span>
-                <span className="totalPrice">$111</span>
+                <span className="totalPrice">${currTotal.toFixed(2)}</span>
             </div>
             <div className="checkout-container">
                 <div className="checkout-button">
@@ -45,13 +44,13 @@ export const OrderSummary = () => {
                 <div className='quickly'>or checkout quickly with</div>
                 <div className="paypal-button">
                     {
-                        <PayPalButton />
+                        <PayPalButton totalPrice={currTotal}/>
                     }
                 </div>
                 <div className="ship-to">
                     <div className='address'>
                         {<FmdGoodOutlinedIcon className='mapIcon' fontSize={'inherit'}/>}Ship to {<CurrentCity />} </div>
-                    <p>Arrives by Mon, Mar 27 with free shipping</p>
+                    <p>Arrives by {<WeekLater/>} with free shipping</p>
                 </div>
             </div>
         </section>

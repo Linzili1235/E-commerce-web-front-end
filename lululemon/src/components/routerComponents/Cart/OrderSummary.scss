@@ -56,12 +56,16 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        &:hover {
+          background-color: #a40c0f;
+        }
         img{
           width: 8%;
         }
         letter-spacing: .075rem;
         border-radius: .25rem;
         font-size: 1.1rem;
+        font-weight: bold;
         cursor: pointer;
         width: 100%;
         border: 0.0625rem solid #d31334;

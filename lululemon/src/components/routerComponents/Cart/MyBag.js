@@ -9,10 +9,7 @@ import {ProductInBag} from "./ProductInBag";
 
 export const MyBag = () => {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
     const addedProducts = useSelector(state => state?.productReducer.addedProducts)
-    const currTotal = useSelector(state => state?.productReducer.currTotal)
-    const { isClosed } = useSelector(state => state?.productReducer)
 
     /////////////////////////   Local storage   //////////////////////////////////
     useEffect(() => {
@@ -37,7 +34,6 @@ export const MyBag = () => {
 
     const totalQuantity = totalQ()
 
-
     return <>
         <div className="primaryContent">
             <div>
@@ -53,10 +49,9 @@ export const MyBag = () => {
                 </div>
             </div>
             <div className="productGroup">
-                {addedProducts.map((product, indx) => {
-                    return <ProductInBag key={indx} product={product}/>
+                {addedProducts && addedProducts.map((product, ind) => {
+                    return <ProductInBag ind={ind} key={ind} product={product}/>
                 })}
-
             </div>
 
         </div>
