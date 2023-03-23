@@ -4,6 +4,9 @@ $hover_color: #d31334;
   display: block;
   width: 100%;
   text-align: left;
+  margin: 0 auto;
+  min-width: 62rem;
+  max-width: 90rem;
     li {
       margin: 2rem 0;
       a {
