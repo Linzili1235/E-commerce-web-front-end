@@ -80,18 +80,6 @@
   padding: 1.125rem 0;
   justify-content: space-between;
 }
-.mainNavigation .navigation_bg .searchBar_container .logIn {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  cursor: pointer;
-  margin: 0 1rem;
-}
-.mainNavigation .navigation_bg .searchBar_container .logIn .signIn {
-  min-width: 3rem;
-  margin-left: 0.5rem;
-}
 .mainNavigation .navigation_bg .searchBar_container .searchForm {
   display: flex;
   justify-content: flex-start;

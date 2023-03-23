@@ -77,10 +77,10 @@ const removeProduct = ()  =>  {
     }
 }
 
-const addToBag = (img, title, price, size) => async dispatch => {
+const addToBag = (img, title, price, size, color) => async dispatch => {
     dispatch({
         type: actionType.ADDED_PRODUCT_INFO,
-        payload: {quantity: 1, productInfo: {img, title, price, size}}
+        payload: {quantity: 1, productInfo: {img, title, price, size, color}}
     })
 
     dispatch({
