@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Payment = () => {
+export const Checkout = () => {
     return (
         <div>
             Payment

@@ -7,7 +7,7 @@ export const Footer = () => {
     const { pathname } = location
 
     const getFooter = () => {
-        if (pathname === '/mybag' || pathname === '/review' || pathname === 'payment') {
+        if (pathname === '/mybag' || pathname === '/review' || pathname === '/checkout') {
             return <SimpleFooter />;
         } else {
             return <DefaultFooter />;

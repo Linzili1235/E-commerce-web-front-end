@@ -20,7 +20,7 @@ export const Header = () => {
         switch (location.pathname) {
             case '/mybag':
             case '/review':
-            case '/payment':
+            case '/checkout':
                 return <section className="header1">
                     <nav className="simple-nav">
                         <a className="brand-logo" href="">
