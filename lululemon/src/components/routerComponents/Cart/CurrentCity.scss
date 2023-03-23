@@ -1,0 +1,22 @@
+.postcode {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 900;
+  text-decoration: underline;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items:center;
+  margin-top: 1rem;
+  .postcode-text {
+    text-align: left;
+  }
+  input {
+    height: 3rem;
+    padding-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+  }
+}

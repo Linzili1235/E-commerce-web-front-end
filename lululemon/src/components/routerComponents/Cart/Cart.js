@@ -2,6 +2,7 @@ import React from 'react';
 import {MyBag} from "./MyBag";
 import {OrderSummary} from "./OrderSummary";
 import './Cart.scss'
+
 export const Cart = () => {
     return (
         <section className="shoppingCart">
