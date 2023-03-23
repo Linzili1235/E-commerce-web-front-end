@@ -1,8 +1,7 @@
 .shoppingCart {
   flex: 1;
   .main-context {
-    margin-bottom: 3.5rem;
-    margin-top: 2.5rem;
+    margin: 2.5rem auto;
     max-width: 90rem;
     padding-left: 1.5625rem;
     padding-right: 1.5625rem;
@@ -11,10 +10,11 @@
 
     .myBag-container {
       flex-basis: 66.66667%;
-      height: 60rem;
+
     }
     .orderSummary-container {
       flex-basis: 33.33333%;
+      border: whitesmoke 4px solid;
       height: 60rem;
     }
 

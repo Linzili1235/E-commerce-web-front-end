@@ -85,9 +85,11 @@ const addToBag = (img, title, price, size, color) => async dispatch => {
 
     dispatch({
         type: actionType.TOTAL_PRICE,
-        payload: {currTotal: price}
+        payload: 0,
     })
+
 }
+
 
 const addWhenRefresh = (data) => {
     return {
@@ -103,6 +105,17 @@ const toggleSummaryBox = (bool) => {
     }
 }
 
+const changeWithQuantity = (ind, quantity) => dispatch => {
+    dispatch({
+        type: actionType.CHANGE_WITH_QUANTITY,
+        payload:{quantity, ind}
+    })
+    dispatch({
+        type: actionType.TOTAL_PRICE,
+        payload: 0,
+    })
+}
+
 
 
 export default {
@@ -113,6 +126,7 @@ export default {
     removeProduct,
     addToBag,
     toggleSummaryBox,
-    addWhenRefresh
+    addWhenRefresh,
+    changeWithQuantity
 
 }
