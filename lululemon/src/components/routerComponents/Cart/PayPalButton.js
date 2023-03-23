@@ -10,7 +10,7 @@ const PayPalButton = ({totalPrice}) => {
     // This values are the props in the UI
 
     const amount = totalPrice.toFixed(2).toString();
-    const currency = "USD";
+    const currency = "CAD";
     const clientId = "ARbpbeDkb8SugCVd7nuWXf9V1W5RTV0nVhwJ1sPveEVeeik_X8c0mIX_yp2bprgXxJYL4PHkQACHXP8L";
 
     const style = {
