@@ -53,8 +53,8 @@ export const MyBag = () => {
                 </div>
             </div>
             <div className="productGroup">
-                {addedProducts.map((product) => {
-                    return <ProductInBag product={product}/>
+                {addedProducts.map((product, indx) => {
+                    return <ProductInBag key={indx} product={product}/>
                 })}
 
             </div>
