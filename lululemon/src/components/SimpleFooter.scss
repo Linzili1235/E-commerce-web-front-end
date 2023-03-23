@@ -1,5 +1,45 @@
+$hover_color: #d31334;
+
 .simpleFooter {
   display: block;
   width: 100%;
-  background-color: green;
+  text-align: left;
+    li {
+      margin: 2rem 0;
+      a {
+        position: relative;
+        text-decoration: none;
+        font-weight: bold;
+        padding-bottom: 5px;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          height: 2px;
+          bottom: -2px;
+          left: 0;
+          background-color: $hover_color;
+          transform-origin: bottom right;
+          transition: transform 0.3s ease-out;
+        }
+
+
+        &:hover {
+          cursor: pointer;
+          &::after {
+            transform: scaleX(1);
+            transform-origin: top left;
+          }
+        }
+      }
+    }
+  .light {
+    li {
+      a {
+        font-weight: normal;
+      }
+    }
+  }
+
 }
