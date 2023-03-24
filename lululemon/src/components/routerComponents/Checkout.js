@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Checkout.scss';
 import { TextField } from "@mui/material";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 export const Checkout = () => {
     const [arrowClicked, setArrowClicked] = useState(false)
 
@@ -18,7 +19,11 @@ export const Checkout = () => {
                         <div className="info-box have-an-account">
                             <div className="title">Have an account</div>
                             <div className="content">
-                                <a href="">Log in</a> to checkout more quickly and easily <div className={arrowClicked ? 'arrow-clicked' : 'arrow'} onClick={handleArrowToggle}>{<KeyboardArrowUpIcon/>}</div></div>
+                                <a href="">Log in </a> &nbsp;to checkout more quickly and easily
+                                <div className={arrowClicked ? 'arrow-clicked' : 'arrow'} onClick={handleArrowToggle}>
+                                    {arrowClicked ? <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}
+                                </div>
+                            </div>
                             <div className={arrowClicked ? 'email' : 'email-hide'}>
                                 <div>{<TextField id="outlined-basic" label="Email Address" variant="outlined" style={{ width: '120%' }}/>}</div>
                                 <div>{<TextField id="outlined-basic" label="Password" variant="outlined" style={{ width: '120%' }}/>}
@@ -32,9 +37,10 @@ export const Checkout = () => {
                         <div className="info-box contact-information">
                             <div className="title">Contact Information</div>
                             <div className="email">Email address (for order notification)</div>
-                            <div className="input-box"></div>
+                            <div className='input'>{<TextField id="outlined-basic" variant="outlined" style={{ width: '100%' }}/>}</div>
                             <div className="sign-up">
                                 <div className="checkbox"></div>
+                                <input type="checkbox" />
                                 Sign me up for lululemon emails (you can unsubscribe at any time). See our privacy policy for details.
                             </div>
 

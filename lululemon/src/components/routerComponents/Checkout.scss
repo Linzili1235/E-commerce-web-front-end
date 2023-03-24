@@ -74,6 +74,16 @@
         .email-hide {
           display: none;
         }
+        .input {
+          margin: 1rem 0;
+        }
+        .sign-up {
+          input {
+            transform: scale(2);
+            margin-right: 15px;
+            background-color: black;
+          }
+        }
         .email {
           display: flex;
           flex-direction: row;
@@ -100,6 +110,7 @@
 
       }
       .contact-information {
+
       }
       .shipping-address {
 
