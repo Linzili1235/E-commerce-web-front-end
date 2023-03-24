@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Checkout.scss';
+import { TextField } from "@mui/material";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 export const Checkout = () => {
+    const [arrowClicked, setArrowClicked] = useState(false)
+
+    const handleArrowToggle = () => {
+        setArrowClicked(prevState => !prevState)
+    }
+
     return (
         <>
             <div className="checkout-main-border">
@@ -9,7 +17,17 @@ export const Checkout = () => {
                     <div className="information">
                         <div className="info-box have-an-account">
                             <div className="title">Have an account</div>
-                            <div className="content">Log in to checkout more quickly and easily </div>
+                            <div className="content">
+                                <a href="">Log in</a> to checkout more quickly and easily <div className={arrowClicked ? 'arrow-clicked' : 'arrow'} onClick={handleArrowToggle}>{<KeyboardArrowUpIcon/>}</div></div>
+                            <div className={arrowClicked ? 'email' : 'email-hide'}>
+                                <div>{<TextField id="outlined-basic" label="Email Address" variant="outlined" style={{ width: '120%' }}/>}</div>
+                                <div>{<TextField id="outlined-basic" label="Password" variant="outlined" style={{ width: '120%' }}/>}
+                                     <div className="forgot-password"><a href="">Forgot your password?</a></div>
+                                </div>
+                            </div>
+                            <div className="signIn-button">
+                                <span>SIGN IN</span>
+                            </div>
                         </div>
                         <div className="info-box contact-information">
                             <div className="title">Contact Information</div>

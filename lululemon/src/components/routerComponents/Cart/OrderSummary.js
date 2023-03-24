@@ -7,9 +7,15 @@ import { useSelector } from "react-redux";
 
 import PayPalButton from "./PayPalButton";
 import WeekLater from "./WeekLater";
+import { useNavigate } from "react-router-dom";
 
 export const OrderSummary = () => {
+    const navigate = useNavigate();
     const { currTotal } = useSelector(state => state?.productReducer)
+
+    const handleNavigate = (e) => {
+        navigate('/checkout')
+    }
 
     return <>
         <section className="order-summary">
@@ -36,7 +42,7 @@ export const OrderSummary = () => {
                 <span className="totalPrice">${currTotal.toFixed(2)}</span>
             </div>
             <div className="checkout-container">
-                <div className="checkout-button">
+                <div className="checkout-button" onClick={handleNavigate}>
                     <button>
                         <img src={invertLogo} alt="logo"/><span>CHECKOUT</span>
                     </button>
