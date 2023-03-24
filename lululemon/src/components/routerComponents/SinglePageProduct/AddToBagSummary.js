@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import './AddToBagSummary.scss'
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +11,7 @@ const AddToBagSummary = () => {
     const addedProducts = useSelector(state => state?.productReducer.addedProducts)
     const currTotal = useSelector(state => state?.productReducer.currTotal)
     const { isClosed } = useSelector(state => state?.productReducer)
+
     /////////////////////////   Local storage   //////////////////////////////////
     useEffect(() => {
         const data = window.localStorage.getItem('Added Products')

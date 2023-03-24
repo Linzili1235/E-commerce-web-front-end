@@ -107,6 +107,10 @@ export const productReducer = (state=initialState, action) => {
             const temp_product = temp_products[ind]
             temp_product.quantity = quantity
             return {...state, addedProducts: temp_products}
+        case actionType.REMOVE_SPECIFIC_PRODUCT:
+            const tem_products = [...state?.addedProducts]
+            tem_products.splice(action?.payload,1)
+            return {...state, addedProducts: tem_products}
         default:
             return {...state}
     }
