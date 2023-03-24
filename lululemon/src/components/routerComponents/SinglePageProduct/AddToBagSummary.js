@@ -41,6 +41,7 @@ const AddToBagSummary = () => {
     }
 
     const goToCart = () => {
+        dispatch(actions?.productActions?.toggleSummaryBox(true))
         navigate('/mybag')
     }
 
