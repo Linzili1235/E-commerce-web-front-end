@@ -77,10 +77,10 @@ const removeProduct = ()  =>  {
     }
 }
 
-const addToBag = (img, title, price, size, color) => async dispatch => {
+const addToBag = (img, title, price, size, color,productId) => async dispatch => {
     dispatch({
         type: actionType.ADDED_PRODUCT_INFO,
-        payload: {quantity: 1, productInfo: {img, title, price, size, color}}
+        payload: {quantity: 1, productId, productInfo: {img, title, price, size, color}}
     })
 
     dispatch({
@@ -116,6 +116,18 @@ const changeWithQuantity = (ind, quantity) => dispatch => {
     })
 }
 
+const removeSpecificProduct = (ind) => async dispatch => {
+    dispatch({
+        type: actionType.REMOVE_SPECIFIC_PRODUCT,
+        payload: ind
+    })
+    dispatch({
+        type: actionType.TOTAL_PRICE,
+        payload: 0,
+    })
+
+}
+
 
 
 export default {
@@ -127,6 +139,7 @@ export default {
     addToBag,
     toggleSummaryBox,
     addWhenRefresh,
-    changeWithQuantity
+    changeWithQuantity,
+    removeSpecificProduct
 
 }

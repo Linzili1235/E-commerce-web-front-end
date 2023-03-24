@@ -22,13 +22,14 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
 
 
     // LOCAL STORAGE to store added products info
-    const {swatches,sizes} = productOne
+    const {swatches,sizes, productId} = productOne
     // first image at the color index
     const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
     const title = productOne.images[colorIndex].mainCarousel.alt
     const price = productOne.price
     const size = productOne.sizes[0].details[sizeIndex]
     const color = swatches[colorIndex].swatchAlt
+
 
     // create an array to deal with onClick border
     // false: no border, true: with border
@@ -89,7 +90,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         else {
 
         // console.log('size', sizeIndex, title, price,size)
-        dispatch(actions?.productActions?.addToBag(img, title, price, size, color))
+        dispatch(actions?.productActions?.addToBag(img, title, price, size, color,productId))
             .then(() => setAdded(prevState => !prevState) )
 
         // dispatch(actions?.productActions?.toggleSummaryBox(false))
