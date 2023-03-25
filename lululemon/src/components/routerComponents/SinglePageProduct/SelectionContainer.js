@@ -9,17 +9,14 @@ import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import { actionType } from "../../../Helper";
 import { CircularProgress } from '@mui/material';
 import actions from "../../../actions";
 
 export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const dispatch = useDispatch();
     const productOne = useSelector(state => state?.productReducer?.one_product)
-
     const [colorIndex, updateColorIndex] = useState(0)
     const [sizeIndex, updateSizeIndex] = useState(-1)
-
 
     // LOCAL STORAGE to store added products info
     const {swatches,sizes, productId} = productOne
@@ -28,17 +25,13 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
     const title = productOne.images[colorIndex].mainCarousel.alt
     const price = productOne.price
-    const size = productOne.sizes[0].details[sizeIndex]
+    const size =  productOne.sizes[0].details[sizeIndex]
     const color = swatches[colorIndex].swatchAlt
-
 
     // create an array to deal with onClick border
     // false: no border, true: with border
     const borderArray = Array(swatches.length).fill(false)
     const [borderBool, updateBorderBool] = useState(borderArray)
-
-
-
 
     // default border with first item
     useEffect(()=> updateBorderBool(prevState => {
@@ -47,7 +40,14 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         return newState
     }
     ), [])
-    // console.log(swatches)
+
+    useEffect(() => {
+        if (sizes[0].details.length === 0) {
+            updateSizeIndex(0);
+            updateAlert(false);
+        }
+    }, [sizes]);
+
 
     // same idea with onClick size choice
     const sizeArray = Array(sizes[0].details.length).fill(false)
@@ -73,15 +73,17 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     }
 
     const onClickChangeSize = (ind) => {
-        updateSizeIndex(ind)
-        updateAlert(false)
-        updateShowAlert(false)
-        updateBool(prevState => {
-            const newState = sizeArray
-            newState[ind] = true
-            return newState
-        })
-    }
+            // Otherwise, handle multiple sizes as before
+            updateSizeIndex(ind);
+            updateAlert(false);
+            updateShowAlert(false);
+            updateBool(prevState => {
+                const newState = sizeArray;
+                newState[ind] = true;
+                return newState;
+            });
+    };
+
 
     const [added, setAdded] = useState(false)
     // pass img, title, price, size to the reducer
@@ -175,7 +177,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                                 <span className="oneSize-text">One Size</span>
                             </div>
                             <div className="sizeButtons">
-                                <span className="oneSize">One Size</span>
+                                <span className="oneSize" onClick={() => onClickChangeSize()}>One Size</span>
                             </div>
                         </>}
 
