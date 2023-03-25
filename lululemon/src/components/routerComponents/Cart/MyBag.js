@@ -10,6 +10,7 @@ import {ProductInBag} from "./ProductInBag";
 export const MyBag = () => {
     const dispatch = useDispatch()
     const addedProducts = useSelector(state => state?.productReducer.addedProducts)
+    // console.log(addedProducts)
 
     /////////////////////////   Local storage   //////////////////////////////////
     useEffect(() => {
@@ -50,7 +51,7 @@ export const MyBag = () => {
             </div>
             <div className="productGroup">
                 {addedProducts && addedProducts.map((product, ind) => {
-                    return <ProductInBag ind={ind} key={ind} product={product}/>
+                    return <ProductInBag index={ind} key={ind} product={product}/>
                 })}
             </div>
 

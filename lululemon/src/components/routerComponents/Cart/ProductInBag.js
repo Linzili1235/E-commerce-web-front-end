@@ -3,15 +3,17 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {useEffect, useState} from "react";
 
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import actions from "../../../actions";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import {CircularProgress} from "@mui/material";
+import {CarouselInBag} from "./CarouselInBag";
+import {SelectionInBag} from "./SelectionInBag";
 
-export const ProductInBag = ({product,ind}) => {
+export const ProductInBag = ({product,index}) => {
     const dispatch = useDispatch()
     const {productInfo, quantity, productId} = product
-    const {img, title, color, price, size} = productInfo
+    const {img, title, color, price, size, colorIndex} = productInfo
     const numericPrice = parseFloat(price.replace(/[^0-9.]/g, ''))
     const twoDigitPrice = `$${numericPrice.toFixed(2)}`
     const twoDigitTotalPrice = `$${(numericPrice * quantity).toFixed(2)}`
@@ -22,18 +24,30 @@ export const ProductInBag = ({product,ind}) => {
     const [isRemoveClose, setIsRemoveClose] = useState(true)
     const [isProductClose, setIsProductClose] = useState(true)
     const [isLoading, setIsLoading] = useState(true)
+    const [selectedColorIndex, setSelectedColorIndex] = useState(colorIndex)
+    const handleColorChange = (indx) => {
+        setSelectedColorIndex(indx)
+    }
 
     const handleChange = (value) => {
         setSelectedValue(value)
     }
     // useEffect and dispatch, or the change of quantity will delay
-    useEffect(()=> dispatch(actions?.productActions?.changeWithQuantity(ind, selectedValue)), [selectedValue])
+    useEffect(()=> dispatch(actions?.productActions?.changeWithQuantity(index, selectedValue)), [selectedValue])
+    // useEffect(()=>set)
     const toggleDropdown = () => {
         setIsOpen(!isOpen)
     }
 
    const handleClose = () => {
         setIsRemoveClose(!isRemoveClose)
+   }
+
+    const handleProductOpen = (productId) => {
+        // console.log(key)
+        setIsProductClose(!isProductClose)
+       onClickFetch(productId)
+
    }
    const handleProductClose = () => {
         setIsProductClose(!isProductClose)
@@ -53,16 +67,16 @@ export const ProductInBag = ({product,ind}) => {
     <div className="productInBag">
         <div className="product-image-container">
             {/*TODO: add edit to product page here*/}
-            <img className="productImg" src={img} alt={title} onClick={handleProductClose}/>
+            <img className="productImg" src={img} alt={title} onClick={()=>handleProductOpen(productId)}/>
         </div>
         <div className="product-details-container">
-            <h3 className="product-title" onClick={handleProductClose}><strong>{title}</strong></h3>
+            <h3 className="product-title" onClick={() => handleProductOpen(productId )}><strong>{title}</strong></h3>
             <p className="product-color">{color}</p>
             <div className="product-moreDetails">
                 <div className="product-size">
                     {/*TODO: add edit to product page here*/}
                     <p className="detail-title">Size {size}</p>
-                    <span className="product-edit" onClick={handleProductClose}>Edit</span>
+                    <span className="product-edit" onClick={()=>handleProductOpen(productId)}>Edit</span>
 
                 </div>
                 <div className="rowWrapper">
@@ -119,7 +133,7 @@ export const ProductInBag = ({product,ind}) => {
                     </div>
                         <h3 className="remove-popup-header" >Are you sure you want to remove this item
                             from your bag?</h3>
-                        <button className="remove-click" onClick={()=>handleRemove(ind)}>Yes, remove this item</button>
+                        <button className="remove-click" onClick={()=>handleRemove(index)}>Yes, remove this item</button>
                         <div className="no-remove-click" onClick={handleClose}>No, keep this item</div>
                     </div>
 
@@ -155,6 +169,11 @@ export const ProductInBag = ({product,ind}) => {
 
                         </div>
                     </div> : <div className="updateProduct-detail">
+                        <CarouselInBag selectedColorIndex={selectedColorIndex}  className="productImg-update"/>
+                        <SelectionInBag onColorChange={handleColorChange} />
+
+
+
 
                     </div>}
 

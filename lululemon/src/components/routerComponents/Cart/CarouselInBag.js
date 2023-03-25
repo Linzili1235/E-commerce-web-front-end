@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import './Carousel.scss';
+import './CarouselInBag.scss';
 import {useSelector} from "react-redux";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ZoomInIcon from '@mui/icons-material/ZoomIn';
 
-const Carousel = ({ selectedColorIndex, onZoomChange, zoomIn }) => {
+export const CarouselInBag = ({selectedColorIndex}) => {
     // need colorId from swatch to determine which image Array to display
     // the default image array is the first set
     const productOne = useSelector(state => state?.productReducer?.one_product)
-    const initArray = productOne.images[0]
+    const initArray = productOne?.images[0]
+    // console.log(productOne)
     const [imgArray, setImgArray] = useState(initArray)
+    // console.log(imgArray[0].mainCarousel)
 
-    const imgSrc = imgArray.mainCarousel.media.split('|')
-    const imgAlt = imgArray.mainCarousel.alt
+    const imgSrc = imgArray?.mainCarousel?.media.split('|')
+    console.log(imgSrc)
+    const imgAlt = imgArray?.mainCarousel?.alt
     const [currIdx, setCurrIdx] = useState(0)
     const mainImg = imgSrc[currIdx]
     const [imgOpacity, setImgOpacity] = useState(1)
 
-    const [magnify, setMagnify] = useState(false)
+
+    // const [magnify, setMagnify] = useState(false)
 
     // update imgArray based on the selected color from the selection component
     useEffect(() => {
@@ -52,17 +55,17 @@ const Carousel = ({ selectedColorIndex, onZoomChange, zoomIn }) => {
         }, 200)
     }
 
-    const handleZoomIn = () => {
-        setMagnify(prevState => !prevState)
-    }
-////////////////////////////////////////////////////////////////
-    useEffect(() =>{
-        onZoomChange(magnify)
-    }, [magnify])
+//     const handleZoomIn = () => {
+//         setMagnify(prevState => !prevState)
+//     }
+// ////////////////////////////////////////////////////////////////
+//     useEffect(() =>{
+//         onZoomChange(magnify)
+//     }, [magnify])
 
     return (
         <>
-            <div className={ zoomIn ? "hidden" : "carousel-container" }>
+            <div className="carousel-container" >
                 <div className="product-img-container">
                     {/* Button */}
                     <div className="button-container">
@@ -77,7 +80,7 @@ const Carousel = ({ selectedColorIndex, onZoomChange, zoomIn }) => {
                     <img src={mainImg}
                          alt={imgAlt}
                          style={{opacity: imgOpacity, cursor: 'pointer'}}
-                         onClick={handleZoomIn}
+                         // onClick={handleZoomIn}
                     />
                     {
                         imgSrc.map((item, indx)=> {
@@ -93,38 +96,37 @@ const Carousel = ({ selectedColorIndex, onZoomChange, zoomIn }) => {
                         )
                     }
                     {/* Magnifier  */}
-                    <div className="magnifier">
-                        <div className="zoom-icon-container" onClick={handleZoomIn}>
-                            <ZoomInIcon />
-                        </div>
-                    </div>
+                    {/*<div className="magnifier">*/}
+                    {/*    <div className="zoom-icon-container" onClick={handleZoomIn}>*/}
+                    {/*        <ZoomInIcon />*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
 
                 </div>
             </div>
-            <div className={ zoomIn ? "zoomIn-container" : "hidden" }>
-                <div className="header-container">
-                    <div className="back-button">
-                        <a onClick={handleZoomIn}>
-                            Back to Product
-                        </a>
-                    </div>
-                    <div className="image-alt">
-                        {imgAlt}
-                    </div>
-                </div>
-                {
-                    imgSrc.map((item, indx)=>
-                        <img src={item}
-                             key={indx}
-                             alt={imgAlt}
-                             className='zoomInImage'
-                             onClick={handleZoomIn}
-                        />
-                    )
-                }
-            </div>
+            {/*<div className={ zoomIn ? "zoomIn-container" : "hidden" }>*/}
+            {/*    <div className="header-container">*/}
+            {/*        <div className="back-button">*/}
+            {/*            <a onClick={handleZoomIn}>*/}
+            {/*                Back to Product*/}
+            {/*            </a>*/}
+            {/*        </div>*/}
+            {/*        <div className="image-alt">*/}
+            {/*            {imgAlt}*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*    {*/}
+            {/*        imgSrc.map((item, indx)=>*/}
+            {/*            <img src={item}*/}
+            {/*                 key={indx}*/}
+            {/*                 alt={imgAlt}*/}
+            {/*                 className='zoomInImage'*/}
+            {/*                 onClick={handleZoomIn}*/}
+            {/*            />*/}
+            {/*        )*/}
+            {/*    }*/}
+            {/*</div>*/}
         </>
     );
 };
 
-export default Carousel;

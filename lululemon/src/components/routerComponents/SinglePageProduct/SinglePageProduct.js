@@ -11,12 +11,13 @@ import {WhyWeMadeThis} from "./WhyWeMadeThis";
 export const SinglePageProduct = () => {
     //get the product id from URL with useParams hook
     const prodId = useParams();
+    const {id} = prodId
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
 
     //asynchronously fetch one product
     useEffect( () => {
-        dispatch(actions?.productActions?.fetchOneProduct(prodId))
+        dispatch(actions?.productActions?.fetchOneProduct(id))
             .then(()=> setIsLoading( false))
     },[]);
 

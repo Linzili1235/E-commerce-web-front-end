@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 .checkout-main-border .checkout-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin: 2rem 0;
 }
@@ -17,6 +17,7 @@
   justify-content: space-between;
   align-items: stretch;
   height: 70rem;
+  padding: 0 4rem;
 }
 .checkout-main-border .checkout-main-container .information {
   margin-left: 2rem;
@@ -32,11 +33,72 @@
   background-color: #fff;
   font-size: 1.125rem;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   padding-top: 1.5rem;
   padding-left: 1.5625rem;
   padding-right: 1.5625rem;
   text-align: left;
+}
+.checkout-main-border .checkout-main-container .information .info-box .content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.checkout-main-border .checkout-main-container .information .info-box .content .arrow {
+  cursor: pointer;
+  display: inline-block;
+}
+.checkout-main-border .checkout-main-container .information .info-box .content .arrow-clicked {
+  cursor: pointer;
+  display: inline-block;
+}
+.checkout-main-border .checkout-main-container .information .info-box .content a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.checkout-main-border .checkout-main-container .information .info-box .signIn-button {
+  width: 100%;
+  height: 3rem;
+  margin-top: 1rem;
+  background-color: black;
+  text-align: center;
+  line-height: 2.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.checkout-main-border .checkout-main-container .information .info-box .signIn-button:hover {
+  background-color: grey;
+}
+.checkout-main-border .checkout-main-container .information .info-box .signIn-button span {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+.checkout-main-border .checkout-main-container .information .info-box .email-hide {
+  display: none;
+}
+.checkout-main-border .checkout-main-container .information .info-box .input {
+  margin: 1rem 0;
+}
+.checkout-main-border .checkout-main-container .information .info-box .sign-up input {
+  transform: scale(2);
+  margin-right: 15px;
+  background-color: black;
+}
+.checkout-main-border .checkout-main-container .information .info-box .email {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1rem 0;
+}
+.checkout-main-border .checkout-main-container .information .info-box .email .forgot-password {
+  margin-top: 0.5rem;
+  font-size: small;
+  text-decoration: underline;
+}
+.checkout-main-border .checkout-main-container .information .info-box .email div {
+  margin-right: 2rem;
 }
 .checkout-main-border .checkout-main-container .information .info-box .title {
   margin: 0 0 0.5rem;

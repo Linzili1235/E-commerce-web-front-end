@@ -8,9 +8,9 @@ import axios from "axios";
 ////////////////////////////////
 
 //[async dispatch] is provided by redux thunk middleware
-const fetchOneProduct = ({id}) => async dispatch => {
+const fetchOneProduct = (productId) => async dispatch => {
     try {
-        const response = await axios.get(`http://api-lulu.hibitbyte.com/product/${id}?${KEYS_URL}`)
+        const response = await axios.get(`http://api-lulu.hibitbyte.com/product/${productId}?${KEYS_URL}`)
         const data = response?.data?.rs;
         // console.log('[Fetch one product details --- data]', data)
         dispatch({
@@ -77,10 +77,10 @@ const removeProduct = ()  =>  {
     }
 }
 
-const addToBag = (img, title, price, size, color,productId) => async dispatch => {
+const addToBag = (img, title, price, size, color,productId, colorIndex) => async dispatch => {
     dispatch({
         type: actionType.ADDED_PRODUCT_INFO,
-        payload: {quantity: 1, productId, productInfo: {img, title, price, size, color}}
+        payload: {quantity: 1, productId, productInfo: {img, title, price, size, color, colorIndex}}
     })
 
     dispatch({
