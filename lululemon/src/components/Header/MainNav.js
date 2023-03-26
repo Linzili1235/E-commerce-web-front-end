@@ -62,10 +62,12 @@ export const MainNav = () => {
                     <SearchIcon className="searchIcon"/>
                     <input className="searchInput" type="text" placeholder="Search"/>
                 </form>
-                <ShoppingBagIcon className="shoppingBag" onClick={handleBagIcon}/>
+                <div className="shoppingBag-container" onClick={handleBagIcon}>
+                <ShoppingBagIcon className="shoppingBag" />
                 <div className="showing-quantity">{totalQuantity}
                 </div>
                 {totalQuantity > 0 && <div className="product-indicator"></div>}
+                </div>
 
             </div>
         </div>

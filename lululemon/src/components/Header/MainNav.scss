@@ -121,43 +121,47 @@
 
 
         }}
+      .shoppingBag-container {
+        display: flex;
+        justify-content: center;
 
         .shoppingBag {
           margin-left: 2rem;
           color: white;
           stroke: black;
-          stroke-width: 1.5px ;
+          stroke-width: 1.5px;
           cursor: pointer;
 
 
         }
-      .showing-quantity {
-        color: css.$hover_color;
-        position: relative;
-        top: 0.2rem;
-        right: 0.98rem;
-        cursor: pointer;
-        //z-index: 999;
+
+        .showing-quantity {
+          color: css.$hover_color;
+          position: relative;
+          top: 0.5rem;
+          right: 0.98rem;
+          cursor: pointer;
+          z-index: 999;
+
+        }
+
+        .product-indicator {
+          animation: cart-icon_shadow-pulse__124qv 4s infinite;
+          background-color: #d31334;
+          border-radius: 50%;
+          content: "";
+          display: block;
+          width: 0.5rem;
+          height: 0.5rem;
+          position: relative;
+          bottom: 0.15rem;
+          right: 0.7rem;
+          cursor: pointer;
+
+        }
+
 
       }
-      .product-indicator {
-        animation: cart-icon_shadow-pulse__124qv 4s infinite;
-        background-color: #d31334;
-        border-radius: 50%;
-        content: "";
-        display: block;
-        width: 0.5rem;
-        height: 0.5rem;
-        position: relative;
-        bottom: 0.65rem;
-        right: 0.9rem;
-        cursor: pointer;
-
-      }
-
-
-
-
       }
     }
   }

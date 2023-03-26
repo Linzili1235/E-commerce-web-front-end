@@ -99,21 +99,26 @@
   top: 0.85rem;
   cursor: pointer;
 }
-.mainNavigation .navigation_bg .searchBar_container .shoppingBag {
+.mainNavigation .navigation_bg .searchBar_container .shoppingBag-container {
+  display: flex;
+  justify-content: center;
+}
+.mainNavigation .navigation_bg .searchBar_container .shoppingBag-container .shoppingBag {
   margin-left: 2rem;
   color: white;
   stroke: black;
   stroke-width: 1.5px;
   cursor: pointer;
 }
-.mainNavigation .navigation_bg .searchBar_container .showing-quantity {
+.mainNavigation .navigation_bg .searchBar_container .shoppingBag-container .showing-quantity {
   color: #d31334;
   position: relative;
-  top: 0.2rem;
+  top: 0.5rem;
   right: 0.98rem;
   cursor: pointer;
+  z-index: 999;
 }
-.mainNavigation .navigation_bg .searchBar_container .product-indicator {
+.mainNavigation .navigation_bg .searchBar_container .shoppingBag-container .product-indicator {
   animation: cart-icon_shadow-pulse__124qv 4s infinite;
   background-color: #d31334;
   border-radius: 50%;
@@ -122,8 +127,8 @@
   width: 0.5rem;
   height: 0.5rem;
   position: relative;
-  bottom: 0.65rem;
-  right: 0.9rem;
+  bottom: 0.15rem;
+  right: 0.7rem;
   cursor: pointer;
 }
 
