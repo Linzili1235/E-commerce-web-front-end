@@ -1,15 +1,8 @@
 import React from 'react';
 import './SelectionInBag.scss'
 import { useDispatch, useSelector } from "react-redux"
-import {useState,useEffect} from "react"
-import AdjustRoundedIcon from '@mui/icons-material/AdjustRounded';
-import {ItemCheckedIcon} from "../../mainPageComponents/SideBar/SideBarIcon";
-import HouseSidingRoundedIcon from '@mui/icons-material/HouseSidingRounded';
-import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
-import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-import { actionType } from "../../../Helper";
-import { CircularProgress } from '@mui/material';
+import {useState} from "react"
+
 import actions from "../../../actions";
 
 export const SelectionInBag = ({onColorChange,sizeInd,colorInd,ind}) => {

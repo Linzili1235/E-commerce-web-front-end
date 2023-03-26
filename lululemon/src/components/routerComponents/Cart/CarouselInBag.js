@@ -24,13 +24,7 @@ export const CarouselInBag = ({selectedColorIndex}) => {
         setImgArray(productOne.images[selectedColorIndex])
     }, [selectedColorIndex, productOne.images])
 
-    // click swatch images to switch images
-    const handleImgSwitch = (idx) => {
-        // setImgOpacity(0)
-        setTimeout(()=> {
-            setCurrIdx(idx)
-        }, 200)
-    }
+
 
     // click left or right arrow to switch images
     const handleLeftArrow = () => {

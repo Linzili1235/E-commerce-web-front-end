@@ -11,8 +11,6 @@ import {CarouselInBag} from "./CarouselInBag";
 import {SelectionInBag} from "./SelectionInBag";
 
 export const ProductInBag = ({product,index}) => {
-    const addedProduct = useSelector(state => state?.productReducer?.addedProducts)
-    const noProduct = useSelector(state => state?.productReducer?.noProduct)
     const dispatch = useDispatch()
     const {productInfo, quantity, productId} = product
     // for some reasons, here the properties won't change with product
@@ -125,7 +123,7 @@ export const ProductInBag = ({product,index}) => {
                     <span>Free Shipping + Free Returns</span>
                 </div>
                 <div className="save-for-later">
-                    <a className="save-link" href="">Save for Later</a>
+                    <a className="save-link" href="#">Save for Later</a>
 
                 </div>
                 <div className="remove-product" onClick={handleClose}>

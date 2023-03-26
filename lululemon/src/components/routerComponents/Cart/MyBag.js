@@ -1,6 +1,5 @@
 import './MyBag.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
 import actions from "../../../actions";
 import {useEffect} from "react";
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';

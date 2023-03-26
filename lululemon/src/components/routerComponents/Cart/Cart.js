@@ -11,7 +11,7 @@ export const Cart = () => {
     const navigate = useNavigate()
     const addedProduct = useSelector(state => state?.productReducer?.addedProducts)
     const noProduct = useSelector(state => state?.productReducer?.noProduct)
-    console.log(noProduct)
+    // console.log(noProduct)
 
 
     const handleNavigate = (e) => {

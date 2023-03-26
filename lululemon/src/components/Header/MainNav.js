@@ -3,9 +3,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import {logo} from '../../assets/logo/logo'
 import { useNavigate } from "react-router-dom";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import {useEffect} from "react";
+import actions from "../../actions";
+import {useSelector} from "react-redux";
+
 export const MainNav = () => {
     const navigate = useNavigate();
+    const addedProduct = useSelector(state => state?.productReducer?.addedProducts)
+    // use localstorage will delay
+    // const data = window.localStorage.getItem('Added Products')
+    // const recoveredProduct = JSON.parse(data)
     const handleNavigate = (e) => {
         e.preventDefault();
         navigate('/mainPage/1/1')
@@ -14,10 +21,21 @@ export const MainNav = () => {
         e.preventDefault();
         navigate('/mybag')
     }
-
-    const handleSignIn = () => {
-        alert('Sign In')
+    const totalQ = () => {
+        let count = 0
+        for (const obj of addedProduct) {
+            count += obj.quantity
+        }
+        return count
     }
+    const totalQuantity = totalQ()
+
+
+
+
+
+
+
     return <div className="mainNavigation">
         <div className="navigation_bg">
             <div className="productNav_container">
@@ -44,7 +62,11 @@ export const MainNav = () => {
                     <SearchIcon className="searchIcon"/>
                     <input className="searchInput" type="text" placeholder="Search"/>
                 </form>
-                <ShoppingBagIcon className="shoppingBag" onClick={handleBagIcon} />
+                <ShoppingBagIcon className="shoppingBag" onClick={handleBagIcon}/>
+                <div className="showing-quantity">{totalQuantity}
+                </div>
+                {totalQuantity > 0 && <div className="product-indicator"></div>}
+
             </div>
         </div>
     </div>
