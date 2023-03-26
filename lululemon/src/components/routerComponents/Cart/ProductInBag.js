@@ -11,9 +11,14 @@ import {CarouselInBag} from "./CarouselInBag";
 import {SelectionInBag} from "./SelectionInBag";
 
 export const ProductInBag = ({product,index}) => {
+    const addedProduct = useSelector(state => state?.productReducer?.addedProducts)
+    const noProduct = useSelector(state => state?.productReducer?.noProduct)
     const dispatch = useDispatch()
     const {productInfo, quantity, productId} = product
-    const {img, title, color, price, size, colorIndex} = productInfo
+    // for some reasons, here the properties won't change with product
+    const {img, title, color, price, size, colorIndex, sizeIndex} = productInfo
+    // console.log(product)
+    // console.log("size",product.size)
     const numericPrice = parseFloat(price.replace(/[^0-9.]/g, ''))
     const twoDigitPrice = `$${numericPrice.toFixed(2)}`
     const twoDigitTotalPrice = `$${(numericPrice * quantity).toFixed(2)}`
@@ -22,7 +27,8 @@ export const ProductInBag = ({product,index}) => {
     const [selectedValue, setSelectedValue] = useState(quantity)
     const [isOpen, setIsOpen] = useState(false)
     const [isRemoveClose, setIsRemoveClose] = useState(true)
-    const [isProductClose, setIsProductClose] = useState(true)
+    const {isUpdateClosed} = useSelector(state => state?.productReducer)
+    // const [isProductClose, setIsProductClose] = useState(true)
     const [isLoading, setIsLoading] = useState(true)
     const [selectedColorIndex, setSelectedColorIndex] = useState(colorIndex)
     const handleColorChange = (indx) => {
@@ -32,9 +38,11 @@ export const ProductInBag = ({product,index}) => {
     const handleChange = (value) => {
         setSelectedValue(value)
     }
+
+
     // useEffect and dispatch, or the change of quantity will delay
-    useEffect(()=> dispatch(actions?.productActions?.changeWithQuantity(index, selectedValue)), [selectedValue])
-    // useEffect(()=>set)
+    useEffect(()=> {dispatch(actions?.productActions?.changeWithQuantity(index, selectedValue)).then()}, [selectedValue])
+
     const toggleDropdown = () => {
         setIsOpen(!isOpen)
     }
@@ -45,19 +53,20 @@ export const ProductInBag = ({product,index}) => {
 
     const handleProductOpen = (productId) => {
         // console.log(key)
-        setIsProductClose(!isProductClose)
-       onClickFetch(productId)
+        dispatch(actions?.productActions?.toggleUpdateBox(false))
+        onClickFetch(productId)
 
    }
-   const handleProductClose = () => {
-        setIsProductClose(!isProductClose)
-   }
+   const handleProductClose = (e) => {
+       e.preventDefault();
+       dispatch(actions?.productActions?.toggleUpdateBox(true))   }
 
    const handleRemove = (ind) => {
        dispatch(actions?.productActions?.removeSpecificProduct(ind)).then()
        setIsRemoveClose(!isRemoveClose)
    }
-   const onClickFetch = (productId) => {
+
+    const onClickFetch = (productId) => {
         dispatch(actions?.productActions?.fetchOneProduct(productId))
             .then(()=> setIsLoading( false))
    }
@@ -66,7 +75,6 @@ export const ProductInBag = ({product,index}) => {
     <div className="productInBag-container">
     <div className="productInBag">
         <div className="product-image-container">
-            {/*TODO: add edit to product page here*/}
             <img className="productImg" src={img} alt={title} onClick={()=>handleProductOpen(productId)}/>
         </div>
         <div className="product-details-container">
@@ -74,7 +82,6 @@ export const ProductInBag = ({product,index}) => {
             <p className="product-color">{color}</p>
             <div className="product-moreDetails">
                 <div className="product-size">
-                    {/*TODO: add edit to product page here*/}
                     <p className="detail-title">Size {size}</p>
                     <span className="product-edit" onClick={()=>handleProductOpen(productId)}>Edit</span>
 
@@ -149,8 +156,8 @@ export const ProductInBag = ({product,index}) => {
 
 
     </div>
-        <div className={`${isProductClose ? 'none-display': 'backdrop'}`} onClick={handleProductClose}></div>
-        <div className={`${isProductClose ? 'none-display': "updateProductContainer"}`}>
+        <div className={`${isUpdateClosed ? 'none-display': 'backdrop'}`} onClick={handleProductClose}></div>
+        <div className={`${isUpdateClosed ? 'none-display': "updateProductContainer"}`}>
             <div className="updateProduct-content">
                 <div className="close-button">
                     <CloseOutlinedIcon fontSize={'medium'} onClick={handleProductClose} style={{cursor:"pointer"}}/>
@@ -170,7 +177,8 @@ export const ProductInBag = ({product,index}) => {
                         </div>
                     </div> : <div className="updateProduct-detail">
                         <CarouselInBag selectedColorIndex={selectedColorIndex}  className="productImg-update"/>
-                        <SelectionInBag onColorChange={handleColorChange} />
+                        <SelectionInBag onColorChange={handleColorChange}
+                                        ind={index} colorInd={colorIndex} sizeInd={sizeIndex}/>
 
 
 

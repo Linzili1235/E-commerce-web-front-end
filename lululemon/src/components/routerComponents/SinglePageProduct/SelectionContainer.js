@@ -25,7 +25,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
     const title = productOne.images[colorIndex].mainCarousel.alt
     const price = productOne.price
-    const size =  productOne.sizes[0].details[sizeIndex]
+    const size =  productOne.sizes[0].details.length === 0? "ONE SIZE": productOne.sizes[0].details[sizeIndex]
     const color = swatches[colorIndex].swatchAlt
 
     // create an array to deal with onClick border
@@ -93,7 +93,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         else {
 
         // console.log('size', sizeIndex, title, price,size)
-        dispatch(actions?.productActions?.addToBag(img, title, price, size, color,productId, colorIndex))
+        dispatch(actions?.productActions?.addToBag(img, title, price, size, color,productId, colorIndex, sizeIndex))
             .then(() => setAdded(prevState => !prevState) )
 
         // dispatch(actions?.productActions?.toggleSummaryBox(false))
@@ -101,8 +101,11 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
 
         setTimeout(()=>{
             dispatch(actions?.productActions?.toggleSummaryBox(false))
+            // once add product, addedProduct length > 0, show product in myBag page
+            dispatch(actions?.productActions?.setNoProduct(false))
             setAdded(prevState => !prevState)
-        }, 300)}
+        }, 300)
+        }
 
     }
 
@@ -177,7 +180,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                                 <span className="oneSize-text">One Size</span>
                             </div>
                             <div className="sizeButtons">
-                                <span className="oneSize" onClick={() => onClickChangeSize()}>One Size</span>
+                                <span className="oneSize">One Size</span>
                             </div>
                         </>}
 

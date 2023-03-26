@@ -23,6 +23,7 @@ export const MyBag = () => {
 
     useEffect(() => {
         window.localStorage.setItem('Added Products', JSON.stringify(addedProducts));
+        // console.log(addedProducts)
     }, [addedProducts]);
 
     const totalQ = () => {

@@ -9,6 +9,8 @@ const initialState = {
     params: {},   // if pagination is enabled, we need to change the params to separately control page
     sortId: '1',
     isClosed: true,
+    isUpdateClosed: true,
+    noProduct: false,
     currTotal: 0
 }
 
@@ -76,6 +78,10 @@ export const productReducer = (state=initialState, action) => {
 
         case actionType.TOGGLE_SUMMARY_BOX:
             return {...state, isClosed: action.payload.isClosed};
+        case actionType.TOGGLE_UPDATE_BOX:
+            return {...state, isUpdateClosed: action?.payload?.isUpdateClosed}
+        case actionType.SET_NO_PRODUCT:
+            return {...state, noProduct: action?.payload}
 
         case actionType.TOTAL_PRICE:
             let count = 0
@@ -111,6 +117,17 @@ export const productReducer = (state=initialState, action) => {
             const tem_products = [...state?.addedProducts]
             tem_products.splice(action?.payload,1)
             return {...state, addedProducts: tem_products}
+        case actionType.UPDATE_TO_BAG:
+            const update_product = [...state?.addedProducts]
+            const prod_index = action?.payload?.ind
+            const specific_product = update_product[prod_index]
+            const specific_productInfo = specific_product.productInfo
+            specific_productInfo.size = action?.payload?.size
+            specific_productInfo.color = action?.payload?.color
+            specific_productInfo.colorIndex = action?.payload?.colorIndex
+            specific_productInfo.sizeIndex = action?.payload?.sizeIndex
+            specific_productInfo.img = action?.payload?.img
+            return {...state, addedProducts: update_product}
         default:
             return {...state}
     }

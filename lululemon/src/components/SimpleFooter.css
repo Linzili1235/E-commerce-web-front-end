@@ -5,6 +5,7 @@
   margin: 0 auto;
   min-width: 62rem;
   max-width: 90rem;
+  background-color: white;
 }
 .simpleFooter li {
   margin: 2rem 0;

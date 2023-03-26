@@ -14,14 +14,10 @@ export const CarouselInBag = ({selectedColorIndex}) => {
     // console.log(imgArray[0].mainCarousel)
 
     const imgSrc = imgArray?.mainCarousel?.media.split('|')
-    console.log(imgSrc)
+    // console.log(imgSrc)
     const imgAlt = imgArray?.mainCarousel?.alt
     const [currIdx, setCurrIdx] = useState(0)
     const mainImg = imgSrc[currIdx]
-    const [imgOpacity, setImgOpacity] = useState(1)
-
-
-    // const [magnify, setMagnify] = useState(false)
 
     // update imgArray based on the selected color from the selection component
     useEffect(() => {
@@ -30,10 +26,9 @@ export const CarouselInBag = ({selectedColorIndex}) => {
 
     // click swatch images to switch images
     const handleImgSwitch = (idx) => {
-        setImgOpacity(0)
+        // setImgOpacity(0)
         setTimeout(()=> {
             setCurrIdx(idx)
-            setImgOpacity(1)
         }, 200)
     }
 
@@ -41,91 +36,41 @@ export const CarouselInBag = ({selectedColorIndex}) => {
     const handleLeftArrow = () => {
         // This ensures that the index wraps around correctly, so when the current index is 0,
         // it will move to the last index of the imgSrc array.
-        setImgOpacity(0)
         setTimeout(()=> {
-            setCurrIdx((prevIdx) => (prevIdx - 1 + imgSrc.length) % imgSrc.length);
-            setImgOpacity(1)
+            setCurrIdx((prevIdx) => (prevIdx - 1))
         }, 200)
     }
     const handleRightArrow = () => {
-        setImgOpacity(0)
         setTimeout(()=> {
-            setCurrIdx((prevIdx) => (prevIdx + 1 + imgSrc.length) % imgSrc.length);
-            setImgOpacity(1)
+            setCurrIdx((prevIdx) => (prevIdx + 1))
+
         }, 200)
     }
 
-//     const handleZoomIn = () => {
-//         setMagnify(prevState => !prevState)
-//     }
-// ////////////////////////////////////////////////////////////////
-//     useEffect(() =>{
-//         onZoomChange(magnify)
-//     }, [magnify])
+
 
     return (
         <>
-            <div className="carousel-container" >
-                <div className="product-img-container">
+            <div className="productUpdate-carousel-container" >
+                <div className="productUpdate-img-container">
                     {/* Button */}
-                    <div className="button-container">
-                        <div className="switchButton leftButton" onClick={handleLeftArrow}>
-                            <ArrowBackIosIcon />
-                        </div>
-                        <div className="switchButton rightButton" onClick={handleRightArrow}>
+                    <div className="productUpdate-button-container">
+                        { currIdx!== 0 && <div className="switchButton leftButton" onClick={handleLeftArrow}>
+                             <ArrowBackIosIcon />
+                        </div>}
+                        { currIdx !== imgSrc.length - 1 && <div className="switchButton rightButton" onClick={handleRightArrow}>
                             <ArrowForwardIosIcon />
-                        </div>
+                        </div>}
                     </div>
                     {/* Image display */}
-                    <img src={mainImg}
-                         alt={imgAlt}
-                         style={{opacity: imgOpacity, cursor: 'pointer'}}
-                         // onClick={handleZoomIn}
-                    />
-                    {
-                        imgSrc.map((item, indx)=> {
-                                return <div key={indx} className='img-swatch-display'>
-                                    <img src={item}
-                                         alt={imgAlt}
-                                         id={indx}
-                                         onClick={()=> handleImgSwitch(indx)}
-                                         className={indx===currIdx ? 'selected-thumbnail' : 'not-selected'}
-                                    />
-                                </div>
-                            }
-                        )
-                    }
-                    {/* Magnifier  */}
-                    {/*<div className="magnifier">*/}
-                    {/*    <div className="zoom-icon-container" onClick={handleZoomIn}>*/}
-                    {/*        <ZoomInIcon />*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
+                    <div className="productUpdate-img-wrapper">
+                        <img src={mainImg}
+                             alt={imgAlt}
+                             className='productUpdate-img'
+                    /></div>
 
                 </div>
             </div>
-            {/*<div className={ zoomIn ? "zoomIn-container" : "hidden" }>*/}
-            {/*    <div className="header-container">*/}
-            {/*        <div className="back-button">*/}
-            {/*            <a onClick={handleZoomIn}>*/}
-            {/*                Back to Product*/}
-            {/*            </a>*/}
-            {/*        </div>*/}
-            {/*        <div className="image-alt">*/}
-            {/*            {imgAlt}*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*    {*/}
-            {/*        imgSrc.map((item, indx)=>*/}
-            {/*            <img src={item}*/}
-            {/*                 key={indx}*/}
-            {/*                 alt={imgAlt}*/}
-            {/*                 className='zoomInImage'*/}
-            {/*                 onClick={handleZoomIn}*/}
-            {/*            />*/}
-            {/*        )*/}
-            {/*    }*/}
-            {/*</div>*/}
         </>
     );
 };

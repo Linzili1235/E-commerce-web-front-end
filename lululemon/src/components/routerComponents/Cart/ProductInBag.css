@@ -306,15 +306,15 @@
 .productInBag-container .updateProductContainer .updateProduct-content .updateProduct-detail {
   display: flex;
   flex-direction: row;
-  max-width: 68.5rem;
-  min-width: 68.5rem;
+  max-width: 65.625rem;
+  min-width: 65.625rem;
   max-height: 41.125rem;
 }
 .productInBag-container .updateProductContainer .updateProduct-content .updateProduct-detail .productImg-update {
   flex-shrink: 0;
   margin-bottom: 0;
-  max-width: 34.25rem;
-  min-width: 34.25rem;
+  max-width: 50%;
+  min-width: 50%;
 }
 .productInBag-container .updateProductContainer .updateProduct-content .updateProduct-detail .product-details {
   padding: 2rem;

@@ -77,10 +77,10 @@ const removeProduct = ()  =>  {
     }
 }
 
-const addToBag = (img, title, price, size, color,productId, colorIndex) => async dispatch => {
+const addToBag = (img, title, price, size, color,productId, colorIndex, sizeIndex) => async dispatch => {
     dispatch({
         type: actionType.ADDED_PRODUCT_INFO,
-        payload: {quantity: 1, productId, productInfo: {img, title, price, size, color, colorIndex}}
+        payload: {quantity: 1, productId, productInfo: {img, title, price, size, color, colorIndex, sizeIndex}}
     })
 
     dispatch({
@@ -88,6 +88,13 @@ const addToBag = (img, title, price, size, color,productId, colorIndex) => async
         payload: 0,
     })
 
+}
+
+const updateToBag = (ind, img, size, color, colorIndex, sizeIndex) => dispatch => {
+    dispatch({
+        type: actionType?.UPDATE_TO_BAG,
+        payload:{ind,img,size,color,colorIndex,sizeIndex}
+    })
 }
 
 
@@ -104,8 +111,21 @@ const toggleSummaryBox = (bool) => {
         payload: {isClosed: bool}
     }
 }
+const toggleUpdateBox = (bool) => {
+    return {
+        type: actionType.TOGGLE_UPDATE_BOX,
+        payload: {isUpdateClosed: bool}
+    }
+}
 
-const changeWithQuantity = (ind, quantity) => dispatch => {
+const setNoProduct = (bool) => {
+    return {
+        type: actionType.SET_NO_PRODUCT,
+        payload: bool
+    }
+}
+
+const changeWithQuantity = (ind, quantity) => async dispatch => {
     dispatch({
         type: actionType.CHANGE_WITH_QUANTITY,
         payload:{quantity, ind}
@@ -138,8 +158,11 @@ export default {
     removeProduct,
     addToBag,
     toggleSummaryBox,
+    toggleUpdateBox,
     addWhenRefresh,
     changeWithQuantity,
-    removeSpecificProduct
+    removeSpecificProduct,
+    updateToBag,
+    setNoProduct
 
 }

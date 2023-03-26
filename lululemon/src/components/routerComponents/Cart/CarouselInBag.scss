@@ -1,16 +1,20 @@
 $buttonClr: hsla(0,0%,100%,.75);
 $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-zooming-user-interface-zoom-lens-sign-share-icon.png';
 
-.carousel-container {
+.productUpdate-carousel-container {
   display: inline-block;
   width: 50%;
+  height: auto;
   position: relative;
   top: 0;
 
-  .product-img-container{
-    position: sticky;
-    top: 0;
-    .button-container {
+  .productUpdate-img-container{
+    //position: sticky;
+    //top: 0;
+    width: 100%;
+    height: inherit;
+    box-sizing: border-box;
+    .productUpdate-button-container {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -18,7 +22,7 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
       position: absolute;
       z-index: 1;
       width: 100%;
-      margin-top: 60%;
+      margin-top: 50%;
       height: 4rem;
       .switchButton {
         display: flex;
@@ -34,6 +38,9 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
           cursor: pointer;
           margin-left: 1rem;
           padding-left: 10px;
+          position: absolute;
+          left: 0;
+          top: 50%;
           &:hover {
             transition: opacity ease-in-out 0.2s;
             opacity: 100%;
@@ -42,6 +49,9 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
         &.rightButton {
           margin-right: 1rem;
           cursor: pointer;
+          position: absolute;
+          right: 0;
+          top: 50%;
           &:hover {
             transition: opacity ease-in-out 0.2s;
             opacity: 100%;
@@ -49,62 +59,17 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
         }
       }
     }
-    .magnifier {
-      display: flex;
-      justify-content: flex-end;
-      position: relative;
-      bottom: 8rem;
-      width: 100%;
-      cursor: pointer;
+    .productUpdate-img-wrapper {
 
-      .zoom-icon-container {
-        margin-right: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 3rem;
-        height: 3rem;
-        background-color: white;
-        opacity: 70%;
-        border-radius:15%;
-        transition: opacity ease-in-out 0.2s;
-        &:hover {
-          opacity:100%;
-        }
-      }
-    }
-    img{
+    .productUpdate-img{
       width: 100%;
       height: auto;
-      background-size: cover;
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
-    }
+      object-fit: cover;
+      //background-size: cover;
+      //transform: translateX(-5%);
+      transition: transform 1s ease-in-out;
+    }}
 
-    .img-swatch-display{
-      display: inline-block;
-      width:2.25rem;
-      height:2.25rem;
-      margin: 1rem 0.25rem 0 0.25rem;
-      position: relative;
-      transition: box-shadow 1s ease;
-      cursor: pointer;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        &.selected-thumbnail {
-          box-shadow: 0 3px 0 0 #000
-        }
-
-        &.not-selected {
-          &:hover {
-            box-shadow: 0 3px 0 0 darkgrey;
-          }
-        }
-      }
-
-    }
   }
 }
 
@@ -112,29 +77,3 @@ $magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-z
   display: none;
 }
 
-.zoomIn-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  .header-container {
-    display: flex;
-    align-items: center;
-    .image-alt {
-      margin: 1rem auto;
-      font-size: 1rem;
-      font-weight: bold;
-    }
-    .back-button {
-      position: absolute;
-      left: 7rem;
-      color: red;
-
-    }
-  }
-
-  .zoomInImage {
-    width: 80%;
-    cursor: pointer;
-  }
-}

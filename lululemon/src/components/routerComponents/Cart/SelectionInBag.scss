@@ -1,55 +1,16 @@
 @use '../../../index.scss' as css;
 
-.selection-container {
+.productUpdate-selection-container {
   display: inline-block;
   flex-basis: 41.6666666667%;
-  padding: 0 1rem;
 
-  .selection-details {
+  .productUpdate-selection-details {
     width: 26.5625rem;
     box-sizing: content-box;
-    padding-left: 2.25rem;
-
-    .product-field {
-      .product-field-list {
-        padding-left: 0;
-        margin: 1rem 0 1.5rem;
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-
-        .field {
-          font-size: .875rem;
-          -webkit-font-smoothing: antialiased;
-          line-height: 1.4285714286;
-          font-weight: 500;
-          text-transform: capitalize;
-
-          a {
-            position: static;
-            text-decoration: underline;
-            text-decoration-color: css.$line_color;
-            text-decoration-thickness: 0.0625rem;
-            text-underline-offset: 0.375rem;
-            transition: all ease-in-out;
-            &:hover {
-              text-decoration-color: css.$hover_color;
-            }
-          }
+    //padding: 2.25rem;
+    margin: 2rem 2.5rem 0.5rem;
 
 
-          &:after {
-            color: css.$line_color;
-            content: attr(data-slash);
-            display: inline-block;
-            font-weight: 300;
-            margin: 0 0.5rem;
-          }
-
-
-        }
-      }
-    }
 
     .product-title {
       display: flex;
@@ -60,40 +21,18 @@
       max-width: 83.3333333333%;
 
 
-      .h1 {
-        font-size: 2.25rem;
+
+      .productUpdate-h1 {
+        font-size: 1.3rem;
         line-height: 2rem;
         font-weight: 600;
         text-align: left;
       }
 
-      .productNew {
-
-        .new-style {
-          margin-top: 0.65625rem;
-          margin-bottom: 1rem;
-          background-color: css.$bg_white;
-          border-color: css.$border_color;
-          color: #000;
-          font-size: .875rem;
-          -moz-osx-font-smoothing: grayscale;
-          -webkit-font-smoothing: antialiased;
-          line-height: 1.4285714286;
-          font-weight: 600;
-          letter-spacing: .075rem;
-          text-transform: uppercase;
-          align-items: center;
-          border-radius: 0.25rem;
-          border-style: solid;
-          border-width: 0.0625rem;
-          display: inline-flex;
-          height: 1.625rem;
-          padding: 0 0.4375rem 0 0.5rem;
-        }
-      }
-      .product-price {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
+      .productUpdate-price {
+        margin-top: 0.7rem;
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
       }
     }
     .colorSelection {
@@ -103,16 +42,16 @@
         justify-content: flex-start;
         //justify-content: space-between;
         margin-bottom: 0.5rem;
-        .color {
+        .productUpdate-color {
           margin-right: 0.5rem;
-          font-weight: 600;
-          font-size: 1.0625rem;
+          font-weight: 500;
+          font-size: 0.95rem;
           line-height: 1.1764705882;
         }
-        .specific-color {
+        .productUpdate-specific-color {
           text-transform: capitalize;
           line-height: 1.25rem;
-          font-size: 1.0625rem;
+          font-size: 0.95rem;
         }
       }
       .availableColor {
@@ -122,7 +61,6 @@
         flex-wrap: wrap;
         flex-direction: row;
         .colorItem {
-
           margin: 0 0.9rem 0.5rem 0;
 
           img {
@@ -151,7 +89,7 @@
             }
           }
 
-          .border {
+          .update-border {
             box-shadow: 0 0 0 1px black;
             padding:0.25rem ;
 
@@ -159,26 +97,7 @@
         }
       }
     }
-    .sizeAlert {
-      .notification-alert {
-        margin-bottom: 0.5rem;
-        background-color: #fae8ea;
-        border: 0.0625rem solid css.$hover_color;
-        font-size: 1.15rem;
-        -webkit-font-smoothing: antialiased;
-        font-weight: 400;
-        line-height: 1.2631578947;
-        display: flex;
-        padding: 0.75rem;
-        .errorIcon {
-          color: css.$hover_color;
-          flex-shrink: 0;
-          height: 1.5rem;
-          margin-right: 0.5rem;
-          width: 1.5rem;
-        }
-      }
-    }
+
     .sizeSelection {
       text-transform: capitalize;
       .sizeTitle {
@@ -186,39 +105,19 @@
         flex-direction: row;
         margin-bottom: 0.5rem;
 
-        .selectSize {
-          font-weight: 600;
-          font-size: 1.0625rem;
+        .productUpdate-selectSize {
+          font-weight: 500;
+          font-size: 0.95rem;
           line-height: 1.1764705882;
         }
+        .selectSize {
+          font-size: 0.95rem;
+        }
         .oneSize-text {
-          font-size: 1.0625rem;
+          font-size: 0.95rem;
           padding-left: 0.5rem;
         }
 
-        .sizeGuide {
-          margin-left: auto;
-          font-weight: 600;
-          font-size: 1.0625rem;
-          line-height: 1;
-          text-decoration: underline;
-          text-decoration-color: css.$line_color;
-          text-decoration-thickness: 0.0625rem;
-          text-underline-offset: 0.375rem;
-          transition: all ease-in-out;
-          cursor: pointer;
-          white-space: nowrap;
-          padding-bottom: 0.25rem;
-
-
-          &:hover {
-
-            text-decoration-color: css.$hover_color;
-
-          }
-
-
-        }
 
       }
       .sizeButtons {
@@ -229,7 +128,7 @@
         margin-right: -0.25rem;
         width: calc(100% + 1rem);
         margin: 0 -0.3125rem -1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
 
         .oneSize {
           font-size: 1.1rem;
@@ -258,7 +157,7 @@
           margin-left: 0.25rem;
           margin-right: 0.25rem;
           margin-bottom: 1rem;
-          .sizeItem {
+          .update-sizeItem {
             font-size: 1.1875rem;
             -webkit-font-smoothing: antialiased;
             font-weight: 600;
@@ -277,9 +176,10 @@
 
             &:hover {
               border: 0.1rem solid black;
+              cursor: pointer;
             }
           }
-          .sizeBool {
+          .update-sizeBool {
             border-color: #000;
             box-shadow: 0 0 0 0.03125rem #000;
             background-color: #000;
@@ -294,253 +194,92 @@
         justify-content: flex-start;
       }
     }
-    .shoppingMethod {
-      background: css.$bg_white;
-      border: 0.0625rem solid css.$border_color;
-      border-radius: 0.25rem;
-      color: black;
-      display: flex;
-      flex-direction: column;
-      margin-top: 2rem;
-      overflow: hidden;
-      padding: 0;
-
-      .shipToMeContainer {
-        border-bottom: 0.0625rem solid css.$border_color;
-        line-height: 1.5rem;
-        padding: 0.75rem 0.625rem;
-
-        .shipToMeButton {
-          display: flex;
-          align-items: flex-start;
-          flex-direction: column;
-          padding-top: 0.34375rem;
-          margin-bottom: 0.5rem;
-          cursor: pointer;
-
-          .roundedButton {
-            color: css.$hover_color;
-          }
-
-          .shipSpan {
-            font-weight: 900;
-            position: absolute;
-            font-size: 1.5rem;
-            margin-top: 0.125rem;
-            margin-left: 0.5rem;
-          }
-          .freeReturnSpan {
-            color: #57585b;
-            font-size: 1.0625rem;
-            line-height: 1.25rem;
-            margin-left: 2rem;
-            //margin-top: 3rem;
-            display: inline-block;
-          }
-
-        }
-      }
-      .pickUp {
-        font-size: 1.0625rem;
-        font-weight: 400;
-        line-height: 1.3125rem;
-        padding: 1rem 1rem 1rem 0.5rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        border-bottom: 0.0625rem solid css.$line_color;
-        .storePickUp {
-          cursor: pointer;
-          .house {
-            position: absolute;
-          }
-
-          .pickUpSpan {
-            display: inline-block;
-            margin-left: 2.2rem;
-            font-size: 1.5rem;
-            line-height: 1.75rem;
-          }
-        }
-
-
-      }
-
-      .addingButtonContainer {
-        .addingButton {
-          margin: 0.5rem 0.625rem;
-          -webkit-font-smoothing: antialiased;
-          letter-spacing: .075rem;
-          text-transform: uppercase;
-          font-size: 1rem;
-          font-weight: 600;
-          display: flex;
-          width: 95%;
-          height: 3.2rem;
-          background-color: css.$hover_color;
-          color: #fff;
-          border: 0.0625rem solid css.$hover_color;
-          border-radius: 0.25rem;
-          cursor: pointer;
-          justify-content: center;
-          padding: 1rem;
-          text-align: center;
-          text-decoration: none;
-
-          &:hover {
-            background-color: #a40c0f ;
-          }
-
-          .hide {
-            display: none;
-          }
-          .display-button{
-            display: block;
-          }
-        }
-      }
-    }
-    .customerEngagement {
-      display: flex;
-      justify-content: space-between;
-      margin: 1rem 0.625rem 1.5rem;
-
-      .customerEngagementWrapper {
-        display: flex;
-        justify-content: unset;
-        width: auto;
-        align-items: center;
-        flex-direction: row;
-
-        padding: 0;
-        color: #000;
-        .customerButton {
-          background: none;
-          border: none;
-          cursor: pointer;
-          .customerEngagementSpan {
-            position: relative;
-            top: -0.4rem;
-            text-decoration: underline;
-            -webkit-text-decoration-color: css.$line_color;
-            text-decoration-color: css.$line_color;
-            text-decoration-thickness: 0.0625rem;
-            text-underline-offset: 0.375rem;
-            transition: all ease-in-out;
-            font-size: 1rem;
-            font-weight: 550;
-            line-height: 1;
-
-            &:hover {
-              text-decoration-color: css.$hover_color;
-            }
-
-
-
-          }
-        }
-
-
-
-      }
-    }
-
-    .productDetails {
-      p {
-        font-size: 1.1875rem;
+    .addingButtonContainer {
+      margin-bottom: 1rem;
+      .addingButton {
+        text-transform: uppercase;
+        //margin: 0.5rem 0.625rem;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: .075rem;
+        text-transform: uppercase;
+        font-size: 1rem;
         font-weight: 600;
-        line-height: 1.5rem;
-        margin: 1.5rem 0 1rem;
         display: flex;
-        justify-content: flex-start;
-      }
-
-      .specificDetails {
-        margin: 0;
-        padding: 0;
-
-        .specificDetailItem {
-          margin-bottom: 1rem;
-          align-items: center;
-          display: flex;
-          flex-flow: row nowrap;
-          min-height: 1.625rem;
-
-          .designedIcon {
-            height: 1.5rem;
-            width: 1.5rem;
-          }
-
-          .designedLink {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding-bottom: 0.25rem;
-            border-bottom: 0.0625rem solid css.$line_color;
-            margin-left: 0.78125rem;
-            margin-right: 0.78125rem;
-            display: inline-block;
-            font-size: 1.0025rem;
-            font-weight: 550;
-            line-height: 1.25rem;
-            padding-left: 0;
-            padding-right: 0;
-            transition: all ease-in-out;
-
-            &:hover {
-              border-bottom: 0.0625rem solid css.$hover_color;
-            }
-          }
-
-        }
-      }
-    }
-    .questionContainer {
-      align-items: center;
-      background-color: #fff;
-      border-bottom: 0.0625rem solid #e8e7e4;
-      color: currentColor;
-      display: flex;
-      text-decoration: none;
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-      padding: 1.5rem;
-      width: 100%;
-      margin-bottom: 2rem;
-
-      .contentQuestion {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-right: 0.5rem;
+        width: 100%;
+        //margin-right: 0;
+        height: 3.2rem;
+        background-color: css.$hover_color;
+        color: #fff;
+        border: 0.0625rem solid css.$hover_color;
+        border-radius: 0.25rem;
         cursor: pointer;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+        text-decoration: none;
 
-        .bigQuestion {
-          font-size: 1.1rem;
-          -webkit-font-smoothing: antialiased;
-          line-height: 1.166666667;
-          font-weight: 600;
-          letter-spacing: .005rem;
-          text-align: left;
+        &:hover {
+          background-color: #a40c0f ;
         }
 
-        .smallQuestion {
-          font-size: 0.8rem;
-          -webkit-font-smoothing: antialiased;
-          font-weight: 400;
-          line-height: 1.1764705882;
-          display: flex;
-          justify-content: flex-start;
-        }
-      }
 
-      .arrowIcon {
-        color: css.$hover_color;
-        width: 1.2rem;
-        height: 1.2rem;
-      }
+        }
+      .hide {
+        text-transform: uppercase;
+        //margin: 0.5rem 0.625rem;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: .075rem;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 600;
+        display: flex;
+        width: 100%;
+        //margin-right: 0;
+        height: 3.2rem;
+        background-color: grey;
+        color: #fff;
+        border: 0.0625rem solid grey;
+        border-radius: 0.25rem;
+        cursor: no-drop;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+        text-decoration: none;
+
     }
+    }
+    .view-product-details {
+      font-size: .875rem;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.4285714286;
+      font-weight: 500;
+      text-transform: capitalize;
+      display: flex;
+      justify-content: center;
+
+      a {
+        position: static;
+        text-decoration: underline;
+        text-decoration-color: css.$line_color;
+        text-decoration-thickness: 0.0625rem;
+        text-underline-offset: 0.375rem;
+        transition: all ease-in-out;
+        &:hover {
+          text-decoration-color: css.$hover_color;
+        }
+      }
+
+
+      &:after {
+        color: css.$line_color;
+        //content: attr(data-slash);
+        display: inline-block;
+        font-weight: 300;
+      }
+
+
+    }
+
 
   }
 

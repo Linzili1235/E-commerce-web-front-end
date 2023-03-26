@@ -13,7 +13,7 @@ export const OrderSummary = () => {
     const navigate = useNavigate();
     const { currTotal } = useSelector(state => state?.productReducer)
     const { addedProducts } = useSelector(state => state?.productReducer)
-    console.log('order summary',addedProducts)
+    // console.log('order summary',addedProducts)
     const handleNavigate = () => {
         addedProducts.length > 0 ? navigate('/checkout') : navigate('/mainPage/1/1')
 

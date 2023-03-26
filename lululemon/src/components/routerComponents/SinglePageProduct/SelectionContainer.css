@@ -246,6 +246,7 @@
 }
 .selection-container .selection-details .sizeSelection .sizeButtons .sizeOut .sizeItem:hover {
   border: 0.1rem solid black;
+  cursor: pointer;
 }
 .selection-container .selection-details .sizeSelection .sizeButtons .sizeOut .sizeBool {
   border-color: #000;
