@@ -9,9 +9,20 @@ import {useNavigate} from "react-router-dom";
 export const Cart = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const addedProduct = useSelector(state => state?.productReducer?.addedProducts)
+    const addedProducts = useSelector(state => state?.productReducer?.addedProducts)
     const noProduct = useSelector(state => state?.productReducer?.noProduct)
     // console.log(noProduct)
+    // console.log(addedProducts)
+    const data = window.localStorage.getItem('Added Products')
+    const recoveredProduct = JSON.parse(data)
+    console.log(recoveredProduct)
+    // useEffect(() => {
+    //     const data = window.localStorage.getItem('Added Products')
+    //     const recoveredProduct = JSON.parse(data)
+    //     isNoProduct()
+    //     dispatch(actions?.productActions?.addWhenRefresh(recoveredProduct))
+    //
+    // },[])
 
 
     const handleNavigate = (e) => {
@@ -20,14 +31,16 @@ export const Cart = () => {
     }
 
     const isNoProduct = () => {
-        if (addedProduct.length === 0) {
+        if (addedProducts.length === 0) {
             setTimeout(()=>dispatch(actions?.productActions?.setNoProduct(true)),300)
             // console.log(noProduct)
             // console.log(addedProduct)
         }
+        // dispatch(actions?.productActions?.setNoProduct(false))
+
     }
     // check whether addedProduct.length === 0 once addedProduct changes
-    useEffect(isNoProduct, [addedProduct])
+    useEffect(isNoProduct, [addedProducts])
     return (
 
         <section className="shoppingCart">

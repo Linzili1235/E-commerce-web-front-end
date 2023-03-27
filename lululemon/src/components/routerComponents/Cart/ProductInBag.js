@@ -17,7 +17,8 @@ export const ProductInBag = ({product,index}) => {
     const {img, title, color, price, size, colorIndex, sizeIndex} = productInfo
     // console.log(product)
     // console.log("size",product.size)
-    const numericPrice = parseFloat(price.replace(/[^0-9.]/g, ''))
+    const updatedPrice = price.split("-")[0]
+    const numericPrice = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''))
     const twoDigitPrice = `$${numericPrice.toFixed(2)}`
     const twoDigitTotalPrice = `$${(numericPrice * quantity).toFixed(2)}`
     const optionList = Array.from({length: 10}, (_,i)=> i+1)
