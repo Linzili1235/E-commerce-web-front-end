@@ -1,31 +1,58 @@
+@use "../../index.scss" as css;
+
 .checkout-main-border {
-  border: 2px solid red;
   height: auto;
   min-width: 62rem;
   max-width: 90rem;
   margin: 0 auto;
+
   .checkout-title {
     font-size: 2rem;
     font-weight: bold;
     margin: 2rem 0;
   }
   .checkout-main-container {
-    border: 2px solid blue;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    height: 70rem;
     padding: 0 4rem;
+    height: auto;
     .information {
       margin-left: 2rem;
       width: 60%;
-      border: 2px solid green;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
 
+      .next-step {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        .next-step-button {
+          text-transform: uppercase;
+          -webkit-font-smoothing: antialiased;
+          letter-spacing: .075rem;
+          font-size: 15px;
+          width: 15rem;
+          font-weight: 600;
+          height: 2.7rem;
+          background-color: css.$hover_color;
+          color: #fff;
+          border: 0.0625rem solid css.$hover_color;
+          border-radius: 0.25rem;
+          cursor: pointer;
+          padding: 1rem;
+          text-align: center;
+          text-decoration: none;
+          &:hover {
+            background-color: #a40c0f;
+          }
+
+        }
+      }
       .info-box {
         width: 100%;
         background-color:#fff;
@@ -113,9 +140,43 @@
 
       }
       .shipping-address {
-
+        .location {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: stretch;
+          margin-top: 1rem;
+        }
+        .phone-input {
+          margin-top: 1rem;
+          font-weight: normal;
+          p {
+            opacity: 0.5
+          }
+        }
+        .names-input {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: stretch;
+          margin-top: 1rem;
+          .name-input {
+            width: 14rem;
+          }
+        }
       }
       .shipping-gift {
+        .date {
+          font-weight: bold;
+          text-decoration: underline;
+        }
+        .days {
+          font-weight: bold;
+        }
+        .arrive-title {
+          margin-top: 1rem;
+          font-size: large;
+        }
 
       }
     }

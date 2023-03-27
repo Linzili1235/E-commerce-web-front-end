@@ -41,6 +41,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     }
     ), [])
 
+    // Product only have one size, need to set selected index to 0 and alert to false
     useEffect(() => {
         if (sizes[0].details.length === 0) {
             updateSizeIndex(0);

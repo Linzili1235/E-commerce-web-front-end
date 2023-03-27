@@ -1,13 +1,18 @@
 $hover_color: #d31334;
-
-.simpleFooter {
-  display: block;
+.simpleFooter-container {
   width: 100%;
-  text-align: left;
-  margin: 0 auto;
-  min-width: 62rem;
-  max-width: 90rem;
   background-color: white;
+  bottom: 0;
+
+  .simpleFooter {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    margin: 0 auto;
+    bottom: 0;
+    min-width: 62rem;
+    max-width: 90rem;
 
     li {
       margin: 2rem 0;
@@ -39,12 +44,13 @@ $hover_color: #d31334;
         }
       }
     }
-  .light {
-    li {
-      a {
-        font-weight: normal;
+    .light {
+      li {
+        a {
+          font-weight: normal;
+        }
       }
     }
-  }
 
+  }
 }

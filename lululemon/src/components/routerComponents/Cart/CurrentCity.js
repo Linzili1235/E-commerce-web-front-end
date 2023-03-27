@@ -41,6 +41,8 @@ const CurrentCity = () => {
         }
     };
 
+
+
     const updatePostalCode = async (postalCode) => {
         try {
             const response = await fetch(
@@ -78,10 +80,13 @@ const CurrentCity = () => {
                 <>Error: {error}</>
             ) : (
                 <>
-                    <span className='postcode'>
+                    {
+                        <span className='postcode'>
                         {locationData.city ? locationData.city : "Loading..."}{' '}
-                        {locationData.postalCode ? locationData.postalCode : "Loading..."}
+                            {locationData.postalCode ? locationData.postalCode : "Loading..."}
                     </span>
+                    }
+
                 </>
             )}
             <div className="form-container">

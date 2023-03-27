@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const WeekLater = () => {
+const ArriveDate = () => {
     const [weekLater, setWeekLater] = useState(null);
 
     useEffect(() => {
@@ -57,4 +57,4 @@ const WeekLater = () => {
     );
 };
 
-export default WeekLater;
+export default ArriveDate;

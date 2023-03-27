@@ -6,7 +6,7 @@ import invertLogo from "../../../assets/logo/invertLogo.png";
 import { useSelector } from "react-redux";
 
 import PayPalButton from "./PayPalButton";
-import WeekLater from "./WeekLater";
+import ArriveDate from "./ArriveDate";
 import { useNavigate } from "react-router-dom";
 
 export const OrderSummary = () => {
@@ -58,7 +58,7 @@ export const OrderSummary = () => {
                 <div className="ship-to">
                     <div className='address'>
                         {<FmdGoodOutlinedIcon className='mapIcon' fontSize={'inherit'}/>}Ship to {<CurrentCity />} </div>
-                    <p>Arrives by {<WeekLater/>} with free shipping</p>
+                    <p>Arrives by {<ArriveDate/>} with free shipping</p>
                 </div>
             </div>
         </section>
