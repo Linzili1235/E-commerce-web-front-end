@@ -32,7 +32,6 @@ export const CheckoutSummary = () => {
                     <span>{totalQuantity}  {`${totalQuantity > 1 ? 'Items': 'Item'}`}</span>
                     <div className="dropdown-products" onClick={toggleDropdown}>
                         {isOpen ? <KeyboardArrowUpIcon className="arrow-icon open"/> : <KeyboardArrowDownIcon className="arrow-icon"/>}
-
                     </div>
                 </div>
                 <div className="checkout-payment">

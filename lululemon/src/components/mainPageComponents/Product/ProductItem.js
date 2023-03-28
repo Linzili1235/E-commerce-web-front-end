@@ -24,7 +24,7 @@ export const ProductItem = ({product}) => {
         navigate(`/singleProduct/${id}`)
     }
     const onClickRightMove = (count) => {
-        if ((count+1)*7 < lenSwatchArray){
+        if ((count+1)*6 < lenSwatchArray){
         setCount(prevState => ++prevState)}}
     const onClickLeftMove = (count) => {
         if (count >0){
@@ -34,11 +34,13 @@ export const ProductItem = ({product}) => {
         return <ul className="swatchList">
             {/*from count*7 to (count+1)*7 will show here*/}
             {/*original count is 0*/}
-            {lenSwatchArray > 7 && <button className="swatchChangeButton-1" onClick={() => onClickLeftMove(currentCount)}><svg><ChevronLeftIcon/></svg></button>}
+            {lenSwatchArray > 6 && <button className="swatchChangeButton-1" onClick={() => onClickLeftMove(currentCount)}>
+                <svg><ChevronLeftIcon/></svg>
+            </button>}
             <ul className="realSwatchList">
             {
                 swatchesArray.map((swatch, index) =>
-                currentCount*7<=index && index<(currentCount+1)*7 && <li className="swatchItem" key={index}><img  src={swatch.swatch}
+                currentCount*6<=index && index<(currentCount+1)*6 && <li className="swatchItem" key={index}><img  src={swatch.swatch}
                                                          alt={swatch.swatchAlt}
                                                          key={swatch.colorId}
                                                          onMouseEnter={()=>setCurrentIndex(index)} onClick={()=> goToProduct(productID)}/>
@@ -46,13 +48,10 @@ export const ProductItem = ({product}) => {
             </li>
             ) }
         </ul>
-            {lenSwatchArray>7 && <button className="swatchChangeButton-2" onClick={()=>onClickRightMove(currentCount)}><svg><ChevronRightIcon/></svg></button>}
-
-
+            {lenSwatchArray>6 && <button className="swatchChangeButton-2" onClick={()=>onClickRightMove(currentCount)}>
+                <svg><ChevronRightIcon/></svg>
+            </button>}
         </ul>
-
-
-
     }
 
     if (!productID) {
@@ -64,9 +63,7 @@ export const ProductItem = ({product}) => {
                          */}
         <MainCarousel  img={images[currentIndex]} productId={productID}/>
         <div className="productTile_details">
-
                 {setAllSwatches()}
-
             <div className="productTile_attributes">
                 <div className="productName">
                     <a href={`/singleProduct/${productID}`}><strong>{productName}</strong></a>

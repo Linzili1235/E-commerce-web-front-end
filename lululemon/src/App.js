@@ -9,19 +9,20 @@ import {Checkout} from "./components/routerComponents/Checkout/Checkout"
 import {PageNotFound} from "./components/routerComponents/PageNotFound";
 import {SinglePageProduct} from "./components/routerComponents/SinglePageProduct/SinglePageProduct";
 import './components/globalStyle-module.scss'
+import ResetPassword from "./components/routerComponents/Checkout/ResetPassword";
 function App() {
   return (
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/" element={<Navigate to="mainPage/1/1" />}/>
+            <Route path="/" element={<Navigate to="mainPage/1/1" />}/>
+            <Route path='/mainPage/:sortingId/:pageNum' element={<Main />}/>
+            <Route path='/singleProduct/:id' element={<SinglePageProduct />}/>
+            <Route path='/mybag' element={<Cart />}/>
+            <Route path='/review' element={<Review />}/>
+            <Route path='/reset' element={<ResetPassword />}/>
 
-          <Route path='/mainPage/:sortingId/:pageNum' element={<Main />}/>
-
-          <Route path='/singleProduct/:id' element={<SinglePageProduct />}/>
-          <Route path='/mybag' element={<Cart />}/>
-          <Route path='/review' element={<Review />}/>
-          <Route path='/checkout' element={<Checkout />}/>
+            <Route path='/checkout' element={<Checkout />}/>
 
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes>

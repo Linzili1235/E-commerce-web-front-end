@@ -5,8 +5,10 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArriveDate from "../Cart/ArriveDate";
 import { CheckoutSummary } from "./CheckoutSummary";
+import { useNavigate } from "react-router-dom";
 
 export const Checkout = () => {
+    const navigate = useNavigate();
     const [arrowClicked, setArrowClicked] = useState(false)
     // Make sure the formats of email and password are correct
     const [emailError, setEmailError] = useState('');
@@ -16,15 +18,29 @@ export const Checkout = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
-
-        console.log({
-            email,
-            password,
-            // Add more input values here
-        });
-        // Send the data to the server (not implemented here)
+    const handleLogIn = (e) => {
+        e.preventDefault();
+        arrowClicked ? setArrowClicked(false) : setArrowClicked(true);
+    };
+    const handleNextStep = () => {
+        alert("Proceeding to the next step");
+        // Add your logic for the next step here
+    };
+    const handleSubmit = () => {
+        if (!arrowClicked) setArrowClicked(true)
+        if (!email) {
+            setEmailError('Please enter an email')
+        } else if (!password) {
+            setPasswordError('Please enter a password')
+        } else {
+            alert('Logged In')
+            console.log({
+                email,
+                password,
+                // Add more input values here
+            });
+            // Send the data to the server (not implemented here)
+        }
     };
     // validate email input
     const validateEmail = (email) => {
@@ -33,8 +49,7 @@ export const Checkout = () => {
         return emailRegex.test(email);
     };
     const validatePassword = (password) => {
-        console.log('length', password.length)
-        if (password.length >= 8 && password.length <= 30) return true;
+        return password.length >= 8 && password.length <= 30;
     }
     const handlePasswordChange = (e) => {
         const passwordInput = e.target.value
@@ -44,7 +59,6 @@ export const Checkout = () => {
         } else {
             setPasswordError('Password must be at least 8 characters long.');
         }
-
     };
     const handleEmailChange = (e) => {
         const emailInput = e.target.value;
@@ -63,13 +77,15 @@ export const Checkout = () => {
     return (
         <>
             <div className="checkout-main-border">
-                <div className="checkout-title">CheckOut</div>
+                <div className="checkout-title">Checkout</div>
                 <div className="checkout-main-container">
                     <div className="information">
                         <div className="info-box have-an-account">
                             <div className="title">Have an account</div>
                             <div className="content">
-                                <a href="src/components/routerComponents">Log in </a> &nbsp;to checkout more quickly and easily
+                                <a href="" onClick={handleLogIn}>
+                                    Log in
+                                </a> &nbsp;to checkout more quickly and easily
                                 <div className={arrowClicked ? 'arrow-clicked' : 'arrow'} onClick={handleArrowToggle}>
                                     {arrowClicked ? <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}
                                 </div>
@@ -100,10 +116,11 @@ export const Checkout = () => {
                                                  inputProps={{ minLength: 8 }}
                                                  onChange={handlePasswordChange}
                                                  style={{ width: '120%' }}/>}
-                                     <div className="forgot-password"><a href="src/components/routerComponents">Forgot your password?</a></div>
+                                     <div className="forgot-password">
+                                         <a href="" onClick={()=> { navigate('/reset') }}>Forgot your password?</a></div>
                                 </div>
                             </div>
-                            <div className="signIn-button">
+                            <div className="signIn-button" onClick={handleSubmit}>
                                 <span>SIGN IN</span>
                             </div>
                         </div>
@@ -220,7 +237,7 @@ export const Checkout = () => {
                         </div>
 
                         <div className="next-step">
-                                <div className="next-step-button" onClick={handleSubmit}>
+                                <div className="next-step-button" onClick={handleNextStep}>
                                     <span>GO TO NEXT STEP</span>
                                 </div>
                         </div>
