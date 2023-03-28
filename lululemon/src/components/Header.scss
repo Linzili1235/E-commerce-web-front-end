@@ -48,8 +48,33 @@ ul {
         min-width: 3rem;
         margin-left: 0.5rem;
       }
+      .shoppingBag-container {
+        display: flex;
+        justify-content: center;
+
+        .shoppingBag {
+          margin-left: 2rem;
+          color: white;
+          stroke: black;
+          stroke-width: 1.5px;
+          cursor: pointer;
+
+
+        }
+
+        .showing-quantity {
+          color: css.$hover_color;
+          position: relative;
+          top: 0.5rem;
+          right: 0.98rem;
+          cursor: pointer;
+          z-index: 999;
+
+        }}
 
       }
+
+
     }
   }
 

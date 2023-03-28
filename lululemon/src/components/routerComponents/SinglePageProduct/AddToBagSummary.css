@@ -46,6 +46,15 @@
 .summary-container .summary-box .summary-content .summary-header .summary-title {
   font-size: 1rem;
   font-weight: bold;
+  margin-right: 1rem;
+}
+.summary-container .summary-box .summary-content .summary-header .shopping-bag-icon {
+  display: flex;
+}
+.summary-container .summary-box .summary-content .summary-header .shopping-bag-icon .shopping-total {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
 }
 .summary-container .summary-box .summary-content .close-button {
   display: inline-block;
@@ -62,7 +71,7 @@
 }
 .summary-container .summary-box .summary-content .notification {
   text-align: left;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 .summary-container .summary-box .summary-content .product-summary-list {
   display: flex;

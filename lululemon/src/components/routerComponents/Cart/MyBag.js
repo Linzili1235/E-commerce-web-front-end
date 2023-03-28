@@ -17,13 +17,16 @@ export const MyBag = () => {
         const recoveredProduct = JSON.parse(data)
         // when refreshing, data in redux store will lose, then should recover data using localStorage
         dispatch(actions?.productActions?.addWhenRefresh(recoveredProduct))
+        console.log("rendered when refresh")
     },[])
 
 
     useEffect(() => {
         window.localStorage.setItem('Added Products', JSON.stringify(addedProducts));
+        console.log("rendered when addedProduct changes")
         // console.log(addedProducts)
     }, [addedProducts]);
+
 
     const totalQ = () => {
         let count = 0

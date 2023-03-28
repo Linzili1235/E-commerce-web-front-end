@@ -26,7 +26,7 @@ export const ProductInBag = ({product,index}) => {
     const [selectedValue, setSelectedValue] = useState(quantity)
     const [isOpen, setIsOpen] = useState(false)
     const [isRemoveClose, setIsRemoveClose] = useState(true)
-    const {isUpdateClosed} = useSelector(state => state?.productReducer)
+    const {isUpdateClosed, addedProducts} = useSelector(state => state?.productReducer)
     // const [isProductClose, setIsProductClose] = useState(true)
     const [isLoading, setIsLoading] = useState(true)
     const [selectedColorIndex, setSelectedColorIndex] = useState(colorIndex)
@@ -63,6 +63,12 @@ export const ProductInBag = ({product,index}) => {
    const handleRemove = (ind) => {
        dispatch(actions?.productActions?.removeSpecificProduct(ind)).then()
        setIsRemoveClose(!isRemoveClose)
+       // if (addedProducts.length === 0) {
+       //     setTimeout(()=>dispatch(actions?.productActions?.setNoProduct(true)),300)
+       //     // console.log(noProduct)
+       //     // console.log(addedProduct)
+       // }
+       // console.log("been here", addedProducts.length)
    }
 
     const onClickFetch = (productId) => {

@@ -137,6 +137,7 @@ const changeWithQuantity = (ind, quantity) => async dispatch => {
 }
 
 const removeSpecificProduct = (ind) => async dispatch => {
+
     dispatch({
         type: actionType.REMOVE_SPECIFIC_PRODUCT,
         payload: ind

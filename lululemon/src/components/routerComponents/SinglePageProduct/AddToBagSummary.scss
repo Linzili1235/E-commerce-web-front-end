@@ -45,8 +45,16 @@ $breakLineClr: #E5E4E2;
         .summary-title {
           font-size: 1rem;
           font-weight: bold;
+          margin-right: 1rem;
         }
-        .shopping-bag {
+        .shopping-bag-icon {
+          display: flex;
+
+          .shopping-total {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+          }
 
         }
       }
@@ -65,7 +73,7 @@ $breakLineClr: #E5E4E2;
       }
       .notification {
         text-align: left;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
       }
 ///////////////   Product Summary /////////////
       .product-summary-list {

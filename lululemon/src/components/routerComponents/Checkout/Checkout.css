@@ -1,9 +1,12 @@
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
 .checkout-main-border {
-  border: 2px solid red;
   height: auto;
   min-width: 62rem;
   max-width: 90rem;
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 .checkout-main-border .checkout-title {
   font-size: 2rem;
@@ -11,22 +14,46 @@
   margin: 2rem 0;
 }
 .checkout-main-border .checkout-main-container {
-  border: 2px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  height: 70rem;
   padding: 0 4rem;
+  height: auto;
 }
 .checkout-main-border .checkout-main-container .information {
   margin-left: 2rem;
   width: 60%;
-  border: 2px solid green;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+.checkout-main-border .checkout-main-container .information .next-step {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.checkout-main-border .checkout-main-container .information .next-step .next-step-button {
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.075rem;
+  font-size: 15px;
+  width: 15rem;
+  font-weight: 600;
+  height: 2.7rem;
+  background-color: #d31334;
+  color: #fff;
+  border: 0.0625rem solid #d31334;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+.checkout-main-border .checkout-main-container .information .next-step .next-step-button:hover {
+  background-color: #a40c0f;
 }
 .checkout-main-border .checkout-main-container .information .info-box {
   width: 100%;
@@ -106,13 +133,50 @@
   line-height: 1.0666666667;
   font-weight: 600;
 }
+.checkout-main-border .checkout-main-container .information .shipping-address .location {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 1rem;
+}
+.checkout-main-border .checkout-main-container .information .shipping-address .phone-input {
+  margin-top: 1rem;
+  font-weight: normal;
+}
+.checkout-main-border .checkout-main-container .information .shipping-address .phone-input p {
+  opacity: 0.5;
+}
+.checkout-main-border .checkout-main-container .information .shipping-address .names-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 1rem;
+}
+.checkout-main-border .checkout-main-container .information .shipping-address .names-input .name-input {
+  width: 14rem;
+}
+.checkout-main-border .checkout-main-container .information .shipping-gift {
+  padding-bottom: 2rem;
+}
+.checkout-main-border .checkout-main-container .information .shipping-gift .date {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.checkout-main-border .checkout-main-container .information .shipping-gift .days {
+  font-weight: bold;
+}
+.checkout-main-border .checkout-main-container .information .shipping-gift .arrive-title {
+  margin-top: 1rem;
+  font-size: large;
+}
 .checkout-main-border .checkout-main-container .product-summary {
   position: sticky;
   margin-right: 2rem;
   width: 40%;
   max-height: 100vh;
   top: 0;
-  border: 2px solid green;
 }
 
 /*# sourceMappingURL=Checkout.css.map */

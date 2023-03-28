@@ -47,5 +47,24 @@ ul {
   min-width: 3rem;
   margin-left: 0.5rem;
 }
+.header1 .simple-nav .logIn .shoppingBag-container {
+  display: flex;
+  justify-content: center;
+}
+.header1 .simple-nav .logIn .shoppingBag-container .shoppingBag {
+  margin-left: 2rem;
+  color: white;
+  stroke: black;
+  stroke-width: 1.5px;
+  cursor: pointer;
+}
+.header1 .simple-nav .logIn .shoppingBag-container .showing-quantity {
+  color: #d31334;
+  position: relative;
+  top: 0.5rem;
+  right: 0.98rem;
+  cursor: pointer;
+  z-index: 999;
+}
 
 /*# sourceMappingURL=Header.css.map */

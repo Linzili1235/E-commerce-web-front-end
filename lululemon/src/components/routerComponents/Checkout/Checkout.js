@@ -3,7 +3,7 @@ import './Checkout.scss';
 import { TextField } from "@mui/material";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import ArriveDate from "./Cart/ArriveDate";
+import ArriveDate from "../Cart/ArriveDate";
 import { CheckoutSummary } from "./CheckoutSummary";
 
 export const Checkout = () => {
@@ -69,7 +69,7 @@ export const Checkout = () => {
                         <div className="info-box have-an-account">
                             <div className="title">Have an account</div>
                             <div className="content">
-                                <a href="">Log in </a> &nbsp;to checkout more quickly and easily
+                                <a href="src/components/routerComponents">Log in </a> &nbsp;to checkout more quickly and easily
                                 <div className={arrowClicked ? 'arrow-clicked' : 'arrow'} onClick={handleArrowToggle}>
                                     {arrowClicked ? <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}
                                 </div>
@@ -100,7 +100,7 @@ export const Checkout = () => {
                                                  inputProps={{ minLength: 8 }}
                                                  onChange={handlePasswordChange}
                                                  style={{ width: '120%' }}/>}
-                                     <div className="forgot-password"><a href="">Forgot your password?</a></div>
+                                     <div className="forgot-password"><a href="src/components/routerComponents">Forgot your password?</a></div>
                                 </div>
                             </div>
                             <div className="signIn-button">

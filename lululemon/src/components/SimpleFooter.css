@@ -1,22 +1,28 @@
-.simpleFooter {
+.simpleFooter-container {
+  width: 100%;
+  background-color: white;
+  bottom: 0;
+}
+.simpleFooter-container .simpleFooter {
   display: block;
+  position: relative;
   width: 100%;
   text-align: left;
   margin: 0 auto;
+  bottom: 0;
   min-width: 62rem;
   max-width: 90rem;
-  background-color: white;
 }
-.simpleFooter li {
+.simpleFooter-container .simpleFooter li {
   margin: 2rem 0;
 }
-.simpleFooter li a {
+.simpleFooter-container .simpleFooter li a {
   position: relative;
   text-decoration: none;
   font-weight: bold;
   padding-bottom: 5px;
 }
-.simpleFooter li a::after {
+.simpleFooter-container .simpleFooter li a::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -28,14 +34,14 @@
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
-.simpleFooter li a:hover {
+.simpleFooter-container .simpleFooter li a:hover {
   cursor: pointer;
 }
-.simpleFooter li a:hover::after {
+.simpleFooter-container .simpleFooter li a:hover::after {
   transform: scaleX(1);
   transform-origin: top left;
 }
-.simpleFooter .light li a {
+.simpleFooter-container .simpleFooter .light li a {
   font-weight: normal;
 }
 

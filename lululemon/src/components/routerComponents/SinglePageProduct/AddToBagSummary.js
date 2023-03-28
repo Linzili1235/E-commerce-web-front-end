@@ -4,6 +4,7 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../actions";
 import {useNavigate} from "react-router-dom";
+import {ShoppingBagOutlined} from "@mui/icons-material";
 
 const AddToBagSummary = () => {
     const dispatch = useDispatch()
@@ -45,6 +46,16 @@ const AddToBagSummary = () => {
         navigate('/mybag')
     }
 
+    const totalQ = () => {
+        let count = 0
+        for (const obj of addedProducts) {
+            count += obj.quantity
+        }
+        return count
+    }
+
+    const totalQuantity = totalQ()
+
     return (
         <>
             <div className={ isClosed ? 'hidden-summary-box' : 'summary-container' }>
@@ -57,8 +68,8 @@ const AddToBagSummary = () => {
                                 Added To Your Bag
                             </div>
                             <div className="shopping-bag-icon">
-                            {/*   todo: Add shopping bag icon    */}
-                            </div>
+                                <ShoppingBagOutlined fontSize={"large"} />
+                                <span className="shopping-total"><strong>{totalQuantity}  {`${totalQuantity > 1 ? 'Items': 'Item'}`}</strong></span>                            </div>
                         </div>
                         <div className="close-button">
                             <CloseOutlinedIcon fontSize={'large'} onClick={handleClose}/>

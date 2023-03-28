@@ -15,7 +15,8 @@ export const Cart = () => {
     // console.log(addedProducts)
     const data = window.localStorage.getItem('Added Products')
     const recoveredProduct = JSON.parse(data)
-    console.log(recoveredProduct)
+    // console.log(recoveredProduct)
+    // console.log(noProduct)
     // useEffect(() => {
     //     const data = window.localStorage.getItem('Added Products')
     //     const recoveredProduct = JSON.parse(data)
@@ -31,16 +32,18 @@ export const Cart = () => {
     }
 
     const isNoProduct = () => {
-        if (addedProducts.length === 0) {
+        if (recoveredProduct.length === 0) {
             setTimeout(()=>dispatch(actions?.productActions?.setNoProduct(true)),300)
             // console.log(noProduct)
             // console.log(addedProduct)
+        } else {
+            dispatch(actions?.productActions?.setNoProduct(false))
         }
-        // dispatch(actions?.productActions?.setNoProduct(false))
+
 
     }
     // check whether addedProduct.length === 0 once addedProduct changes
-    useEffect(isNoProduct, [addedProducts])
+    useEffect(isNoProduct, [recoveredProduct])
     return (
 
         <section className="shoppingCart">

@@ -4,6 +4,7 @@
 }
 .shoppingCart {
   flex: 1;
+  height: auto;
 }
 .shoppingCart .main-context {
   margin: 2.5rem auto;

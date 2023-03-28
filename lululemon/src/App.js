@@ -5,7 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import {Main} from "./components/mainPageComponents/Main";
 import {Cart} from "./components/routerComponents/Cart/Cart";
 import {Review} from "./components/routerComponents/Review"
-import {Checkout} from "./components/routerComponents/Checkout"
+import {Checkout} from "./components/routerComponents/Checkout/Checkout"
 import {PageNotFound} from "./components/routerComponents/PageNotFound";
 import {SinglePageProduct} from "./components/routerComponents/SinglePageProduct/SinglePageProduct";
 import './components/globalStyle-module.scss'

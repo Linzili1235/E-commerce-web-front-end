@@ -4,6 +4,7 @@ import {MainNav} from "./Header/MainNav";
 import {useLocation, useNavigate} from "react-router-dom";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import {logo} from "../assets/logo/logo";
+import {ShoppingBagWithQ} from "../assets/Icon/ShoppingBagWithQ";
 
 export const Header = () => {
     const location = useLocation()
@@ -20,7 +21,6 @@ export const Header = () => {
         switch (location.pathname) {
             case '/mybag':
             case '/review':
-            case '/checkout':
                 return <section className="header1">
                     <nav className="simple-nav">
                         <a className="brand-logo" href="">
@@ -31,6 +31,17 @@ export const Header = () => {
                             <div className="signIn">
                                 Sign in
                             </div>
+                        </div>
+                    </nav>
+                </section>
+            case '/checkout':
+                return <section className="header1">
+                    <nav className="simple-nav">
+                        <a className="brand-logo" href="">
+                            <img src={logo} alt="logo" onClick={handleNavigate}/>
+                        </a>
+                        <div className="logIn" onClick={handleSignIn}>
+                                <ShoppingBagWithQ/>
                         </div>
                     </nav>
                 </section>
