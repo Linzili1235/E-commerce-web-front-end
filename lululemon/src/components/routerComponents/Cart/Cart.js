@@ -11,6 +11,7 @@ export const Cart = () => {
     const navigate = useNavigate()
     const addedProducts = useSelector(state => state?.productReducer?.addedProducts)
     const [isNoProduct, setNoProduct] = useState(false)
+    const [count, updateCount] = useState(0)
     // const noProduct = useSelector(state => state?.productReducer?.noProduct)
     // console.log(noProduct)
     console.log(addedProducts)
@@ -26,6 +27,27 @@ export const Cart = () => {
     //
     // },[])
 
+    // use this to let useEffect keep render after addProduct = []
+    const clock = () => {
+        const interval = setInterval(() => {
+            updateCount(prevState => ++prevState)
+            // console.log(second)
+            if (count > 5) {
+                clearInterval(interval)
+            }
+
+        }, 2000);
+        console.log(count)
+
+        return count
+    }
+
+    const second = clock()
+
+
+
+
+
 
     const handleNavigate = (e) => {
         e.preventDefault();
@@ -33,8 +55,10 @@ export const Cart = () => {
     }
 
     const checkNoProduct = () => {
+        console.log('whether you check')
         // addedProducts.length === 0 && setNoProduct(true)
         if (recoveredProduct.length === 0) {
+            console.log("profuct 0")
             // setTimeout(()=>dispatch(actions?.productActions?.setNoProduct(true)),300)
             setNoProduct(true)
             // setTimeout(()=>setNoProduct(true),300)
@@ -47,8 +71,14 @@ export const Cart = () => {
 
 
     }
+
+
     // check whether addedProduct.length === 0 once addedProduct changes
-    useEffect(checkNoProduct, [addedProducts])
+    useEffect(() => {
+        checkNoProduct()
+        // console.log(second)
+
+    }, [addedProducts, second])
     return  isNoProduct ?
 
         <section className="shoppingCart">
