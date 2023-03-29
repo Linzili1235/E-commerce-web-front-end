@@ -31,24 +31,19 @@ export const Cart = () => {
     const clock = () => {
         if (addedProducts.length === 0) {
         const interval = setInterval(() => {
-            updateCount(prevState => ++prevState)
-            // console.log(second)
-            if (count > 5) {
-                clearInterval(interval)
-            }
-
-        }, 2000);
-        console.log(count)}
-
+            updateCount(prevState => {
+                if (prevState >= 5) {
+                    clearInterval(interval)
+                    return prevState
+                }
+                return ++prevState
+            })
+        }, 100);
+        }
         return count
     }
 
     const second = clock()
-
-
-
-
-
 
     const handleNavigate = (e) => {
         e.preventDefault();
@@ -56,10 +51,10 @@ export const Cart = () => {
     }
 
     const checkNoProduct = () => {
-        console.log('whether you check')
+        // console.log('whether you check')
         // addedProducts.length === 0 && setNoProduct(true)
         if (recoveredProduct.length === 0) {
-            console.log("profuct 0")
+            console.log("product 0")
             // setTimeout(()=>dispatch(actions?.productActions?.setNoProduct(true)),300)
             setNoProduct(true)
             // setTimeout(()=>setNoProduct(true),300)
