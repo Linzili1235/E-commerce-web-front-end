@@ -4,6 +4,7 @@
 .sideBar .sideBarTitle {
   display: flex;
   align-items: flex-start;
+  margin-top: 2rem;
 }
 .sideBar .sideBarTitle h1 {
   margin-inline-start: 0px;

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {MyBag} from "./MyBag";
 import {OrderSummary} from "./OrderSummary";
 import './Cart.scss'
@@ -10,9 +10,11 @@ export const Cart = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const addedProducts = useSelector(state => state?.productReducer?.addedProducts)
-    const noProduct = useSelector(state => state?.productReducer?.noProduct)
+    const [isNoProduct, setNoProduct] = useState(false)
+    const [count, updateCount] = useState(0)
+    // const noProduct = useSelector(state => state?.productReducer?.noProduct)
     // console.log(noProduct)
-    // console.log(addedProducts)
+    console.log(addedProducts)
     const data = window.localStorage.getItem('Added Products')
     const recoveredProduct = JSON.parse(data)
     // console.log(recoveredProduct)
@@ -25,29 +27,65 @@ export const Cart = () => {
     //
     // },[])
 
+    // use this to let useEffect keep render after addProduct = []
+    const clock = () => {
+        if (addedProducts.length === 0) {
+        const interval = setInterval(() => {
+            updateCount(prevState => ++prevState)
+            // console.log(second)
+            if (count > 5) {
+                clearInterval(interval)
+            }
+
+        }, 2000);
+        console.log(count)}
+
+        return count
+    }
+
+    const second = clock()
+
+
+
+
+
 
     const handleNavigate = (e) => {
         e.preventDefault();
         navigate('/mainPage/1/1')
     }
 
-    const isNoProduct = () => {
+    const checkNoProduct = () => {
+        console.log('whether you check')
+        // addedProducts.length === 0 && setNoProduct(true)
         if (recoveredProduct.length === 0) {
-            setTimeout(()=>dispatch(actions?.productActions?.setNoProduct(true)),300)
+            console.log("profuct 0")
+            // setTimeout(()=>dispatch(actions?.productActions?.setNoProduct(true)),300)
+            setNoProduct(true)
+            // setTimeout(()=>setNoProduct(true),300)
             // console.log(noProduct)
             // console.log(addedProduct)
         } else {
-            dispatch(actions?.productActions?.setNoProduct(false))
+            setNoProduct(false)
+            // dispatch(actions?.productActions?.setNoProduct(false))
         }
 
 
     }
+
+
     // check whether addedProduct.length === 0 once addedProduct changes
-    useEffect(isNoProduct, [recoveredProduct])
-    return (
+    useEffect(() => {
+        checkNoProduct()
+        // console.log("rerendered")
+        // console.log(second)
+    // })
+
+    }, [addedProducts, second])
+    return  isNoProduct ?
 
         <section className="shoppingCart">
-            { noProduct ?
+
                 <div className="zeroProduct-container">
                     <div className="zeroProduct-main">
                         <div className="zeroProduct-content">
@@ -63,8 +101,10 @@ export const Cart = () => {
                     </div>
 
                 </div>
+        </section>
 
                 :
+            <section className="shoppingCart">
             <div className="main-context">
             <div className="myBag-container">
                 <MyBag/>
@@ -72,7 +112,7 @@ export const Cart = () => {
             <div className="orderSummary-container">
                 <OrderSummary/>
             </div>
-            </div>}
+            </div>
         </section>
-    );
+    ;
 };
