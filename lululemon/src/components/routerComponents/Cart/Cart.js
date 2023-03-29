@@ -29,6 +29,7 @@ export const Cart = () => {
 
     // use this to let useEffect keep render after addProduct = []
     const clock = () => {
+        if (addedProducts.length === 0) {
         const interval = setInterval(() => {
             updateCount(prevState => ++prevState)
             // console.log(second)
@@ -37,7 +38,7 @@ export const Cart = () => {
             }
 
         }, 2000);
-        console.log(count)
+        console.log(count)}
 
         return count
     }
@@ -76,7 +77,9 @@ export const Cart = () => {
     // check whether addedProduct.length === 0 once addedProduct changes
     useEffect(() => {
         checkNoProduct()
+        // console.log("rerendered")
         // console.log(second)
+    // })
 
     }, [addedProducts, second])
     return  isNoProduct ?
