@@ -102,7 +102,7 @@ export const MainNav = () => {
                         <div className="checkout-product-summary-list">
                             {
                                 addedProduct && addedProduct.filter(product => product !== null).reverse().map((product, indx) => {
-                                    const {img, title, price, size,color} = product.productInfo
+                                    const {img, name, price, size,color} = product.productInfo
                                     const {quantity} = product
                                     const updatedPrice = price.split("-")[0]
                                     const numericValue = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''));
@@ -114,7 +114,7 @@ export const MainNav = () => {
                                             <div className="close-button">
                                                 <CloseOutlinedIcon fontSize={'medium'} onClick={() => handleRemove(indx)}/>
                                             </div>
-                                            <div className="product-title">{title}</div>
+                                            <div className="product-title">{name}</div>
                                             <div className="product-color">{color}</div>
                                             <div className="product-size">Size: {size}</div>
                                             <div className="checkout-quantity-price">

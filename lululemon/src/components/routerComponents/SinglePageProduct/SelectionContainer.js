@@ -19,11 +19,12 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     const [sizeIndex, updateSizeIndex] = useState(-1)
 
     // LOCAL STORAGE to store added products info
-    const {swatches,sizes, productId} = productOne
+    const {swatches,sizes, productId, name} = productOne
+    // console.log(productOne)
     // console.log("in single page", productId)
     // first image at the color index
     const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
-    const title = productOne.images[colorIndex].mainCarousel.alt
+    // const title = productOne.images[colorIndex].mainCarousel.alt
     const price = productOne.price
     const size =  productOne.sizes[0].details.length === 0? "ONE SIZE": productOne.sizes[0].details[sizeIndex]
     const color = swatches[colorIndex].swatchAlt
@@ -94,7 +95,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         else {
 
         // console.log('size', sizeIndex, title, price,size)
-        dispatch(actions?.productActions?.addToBag(img, title, price, size, color,productId, colorIndex, sizeIndex))
+        dispatch(actions?.productActions?.addToBag(img, name, price, size, color,productId, colorIndex, sizeIndex))
             .then(() => setAdded(prevState => !prevState) )
 
         // dispatch(actions?.productActions?.toggleSummaryBox(false))

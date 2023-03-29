@@ -14,7 +14,8 @@ export const ProductInBag = ({product,index}) => {
     const dispatch = useDispatch()
     const {productInfo, quantity, productId} = product
     // for some reasons, here the properties won't change with product
-    const {img, title, color, price, size, colorIndex, sizeIndex} = productInfo
+    const {img, name, color, price, size, colorIndex, sizeIndex} = productInfo
+    console.log(price)
     // console.log(product)
     // console.log("size",product.size)
     const updatedPrice = price.split("-")[0]
@@ -25,9 +26,12 @@ export const ProductInBag = ({product,index}) => {
 
     const [selectedValue, setSelectedValue] = useState(quantity)
     const [isOpen, setIsOpen] = useState(false)
+    // whether to close the remove page after clicking the remove
     const [isRemoveClose, setIsRemoveClose] = useState(true)
+    //
     const {isUpdateClosed, addedProducts} = useSelector(state => state?.productReducer)
-    // const [isProductClose, setIsProductClose] = useState(true)
+    const [isProductClose, setIsProductClose] = useState(true)
+    // judge whether you have fetched the data of one_product
     const [isLoading, setIsLoading] = useState(true)
     const [selectedColorIndex, setSelectedColorIndex] = useState(colorIndex)
     const handleColorChange = (indx) => {
@@ -52,16 +56,22 @@ export const ProductInBag = ({product,index}) => {
 
     const handleProductOpen = (productId) => {
         // console.log(key)
-        dispatch(actions?.productActions?.toggleUpdateBox(false))
+        setIsProductClose(!isProductClose)
+        // dispatch(actions?.productActions?.toggleUpdateBox(false))
         onClickFetch(productId)
 
    }
    const handleProductClose = (e) => {
        e.preventDefault();
-       dispatch(actions?.productActions?.toggleUpdateBox(true))   }
+       setIsProductClose(!isProductClose)
+
+       // dispatch(actions?.productActions?.toggleUpdateBox(true))
+    }
 
    const handleRemove = (ind) => {
        dispatch(actions?.productActions?.removeSpecificProduct(ind)).then()
+
+       // await dispatch(actions?.productActions?.removeSpecificProduct(ind)).then()
        setIsRemoveClose(!isRemoveClose)
        // if (addedProducts.length === 0) {
        //     setTimeout(()=>dispatch(actions?.productActions?.setNoProduct(true)),300)
@@ -80,10 +90,10 @@ export const ProductInBag = ({product,index}) => {
     <div className="productInBag-container">
     <div className="productInBag">
         <div className="product-image-container">
-            <img className="productImg" src={img} alt={title} onClick={()=>handleProductOpen(productId)}/>
+            <img className="productImg" src={img} alt={name} onClick={()=>handleProductOpen(productId)}/>
         </div>
         <div className="product-details-container">
-            <h3 className="product-title" onClick={() => handleProductOpen(productId )}><strong>{title}</strong></h3>
+            <h3 className="product-title" onClick={() => handleProductOpen(productId )}><strong>{name}</strong></h3>
             <p className="product-color">{color}</p>
             <div className="product-moreDetails">
                 <div className="product-size">
@@ -161,17 +171,20 @@ export const ProductInBag = ({product,index}) => {
 
 
     </div>
-        <div className={`${isUpdateClosed ? 'none-display': 'backdrop'}`} onClick={handleProductClose}></div>
-        <div className={`${isUpdateClosed ? 'none-display': "updateProductContainer"}`}>
+        <div className={`${isProductClose ? 'none-display': 'backdrop'}`} onClick={handleProductClose}></div>
+        <div className={`${isProductClose ? 'none-display': "updateProductContainer"}`}>
+        {/*<div className={`${isUpdateClosed ? 'none-display': 'backdrop'}`} onClick={handleProductClose}></div>*/}
+        {/*<div className={`${isUpdateClosed ? 'none-display': "updateProductContainer"}`}>*/}
             <div className="updateProduct-content">
                 <div className="close-button">
                     <CloseOutlinedIcon fontSize={'medium'} onClick={handleProductClose} style={{cursor:"pointer"}}/>
                 </div>
-                    {isLoading? <div className="updateProduct-detail">
-                        <img src={img} alt={title} className="productImg-update"/>
+                    {isLoading?
+                <div className="updateProduct-detail">
+                        <img src={img} alt={name} className="productImg-update"/>
                         <div className="product-details">
                             <div className="product-title">
-                                <div className="h1">{title}</div>
+                                <div className="h1">{name}</div>
                                 <span className="product-price">{twoDigitPrice}</span>
                             </div>
                             <div className="afterLoading-product">
@@ -180,7 +193,9 @@ export const ProductInBag = ({product,index}) => {
 
 
                         </div>
-                    </div> : <div className="updateProduct-detail">
+                    </div>
+                        :
+                        <div className="updateProduct-detail">
                         <CarouselInBag selectedColorIndex={selectedColorIndex}  className="productImg-update"/>
                         <SelectionInBag onColorChange={handleColorChange}
                                         ind={index} colorInd={colorIndex} sizeInd={sizeIndex}/>

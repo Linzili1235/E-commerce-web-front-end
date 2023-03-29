@@ -82,7 +82,7 @@ const AddToBagSummary = () => {
                         <div className="product-summary-list">
                             {
                                 addedProducts && addedProducts.filter(product => product !== null).reverse().map((product, indx) => {
-                                    const {img, title, price, size} = product.productInfo
+                                    const {img, name, price, size} = product.productInfo
                                     const {quantity} = product
                                     const updatedPrice = price.split("-")[0]
                                     const numericValue = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''));
@@ -90,7 +90,7 @@ const AddToBagSummary = () => {
                                     return <div className='product-summary' key={indx}>
                                         <img className='product-img' src={img} alt="product-img"/>
                                         <div className="title-price-container">
-                                            <div className="product-title">{title}</div>
+                                            <div className="product-title">{name}</div>
                                             <div className="product-size">Size: {size}</div>
                                             <div className="product-price">
                                                 {
