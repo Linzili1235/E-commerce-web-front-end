@@ -44,12 +44,12 @@
 .productTile .productTile_details .swatchList .swatchChangeButton-1 {
   display: inline-flex;
   justify-content: flex-start;
-  position: absolute;
+  position: relative;
   top: 0.3rem;
-  background-color: #fafafa;
   border: none;
   padding: 0;
   cursor: pointer;
+  background-color: #fafafa;
 }
 .productTile .productTile_details .swatchList .swatchChangeButton-1 svg {
   width: 1.375rem;
@@ -73,8 +73,6 @@
   display: inline-flex;
   flex-direction: row;
   padding: 0;
-  margin-left: 1rem;
-  margin-right: 1rem;
   position: relative;
 }
 .productTile .productTile_details .swatchList .realSwatchList .swatchItem {
