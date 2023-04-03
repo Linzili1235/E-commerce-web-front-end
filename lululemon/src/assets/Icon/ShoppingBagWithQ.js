@@ -1,7 +1,7 @@
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import {useSelector} from "react-redux";
 
-export const ShoppingBagWithQ = (onClick) => {
+export const ShoppingBagWithQ = () => {
     const addedProduct = useSelector(state => state?.productReducer?.addedProducts)
 
     const totalQ = () => {
@@ -12,7 +12,7 @@ export const ShoppingBagWithQ = (onClick) => {
         return count
     }
     const totalQuantity = totalQ()
-    return <div className="shoppingBag-container" onClick={onClick}>
+    return <div className="shoppingBag-container">
         <ShoppingBagIcon className="shoppingBag" />
         <div className="showing-quantity">{totalQuantity}</div>
 

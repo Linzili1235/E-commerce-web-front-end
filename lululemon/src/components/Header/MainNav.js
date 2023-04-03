@@ -3,7 +3,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import {logo} from '../../assets/logo/logo'
 import { useNavigate } from "react-router-dom";
-import {ShoppingBagWithQ} from "../../assets/Icon/ShoppingBagWithQ";
 import React, {useEffect, useState} from "react";
 import actions from "../../actions";
 import {useDispatch, useSelector} from "react-redux";
