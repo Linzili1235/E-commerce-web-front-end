@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { TextField } from "@mui/material";
 import { useState } from "react";
 import '../ResetPassword.scss'
@@ -6,9 +6,16 @@ import '../ResetPassword.scss'
 const ResetPassword = () => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
 
+    // By using useRef, you can directly access the current value of the input fields without having to manage the state
+    // using useState every time the input value changes.
+    // Why? ------ Performance! Since the reference doesn't trigger re-render when it's updated, using useRef can be more
+    // performant compared to useState for handling input values.
+    const emailRef = useRef(null);
+    const newEmailRef = useRef(null);
+    const newPasswordRef = useRef(null);
 
     // validate email input
     const validateEmail = (email) => {
@@ -19,13 +26,22 @@ const ResetPassword = () => {
 
     // validate email input
     const handleSubmit = () => {
-        console.log('email entered', email)
+        console.log('send old email', {email: emailRef.current.value})
+        console.log('new email entered', {email: newEmailRef.current.value, password: newPasswordRef.current.value})
     }
-    const handleEmailChange = (e) => {
-        const emailInput = e.target.value;
-        setEmail(emailInput);
-
+    const handleEmailChange = () => {
+        const emailInput = emailRef.current.value
+        console.log('email input', emailInput)
         if (!validateEmail(emailInput)) {
+            setEmailError('Please enter a valid email format');
+        } else {
+            setEmailError('');
+        }
+    };
+    const handleNewEmailChange = () => {
+        const newEmailInput = newEmailRef.current.value
+        console.log('new email input', newEmailInput)
+        if (!validateEmail(newEmailInput)) {
             setEmailError('Please enter a valid email format');
         } else {
             setEmailError('');
@@ -35,9 +51,8 @@ const ResetPassword = () => {
     const validatePassword = (password) => {
         return password.length >= 8 && password.length <= 30;
     }
-    const handlePasswordChange = (e) => {
-        const passwordInput = e.target.value
-        setPassword(passwordInput);
+    const handlePasswordChange = () => {
+        const passwordInput = newPasswordRef.current.value
         if(validatePassword(passwordInput)) {
             setPasswordError('');
         } else {
@@ -61,7 +76,7 @@ const ResetPassword = () => {
                            }}}
                        error={!!emailError} // Show error state when emailError is not empty
                        helperText={emailError}
-                       value={email}
+                       inputRef={emailRef}
                        onChange={handleEmailChange}
                        style={{ width: '40%' }}/>
             <div className="enter-email-button" onClick={handleSubmit}>
@@ -81,8 +96,8 @@ const ResetPassword = () => {
                            }}}
                        error={!!emailError} // Show error state when emailError is not empty
                        helperText={emailError}
-                       value={email}
-                       onChange={handleEmailChange}
+                       inputRef={newEmailRef}
+                       onChange={handleNewEmailChange}
                        style={{ width: '40%' }}/>
             <TextField id="outlined-basic" label="New password" type="password" variant="outlined"
                        sx={{
@@ -91,7 +106,7 @@ const ResetPassword = () => {
                                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
                                }
                            }}}
-                       value={password}
+                       inputRef={newPasswordRef}
                        error={!!passwordError}
                        helperText={passwordError}
                        inputProps={{ minLength: 8 }}

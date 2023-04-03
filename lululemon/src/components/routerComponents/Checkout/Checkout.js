@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './Checkout.scss';
 import { TextField } from "@mui/material";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -12,11 +12,13 @@ export const Checkout = () => {
     const [arrowClicked, setArrowClicked] = useState(false)
     // Make sure the formats of email and password are correct
     const [emailError, setEmailError] = useState('');
+    const [contactEmailError, setContactEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
     // Grab input values
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const emailRef = useRef(null)
+    const passwordRef = useRef(null)
+    const contactEmailRef = useRef(null)
 
     const handleLogIn = (e) => {
         e.preventDefault();
@@ -27,6 +29,8 @@ export const Checkout = () => {
         // Add your logic for the next step here
     };
     const handleSubmit = () => {
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
         if (!arrowClicked) setArrowClicked(true)
         if (!email) {
             setEmailError('Please enter an email')
@@ -51,23 +55,28 @@ export const Checkout = () => {
     const validatePassword = (password) => {
         return password.length >= 8 && password.length <= 30;
     }
-    const handlePasswordChange = (e) => {
-        const passwordInput = e.target.value
-        setPassword(passwordInput);
+    const handlePasswordChange = () => {
+        const passwordInput = passwordRef.current.value;
         if(validatePassword(passwordInput)) {
             setPasswordError('');
         } else {
             setPasswordError('Password must be at least 8 characters long.');
         }
     };
-    const handleEmailChange = (e) => {
-        const emailInput = e.target.value;
-        setEmail(emailInput);
-
+    const handleEmailChange = () => {
+        const emailInput = emailRef.current.value;
         if (!validateEmail(emailInput)) {
             setEmailError('Please enter a valid email format');
         } else {
             setEmailError('');
+        }
+    };
+    const handleContactEmailChange = () => {
+        const emailInput = contactEmailRef.current.value;
+        if (!validateEmail(emailInput)) {
+            setContactEmailError('Please enter a valid email format');
+        } else {
+            setContactEmailError('');
         }
     };
     const handleArrowToggle = () => {
@@ -100,7 +109,7 @@ export const Checkout = () => {
                                                      }}}
                                                  error={!!emailError} // Show error state when emailError is not empty
                                                  helperText={emailError}
-                                                 value={email}
+                                                 inputRef={emailRef}
                                                  onChange={handleEmailChange}
                                                  style={{ width: '120%' }}/>}</div>
                                 <div>{<TextField id="outlined-basic" label="Password" type="password" variant="outlined"
@@ -110,14 +119,15 @@ export const Checkout = () => {
                                                              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
                                                          }
                                                      }}}
-                                                 value={password}
+                                                 inputRef={passwordRef}
                                                  error={!!passwordError}
                                                  helperText={passwordError}
                                                  inputProps={{ minLength: 8 }}
                                                  onChange={handlePasswordChange}
                                                  style={{ width: '120%' }}/>}
                                      <div className="forgot-password">
-                                         <a href="" onClick={()=> { navigate('/reset') }}>Forgot your password?</a></div>
+                                         <a href="" onClick={()=> { navigate('/reset') }}>Forgot your password?</a>
+                                     </div>
                                 </div>
                             </div>
                             <div className="signIn-button" onClick={handleSubmit}>
@@ -127,14 +137,24 @@ export const Checkout = () => {
                         <div className="info-box contact-information">
                             <div className="title">Contact Information</div>
                             <div className="email">Email address (for order notification)</div>
-                            <div className='input'>{<TextField id="outlined-basic" variant="outlined"
-                                                               sx={{
-                                                                   '& .MuiOutlinedInput-root': {
-                                                                       '&.Mui-focused': {
-                                                                           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
-                                                                       }
-                                                                   }}}
-                                                               style={{ width: '100%' }}/>}</div>
+                            <div className='input'>
+                                {
+                                    <TextField
+                                        id="outlined-basic"
+                                        variant="outlined"
+                                        sx={{
+                                            '& .MuiOutlinedInput-root': {
+                                                '&.Mui-focused': {
+                                                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
+                                                }
+                                            }}}
+                                        error={!!contactEmailError} // Show error state when emailError is not empty
+                                        helperText={emailError}
+                                        inputRef={contactEmailRef}
+                                        onChange={handleContactEmailChange}
+                                        style={{ width: '100%' }}/>
+                                }
+                            </div>
                             <div className="sign-up">
                                 <div className="checkbox"></div>
                                 <input type="checkbox" />
