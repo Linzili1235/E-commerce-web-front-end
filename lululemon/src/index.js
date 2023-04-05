@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
@@ -15,7 +15,9 @@ const store = createStore(reducers, applyMiddleware(thunk))
 root.render(
     <BrowserRouter>
         <Provider store={store}>
-            <App />
+            <Suspense fallback={<h1>Loading...</h1>}>
+                <App />
+            </Suspense>
         </Provider>
     </BrowserRouter>
 );

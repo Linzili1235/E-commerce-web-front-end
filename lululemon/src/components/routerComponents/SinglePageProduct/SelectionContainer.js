@@ -1,6 +1,6 @@
 import React from 'react';
 import './SelectionContainer.scss'
-import {useSelector} from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import {useState,useEffect} from "react"
 import AdjustRoundedIcon from '@mui/icons-material/AdjustRounded';
 import {ItemCheckedIcon} from "../../mainPageComponents/SideBar/SideBarIcon";
@@ -8,17 +8,31 @@ import HouseSidingRoundedIcon from '@mui/icons-material/HouseSidingRounded';
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { CircularProgress } from '@mui/material';
+import actions from "../../../actions";
 
 export const SelectionContainer = ({ zoomIn, onColorChange }) => {
+    const dispatch = useDispatch();
     const productOne = useSelector(state => state?.productReducer?.one_product)
-    // console.log(productOne)
-    const {swatches,sizes} = productOne
     const [colorIndex, updateColorIndex] = useState(0)
+    const [sizeIndex, updateSizeIndex] = useState(-1)
+
+    // LOCAL STORAGE to store added products info
+    const {swatches,sizes, productId, name} = productOne
+    // console.log(productOne)
+    // console.log("in single page", productId)
+    // first image at the color index
+    const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
+    // const title = productOne.images[colorIndex].mainCarousel.alt
+    const price = productOne.price
+    const size =  productOne.sizes[0].details.length === 0? "ONE SIZE": productOne.sizes[0].details[sizeIndex]
+    const color = swatches[colorIndex].swatchAlt
+
     // create an array to deal with onClick border
     // false: no border, true: with border
     const borderArray = Array(swatches.length).fill(false)
     const [borderBool, updateBorderBool] = useState(borderArray)
-    // console.log(borderArray)
 
     // default border with first item
     useEffect(()=> updateBorderBool(prevState => {
@@ -27,11 +41,23 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         return newState
     }
     ), [])
-    // console.log(swatches)
+
+    // Product only have one size, need to set selected index to 0 and alert to false
+    useEffect(() => {
+        if (sizes[0].details.length === 0) {
+            updateSizeIndex(0);
+            updateAlert(false);
+        }
+    }, [sizes]);
+
 
     // same idea with onClick size choice
     const sizeArray = Array(sizes[0].details.length).fill(false)
     const [sizeBool, updateBool] = useState(sizeArray)
+
+    // deal with size alert
+    const [isAlert, updateAlert] = useState(true)
+    const [showAlert, updateShowAlert] = useState(false)
 
 
     const onClickChangeColor = (ind) => {
@@ -49,21 +75,50 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
     }
 
     const onClickChangeSize = (ind) => {
-        updateBool(prevState => {
-            const newState = sizeArray
-            newState[ind] = true
-            return newState
-        })
+            // Otherwise, handle multiple sizes as before
+            updateSizeIndex(ind);
+            updateAlert(false);
+            updateShowAlert(false);
+            updateBool(prevState => {
+                const newState = sizeArray;
+                newState[ind] = true;
+                return newState;
+            });
+    };
+
+
+    const [added, setAdded] = useState(false)
+    // pass img, title, price, size to the reducer
+    const handleAddToBag = () => {
+        if (isAlert) {
+            updateShowAlert(true)}
+        else {
+
+        // console.log('size', sizeIndex, title, price,size)
+        dispatch(actions?.productActions?.addToBag(img, name, price, size, color,productId, colorIndex, sizeIndex))
+            .then(() => setAdded(prevState => !prevState) )
+
+        // dispatch(actions?.productActions?.toggleSummaryBox(false))
+        //     .then(() => setAdded(prevState => !prevState))
+
+        setTimeout(()=>{
+            dispatch(actions?.productActions?.toggleSummaryBox(false))
+            // once add product, addedProduct length > 0, show product in myBag page
+            dispatch(actions?.productActions?.setNoProduct(false))
+            setAdded(prevState => !prevState)
+        }, 300)
+        }
 
     }
+
     return (
         <>
             <div className={ zoomIn ? "hidden" : "selection-container"}>
                 <div className="selection-details">
                 <div className="product-field">
                     <ul className="product-field-list">
-                        <li key='women' className="field"><a href="">Woman's clothes</a></li>
-                        <li key='short' className="field"><a href="">Short</a></li>
+                        <li key='women' className="field"><a href="#">Woman's clothes</a></li>
+                        <li key='short' className="field"><a href="#">Short</a></li>
                     </ul>
                 </div>
                     <div className="product-title">
@@ -76,7 +131,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                     <div className="colorSelection">
                         <div className="colorName">
                             <span className="color">Colour</span>
-                            <span className="specific-color">{swatches[colorIndex].swatchAlt}</span>
+                            <span className="specific-color">{color}</span>
 
                         </div>
                         <div className="availableColor">
@@ -91,6 +146,13 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
 
                         </div>
 
+                    </div>
+                    <div className="sizeAlert">
+                        {showAlert && <div className="notification-alert">
+                            <ErrorOutlineIcon className="errorIcon"/>
+                            <div>Please select a size</div>
+
+                        </div>}
                     </div>
                     <div className="sizeSelection">
                         {sizes[0].title === "Select Size" ?
@@ -117,9 +179,10 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                             <span className="selectSize">
                                 {sizes[0].title}
                             </span>
-                                <span className="oneSize">One Size</span>
+                                <span className="oneSize-text">One Size</span>
                             </div>
                             <div className="sizeButtons">
+                                <span className="oneSize">One Size</span>
                             </div>
                         </>}
 
@@ -145,9 +208,11 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
                             </div>
                             <ItemCheckedIcon checked = {false}/>
                         </div>
+
                         <div className="addingButtonContainer">
-                            <button className="addingButton">
-                                Add To Bag
+                            <button className="addingButton" onClick={handleAddToBag}>
+                                <span className={added ? 'hide' : 'display-button'}>Add to bag</span>
+                                <CircularProgress className={added ? 'display-button' : 'hide'} size={30} color={'inherit'}/>
                             </button>
                         </div>
 

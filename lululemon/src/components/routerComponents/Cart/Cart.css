@@ -1,0 +1,88 @@
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+.shoppingCart {
+  flex: 1;
+  height: auto;
+}
+.shoppingCart .main-context {
+  margin: 2.5rem auto;
+  max-width: 90rem;
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem;
+  display: flex;
+  flex-direction: row;
+}
+.shoppingCart .main-context .myBag-container {
+  flex-basis: 66.66667%;
+}
+.shoppingCart .main-context .orderSummary-container {
+  flex-basis: 33.33333%;
+}
+.shoppingCart .zeroProduct-container .zeroProduct-main {
+  margin: 0 auto 1.5rem;
+  max-width: 48rem;
+}
+.shoppingCart .zeroProduct-container .zeroProduct-main .zeroProduct-content {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 4rem 0;
+}
+.shoppingCart .zeroProduct-container .zeroProduct-main .zeroProduct-content .zeroProduct-h1 {
+  margin: 0 0 1.375rem;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.2222222222;
+}
+.shoppingCart .zeroProduct-container .zeroProduct-main .zeroProduct-content .addingButtonContainer {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.shoppingCart .zeroProduct-container .zeroProduct-main .zeroProduct-content .addingButtonContainer .addingButton {
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+  height: 3.2rem;
+  background-color: #d31334;
+  color: #fff;
+  border: 0.0625rem solid #d31334;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+.shoppingCart .zeroProduct-container .zeroProduct-main .zeroProduct-content .addingButtonContainer .addingButton:hover {
+  background-color: #a40c0f;
+}
+.shoppingCart .zeroProduct-container .zeroProduct-main .zeroProduct-content .addingButtonContainer .hide {
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  width: 100%;
+  height: 3.2rem;
+  background-color: grey;
+  color: #fff;
+  border: 0.0625rem solid grey;
+  border-radius: 0.25rem;
+  cursor: no-drop;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=Cart.css.map */

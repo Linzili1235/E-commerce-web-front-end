@@ -1,0 +1,250 @@
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+.productUpdate-selection-container {
+  display: inline-block;
+  flex-basis: 41.6666666667%;
+}
+.productUpdate-selection-container .productUpdate-selection-details {
+  width: 26.5625rem;
+  box-sizing: content-box;
+  margin: 2rem 2.5rem 0.5rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .product-title {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-basis: 83.3333333333%;
+  max-width: 83.3333333333%;
+}
+.productUpdate-selection-container .productUpdate-selection-details .product-title .productUpdate-h1 {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 600;
+  text-align: left;
+}
+.productUpdate-selection-container .productUpdate-selection-details .product-title .productUpdate-price {
+  margin-top: 0.7rem;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .colorSelection {
+  margin-bottom: 0.5rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .colorSelection .colorName {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .colorSelection .colorName .productUpdate-color {
+  margin-right: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.1764705882;
+}
+.productUpdate-selection-container .productUpdate-selection-details .colorSelection .colorName .productUpdate-specific-color {
+  text-transform: capitalize;
+  line-height: 1.25rem;
+  font-size: 0.95rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .colorSelection .availableColor {
+  margin: 0;
+  width: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.productUpdate-selection-container .productUpdate-selection-details .colorSelection .availableColor .colorItem {
+  margin: 0 0.9rem 0.5rem 0;
+}
+.productUpdate-selection-container .productUpdate-selection-details .colorSelection .availableColor .colorItem img {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 2.125rem;
+  justify-content: center;
+  line-height: 0;
+  margin: 0.3125rem 0;
+  position: relative;
+  width: 2.125rem;
+  cursor: pointer;
+  box-shadow: 0 0 0 0.09375rem #d5d5d5;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.productUpdate-selection-container .productUpdate-selection-details .colorSelection .availableColor .colorItem img:hover {
+  box-sizing: border-box;
+  box-shadow: 0 0 0 1px darkgrey;
+  padding: 0.25rem;
+  z-index: 1;
+}
+.productUpdate-selection-container .productUpdate-selection-details .colorSelection .availableColor .colorItem .update-border {
+  box-shadow: 0 0 0 1px black;
+  padding: 0.25rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection {
+  text-transform: capitalize;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeTitle {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeTitle .productUpdate-selectSize {
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.1764705882;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeTitle .selectSize {
+  font-size: 0.95rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeTitle .oneSize-text {
+  font-size: 0.95rem;
+  padding-left: 0.5rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+  width: calc(100% + 1rem);
+  margin: 0 -0.3125rem -1rem;
+  margin-bottom: 0.5rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeButtons .oneSize {
+  font-size: 1.1rem;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  align-items: center;
+  background-color: black;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #d5d5d5;
+  box-shadow: 0 0 0 0.03125rem #d5d5d5;
+  color: #fff;
+  display: inline-flex;
+  height: 2.5rem;
+  justify-content: center;
+  line-height: 0;
+  min-width: 2.5rem;
+  padding: 0.53125rem 0.53125rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeButtons .sizeOut {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  margin-bottom: 1rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeButtons .sizeOut .update-sizeItem {
+  font-size: 1.1875rem;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #d5d5d5;
+  box-shadow: 0 0 0 0.03125rem #d5d5d5;
+  color: #000;
+  display: inline-flex;
+  height: 2.25rem;
+  justify-content: center;
+  line-height: 0;
+  min-width: 2.25rem;
+  padding: 0 0.53125rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeButtons .sizeOut .update-sizeItem:hover {
+  border: 0.1rem solid black;
+  cursor: pointer;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .sizeButtons .sizeOut .update-sizeBool {
+  border-color: #000;
+  box-shadow: 0 0 0 0.03125rem #000;
+  background-color: #000;
+  color: white;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .one {
+  justify-content: space-between;
+}
+.productUpdate-selection-container .productUpdate-selection-details .sizeSelection .two {
+  justify-content: flex-start;
+}
+.productUpdate-selection-container .productUpdate-selection-details .addingButtonContainer {
+  margin-bottom: 1rem;
+}
+.productUpdate-selection-container .productUpdate-selection-details .addingButtonContainer .addingButton {
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  width: 100%;
+  height: 3.2rem;
+  background-color: #d31334;
+  color: #fff;
+  border: 0.0625rem solid #d31334;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+.productUpdate-selection-container .productUpdate-selection-details .addingButtonContainer .addingButton:hover {
+  background-color: #a40c0f;
+}
+.productUpdate-selection-container .productUpdate-selection-details .addingButtonContainer .hide {
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  width: 100%;
+  height: 3.2rem;
+  background-color: grey;
+  color: #fff;
+  border: 0.0625rem solid grey;
+  border-radius: 0.25rem;
+  cursor: no-drop;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+.productUpdate-selection-container .productUpdate-selection-details .view-product-details {
+  font-size: 0.875rem;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4285714286;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+}
+.productUpdate-selection-container .productUpdate-selection-details .view-product-details a {
+  position: static;
+  text-decoration: underline;
+  text-decoration-color: #d5d5d5;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.375rem;
+  transition: all ease-in-out;
+}
+.productUpdate-selection-container .productUpdate-selection-details .view-product-details a:hover {
+  text-decoration-color: #d31334;
+}
+.productUpdate-selection-container .productUpdate-selection-details .view-product-details:after {
+  color: #d5d5d5;
+  display: inline-block;
+  font-weight: 300;
+}
+
+/*# sourceMappingURL=SelectionInBag.css.map */

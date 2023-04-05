@@ -1,4 +1,4 @@
-@use "./src/index.scss" as css;
+@use "../../../index.scss" as css;
 
 .sortingTabs {
   padding: 0 0 0 1.5rem;
@@ -16,6 +16,7 @@
     .sort-by {
       font-size: 1rem;
       overflow: unset;
+      margin-right: 12rem;
     }
     .hide {
       display: none;

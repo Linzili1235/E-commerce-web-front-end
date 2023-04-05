@@ -7,7 +7,11 @@ const initialState = {
     filters: {},
     addedProducts:[],
     params: {},   // if pagination is enabled, we need to change the params to separately control page
-    sortId: '1'
+    sortId: '1',
+    isClosed: true,
+    isUpdateClosed: true,
+    noProduct: false,
+    currTotal: 0
 }
 
 export const productReducer = (state=initialState, action) => {
@@ -45,8 +49,85 @@ export const productReducer = (state=initialState, action) => {
         case actionType.URL_PARAMS_SAVER:
             return {...state, params: action.payload}
         case actionType.SORT_ID:
-            console.log('[reducers] get sortId', action.payload);
+            // console.log('[reducers] get sortId', action.payload);
             return {...state, sortId: action.payload};
+
+        case actionType.ADDED_PRODUCT_INFO:
+            const addedProductString = JSON.stringify(action.payload.productInfo)
+            const tempProducts = [...state.addedProducts]  // prevent to change the state directly
+            let foundSame = false;
+            if (!tempProducts.length) {
+                return {...state, addedProducts: [action.payload] }
+            } else {
+                tempProducts.forEach((currProduct, indx) => {
+                    const currProductString = JSON.stringify(currProduct.productInfo)
+                    // console.log("currentProduct", currProductString)
+                    if (addedProductString === currProductString) {
+                        currProduct.quantity ++;
+                        foundSame = true;
+                    }
+                })
+            }
+
+            if (!foundSame) {
+                tempProducts.push(action.payload)
+            }
+            // console.log("all the products added", state.addedProducts)
+
+            return {...state, addedProducts: [...tempProducts]}
+
+        case actionType.TOGGLE_SUMMARY_BOX:
+            return {...state, isClosed: action.payload.isClosed};
+        case actionType.TOGGLE_UPDATE_BOX:
+            return {...state, isUpdateClosed: action?.payload?.isUpdateClosed}
+        case actionType.SET_NO_PRODUCT:
+            return {...state, noProduct: action?.payload}
+
+        case actionType.TOTAL_PRICE:
+            let count = 0
+            const tempProduct = [...state?.addedProducts]
+            tempProduct.forEach((product, ind) => {
+                const {productInfo} = product
+                const {price} = productInfo
+                const {quantity} = product
+                const updatedPrice = price.split("-")[0]
+                const numericValue = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''))
+                count += numericValue * quantity
+        })
+            return {...state, currTotal: count}
+
+            // const numericValue = parseFloat(action.payload.currTotal.replace(/[^0-9.]/g, ''));
+            // let total_price = state.currTotal + numericValue
+            // return {...state, currTotal: total_price}
+
+        case actionType.REMOVE_PRODUCT:
+            return {...state, addedProducts: action?.payload?.remainProduct,
+            currTotal: action?.payload?.totalPrice}
+        case actionType.ADD_WHEN_REFRESH:
+            // console.log("recover data look like ", action?.payload)
+            return {...state, addedProducts: action?.payload}
+
+        case actionType.CHANGE_WITH_QUANTITY:
+            const {ind, quantity} = action?.payload
+            const temp_products = [...state?.addedProducts]
+            const temp_product = temp_products[ind]
+            temp_product.quantity = quantity
+            return {...state, addedProducts: temp_products}
+        case actionType.REMOVE_SPECIFIC_PRODUCT:
+            const tem_products = [...state?.addedProducts]
+            tem_products.splice(action?.payload,1)
+            return {...state, addedProducts: tem_products}
+        case actionType.UPDATE_TO_BAG:
+            const update_product = [...state?.addedProducts]
+            const prod_index = action?.payload?.ind
+            const specific_product = update_product[prod_index]
+            const specific_productInfo = specific_product.productInfo
+            specific_productInfo.size = action?.payload?.size
+            specific_productInfo.color = action?.payload?.color
+            specific_productInfo.colorIndex = action?.payload?.colorIndex
+            specific_productInfo.sizeIndex = action?.payload?.sizeIndex
+            specific_productInfo.img = action?.payload?.img
+            return {...state, addedProducts: update_product}
         default:
             return {...state}
     }

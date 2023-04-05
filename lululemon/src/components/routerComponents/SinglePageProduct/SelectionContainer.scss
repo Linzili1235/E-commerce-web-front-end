@@ -3,9 +3,7 @@
 .selection-container {
   display: inline-block;
   flex-basis: 41.6666666667%;
-  max-width: 41.6666666667%;
   padding: 0 1rem;
-  //height: 60rem;
 
   .selection-details {
     width: 26.5625rem;
@@ -99,6 +97,7 @@
       }
     }
     .colorSelection {
+      margin-bottom: 0.5rem;
       .colorName {
         display: flex;
         justify-content: flex-start;
@@ -160,6 +159,26 @@
         }
       }
     }
+    .sizeAlert {
+      .notification-alert {
+        margin-bottom: 0.5rem;
+        background-color: #fae8ea;
+        border: 0.0625rem solid css.$hover_color;
+        font-size: 1.15rem;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 400;
+        line-height: 1.2631578947;
+        display: flex;
+        padding: 0.75rem;
+        .errorIcon {
+          color: css.$hover_color;
+          flex-shrink: 0;
+          height: 1.5rem;
+          margin-right: 0.5rem;
+          width: 1.5rem;
+        }
+      }
+    }
     .sizeSelection {
       text-transform: capitalize;
     .sizeTitle {
@@ -172,10 +191,11 @@
         font-size: 1.0625rem;
         line-height: 1.1764705882;
       }
-      .oneSize {
+      .oneSize-text {
         font-size: 1.0625rem;
-
+        padding-left: 0.5rem;
       }
+
       .sizeGuide {
         margin-left: auto;
         font-weight: 600;
@@ -209,6 +229,30 @@
         margin-right: -0.25rem;
         width: calc(100% + 1rem);
         margin: 0 -0.3125rem -1rem;
+        margin-bottom: 1rem;
+
+        .oneSize {
+          font-size: 1.1rem;
+          -webkit-font-smoothing: antialiased;
+          font-weight: 600;
+          align-items: center;
+          background-color: black;
+          border-radius: 0.25rem;
+          border: 0.0625rem solid #d5d5d5;
+          box-shadow: 0 0 0 0.03125rem #d5d5d5;
+          color: #fff;
+          display: inline-flex;
+          height: 2.5rem;
+          justify-content: center;
+          line-height: 0;
+          min-width: 2.5rem;
+          padding: 0.53125rem 0.53125rem;
+          margin-left: 0.25rem;
+          margin-right: 0.25rem;
+          margin-bottom: 1rem;
+          cursor: pointer;
+          text-transform: uppercase;
+        }
 
         .sizeOut {
           margin-left: 0.25rem;
@@ -233,6 +277,7 @@
 
           &:hover {
             border: 0.1rem solid black;
+            cursor: pointer;
           }
         }
         .sizeBool {
@@ -332,6 +377,7 @@
           font-weight: 600;
           display: flex;
           width: 95%;
+          height: 3.2rem;
           background-color: css.$hover_color;
           color: #fff;
           border: 0.0625rem solid css.$hover_color;
@@ -346,6 +392,12 @@
             background-color: #a40c0f ;
           }
 
+          .hide {
+            display: none;
+          }
+          .display-button{
+            display: block;
+          }
         }
       }
     }

@@ -1,0 +1,179 @@
+$box-backgroundClr: #fafafa;
+$container-backgroundClr: #57585b;
+$breakLineClr: #E5E4E2;
+.hidden-summary-box {
+  display: none
+}
+.summary-container {
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  .summary-container-background {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: -1;
+    background-color: $container-backgroundClr;
+  }
+  .summary-box {
+    display: inline-block;
+    position: sticky;
+    top: 1rem;
+    min-width: 30rem;
+    max-width: 50rem;
+    min-height: 50%;
+    margin-top: 3rem;
+    opacity: 1;
+    overflow-y: auto;
+    background-color: $box-backgroundClr;
+
+    .summary-content{
+      width: 100%;
+      height: 100%;
+      padding: 2rem 2rem;
+      .summary-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        .summary-title {
+          font-size: 1rem;
+          font-weight: bold;
+          margin-right: 1rem;
+        }
+        .shopping-bag-icon {
+          display: flex;
+
+          .shopping-total {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+          }
+
+        }
+      }
+      .close-button {
+        display: inline-block;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        cursor: pointer;
+      }
+      .breakLine {
+        display: inline-block;
+        width: 100%;
+        height: 2px;
+        background-color: $breakLineClr;
+      }
+      .notification {
+        text-align: left;
+        font-size: 0.8rem;
+      }
+///////////////   Product Summary /////////////
+      .product-summary-list {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        .product-summary {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: stretch;
+          margin: 1rem 0;
+          width: 60%;
+          .product-img{
+            width: 30%;
+            object-fit: cover;
+            border-radius: 1rem;
+          }
+          .title-price-container {
+            display:flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 1rem 1rem;
+            .product-title{
+              text-align: left;
+              max-width: 100%;
+              font-size: small;
+              font-weight: bold;
+              margin-bottom: 0.5rem;
+            }
+            .product-size {
+              font-size:small;
+              margin-bottom: 0.5rem;
+            }
+            .product-price {
+              font-size: small;
+              margin-bottom: 0.5rem;
+            }
+            .product-quantity {
+              font-size: small;
+            }
+          }
+        }
+        .vertical-break-line {
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 40%;
+          width: 2px;
+          height: 100%;
+          background-color: $breakLineClr;
+        }
+        .checkout-area {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 0;
+          right: 1rem;
+          width: 35%;
+          height: 40%;
+          .checkout-button-container {
+            display: flex;
+            height: 4rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            background-color: #d31334;
+            margin: 1rem 0;
+            .checkout-button {
+              -webkit-font-smoothing: antialiased;
+              letter-spacing: 0.075rem;
+              text-transform: uppercase;
+              color: #fff;
+              font-weight: 600;
+              font-size: 0.8rem;
+            }
+            &:hover {
+              background-color: #a40c0f ;
+            }
+          }
+          .subtotal {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 1rem;
+            font-weight: 400;
+          }
+          .continue-button {
+            font-size: 0.7rem;
+            font-weight: 600;
+
+          }
+        }
+      }
+
+    }
+  }
+}

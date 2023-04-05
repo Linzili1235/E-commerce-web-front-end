@@ -1,0 +1,83 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+.whyWeMadeThis-wrapper {
+  padding-right: 1.5625rem;
+  padding-left: 1.5625rem;
+  max-width: 85.75rem;
+  margin: 0 auto;
+  position: relative;
+}
+.whyWeMadeThis-wrapper .whyWeMadeThis-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+  margin: 0 -0.78125rem 2.5rem;
+}
+.whyWeMadeThis-wrapper .whyWeMadeThis-container .whyWeMadeThis-content {
+  background: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 33.333333%;
+  padding-right: 0.78125rem;
+  padding-left: 0.78125rem;
+  text-align: left;
+}
+.whyWeMadeThis-wrapper .whyWeMadeThis-container .whyWeMadeThis-content .whyWeMadeThis-heading {
+  font-size: 5.5rem;
+  line-height: 0.92;
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+  margin-left: 0;
+}
+.whyWeMadeThis-wrapper .whyWeMadeThis-container .whyWeMadeThis-content .whyWeMadeThis-heading:after {
+  color: #d31334;
+  content: "—";
+  display: block;
+  font-size: 2rem;
+  line-height: 1.875rem;
+  width: 1.5rem;
+}
+.whyWeMadeThis-wrapper .whyWeMadeThis-container .whyWeMadeThis-content .whyWeMadeThis-text {
+  font-size: 1.1875rem;
+  line-height: 1.5rem;
+  margin-bottom: 0;
+}
+.whyWeMadeThis-wrapper .whyWeMadeThis-container .whyWeMadeThis-image1 {
+  flex-basis: 33.33333%;
+  max-width: 33.333333%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: inline-block;
+  flex-direction: row;
+  margin-left: auto;
+  padding-right: 0.78125rem;
+  padding-left: 0.78125rem;
+}
+.whyWeMadeThis-wrapper .whyWeMadeThis-container .whyWeMadeThis-image1 img {
+  height: auto;
+  width: 100%;
+  border-radius: 0.25rem;
+}
+.whyWeMadeThis-wrapper .whyWeMadeThis-container .whyWeMadeThis-image2 {
+  flex-basis: 33.33333%;
+  max-width: 33.333333%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: inline-block;
+  flex-direction: row;
+  margin-left: auto;
+  padding-right: 0.78125rem;
+  padding-left: 0.78125rem;
+}
+.whyWeMadeThis-wrapper .whyWeMadeThis-container .whyWeMadeThis-image2 img {
+  height: auto;
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+/*# sourceMappingURL=WhyWeMadeThis.css.map */

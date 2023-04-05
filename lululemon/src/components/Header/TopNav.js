@@ -4,7 +4,11 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import CardGiftcardOutlinedIcon from '@mui/icons-material/CardGiftcardOutlined';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import './TopNav.scss'
+import CurrentCity from "../routerComponents/Cart/CurrentCity";
 export const TopNav = () => {
+    const handleSignIn = () => {
+        alert('Sign In')
+    }
     return <div className="topNavigation_container">
         <div className="topNavigation_bg">
         <ul className="topNav">
@@ -14,7 +18,7 @@ export const TopNav = () => {
                 <span className="navName">Store Locator</span>
                 </a>
             </li>
-            <li className="navItem">
+            <li className="navItem"  onClick={handleSignIn}>
                 <a href="">
                 <AccountCircleOutlinedIcon className="icon"/>
                 <span className="navName">Sign In</span>
@@ -35,7 +39,7 @@ export const TopNav = () => {
             <li className="navItem">
                 <a href="">
                 <LanguageOutlinedIcon className="icon"/>
-                <span className='navName'>USA</span>
+                <span className='navName'>CAD</span>
                 </a>
             </li>
         </ul>

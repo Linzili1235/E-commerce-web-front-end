@@ -1,31 +1,7 @@
-body {
-  margin: 0;
-  background: #fafafa;
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  font-family: Calibre Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-}
-
-section {
-  text-align: center;
-  margin: 0px auto;
-  width: 100%;
-  overflow: hidden;
-}
-
 @font-face {
   font-family: Calibre;
   src: url("assets/font/calibre/CalibreRegular.otf");
 }
-* {
-  box-sizing: border-box;
-  font-size: 97.5%;
-}
-
 .productTile {
   display: flex;
   flex-direction: column;
@@ -68,12 +44,12 @@ section {
 .productTile .productTile_details .swatchList .swatchChangeButton-1 {
   display: inline-flex;
   justify-content: flex-start;
-  position: absolute;
+  position: relative;
   top: 0.3rem;
-  background-color: #fafafa;
   border: none;
   padding: 0;
   cursor: pointer;
+  background-color: #fafafa;
 }
 .productTile .productTile_details .swatchList .swatchChangeButton-1 svg {
   width: 1.375rem;
@@ -97,8 +73,6 @@ section {
   display: inline-flex;
   flex-direction: row;
   padding: 0;
-  margin-left: 1rem;
-  margin-right: 1rem;
   position: relative;
 }
 .productTile .productTile_details .swatchList .realSwatchList .swatchItem {
@@ -115,14 +89,15 @@ section {
   height: 2.2rem;
 }
 .productTile .productTile_details .swatchList .realSwatchList .swatchItem img {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 100px;
+  border: darkgrey 0.5px groove;
 }
 .productTile .productTile_details .swatchList .realSwatchList .swatchItem img:hover {
-  box-sizing: unset;
+  box-sizing: border-box;
   box-shadow: 0 0 0 1px black;
-  padding: 0.2rem;
+  padding: 0.25rem;
   z-index: 1;
 }
 .productTile .productTile_details .productTile_attributes {

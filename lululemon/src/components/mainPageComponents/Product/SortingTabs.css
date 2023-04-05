@@ -1,0 +1,77 @@
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+.sortingTabs {
+  padding: 0 0 0 1.5rem;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sortingTabs .sortingTabs_right .dropdown {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+.sortingTabs .sortingTabs_right .dropdown .sort-by {
+  font-size: 1rem;
+  overflow: unset;
+  margin-right: 12rem;
+}
+.sortingTabs .sortingTabs_right .dropdown .hide {
+  display: none;
+}
+.sortingTabs .sortingTabs_right .dropdown .display {
+  position: absolute;
+  font-size: 1.4rem;
+  background-color: #f1f1f1;
+  min-width: 20rem;
+  overflow: auto;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.sortingTabs .sortingTabs_right .dropdown .display ul {
+  margin: 0 auto;
+  list-style: none;
+  text-align: center;
+  padding-left: 0;
+}
+.sortingTabs .sortingTabs_right .dropdown .display ul li {
+  padding: 1.5rem 0;
+}
+.sortingTabs .sortingTabs_right .dropdown .display ul li:hover {
+  background-color: lightgrey;
+}
+.sortingTabs .sortingTabs_left .options {
+  background: none;
+  outline: none;
+  appearance: textfield;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.075rem;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1px 6px;
+  margin-right: 3.25rem;
+}
+.sortingTabs .sortingTabs_left .options:hover {
+  font-weight: bold;
+}
+.sortingTabs .sortingTabs_left .options::after {
+  position: relative;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 6px;
+  border-bottom: 0.2875rem solid #d31334;
+  transition: all 0.1s ease-in-out;
+  content: "";
+  display: block;
+}
+.sortingTabs .sortingTabs_left .options:hover::after {
+  width: 100%;
+}
+
+/*# sourceMappingURL=SortingTabs.css.map */

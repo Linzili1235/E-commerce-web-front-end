@@ -1,10 +1,11 @@
 import {SideBar} from "./SideBar/SideBar";
 import './Main.scss'
 import {ProductShow} from "./Product/ProductShow";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import actions from "../../actions";
+import {CircularProgress} from "@mui/material";
 export const Main = () => {
 
     const [isLoading, setLoading] = useState(true)
@@ -24,7 +25,9 @@ export const Main = () => {
     }, [sortingId, pageNum]);
 
     return isLoading ? (
-        <div>loading...</div>
+        <div>
+            <CircularProgress  size={30} color={'inherit'}/>
+        </div>
     ) :  <div className="product_main">
         <div className="main_container">
             <div className="sideBar_container"><SideBar/></div>

@@ -8,9 +8,9 @@ import axios from "axios";
 ////////////////////////////////
 
 //[async dispatch] is provided by redux thunk middleware
-const fetchOneProduct = ({id}) => async dispatch => {
+const fetchOneProduct = (productId) => async dispatch => {
     try {
-        const response = await axios.get(`http://api-lulu.hibitbyte.com/product/${id}?${KEYS_URL}`)
+        const response = await axios.get(`http://api-lulu.hibitbyte.com/product/${productId}?${KEYS_URL}`)
         const data = response?.data?.rs;
         // console.log('[Fetch one product details --- data]', data)
         dispatch({
@@ -69,11 +69,101 @@ const fetchAllProductsWithFilter = (dispatch, page, sorting) => async (filters) 
     }
 }
 
+// Actions for the Add To Bag
+const removeProduct = ()  =>  {
+    return {
+        type: actionType.REMOVE_PRODUCT,
+        payload: {remainProduct:[], totalPrice: 0}
+    }
+}
+
+const addToBag = (img, name, price, size, color,productId, colorIndex, sizeIndex) => async dispatch => {
+    dispatch({
+        type: actionType.ADDED_PRODUCT_INFO,
+        payload: {quantity: 1, productId, productInfo: {img, name, price, size, color, colorIndex, sizeIndex}}
+    })
+
+    dispatch({
+        type: actionType.TOTAL_PRICE,
+        payload: 0,
+    })
+
+}
+
+const updateToBag = (ind, img, size, color, colorIndex, sizeIndex) => dispatch => {
+    dispatch({
+        type: actionType?.UPDATE_TO_BAG,
+        payload:{ind,img,size,color,colorIndex,sizeIndex}
+    })
+}
+
+
+const addWhenRefresh = (data) => {
+    return {
+        type: actionType.ADD_WHEN_REFRESH,
+        payload: data
+    }
+}
+
+const toggleSummaryBox = (bool) => {
+    return {
+        type: actionType.TOGGLE_SUMMARY_BOX,
+        payload: {isClosed: bool}
+    }
+}
+// const toggleUpdateBox = (bool) => {
+//     return {
+//         type: actionType.TOGGLE_UPDATE_BOX,
+//         payload: {isUpdateClosed: bool}
+//     }
+// }
+//
+const setNoProduct = (bool) => {
+    return {
+        type: actionType.SET_NO_PRODUCT,
+        payload: bool
+    }
+}
+
+const changeWithQuantity = (ind, quantity) => async dispatch => {
+    dispatch({
+        type: actionType.CHANGE_WITH_QUANTITY,
+        payload:{quantity, ind}
+    })
+    dispatch({
+        type: actionType.TOTAL_PRICE,
+        payload: 0,
+    })
+}
+
+const removeSpecificProduct = (ind) => async dispatch => {
+
+    dispatch({
+        type: actionType.REMOVE_SPECIFIC_PRODUCT,
+        payload: ind
+    })
+    dispatch({
+        type: actionType.TOTAL_PRICE,
+        payload: 0,
+    })
+
+}
+
 
 
 export default {
     fetchOneProduct,
     // fetchAllProducts,
     fetchAllProductsWithFilter,
-    fetchProductsPageSorting
+    fetchProductsPageSorting,
+    removeProduct,
+    addToBag,
+    toggleSummaryBox,
+    // toggleUpdateBox,
+    addWhenRefresh,
+    changeWithQuantity,
+    removeSpecificProduct,
+    updateToBag,
+    setNoProduct
+
 }

@@ -1,7 +1,15 @@
-.product-main-container {
-  max-width: 120rem;
-  min-width: 63rem;
+.main-component-wrapper {
+  max-width: 85.75rem;
   margin: 0 auto;
+  min-width: 63rem;
+  display: flex;
+  flex-direction: column;
+}
+.main-component-wrapper .product-main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 2rem;
 }
 
 /*# sourceMappingURL=SinglePageProduct.css.map */

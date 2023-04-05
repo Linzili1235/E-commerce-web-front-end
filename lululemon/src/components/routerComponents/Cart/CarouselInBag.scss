@@ -1,0 +1,79 @@
+$buttonClr: hsla(0,0%,100%,.75);
+$magCursor: 'https://e7.pngegg.com/pngimages/618/94/png-clipart-computer-icons-zooming-user-interface-zoom-lens-sign-share-icon.png';
+
+.productUpdate-carousel-container {
+  display: inline-block;
+  width: 50%;
+  height: auto;
+  position: relative;
+  top: 0;
+
+  .productUpdate-img-container{
+    //position: sticky;
+    //top: 0;
+    width: 100%;
+    height: inherit;
+    box-sizing: border-box;
+    .productUpdate-button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      margin-top: 50%;
+      height: 4rem;
+      .switchButton {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+        background-color: $buttonClr;
+        border-radius: 10%;
+        opacity: 80%;
+        &.leftButton {
+          cursor: pointer;
+          margin-left: 1rem;
+          padding-left: 10px;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          &:hover {
+            transition: opacity ease-in-out 0.2s;
+            opacity: 100%;
+          }
+        }
+        &.rightButton {
+          margin-right: 1rem;
+          cursor: pointer;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          &:hover {
+            transition: opacity ease-in-out 0.2s;
+            opacity: 100%;
+          }
+        }
+      }
+    }
+    .productUpdate-img-wrapper {
+
+    .productUpdate-img{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      //background-size: cover;
+      //transform: translateX(-5%);
+      transition: transform 1s ease-in-out;
+    }}
+
+  }
+}
+
+.hidden {
+  display: none;
+}
+
