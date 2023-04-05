@@ -1,15 +1,34 @@
 import './App.scss';
+import React, { lazy } from 'react'
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
 import { Routes, Route, Navigate } from "react-router-dom";
 import {Main} from "./components/mainPageComponents/Main";
-import {Cart} from "./components/routerComponents/Cart/Cart";
-import {Review} from "./components/routerComponents/Review"
-import {Checkout} from "./components/routerComponents/Checkout/Checkout"
 import {PageNotFound} from "./components/routerComponents/PageNotFound";
-import {SinglePageProduct} from "./components/routerComponents/SinglePageProduct/SinglePageProduct";
 import './components/globalStyle-module.scss'
-import ResetPassword from "./components/routerComponents/Checkout/ResetPassword";
+// dynamic loading (lazy loading)
+const SinglePageProduct = lazy(() => import("./components/routerComponents/SinglePageProduct/SinglePageProduct").then(module => {
+        return { default: module.SinglePageProduct}
+    }
+))
+const Cart = lazy(() => import("./components/routerComponents/Cart/Cart").then(module => {
+        return { default: module.Cart}
+    }
+))
+const Checkout = lazy(() => import("./components/routerComponents/Checkout/Checkout").then(module => {
+        return { default: module.Checkout}
+    }
+))
+const Review = lazy(() => import("./components/routerComponents/Review").then(module => {
+        return { default: module.Review}
+    }
+))
+const ResetPassword = lazy(() => import("./components/routerComponents/Checkout/ResetPassword").then(module => {
+        return { default: module.default}
+    }
+))
+
+
 function App() {
   return (
       <div className="App">
@@ -21,11 +40,10 @@ function App() {
             <Route path='/mybag' element={<Cart />}/>
             <Route path='/review' element={<Review />}/>
             <Route path='/reset' element={<ResetPassword />}/>
-
             <Route path='/checkout' element={<Checkout />}/>
-
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
+
         <Footer/>
       </div>
   );
