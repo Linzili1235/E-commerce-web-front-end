@@ -66,9 +66,10 @@ $breakLineClr: #E5E4E2;
         .checkout-product-summary {
           display: flex;
           flex-direction: row;
+          justify-content: flex-start;
 
           padding: 1rem 1.25rem 0;
-          justify-content: center;
+          //justify-content: center;
           margin-bottom: 1rem;
           .product-img {
             height: 5.3125rem;

@@ -63,8 +63,8 @@
 .checkout-summary .checkout-summary-container .checkout-product-summary-list .checkout-product-summary {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   padding: 1rem 1.25rem 0;
-  justify-content: center;
   margin-bottom: 1rem;
 }
 .checkout-summary .checkout-summary-container .checkout-product-summary-list .checkout-product-summary .product-img {

@@ -28,6 +28,10 @@ const ResetPassword = lazy(() => import("./components/routerComponents/Checkout/
     }
 ))
 
+const OrderPlaced = lazy(() => import("./components/routerComponents/Checkout/OrderPlaced").then(module => {
+    return {default: module.OrderPlaced}
+}))
+
 
 function App() {
   return (
@@ -41,6 +45,8 @@ function App() {
             <Route path='/review' element={<Review />}/>
             <Route path='/reset' element={<ResetPassword />}/>
             <Route path='/checkout' element={<Checkout />}/>
+            {/*TODO: Change URL here to orders/orderID*/}
+            <Route path='/placed' element={<OrderPlaced/>}/>
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
 

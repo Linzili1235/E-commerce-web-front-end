@@ -25,8 +25,9 @@ export const Checkout = () => {
         arrowClicked ? setArrowClicked(false) : setArrowClicked(true);
     };
     const handleNextStep = () => {
-        alert("Proceeding to the next step");
+        // alert("Proceeding to the next step");
         // Add your logic for the next step here
+        navigate('/placed')
     };
     const handleSubmit = () => {
         const email = emailRef.current.value;
