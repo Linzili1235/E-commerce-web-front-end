@@ -5,37 +5,59 @@ import {useEffect, useRef} from "react";
 import ReactToPrint from 'react-to-print';
 import {OrderedProduct} from "./OrderedProduct";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
+import {useState} from "react";
 
 
 export const OrderPlaced = () => {
-    const dispatch = useDispatch()
+    const [products, setProducts] = useState([])
+    const [quantities, setQuantities] = useState([])
+    const [orderNumber, setOrdNum] = useState("")
     const navigate = useNavigate()
     const componentRef = useRef()
-    const addedProducts = useSelector(state => state?.productReducer.addedProducts)
-    // console.log(addedProducts)
 
 
     /////////////////////////   Local storage   //////////////////////////////////
-    useEffect(() => {
-        const data = window.localStorage.getItem('Added Products')
-        const recoveredProduct = JSON.parse(data)
-        // when refreshing, data in redux store will lose, then should recover data using localStorage
-        dispatch(actions?.productActions?.addWhenRefresh(recoveredProduct))
-        // console.log("rendered when refresh")
+    useEffect( () =>  {
+    async function fetchdata() {
+        const prods = []
+        const quans = []
+        const data = window.localStorage.getItem('orderNumber')
+        const orderNumber = JSON.parse(data)
+        setOrdNum(orderNumber)
+        await axios.get("http://localhost:8000/order/review",
+            {
+                params: {orderNumber}
+            })
+            .then(res => {
+                const {product, quantity} = res.data.data
+                for (const pro of product) {
+                    prods.push(pro)
+                }
+                for (const quan of quantity) {
+                    quans.push(quan)
+                }
+
+            }).catch(e => console.log(e))
+        setProducts(prods)
+        setQuantities(quans)
+    }
+    fetchdata()
+
     },[])
 
 
-    useEffect(() => {
-        window.localStorage.setItem('Added Products', JSON.stringify(addedProducts));
-        // console.log("rendered when addedProduct changes")
-        // console.log(addedProducts)
-    }, [addedProducts]);
+
 
     const backToShopHandler = () => {
         navigate('/')
 
     }
+    console.log(products)
 
+    const handleInvoice = () => {
+
+    }
 
 
 
@@ -48,13 +70,13 @@ export const OrderPlaced = () => {
 
                 </div>
                 <div className="notificationBlock">
-                    <div>Order Number: </div>
+                    <div>Order Number: {orderNumber}</div>
 
                 </div>
             </div>
             <div className="productGroup">
-                {addedProducts && addedProducts.map((product, ind) => {
-                    return <OrderedProduct index={ind} key={ind} product={product}/>
+                {products && products.map((product, ind) => {
+                    return <OrderedProduct index={ind} key={ind} product={product} quantity={quantities[ind]}/>
                 })}
             </div>
         </div>

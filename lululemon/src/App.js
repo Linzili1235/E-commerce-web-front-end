@@ -46,7 +46,7 @@ function App() {
             <Route path='/reset' element={<ResetPassword />}/>
             <Route path='/checkout' element={<Checkout />}/>
             {/*TODO: Change URL here to orders/orderID*/}
-            <Route path='/placed' element={<OrderPlaced/>}/>
+            <Route path='/orderPlaced' element={<OrderPlaced/>}/>
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
 

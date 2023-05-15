@@ -6,6 +6,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArriveDate from "../Cart/ArriveDate";
 import { CheckoutSummary } from "./CheckoutSummary";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 export const Checkout = () => {
     const navigate = useNavigate();
@@ -14,6 +16,52 @@ export const Checkout = () => {
     const [emailError, setEmailError] = useState('');
     const [contactEmailError, setContactEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const{addedProducts} = useSelector(state=>state?.productReducer)
+    const products = []
+    const quantities = []
+    let total = 0
+    // change user to normal user email
+    const user = "jq138@georgetown.edu"
+    const shippingAddress = "here is my shipping address"
+    const payment = 1
+
+    const generateSlug = (productId, color, size) => {
+        const slugParts = [productId]
+        // if (color) {
+        //     const newColor = color.replace(' ', '-')
+        slugParts.push(color)
+        // }
+        if (size) {
+            slugParts.push(size)
+        }
+        return slugParts.join('-')
+    }
+
+    for (const pro of addedProducts) {
+        const {price, size,color} = pro.productInfo
+        const {quantity, productId} = pro
+        const updatedPrice = price.split("-")[0]
+        const numericValue = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''))
+        const slug = generateSlug(productId, color, size)
+        products.push(slug)
+        quantities.push(quantity)
+        total += numericValue * quantity
+
+    }
+
+
+    const handleNextStep = async () => {
+        // alert("Proceeding to the next step");
+        // place order here
+        await axios.post("http://localhost:8000/order/create", {
+            total, payment, shippingAddress,
+            user, products, quantity: quantities
+            // for reviewing order
+        }).then(res => window.localStorage.setItem('orderNumber', JSON.stringify(res.data.orderNumber))
+        ).catch(err => console.log(err))
+
+        navigate('/orderPlaced')
+    }
 
     // Grab input values
     const emailRef = useRef(null)
@@ -23,11 +71,6 @@ export const Checkout = () => {
     const handleLogIn = (e) => {
         e.preventDefault();
         arrowClicked ? setArrowClicked(false) : setArrowClicked(true);
-    };
-    const handleNextStep = () => {
-        // alert("Proceeding to the next step");
-        // Add your logic for the next step here
-        navigate('/placed')
     };
     const handleSubmit = () => {
         const email = emailRef.current.value;
@@ -259,7 +302,7 @@ export const Checkout = () => {
 
                         <div className="next-step">
                                 <div className="next-step-button" onClick={handleNextStep}>
-                                    <span>GO TO NEXT STEP</span>
+                                    <span>Place Order</span>
                                 </div>
                         </div>
                     </div>

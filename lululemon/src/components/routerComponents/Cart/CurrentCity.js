@@ -49,7 +49,6 @@ const CurrentCity = () => {
                 `https://nominatim.openstreetmap.org/search?postalcode=${postalCode}&format=json&addressdetails=1&limit=1`
             );
             const data = await response.json();
-            console.log('update data',data)
             if (data.length > 0) {
                 const newLocationData = {
                     city: data[0].address.city || data[0].address.town || data[0].address.village,

@@ -14,7 +14,6 @@ export const Cart = () => {
     const [count, updateCount] = useState(0)
     // const noProduct = useSelector(state => state?.productReducer?.noProduct)
     // console.log(noProduct)
-    console.log(addedProducts)
     const data = window.localStorage.getItem('Added Products')
     const recoveredProduct = JSON.parse(data)
     // console.log(recoveredProduct)

@@ -15,7 +15,6 @@ export const ProductInBag = ({product,index}) => {
     const {productInfo, quantity, productId} = product
     // for some reasons, here the properties won't change with product
     const {img, name, color, price, size, colorIndex, sizeIndex} = productInfo
-    console.log(price)
     // console.log(product)
     // console.log("size",product.size)
     const updatedPrice = price.split("-")[0]

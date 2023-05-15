@@ -1,14 +1,8 @@
 import "./OrderedProduct.scss"
-import {useState} from "react";
 
-import {useDispatch} from "react-redux";
-
-
-export const OrderedProduct = ({product,index}) => {
-    const dispatch = useDispatch()
-    const {productInfo, quantity} = product
+export const OrderedProduct = ({product, quantity}) => {
     // for some reasons, here the properties won't change with product
-    const {img, name, color, price, size} = productInfo
+    const {media, name, color, price, size} = product
 
     const updatedPrice = price.split("-")[0]
     const numericPrice = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''))
@@ -23,7 +17,7 @@ export const OrderedProduct = ({product,index}) => {
     <div className="productInBag-container">
     <div className="productInBag">
         <div className="product-image-container">
-            <img className="productImg" src={img} alt={name} />
+            <img className="productImg" src={media} alt={name} />
         </div>
         <div className="product-details-container">
             <h3 className="product-title" ><strong>{name}</strong></h3>
