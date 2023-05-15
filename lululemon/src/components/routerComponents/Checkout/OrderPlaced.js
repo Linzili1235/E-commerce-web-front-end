@@ -1,12 +1,13 @@
 import './OrderPlaced.scss'
 import {useDispatch, useSelector} from "react-redux";
 import actions from "../../../actions";
-import {useEffect, useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import ReactToPrint from 'react-to-print';
 import {OrderedProduct} from "./OrderedProduct";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useState} from "react";
+import {CircularProgress} from "@mui/material";
 
 
 export const OrderPlaced = () => {
@@ -14,11 +15,11 @@ export const OrderPlaced = () => {
     const [quantities, setQuantities] = useState([])
     const [orderNumber, setOrdNum] = useState("")
     const [invoiceUrl, setInvoiceUrl] = useState("")
+    const [print, setPrint] = useState(false)
+
     const navigate = useNavigate()
-    const componentRef = useRef()
 
-
-    /////////////////////////   Local storage   //////////////////////////////////
+    // send reviewing order request when loading the page
     useEffect( () =>  {
     async function fetchdata() {
         const prods = []
@@ -56,6 +57,7 @@ export const OrderPlaced = () => {
     }
 
     const handleInvoice = async () => {
+        setPrint(prevState => !prevState)
         await axios.get("http://localhost:8000/order/invoice",
             {
                 params: {orderNumber}
@@ -65,13 +67,16 @@ export const OrderPlaced = () => {
                 console.log("invoice url", invoiceUrl.data)
                 setInvoiceUrl(invoiceUrl.data)
             }).catch(e => console.log(e))
-        const printWindow = window.open(invoiceUrl)
+        const printWindow = await window.open(invoiceUrl)
         printWindow.onload = () => {
             printWindow.print()
             printWindow.onafterprint = () => {
-                printWindow.onclose()
-            }
+                printWindow.close() }
+
         }
+        setTimeout(() => setPrint(prevState => !prevState),300)
+
+
     }
 
 
@@ -97,7 +102,11 @@ export const OrderPlaced = () => {
         </div>
         <div className="back-print-button">
             <div className="invoice-print">
-                <button className="print-button" onClick={handleInvoice}>Print invoice</button>
+                <button className={"print-button"} onClick={handleInvoice}>
+                    <span className={ print ? "hide" : "display-button"} >Print invoice</span>
+                    <CircularProgress className={print ? 'display-button' : 'hide'} size={15} color={'inherit'}/>
+                </button>
+
             </div>
             <div className="back-to-shop">
                 <div className="back-button" onClick={backToShopHandler}>

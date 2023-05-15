@@ -75,6 +75,9 @@
 .back-print-button .invoice-print .print-button:hover {
   background-color: #a40c0f;
 }
+.back-print-button .invoice-print .print-button .hide {
+  display: none;
+}
 .back-print-button .back-to-shop {
   width: 100%;
   display: flex;
