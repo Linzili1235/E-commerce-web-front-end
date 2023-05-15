@@ -13,6 +13,7 @@ export const OrderPlaced = () => {
     const [products, setProducts] = useState([])
     const [quantities, setQuantities] = useState([])
     const [orderNumber, setOrdNum] = useState("")
+    const [invoiceUrl, setInvoiceUrl] = useState("")
     const navigate = useNavigate()
     const componentRef = useRef()
 
@@ -53,17 +54,31 @@ export const OrderPlaced = () => {
         navigate('/')
 
     }
-    console.log(products)
 
-    const handleInvoice = () => {
-
+    const handleInvoice = async () => {
+        await axios.get("http://localhost:8000/order/invoice",
+            {
+                params: {orderNumber}
+            })
+            .then(res => {
+                const invoiceUrl = res.data
+                console.log("invoice url", invoiceUrl.data)
+                setInvoiceUrl(invoiceUrl.data)
+            }).catch(e => console.log(e))
+        const printWindow = window.open(invoiceUrl)
+        printWindow.onload = () => {
+            printWindow.print()
+            printWindow.onafterprint = () => {
+                printWindow.onclose()
+            }
+        }
     }
 
 
 
 
     return <>
-        <div className="primaryContent" ref={componentRef}>
+        <div className="primaryContent">
             <div>
                 <div className="myBag-header">
                     <h1>Order has been Placed</h1>
@@ -82,10 +97,7 @@ export const OrderPlaced = () => {
         </div>
         <div className="back-print-button">
             <div className="invoice-print">
-                <ReactToPrint
-                    trigger={() => <button className="print-button">Print invoice</button>}
-                    content={() => componentRef.current}
-                />
+                <button className="print-button" onClick={handleInvoice}>Print invoice</button>
             </div>
             <div className="back-to-shop">
                 <div className="back-button" onClick={backToShopHandler}>
