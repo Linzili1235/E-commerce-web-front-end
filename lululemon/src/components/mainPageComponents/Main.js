@@ -21,7 +21,6 @@ export const Main = () => {
     // update the URL params based on the current URL (page and sortingId)
     useEffect(() => {
         actions?.filterActions?.urlParamsSaver(dispatch)(pageNum, sortingId)
-            .then(() => true)
     }, [sortingId, pageNum]);
 
     return isLoading ? (
