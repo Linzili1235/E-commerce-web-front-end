@@ -2,7 +2,6 @@ import './OrderPlaced.scss'
 import {useDispatch, useSelector} from "react-redux";
 import actions from "../../../actions";
 import React, {useEffect, useRef} from "react";
-import ReactToPrint from 'react-to-print';
 import {OrderedProduct} from "./OrderedProduct";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
@@ -29,7 +28,7 @@ export const OrderPlaced = () => {
         setOrdNum(orderNumber)
         await axios.get("http://localhost:8000/order/review",
             {
-                params: {orderNumber}
+                body: {orderNumber}
             })
             .then(res => {
                 const {product, quantity} = res.data.data

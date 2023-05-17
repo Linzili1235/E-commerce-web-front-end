@@ -1,26 +1,32 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import './Login.scss'
+import axios from "axios";
+import { api_routes } from "../../../Helper";
 
 const Login = () => {
     const navigate = useNavigate();
-    const [arrowClicked, setArrowClicked] = useState(false)
+    const [arrowClicked, setArrowClicked] = useState(false);
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const [successMsg, setSuccessMsg] = useState(null);
+    const [errMessage, setErrMessage] = useState(null);
+
     const emailRef = useRef(null)
     const passwordRef = useRef(null)
+
 
     const handleArrowToggle = () => {
         setArrowClicked(prevState => !prevState)
     }
-
     const handleLogIn = (e) => {
         e.preventDefault();
         arrowClicked ? setArrowClicked(false) : setArrowClicked(true);
     };
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         if (!arrowClicked) setArrowClicked(true)
@@ -29,15 +35,40 @@ const Login = () => {
         } else if (!password) {
             setPasswordError('Please enter a password')
         } else {
-            alert('Logged In')
             console.log({
                 email,
                 password,
                 // Add more input values here
             });
             // Send the data to the server (not implemented here)
+            await axios.post(api_routes.logIn,
+                {
+                        email: emailRef.current.value,
+                        password: passwordRef.current.value
+                })
+                .then((res) => {
+                    console.log(res.data)
+                    setSuccessMsg(res.data.error.msg)
+                    window.localStorage.setItem('user', emailRef.current.value)
+                })
+                .catch((err) => {
+                    console.log(err)
+                    setErrMessage(err.response.data.msg)
+                })
         }
     };
+
+    const handleAlert = () => {
+        if (successMsg !== null) {
+            alert(successMsg)
+            setSuccessMsg(null)
+        }
+        if (errMessage !== null) {
+            alert(errMessage)
+            setErrMessage(null)
+        }
+    }
+
     const validateEmail = (email) => {
         // Basic email validation using a regular expression
         const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
@@ -62,6 +93,11 @@ const Login = () => {
             setEmailError('');
         }
     };
+
+    useEffect(() => {
+        handleAlert();
+    }, [successMsg, errMessage]);
+
     return (
         <div>
             <div className="title">Have an account</div>

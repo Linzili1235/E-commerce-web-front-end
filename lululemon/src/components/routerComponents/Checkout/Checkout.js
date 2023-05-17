@@ -10,16 +10,25 @@ import axios from "axios";
 
 export const Checkout = () => {
     const navigate = useNavigate();
+    // shipping info
+    const fName = useRef(null)
+    const lName = useRef(null)
+    const phone = useRef(null)
+    const address = useRef(null)
+    const city = useRef(null)
+    const province = useRef(null)
+    const postalCode = useRef(null)
     // Make sure the formats of email and password are correct
     const [contactEmailError, setContactEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-    const{addedProducts} = useSelector(state=>state?.productReducer)
+    const {addedProducts} = useSelector(state=>state?.productReducer)
     const products = []
     const quantities = []
     let total = 0
+
     // change user to normal user email
-    const user = "jq138@georgetown.edu"
-    const shippingAddress = "here is my shipping address"
+    const user = window.localStorage.getItem('user');
+    const shippingAddress = `First Name: ${fName.current.value}\nLast Name: ${lName.current.value}\nPhone: ${phone.current.value}\nCity: ${city.current.value}\nProvince: ${province.current.value}\nPostal Code: ${postalCode.current.value}`;
+    console.log('shipping',shippingAddress)
     const payment = 1
 
     const generateSlug = (productId, color, size) => {
@@ -119,7 +128,11 @@ export const Checkout = () => {
                             <div className="title">Shipping Address</div>
                             <div className="names-input">
                                 <div className='name-input fName'>
-                                    {<TextField id="outlined-basic" label="First Name" variant="outlined" style={{ width: '100%' }}
+                                    {<TextField id="outlined-basic"
+                                                label="First Name"
+                                                variant="outlined"
+                                                style={{ width: '100%' }}
+                                                inputRef={fName}
                                                 sx={{
                                                     '& .MuiOutlinedInput-root': {
                                                         '&.Mui-focused': {
@@ -128,7 +141,11 @@ export const Checkout = () => {
                                                     }}} />}
                                     </div>
                                 <div className='name-input lName'>
-                                    {<TextField id="outlined-basic" label="Last Name" variant="outlined" style={{ width: '100%' }}
+                                    {<TextField id="outlined-basic"
+                                                label="Last Name"
+                                                variant="outlined"
+                                                style={{ width: '100%' }}
+                                                inputRef={lName}
                                                 sx={{
                                                     '& .MuiOutlinedInput-root': {
                                                         '&.Mui-focused': {
@@ -138,9 +155,13 @@ export const Checkout = () => {
                                 </div>
                             </div>
                             <div className="phone-input">
-                                <div className='name-input fName'>
+                                <div className='name-input'>
                                     {<TextField
-                                        id="outlined-basic" label="Phone Number" variant="outlined" style={{ width: '100%' }}
+                                        id="outlined-basic"
+                                        label="Phone Number"
+                                        variant="outlined"
+                                        style={{ width: '100%' }}
+                                        inputRef={phone}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
@@ -153,7 +174,11 @@ export const Checkout = () => {
                             </div>
                             <div className="address-input">
                                     {<TextField
-                                        id="outlined-basic" label="Address" variant="outlined" style={{ width: '100%' }}
+                                        id="outlined-basic"
+                                        label="Address"
+                                        variant="outlined"
+                                        style={{ width: '100%' }}
+                                        inputRef={address}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
@@ -165,7 +190,11 @@ export const Checkout = () => {
                             <div className="location">
                                 <div className='location-input city'>
                                     {<TextField
-                                        id="outlined-basic" label="City" variant="outlined" style={{ width: '80%' }}
+                                        id="outlined-basic"
+                                        label="City"
+                                        variant="outlined"
+                                        style={{ width: '80%' }}
+                                        inputRef={city}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
@@ -176,7 +205,11 @@ export const Checkout = () => {
                                 </div>
                                 <div className='location-input province'>
                                     {<TextField
-                                        id="outlined-basic" label="Province" variant="outlined" style={{ width: '80%' }}
+                                        id="outlined-basic"
+                                        label="Province"
+                                        variant="outlined"
+                                        style={{ width: '80%' }}
+                                        inputRef={province}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
@@ -187,7 +220,11 @@ export const Checkout = () => {
                                 </div>
                                 <div className='location-input PostalCode'>
                                     {<TextField
-                                        id="outlined-basic" label="Postal Code" variant="outlined" style={{ width: '80%' }}
+                                        id="outlined-basic"
+                                        label="Postal Code"
+                                        variant="outlined"
+                                        style={{ width: '80%' }}
+                                        inputRef={postalCode}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
