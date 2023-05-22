@@ -10,10 +10,10 @@ import axios from "axios";
 
 export const Checkout = () => {
     const navigate = useNavigate();
+
     // Make sure the formats of email and password are correct
     const [contactEmailError, setContactEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-    const{addedProducts} = useSelector(state=>state?.productReducer)
+    const addedProducts = useSelector(state => state?.productReducer?.addedProducts)
     const products = []
     const quantities = []
     let total = 0
@@ -24,10 +24,7 @@ export const Checkout = () => {
 
     const generateSlug = (productId, color, size) => {
         const slugParts = [productId]
-        // if (color) {
-        //     const newColor = color.replace(' ', '-')
         slugParts.push(color)
-        // }
         if (size) {
             slugParts.push(size)
         }

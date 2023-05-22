@@ -56,6 +56,7 @@ export const OrderPlaced = () => {
 
     }
 
+
     const handleInvoice = async () => {
         setPrint(prevState => !prevState)
         await axios.get("http://localhost:8000/order/invoice",
@@ -64,16 +65,21 @@ export const OrderPlaced = () => {
             })
             .then(res => {
                 const invoiceUrl = res.data
-                console.log("invoice url", invoiceUrl.data)
                 setInvoiceUrl(invoiceUrl.data)
-            }).catch(e => console.log(e))
+
+               }).catch(e => console.log(e))
+
         const printWindow = await window.open(invoiceUrl)
         printWindow.onload = () => {
             printWindow.print()
             printWindow.onafterprint = () => {
-                printWindow.close() }
-
+                printWindow.close()
+            }
         }
+
+
+
+
         setTimeout(() => setPrint(prevState => !prevState),300)
 
 
@@ -104,7 +110,7 @@ export const OrderPlaced = () => {
             <div className="invoice-print">
                 <button className={"print-button"} onClick={handleInvoice}>
                     <span className={ print ? "hide" : "display-button"} >Print invoice</span>
-                    <CircularProgress className={print ? 'display-button' : 'hide'} size={15} color={'inherit'}/>
+                    <CircularProgress className={print ? 'display-button' : 'hide'} size={15} color={'inherit'} />
                 </button>
 
             </div>

@@ -16,8 +16,8 @@ export const MainNav = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     // use localstorage will delay
-    // const data = window.localStorage.getItem('Added Products')
-    // const recoveredProduct = JSON.parse(data)
+    const data = window.localStorage.getItem('Added Products')
+    const recoveredProduct = JSON.parse(data)
     const handleNavigate = (e) => {
         e.preventDefault();
         navigate('/mainPage/1/1')
@@ -49,7 +49,7 @@ export const MainNav = () => {
 
     const totalQ = () => {
         let count = 0
-        for (const obj of addedProduct) {
+        for (const obj of recoveredProduct) {
             count += obj.quantity
         }
         return count
@@ -100,7 +100,7 @@ export const MainNav = () => {
                          <hr/>
                         <div className="checkout-product-summary-list">
                             {
-                                addedProduct && addedProduct.filter(product => product !== null).reverse().map((product, indx) => {
+                                recoveredProduct && recoveredProduct.filter(product => product !== null).reverse().map((product, indx) => {
                                     const {img, name, price, size,color} = product.productInfo
                                     const {quantity} = product
                                     const updatedPrice = price.split("-")[0]

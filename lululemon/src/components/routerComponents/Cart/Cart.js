@@ -7,24 +7,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 export const Cart = () => {
-    const dispatch = useDispatch()
     const navigate = useNavigate()
     const addedProducts = useSelector(state => state?.productReducer?.addedProducts)
     const [isNoProduct, setNoProduct] = useState(false)
     const [count, updateCount] = useState(0)
-    // const noProduct = useSelector(state => state?.productReducer?.noProduct)
-    // console.log(noProduct)
+
     const data = window.localStorage.getItem('Added Products')
     const recoveredProduct = JSON.parse(data)
-    // console.log(recoveredProduct)
-    // console.log(noProduct)
-    // useEffect(() => {
-    //     const data = window.localStorage.getItem('Added Products')
-    //     const recoveredProduct = JSON.parse(data)
-    //     isNoProduct()
-    //     dispatch(actions?.productActions?.addWhenRefresh(recoveredProduct))
-    //
-    // },[])
+
 
     // use this to let useEffect keep render after addProduct = []
     const clock = () => {
