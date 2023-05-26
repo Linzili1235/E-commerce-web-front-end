@@ -59,7 +59,6 @@ const AddToBagSummary = () => {
     return (
         <>
             <div className={ isClosed ? 'hidden-summary-box' : 'summary-container' }>
-                <button onClick={removeLocal}>Remove</button>
                 <div className="summary-container-background" onClick={handleClose}></div>
                 <div className="summary-box">
                     <div className="summary-content">

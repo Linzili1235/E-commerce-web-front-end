@@ -111,13 +111,8 @@ const toggleSummaryBox = (bool) => {
         payload: {isClosed: bool}
     }
 }
-// const toggleUpdateBox = (bool) => {
-//     return {
-//         type: actionType.TOGGLE_UPDATE_BOX,
-//         payload: {isUpdateClosed: bool}
-//     }
-// }
-//
+
+
 const setNoProduct = (bool) => {
     return {
         type: actionType.SET_NO_PRODUCT,
@@ -159,7 +154,6 @@ export default {
     removeProduct,
     addToBag,
     toggleSummaryBox,
-    // toggleUpdateBox,
     addWhenRefresh,
     changeWithQuantity,
     removeSpecificProduct,

@@ -6,8 +6,7 @@ const initialState = {
     pageProducts: [],
     filters: {},
     addedProducts:[],
-    params: {},   // if pagination is enabled, we need to change the params to separately control page
-    sortId: '1',
+    params: {sortId: 1, pageNum: 1},   // if pagination is enabled, we need to change the params to separately control page
     isClosed: true,
     isUpdateClosed: true,
     noProduct: false,
@@ -50,7 +49,13 @@ export const productReducer = (state=initialState, action) => {
             return {...state, params: action.payload}
         case actionType.SORT_ID:
             // console.log('[reducers] get sortId', action.payload);
-            return {...state, sortId: action.payload};
+            const tem = {...state.params}
+            tem.sortId = action?.payload
+            return {...state, params: tem}
+        case actionType.PAGE_NUM:
+            const temP = {...state.params}
+            temP.pageNum = action?.payload
+            return {...state, params: temP}
 
         case actionType.ADDED_PRODUCT_INFO:
             const addedProductString = JSON.stringify(action.payload.productInfo)

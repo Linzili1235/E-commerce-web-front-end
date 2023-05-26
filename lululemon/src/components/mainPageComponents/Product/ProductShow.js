@@ -3,6 +3,7 @@ import productImg from "../../../assets/productImg/manProduct.png"
 import {Notification} from "./Notification";
 import {ProductList} from "./ProductList";
 import SortingTabs from "./SortingTabs";
+import {NextPage} from "./NextPage";
 
 export const ProductShow = () => {
     return <>
@@ -27,6 +28,9 @@ export const ProductShow = () => {
         </div>
         <div className="productMain_container">
             <ProductList/>
+        </div>
+        <div className="changePage">
+            <NextPage/>
         </div>
         </>
 }

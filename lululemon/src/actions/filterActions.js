@@ -78,11 +78,26 @@ const changeSortId = (dispatch) => async (sortingId) => {
         return false
     }
 }
+const changePageNum = (dispatch) => async (pageNum) => {
+    try {
+        dispatch({
+            type: actionType?.PAGE_NUM,
+            payload: pageNum
+        })
+        return true
+
+    }catch (e) {
+        console.log('[Fail to save new page number', e)
+        return false
+    }
+
+}
 
 
 export default {
     getFilters,
     updateFilter,
     urlParamsSaver,
-    changeSortId
+    changeSortId,
+    changePageNum
 }

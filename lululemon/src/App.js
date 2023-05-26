@@ -1,5 +1,5 @@
 import './App.scss';
-import React, { lazy } from 'react'
+import React, {lazy} from 'react'
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -45,7 +45,6 @@ function App() {
             <Route path='/review' element={<Review />}/>
             <Route path='/reset' element={<ResetPassword />}/>
             <Route path='/checkout' element={<Checkout />}/>
-            {/*TODO: Change URL here to orders/orderID*/}
             <Route path='/orderPlaced' element={<OrderPlaced/>}/>
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
