@@ -27,7 +27,7 @@ export const Checkout = () => {
 
     // change user to normal user email
     const user = window.localStorage.getItem('user');
-    const shippingAddress = `First Name: ${fName.current.value}\nLast Name: ${lName.current.value}\nPhone: ${phone.current.value}\nCity: ${city.current.value}\nProvince: ${province.current.value}\nPostal Code: ${postalCode.current.value}`;
+    const shippingAddress = `First Name: ${fName.current?.value}\nLast Name: ${lName.current?.value}\nPhone: ${phone.current?.value}\nCity: ${city.current?.value}\nProvince: ${province.current?.value}\nPostal Code: ${postalCode.current?.value}`;
     console.log('shipping',shippingAddress)
     const payment = 1
 
