@@ -24,6 +24,13 @@ export const actionType = {
     'CHANGE_WITH_QUANTITY': 'CHANGE_WITH_QUANTITY',
     'REMOVE_SPECIFIC_PRODUCT': 'REMOVE_SPECIFIC_PRODUCT',
     'UPDATE_TO_BAG':'UPDATE_TO_BAG'
-
 }
 
+export const api_routes = {
+    logIn: 'http://localhost:8000/user/login',
+    createUser: 'http://localhost:8000/user/create',
+    getUserInfo: 'http://localhost:8000/user/oneUser',
+    refreshToken: 'http://localhost:8000/refresh',
+    logOut: 'http://localhost:8000/logout',
+    updatePassword: 'http://localhost:8000/user/update',
+}
