@@ -56,6 +56,7 @@ const fetchProductsPageSorting = (page, sorting, filters) => async dispatch => {
 const fetchAllProductsWithFilter = (dispatch, page, sorting) => async (filters) => {
     // console.log('[Fetch one product action creator]');
     // console.log('Fetch all products with filter', page, sorting)
+
     try {
         const response = await axios.post(`http://api-lulu.hibitbyte.com/product/allProducts?sortingId=${sorting}&page=${page}&${KEYS_URL}`,filters)
         const data = response?.data?.rs;
@@ -137,6 +138,7 @@ const removeSpecificProduct = (ind) => async dispatch => {
         type: actionType.REMOVE_SPECIFIC_PRODUCT,
         payload: ind
     })
+
     dispatch({
         type: actionType.TOTAL_PRICE,
         payload: 0,

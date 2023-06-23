@@ -53,7 +53,7 @@ export const NextPage = () => {
         {page > 1 && <KeyboardArrowLeftIcon onClick={handlePageMinusOne} fontSize={"large"} className="leftIcon"/>}
         <input
             type="number"
-            value={number}
+            value={page}
             onChange={handleInputChange}
         />
 

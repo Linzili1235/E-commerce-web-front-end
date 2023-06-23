@@ -42,6 +42,17 @@ export const productReducer = (state=initialState, action) => {
                 })
             }
             return {...state,filters: temp}
+        case actionType.NAV_FILTER:
+            const temp_f = {...state.filters}
+            const temp_gender = temp_f['Gender']
+            if (action.payload === "Women"){
+                temp_gender[1].isChecked = true
+                temp_gender[0].isChecked = false
+            } else {
+                temp_gender[1].isChecked = false
+                temp_gender[0].isChecked = true
+            }
+            return {...state, filters: temp_f}
         case actionType.FETCH_ALL_PRODUCTS_WITH_FILTER:{
             return {...state, pageProducts: action.payload};
         }

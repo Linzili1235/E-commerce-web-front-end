@@ -48,6 +48,19 @@ const updateFilter = (dispatch) => async (ele) => {
     }
 }
 
+const updateGender = (dispatch) => async (name) => {
+    try {
+        dispatch({
+            type: actionType.NAV_FILTER,
+            payload: name
+        })
+        return true
+    } catch (e) {
+        console.log('Cannot update gender in nav', e)
+        return false
+    }
+}
+
 // Store pageNum and sortingId to the global store
 // 去掉 .then() 的话，就不是promise，就不需要async
 const urlParamsSaver = (dispatch) => (pageNum, sortingId) => {
@@ -97,6 +110,7 @@ const changePageNum = (dispatch) => async (pageNum) => {
 export default {
     getFilters,
     updateFilter,
+    updateGender,
     urlParamsSaver,
     changeSortId,
     changePageNum
