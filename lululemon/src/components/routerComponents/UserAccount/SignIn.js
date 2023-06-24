@@ -1,18 +1,18 @@
-import React, { useRef,useContext } from 'react';
+import React, { useRef } from 'react';
 import {TextField} from "@mui/material";
 import { useState } from "react";
 import './SignIn.scss'
-import {useNavigate, useLocation} from "react-router-dom";
-import AuthContext from "../../../context/AuthProvider";
-import axios from "axios";
-import {api_routes} from "../../../Helper";
+import {useLocation, useNavigate} from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import axios,{api_routes} from "../../../api/axios";
 
 export const SignIn = () => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
-    const [successMsg, setSuccessMsg] = useState(null);
     const [errMessage, setErrMessage] = useState(null);
 
 
@@ -22,7 +22,8 @@ export const SignIn = () => {
     // Why? ------ Performance! Since the reference doesn't trigger re-render when it's updated, using useRef can be more
     // performant compared to useState for handling input values.
     // set auth information in AuthContext
-    const {setAuth} = useContext(AuthContext)
+    // const {setAuth} = useContext(AuthContext)
+    const {setAuth} = useAuth()
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
     const savedEmail = window.localStorage.getItem('user')
@@ -51,10 +52,13 @@ export const SignIn = () => {
                 }).then(res => {
                 console.log(JSON.stringify(res?.data))
                 const accessToken = res?.data?.accessToken
-                setSuccessMsg(res.data)
-                setAuth({email, password, accessToken})
+                setAuth({email, accessToken})
+                window.localStorage.setItem('user', email)
 
-                navigate('/', {replace: true})
+
+                // where the user wanted to go before sending to sign in page
+                // on createuser page, there is no where user want it to go
+                navigate(from, {replace: true})
             });
 
         } catch (e) {
@@ -108,7 +112,7 @@ export const SignIn = () => {
                 <span>Email Address</span>
             </div>
             {/*//////////////////////////////////////////////////////////*/}
-            <TextField id="outlined-basic" label="Email Address" type='Email' variant="outlined"
+            <TextField id="outlined-bas" label="Email Address" type='Email' variant="outlined"
                        defaultValue={savedEmail}
                        sx={{
                            '& .MuiOutlinedInput-root': {

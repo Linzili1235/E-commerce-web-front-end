@@ -111,12 +111,12 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         <>
             <div className={ zoomIn ? "hidden" : "selection-container"}>
                 <div className="selection-details">
-                <div className="product-field">
-                    <ul className="product-field-list">
-                        <li key='women' className="field"><a href="#">Woman's clothes</a></li>
-                        <li key='short' className="field"><a href="#">Short</a></li>
-                    </ul>
-                </div>
+                {/*<div className="product-field">*/}
+                {/*    <ul className="product-field-list">*/}
+                {/*        <li key='women' className="field"><a href="#">Woman's clothes</a></li>*/}
+                {/*        <li key='short' className="field"><a href="#">Short</a></li>*/}
+                {/*    </ul>*/}
+                {/*</div>*/}
                     <div className="product-title">
                         <div className="h1">{productOne?.name}</div>
                         <div className="productNew">

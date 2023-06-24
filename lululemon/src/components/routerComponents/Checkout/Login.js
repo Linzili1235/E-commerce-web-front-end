@@ -5,7 +5,7 @@ import { TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import './Login.scss'
 import axios from "axios";
-import { api_routes } from "../../../Helper";
+import {api_routes} from "../../../api/axios";
 
 const Login = () => {
     const navigate = useNavigate();

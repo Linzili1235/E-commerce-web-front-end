@@ -4,12 +4,17 @@ import { TextField } from "@mui/material";
 import ArriveDate from "../Cart/ArriveDate";
 import { CheckoutSummary } from "./CheckoutSummary";
 import Login from "./Login";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import {useLocation, useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {api_routes} from "../../../api/axios";
+import {useAxiosPrivate} from "../../../hooks/useAxiosPrivate";
+import actions from "../../../actions";
 
 export const Checkout = () => {
     const navigate = useNavigate();
+    const location = useLocation()
+    const axiosPrivate = useAxiosPrivate()
+    const dispatch = useDispatch()
     // shipping info
     const fName = useRef(null)
     const lName = useRef(null)
@@ -28,15 +33,14 @@ export const Checkout = () => {
     // change user to normal user email
     const user = window.localStorage.getItem('user');
     const shippingAddress = `First Name: ${fName.current?.value}\nLast Name: ${lName.current?.value}\nPhone: ${phone.current?.value}\nCity: ${city.current?.value}\nProvince: ${province.current?.value}\nPostal Code: ${postalCode.current?.value}`;
-    console.log('shipping',shippingAddress)
     const payment = 1
 
     const generateSlug = (productId, color, size) => {
         const slugParts = [productId]
-        // if (color) {
-        //     const newColor = color.replace(' ', '-')
-        slugParts.push(color)
-        // }
+        if (color) {
+            const newColor = color.replace(' ', '-')
+        slugParts.push(newColor)
+        }
         if (size) {
             slugParts.push(size)
         }
@@ -59,13 +63,21 @@ export const Checkout = () => {
     const handleNextStep = async () => {
         // alert("Proceeding to the next step");
         // place order here
-        await axios.post("http://localhost:8000/order/create", {
+        await axiosPrivate.post(api_routes.createOrder, JSON.stringify({
             total, payment, shippingAddress,
             user, products, quantity: quantities
             // for reviewing order
-        }).then(res => window.localStorage.setItem('orderNumber', JSON.stringify(res.data.orderNumber))
-        ).catch(err => console.log(err))
+        })).then(res =>
+            window.localStorage.setItem('orderNumber', JSON.stringify(res.data.orderNumber))
+        ).catch(
+            err => {
+                console.log(err)
+                navigate('/signIn', {state: {from: location}, replace: true}
+            )}
 
+    )
+        dispatch(actions?.productActions?.addWhenRefresh({}))
+        window.localStorage.setItem('Added Products', JSON.stringify({}));
         navigate('/orderPlaced')
     }
 
@@ -94,36 +106,36 @@ export const Checkout = () => {
                 <div className="checkout-title">Checkout</div>
                 <div className="checkout-main-container">
                     <div className="information">
-                        <div className="info-box have-an-account">
-                            <Login />
-                        </div>
-                        <div className="info-box contact-information">
-                            <div className="title">Contact Information</div>
-                            <div className="email">Email address (for order notification)</div>
-                            <div className='input'>
-                                {
-                                    <TextField
-                                        id="outlined-basic"
-                                        variant="outlined"
-                                        sx={{
-                                            '& .MuiOutlinedInput-root': {
-                                                '&.Mui-focused': {
-                                                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
-                                                }
-                                            }}}
-                                        error={!!contactEmailError} // Show error state when emailError is not empty
-                                        inputRef={contactEmailRef}
-                                        onChange={handleContactEmailChange}
-                                        style={{ width: '100%' }}/>
-                                }
-                            </div>
-                            <div className="sign-up">
-                                <div className="checkbox"></div>
-                                <input type="checkbox" />
-                                Sign me up for lululemon emails (you can unsubscribe at any time). See our privacy policy for details.
-                            </div>
+                        {/*<div className="info-box have-an-account">*/}
+                        {/*    <Login />*/}
+                        {/*</div>*/}
+                        {/*<div className="info-box contact-information">*/}
+                        {/*    <div className="title">Contact Information</div>*/}
+                        {/*    <div className="email">Email address (for order notification)</div>*/}
+                        {/*    <div className='input'>*/}
+                        {/*        {*/}
+                        {/*            <TextField*/}
+                        {/*                id="outlined-basic"*/}
+                        {/*                variant="outlined"*/}
+                        {/*                sx={{*/}
+                        {/*                    '& .MuiOutlinedInput-root': {*/}
+                        {/*                        '&.Mui-focused': {*/}
+                        {/*                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'*/}
+                        {/*                        }*/}
+                        {/*                    }}}*/}
+                        {/*                error={!!contactEmailError} // Show error state when emailError is not empty*/}
+                        {/*                inputRef={contactEmailRef}*/}
+                        {/*                onChange={handleContactEmailChange}*/}
+                        {/*                style={{ width: '100%' }}/>*/}
+                        {/*        }*/}
+                        {/*    </div>*/}
+                        {/*    <div className="sign-up">*/}
+                        {/*        <div className="checkbox"></div>*/}
+                        {/*        <input type="checkbox" />*/}
+                        {/*        Sign me up for lululemon emails (you can unsubscribe at any time). See our privacy policy for details.*/}
+                        {/*    </div>*/}
 
-                        </div>
+                        {/*</div>*/}
                         <div className="info-box shipping-address">
                             <div className="title">Shipping Address</div>
                             <div className="names-input">

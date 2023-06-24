@@ -3,8 +3,9 @@ import {TextField} from "@mui/material";
 import { useState } from "react";
 import './CreateUser.scss'
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
-import {api_routes} from "../../../Helper";
+import axios from  "../../../api/axios";
+import {api_routes} from "../../../api/axios";
+
 
 export const CreateUser = () => {
     const [emailError, setEmailError] = useState('');
