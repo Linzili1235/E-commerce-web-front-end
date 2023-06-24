@@ -10,7 +10,7 @@ export const Header = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const handleSignIn = () => {
-        alert('Sign In')
+       navigate('/signIn')
     }
     const handleNavigate = (e) => {
         e.preventDefault();

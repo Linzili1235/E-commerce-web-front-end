@@ -5,10 +5,13 @@ import CardGiftcardOutlinedIcon from '@mui/icons-material/CardGiftcardOutlined';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import './TopNav.scss'
 import CurrentCity from "../routerComponents/Cart/CurrentCity";
+import {useNavigate} from "react-router-dom";
 
 export const TopNav = () => {
+    const navigate = useNavigate()
     const handleSignIn = () => {
-        alert('Sign In')
+        navigate('/signIn')
+        // alert('Sign In')
     }
     return <div className="topNavigation_container">
         <div className="topNavigation_bg">

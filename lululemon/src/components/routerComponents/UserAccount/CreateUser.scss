@@ -1,0 +1,93 @@
+@use "../../../index.scss" as css;
+
+.create-user-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50rem;
+  border-left: css.$border_color solid 2px;
+
+  .create-user {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-left: css.$border_color solid 2px;
+    padding-left: 3rem;
+
+    .create-user-title {
+      margin: 1rem 0;
+
+      span {
+        text-align: left;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+    .set-new {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+
+    }
+    .errorMsg {
+      color: css.$hover_color;
+      text-align: left;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .create-button {
+      width: 70%;
+      height: 3rem;
+      letter-spacing: 0.075rem;
+      text-align: center;
+      line-height: 3rem;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #d31334;
+
+      &:hover {
+        background-color: #a40c0f;
+      }
+
+      span {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: white;
+        padding: 1rem 1rem;
+        text-transform: uppercase;
+
+      }
+    }
+    .hide {
+      text-transform: uppercase;
+      -webkit-font-smoothing: antialiased;
+      text-transform: uppercase;
+      letter-spacing: 0.075rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      width: 70%;
+      height: 3rem;
+      background-color: grey;
+      color: #fff;
+      border: 0.0625rem solid grey;
+      border-radius: 0.25rem;
+      cursor: no-drop;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+      text-decoration: none;
+    }
+    .term-of-use {
+      width: 70%;
+      color: #57585b;
+      font-size: 0.8rem;
+      text-align: left;
+      margin-top: 0.8rem;
+      span {
+      }
+    }
+  }
+
+}

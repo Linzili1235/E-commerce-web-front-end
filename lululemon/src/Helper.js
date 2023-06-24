@@ -27,11 +27,13 @@ export const actionType = {
     'UPDATE_TO_BAG':'UPDATE_TO_BAG'
 }
 
+const api = 'http://localhost:8000'
 export const api_routes = {
-    logIn: 'http://localhost:8000/user/login',
-    createUser: 'http://localhost:8000/user/create',
-    getUserInfo: 'http://localhost:8000/user/oneUser',
-    refreshToken: 'http://localhost:8000/refresh',
-    logOut: 'http://localhost:8000/logout',
-    updatePassword: 'http://localhost:8000/user/update',
+    logIn: `${api}/user/login`,
+    createUser: `${api}/user/create`,
+    getUserInfo: `${api}/user/oneUser`,
+    refreshToken: `${api}/refresh`,
+    logOut: `${api}/logout`,
+    updatePassword: `${api}/user/update`,
+    createOrder: `${api}/order/create`
 }

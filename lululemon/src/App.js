@@ -28,6 +28,14 @@ const ResetPassword = lazy(() => import("./components/routerComponents/Checkout/
     }
 ))
 
+const SignIn = lazy(() => import("./components/routerComponents/UserAccount/SignIn").then(module => {
+    return { default: module.SignIn}
+}))
+
+const CreateUser = lazy(() => import("./components/routerComponents/UserAccount/CreateUser").then(module => {
+    return { default: module.CreateUser}
+}))
+
 const OrderPlaced = lazy(() => import("./components/routerComponents/Checkout/OrderPlaced").then(module => {
     return {default: module.OrderPlaced}
 }))
@@ -44,6 +52,8 @@ function App() {
             <Route path='/mybag' element={<Cart />}/>
             <Route path='/review' element={<Review />}/>
             <Route path='/reset' element={<ResetPassword />}/>
+            <Route path='/signIn' element={<SignIn/>}/>
+            <Route path='/createUser' element={<CreateUser/>}/>
             <Route path='/checkout' element={<Checkout />}/>
             <Route path='/orderPlaced' element={<OrderPlaced/>}/>
           <Route path="*" element={<PageNotFound />}></Route>
