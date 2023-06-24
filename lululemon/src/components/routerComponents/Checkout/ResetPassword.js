@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { TextField } from "@mui/material";
 import { useState } from "react";
-import '../ResetPassword.scss'
+import './ResetPassword.scss'
 
 const ResetPassword = () => {
     const [emailError, setEmailError] = useState('');

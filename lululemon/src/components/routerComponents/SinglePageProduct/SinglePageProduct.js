@@ -4,7 +4,7 @@ import './SinglePageProduct.scss'
 import {useParams} from "react-router-dom";
 import actions from "../../../actions";
 import Carousel from "./Carousel";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import AddToBagSummary from "./AddToBagSummary";
 import {WhyWeMadeThis} from "./WhyWeMadeThis";
 
@@ -14,6 +14,8 @@ export const SinglePageProduct = () => {
     const {id} = prodId
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
+    const urlParams = useSelector(state => state?.productReducer?.params)
+    const {sortingId, pageNum} = urlParams;
 
     //asynchronously fetch one product
     useEffect( () => {

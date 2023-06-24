@@ -1,76 +1,96 @@
 import React, { useRef, useState } from 'react';
 import './Checkout.scss';
 import { TextField } from "@mui/material";
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArriveDate from "../Cart/ArriveDate";
 import { CheckoutSummary } from "./CheckoutSummary";
-import { useNavigate } from "react-router-dom";
+import Login from "./Login";
+import {useLocation, useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {api_routes} from "../../../api/axios";
+import {useAxiosPrivate} from "../../../hooks/useAxiosPrivate";
+import actions from "../../../actions";
 
 export const Checkout = () => {
     const navigate = useNavigate();
-    const [arrowClicked, setArrowClicked] = useState(false)
+    const location = useLocation()
+    const axiosPrivate = useAxiosPrivate()
+    const dispatch = useDispatch()
+    // shipping info
+    const fName = useRef(null)
+    const lName = useRef(null)
+    const phone = useRef(null)
+    const address = useRef(null)
+    const city = useRef(null)
+    const province = useRef(null)
+    const postalCode = useRef(null)
     // Make sure the formats of email and password are correct
-    const [emailError, setEmailError] = useState('');
     const [contactEmailError, setContactEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
+    const {addedProducts} = useSelector(state=>state?.productReducer)
+    const products = []
+    const quantities = []
+    let total = 0
+
+    // change user to normal user email
+    const user = window.localStorage.getItem('user');
+    const shippingAddress = `First Name: ${fName.current?.value}\nLast Name: ${lName.current?.value}\nPhone: ${phone.current?.value}\nCity: ${city.current?.value}\nProvince: ${province.current?.value}\nPostal Code: ${postalCode.current?.value}`;
+    const payment = 1
+
+    const generateSlug = (productId, color, size) => {
+        const slugParts = [productId]
+        if (color) {
+            const newColor = color.replace(' ', '-')
+        slugParts.push(newColor)
+        }
+        if (size) {
+            slugParts.push(size)
+        }
+        return slugParts.join('-')
+    }
+
+    for (const pro of addedProducts) {
+        const {price, size,color} = pro.productInfo
+        const {quantity, productId} = pro
+        const updatedPrice = price.split("-")[0]
+        const numericValue = parseFloat(updatedPrice.replace(/[^0-9.]/g, ''))
+        const slug = generateSlug(productId, color, size)
+        products.push(slug)
+        quantities.push(quantity)
+        total += numericValue * quantity
+
+    }
+
+
+    const handleNextStep = async () => {
+        // alert("Proceeding to the next step");
+        // place order here
+        await axiosPrivate.post(api_routes.createOrder, JSON.stringify({
+            total, payment, shippingAddress,
+            user, products, quantity: quantities
+            // for reviewing order
+        })).then(res =>
+            window.localStorage.setItem('orderNumber', JSON.stringify(res.data.orderNumber))
+        ).catch(
+            err => {
+                console.log(err)
+                navigate('/signIn', {state: {from: location}, replace: true}
+            )}
+
+    )
+        dispatch(actions?.productActions?.addWhenRefresh({}))
+        window.localStorage.setItem('Added Products', JSON.stringify({}));
+        navigate('/orderPlaced')
+    }
 
     // Grab input values
-    const emailRef = useRef(null)
-    const passwordRef = useRef(null)
     const contactEmailRef = useRef(null)
 
-    const handleLogIn = (e) => {
-        e.preventDefault();
-        arrowClicked ? setArrowClicked(false) : setArrowClicked(true);
-    };
-    const handleNextStep = () => {
-        alert("Proceeding to the next step");
-        // Add your logic for the next step here
-    };
-    const handleSubmit = () => {
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
-        if (!arrowClicked) setArrowClicked(true)
-        if (!email) {
-            setEmailError('Please enter an email')
-        } else if (!password) {
-            setPasswordError('Please enter a password')
-        } else {
-            alert('Logged In')
-            console.log({
-                email,
-                password,
-                // Add more input values here
-            });
-            // Send the data to the server (not implemented here)
-        }
-    };
     // validate email input
     const validateEmail = (email) => {
         // Basic email validation using a regular expression
         const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
         return emailRegex.test(email);
     };
-    const validatePassword = (password) => {
-        return password.length >= 8 && password.length <= 30;
-    }
-    const handlePasswordChange = () => {
-        const passwordInput = passwordRef.current.value;
-        if(validatePassword(passwordInput)) {
-            setPasswordError('');
-        } else {
-            setPasswordError('Password must be at least 8 characters long.');
-        }
-    };
-    const handleEmailChange = () => {
-        const emailInput = emailRef.current.value;
-        if (!validateEmail(emailInput)) {
-            setEmailError('Please enter a valid email format');
-        } else {
-            setEmailError('');
-        }
-    };
+
     const handleContactEmailChange = () => {
         const emailInput = contactEmailRef.current.value;
         if (!validateEmail(emailInput)) {
@@ -79,9 +99,6 @@ export const Checkout = () => {
             setContactEmailError('');
         }
     };
-    const handleArrowToggle = () => {
-        setArrowClicked(prevState => !prevState)
-    }
 
     return (
         <>
@@ -89,84 +106,45 @@ export const Checkout = () => {
                 <div className="checkout-title">Checkout</div>
                 <div className="checkout-main-container">
                     <div className="information">
-                        <div className="info-box have-an-account">
-                            <div className="title">Have an account</div>
-                            <div className="content">
-                                <a href="" onClick={handleLogIn}>
-                                    Log in
-                                </a> &nbsp;to checkout more quickly and easily
-                                <div className={arrowClicked ? 'arrow-clicked' : 'arrow'} onClick={handleArrowToggle}>
-                                    {arrowClicked ? <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}
-                                </div>
-                            </div>
-                            <div className={arrowClicked ? 'email' : 'email-hide'}>
-                                <div>{<TextField id="outlined-basic" label="Email Address" type='Email' variant="outlined"
-                                                 sx={{
-                                                     '& .MuiOutlinedInput-root': {
-                                                         '&.Mui-focused': {
-                                                             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
-                                                         }
-                                                     }}}
-                                                 error={!!emailError} // Show error state when emailError is not empty
-                                                 helperText={emailError}
-                                                 inputRef={emailRef}
-                                                 onChange={handleEmailChange}
-                                                 style={{ width: '120%' }}/>}</div>
-                                <div>{<TextField id="outlined-basic" label="Password" type="password" variant="outlined"
-                                                 sx={{
-                                                     '& .MuiOutlinedInput-root': {
-                                                         '&.Mui-focused': {
-                                                             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
-                                                         }
-                                                     }}}
-                                                 inputRef={passwordRef}
-                                                 error={!!passwordError}
-                                                 helperText={passwordError}
-                                                 inputProps={{ minLength: 8 }}
-                                                 onChange={handlePasswordChange}
-                                                 style={{ width: '120%' }}/>}
-                                     <div className="forgot-password">
-                                         <a href="" onClick={()=> { navigate('/reset') }}>Forgot your password?</a>
-                                     </div>
-                                </div>
-                            </div>
-                            <div className="signIn-button" onClick={handleSubmit}>
-                                <span>SIGN IN</span>
-                            </div>
-                        </div>
-                        <div className="info-box contact-information">
-                            <div className="title">Contact Information</div>
-                            <div className="email">Email address (for order notification)</div>
-                            <div className='input'>
-                                {
-                                    <TextField
-                                        id="outlined-basic"
-                                        variant="outlined"
-                                        sx={{
-                                            '& .MuiOutlinedInput-root': {
-                                                '&.Mui-focused': {
-                                                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
-                                                }
-                                            }}}
-                                        error={!!contactEmailError} // Show error state when emailError is not empty
-                                        helperText={emailError}
-                                        inputRef={contactEmailRef}
-                                        onChange={handleContactEmailChange}
-                                        style={{ width: '100%' }}/>
-                                }
-                            </div>
-                            <div className="sign-up">
-                                <div className="checkbox"></div>
-                                <input type="checkbox" />
-                                Sign me up for lululemon emails (you can unsubscribe at any time). See our privacy policy for details.
-                            </div>
+                        {/*<div className="info-box have-an-account">*/}
+                        {/*    <Login />*/}
+                        {/*</div>*/}
+                        {/*<div className="info-box contact-information">*/}
+                        {/*    <div className="title">Contact Information</div>*/}
+                        {/*    <div className="email">Email address (for order notification)</div>*/}
+                        {/*    <div className='input'>*/}
+                        {/*        {*/}
+                        {/*            <TextField*/}
+                        {/*                id="outlined-basic"*/}
+                        {/*                variant="outlined"*/}
+                        {/*                sx={{*/}
+                        {/*                    '& .MuiOutlinedInput-root': {*/}
+                        {/*                        '&.Mui-focused': {*/}
+                        {/*                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'*/}
+                        {/*                        }*/}
+                        {/*                    }}}*/}
+                        {/*                error={!!contactEmailError} // Show error state when emailError is not empty*/}
+                        {/*                inputRef={contactEmailRef}*/}
+                        {/*                onChange={handleContactEmailChange}*/}
+                        {/*                style={{ width: '100%' }}/>*/}
+                        {/*        }*/}
+                        {/*    </div>*/}
+                        {/*    <div className="sign-up">*/}
+                        {/*        <div className="checkbox"></div>*/}
+                        {/*        <input type="checkbox" />*/}
+                        {/*        Sign me up for lululemon emails (you can unsubscribe at any time). See our privacy policy for details.*/}
+                        {/*    </div>*/}
 
-                        </div>
+                        {/*</div>*/}
                         <div className="info-box shipping-address">
                             <div className="title">Shipping Address</div>
                             <div className="names-input">
                                 <div className='name-input fName'>
-                                    {<TextField id="outlined-basic" label="First Name" variant="outlined" style={{ width: '100%' }}
+                                    {<TextField id="outlined-basic"
+                                                label="First Name"
+                                                variant="outlined"
+                                                style={{ width: '100%' }}
+                                                inputRef={fName}
                                                 sx={{
                                                     '& .MuiOutlinedInput-root': {
                                                         '&.Mui-focused': {
@@ -175,7 +153,11 @@ export const Checkout = () => {
                                                     }}} />}
                                     </div>
                                 <div className='name-input lName'>
-                                    {<TextField id="outlined-basic" label="Last Name" variant="outlined" style={{ width: '100%' }}
+                                    {<TextField id="outlined-basic"
+                                                label="Last Name"
+                                                variant="outlined"
+                                                style={{ width: '100%' }}
+                                                inputRef={lName}
                                                 sx={{
                                                     '& .MuiOutlinedInput-root': {
                                                         '&.Mui-focused': {
@@ -185,9 +167,13 @@ export const Checkout = () => {
                                 </div>
                             </div>
                             <div className="phone-input">
-                                <div className='name-input fName'>
+                                <div className='name-input'>
                                     {<TextField
-                                        id="outlined-basic" label="Phone Number" variant="outlined" style={{ width: '100%' }}
+                                        id="outlined-basic"
+                                        label="Phone Number"
+                                        variant="outlined"
+                                        style={{ width: '100%' }}
+                                        inputRef={phone}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
@@ -200,7 +186,11 @@ export const Checkout = () => {
                             </div>
                             <div className="address-input">
                                     {<TextField
-                                        id="outlined-basic" label="Address" variant="outlined" style={{ width: '100%' }}
+                                        id="outlined-basic"
+                                        label="Address"
+                                        variant="outlined"
+                                        style={{ width: '100%' }}
+                                        inputRef={address}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
@@ -212,7 +202,11 @@ export const Checkout = () => {
                             <div className="location">
                                 <div className='location-input city'>
                                     {<TextField
-                                        id="outlined-basic" label="City" variant="outlined" style={{ width: '80%' }}
+                                        id="outlined-basic"
+                                        label="City"
+                                        variant="outlined"
+                                        style={{ width: '80%' }}
+                                        inputRef={city}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
@@ -223,7 +217,11 @@ export const Checkout = () => {
                                 </div>
                                 <div className='location-input province'>
                                     {<TextField
-                                        id="outlined-basic" label="Province" variant="outlined" style={{ width: '80%' }}
+                                        id="outlined-basic"
+                                        label="Province"
+                                        variant="outlined"
+                                        style={{ width: '80%' }}
+                                        inputRef={province}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
@@ -234,7 +232,11 @@ export const Checkout = () => {
                                 </div>
                                 <div className='location-input PostalCode'>
                                     {<TextField
-                                        id="outlined-basic" label="Postal Code" variant="outlined" style={{ width: '80%' }}
+                                        id="outlined-basic"
+                                        label="Postal Code"
+                                        variant="outlined"
+                                        style={{ width: '80%' }}
+                                        inputRef={postalCode}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused': {
@@ -258,7 +260,7 @@ export const Checkout = () => {
 
                         <div className="next-step">
                                 <div className="next-step-button" onClick={handleNextStep}>
-                                    <span>GO TO NEXT STEP</span>
+                                    <span>Place Order</span>
                                 </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ const SortingTabs = () => {
     const [toggleName, setToggleName] = useState('hide')
 
     // toggle function to display/hide the sorting tab
-    // it checks if the click happened outside of a specified element (in this case, the menuRef element),
+    // it checks if the click happened outside a specified element (in this case, the menuRef element),
     // and if so, it sets isOn state to false. Otherwise, it toggles the isOn state to true or false depending on its
     // current value. It also updates the toggleName state depending on the value of isOn. Finally, it removes the event
     // listener when the component unmounts.
@@ -47,10 +47,12 @@ const SortingTabs = () => {
     // Fetch all products with page and sorting
     const dispatch = useDispatch();
     const [isLoading, setLoading] = useState(true)
+
     useEffect( () => {
         dispatch(actions?.productActions?.fetchProductsPageSorting(page, sortingId,filters))
             .then(()=> setLoading( false))
     },[page, sortingId]);
+
 
     const navigate = useNavigate();
     // handle sorting changes, change sortingId
@@ -58,7 +60,10 @@ const SortingTabs = () => {
         actions?.filterActions?.changeSortId(dispatch)(sortingId)
             .then(()=> setLoading( false))
 
-        navigate(`/mainPage/${sortingId}/1`);
+
+        navigate(`/mainPage/${sortingId}/${page}`);
+        window.scrollTo(0, 400);
+
 
     }
 

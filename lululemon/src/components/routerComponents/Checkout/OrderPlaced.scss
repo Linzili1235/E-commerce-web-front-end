@@ -1,0 +1,110 @@
+@use '../../../index.scss' as css;
+
+.primaryContent {
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem;
+  .myBag-header {
+    display: flex;
+    align-items: baseline;
+    font-size: 1.875rem;
+    line-height: 1.0666666667;
+    margin-top: 1rem;
+    h1 {
+      padding-top: 0;
+      padding-bottom: 0;
+      display: inline;
+      font-weight: 600;
+      margin-block-start: 0.67em;
+      margin-block-end: 0.67em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      margin: 0;
+    }
+    span {
+      margin: 0 0 0 0.5rem;
+      display: inline;
+      font-weight: 400;
+    }
+  }
+  .notificationBlock {
+    background-color: css.$bg_white;
+    border: 0.0625rem solid css.$border_color;
+    margin-top: 1.5rem;
+    display: flex;
+    font-size: 1.1875rem;
+    font-weight: 400;
+    line-height: 1.2631578947;
+    padding: 0.75rem;
+
+  }
+  .productGroup {
+    background-color: transparent;
+    margin-left: -1.5625rem;
+    margin-right: -1.5625rem;
+  }
+}
+.back-print-button {
+  display: flex;
+  flex-direction: row;
+  .invoice-print {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    .print-button {
+      text-transform: uppercase;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: .075rem;
+      font-size: 15px;
+      width: 12rem;
+      font-weight: 600;
+      //height: 2.7rem;
+      background-color: css.$hover_color;
+      color: #fff;
+      border: 0.0625rem solid css.$hover_color;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      padding: 1rem;
+      text-align: center;
+      text-decoration: none;
+      &:hover {
+        background-color: #a40c0f;
+      }
+      .hide {
+        display: none;
+      }
+
+    }
+  }
+  .back-to-shop {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    //justify-content: flex-end;
+    .back-button {
+      text-transform: uppercase;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: .075rem;
+      font-size: 15px;
+      width: 12rem;
+      font-weight: 600;
+      background-color: css.$hover_color;
+      color: #fff;
+      border: 0.0625rem solid css.$hover_color;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      padding: 1rem;
+      text-align: center;
+      text-decoration: none;
+      &:hover {
+        background-color: #a40c0f;
+      }
+
+    }
+  }
+
+}
+

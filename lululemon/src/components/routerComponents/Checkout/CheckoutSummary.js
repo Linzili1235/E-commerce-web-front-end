@@ -1,4 +1,3 @@
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useSelector } from "react-redux";
 import './CheckoutSummary.scss';
 import React, {useState} from "react";

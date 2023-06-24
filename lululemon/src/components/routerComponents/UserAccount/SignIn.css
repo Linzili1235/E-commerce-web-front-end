@@ -1,0 +1,74 @@
+@font-face {
+  font-family: Calibre;
+  src: url("assets/font/calibre/CalibreRegular.otf");
+}
+.sign-in-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 40rem;
+  border-left: #e6e6e6 solid 2px;
+}
+.sign-in-container .sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-left: #e6e6e6 solid 2px;
+  padding-left: 3rem;
+}
+.sign-in-container .sign-in .sign-in-title {
+  margin: 1rem 0;
+}
+.sign-in-container .sign-in .sign-in-title span {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.sign-in-container .sign-in .set-new {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.sign-in-container .sign-in .errorMsg {
+  color: #d31334;
+  text-align: left;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+.sign-in-container .sign-in .logIn-button {
+  width: 50%;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #d31334;
+  text-transform: uppercase;
+}
+.sign-in-container .sign-in .logIn-button:hover {
+  background-color: #a40c0f;
+}
+.sign-in-container .sign-in .logIn-button span {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+.sign-in-container .create-user {
+  margin-top: 2rem;
+}
+.sign-in-container .create-user .create-user-span {
+  cursor: pointer;
+  padding-bottom: 0.25rem;
+  border-bottom: 0.0625rem solid #d5d5d5;
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 550;
+  line-height: 1.25rem;
+  transition: all ease-in-out;
+}
+.sign-in-container .create-user .create-user-span:hover {
+  border-bottom: 0.0625rem solid #d31334;
+}
+
+/*# sourceMappingURL=SignIn.css.map */

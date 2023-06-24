@@ -45,6 +45,7 @@
   margin: 0 0.5rem;
 }
 .selection-container .selection-details .product-title {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

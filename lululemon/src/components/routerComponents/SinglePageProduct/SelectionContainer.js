@@ -20,8 +20,7 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
 
     // LOCAL STORAGE to store added products info
     const {swatches,sizes, productId, name} = productOne
-    // console.log(productOne)
-    // console.log("in single page", productId)
+
     // first image at the color index
     const img = productOne.images[colorIndex].mainCarousel.media.split('|')[0]
     // const title = productOne.images[colorIndex].mainCarousel.alt
@@ -98,9 +97,6 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         dispatch(actions?.productActions?.addToBag(img, name, price, size, color,productId, colorIndex, sizeIndex))
             .then(() => setAdded(prevState => !prevState) )
 
-        // dispatch(actions?.productActions?.toggleSummaryBox(false))
-        //     .then(() => setAdded(prevState => !prevState))
-
         setTimeout(()=>{
             dispatch(actions?.productActions?.toggleSummaryBox(false))
             // once add product, addedProduct length > 0, show product in myBag page
@@ -115,12 +111,12 @@ export const SelectionContainer = ({ zoomIn, onColorChange }) => {
         <>
             <div className={ zoomIn ? "hidden" : "selection-container"}>
                 <div className="selection-details">
-                <div className="product-field">
-                    <ul className="product-field-list">
-                        <li key='women' className="field"><a href="#">Woman's clothes</a></li>
-                        <li key='short' className="field"><a href="#">Short</a></li>
-                    </ul>
-                </div>
+                {/*<div className="product-field">*/}
+                {/*    <ul className="product-field-list">*/}
+                {/*        <li key='women' className="field"><a href="#">Woman's clothes</a></li>*/}
+                {/*        <li key='short' className="field"><a href="#">Short</a></li>*/}
+                {/*    </ul>*/}
+                {/*</div>*/}
                     <div className="product-title">
                         <div className="h1">{productOne?.name}</div>
                         <div className="productNew">

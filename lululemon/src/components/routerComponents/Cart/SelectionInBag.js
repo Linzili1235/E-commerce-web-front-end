@@ -5,12 +5,14 @@ import {useState} from "react"
 
 import actions from "../../../actions";
 
-export const SelectionInBag = ({onColorChange,sizeInd,colorInd,ind}) => {
+export const SelectionInBag = ({handleClose, onColorChange,sizeInd,colorInd,ind}) => {
     const dispatch = useDispatch();
     const productOne = useSelector(state => state?.productReducer?.one_product)
 
     const [colorIndex, updateColorIndex] = useState(colorInd)
     const [sizeIndex, updateSizeIndex] = useState(sizeInd)
+    const [updated, setUpdated] = useState(false)
+
     // console.log(sizeIndex)
 
 
@@ -61,19 +63,17 @@ export const SelectionInBag = ({onColorChange,sizeInd,colorInd,ind}) => {
         // })
     }
 
-    const [updated, setUpdated] = useState(false)
     // pass img, title, price, size to the reducer
     const handleUpdateToBag = () => {
             // console.log('size', sizeIndex, title, price,size)
             dispatch(actions?.productActions?.updateToBag(ind, img, size, color, colorIndex, sizeIndex))
-                // .then(() =>  )
-        setUpdated(prevState => !prevState)
+            setUpdated(prevState => !prevState)
 
-            // dispatch(actions?.productActions?.toggleSummaryBox(false))
+        // dispatch(actions?.productActions?.toggleSummaryBox(false))
             //     .then(() => setAdded(prevState => !prevState))
 
             setTimeout(()=>{
-                dispatch(actions?.productActions?.toggleUpdateBox(true))
+                handleClose(true)
                 setUpdated(prevState => !prevState)
             }, 500)
 

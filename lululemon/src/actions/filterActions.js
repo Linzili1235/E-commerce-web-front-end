@@ -1,6 +1,5 @@
 import axios from "axios";
 import {actionType, FETCH_ALL_URL, GET_FILTERS_URL} from "../Helper";
-import { logDOM } from "@testing-library/react";
 //  implicit return statement
 
 // In this case, it is common to put dispatch second in the argument list,
@@ -27,6 +26,15 @@ const getFilters = () => async dispatch  => {
 // 2. The function updateFilter returns a Promise, but it does not use await to wait for any asynchronous operations to
 //    complete before dispatching the action.
 
+//function updateFilter(dispatch) {
+//   return async function(ele) {
+//     // function body goes here
+//   }
+// }
+// const updateFilter = function(dispatch) {
+//   return async function(ele) {
+//     // function body goes here
+//   }
 const updateFilter = (dispatch) => async (ele) => {
     try {
         dispatch({
@@ -40,8 +48,22 @@ const updateFilter = (dispatch) => async (ele) => {
     }
 }
 
+const updateGender = (dispatch) => async (name) => {
+    try {
+        dispatch({
+            type: actionType.NAV_FILTER,
+            payload: name
+        })
+        return true
+    } catch (e) {
+        console.log('Cannot update gender in nav', e)
+        return false
+    }
+}
+
 // Store pageNum and sortingId to the global store
-const urlParamsSaver = (dispatch) => async (pageNum, sortingId) => {
+// 去掉 .then() 的话，就不是promise，就不需要async
+const urlParamsSaver = (dispatch) => (pageNum, sortingId) => {
     try {
         dispatch({
             type: actionType.URL_PARAMS_SAVER,
@@ -69,11 +91,27 @@ const changeSortId = (dispatch) => async (sortingId) => {
         return false
     }
 }
+const changePageNum = (dispatch) => async (pageNum) => {
+    try {
+        dispatch({
+            type: actionType?.PAGE_NUM,
+            payload: pageNum
+        })
+        return true
+
+    }catch (e) {
+        console.log('[Fail to save new page number', e)
+        return false
+    }
+
+}
 
 
 export default {
     getFilters,
     updateFilter,
+    updateGender,
     urlParamsSaver,
-    changeSortId
+    changeSortId,
+    changePageNum
 }

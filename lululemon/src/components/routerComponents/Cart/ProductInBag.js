@@ -15,7 +15,6 @@ export const ProductInBag = ({product,index}) => {
     const {productInfo, quantity, productId} = product
     // for some reasons, here the properties won't change with product
     const {img, name, color, price, size, colorIndex, sizeIndex} = productInfo
-    console.log(price)
     // console.log(product)
     // console.log("size",product.size)
     const updatedPrice = price.split("-")[0]
@@ -29,8 +28,9 @@ export const ProductInBag = ({product,index}) => {
     // whether to close the remove page after clicking the remove
     const [isRemoveClose, setIsRemoveClose] = useState(true)
     //
-    const {isUpdateClosed, addedProducts} = useSelector(state => state?.productReducer)
+    // const {isUpdateClosed, addedProducts} = useSelector(state => state?.productReducer)
     const [isProductClose, setIsProductClose] = useState(true)
+    useEffect(()=>console.log(isProductClose),[isProductClose])
     // judge whether you have fetched the data of one_product
     const [isLoading, setIsLoading] = useState(true)
     const [selectedColorIndex, setSelectedColorIndex] = useState(colorIndex)
@@ -66,6 +66,9 @@ export const ProductInBag = ({product,index}) => {
        setIsProductClose(!isProductClose)
 
        // dispatch(actions?.productActions?.toggleUpdateBox(true))
+    }
+    const handleInChildProductClose = (value) => {
+        setIsProductClose(value)
     }
 
    const handleRemove = (ind) => {
@@ -172,7 +175,7 @@ export const ProductInBag = ({product,index}) => {
 
     </div>
         <div className={`${isProductClose ? 'none-display': 'backdrop'}`} onClick={handleProductClose}></div>
-        <div className={`${isProductClose ? 'none-display': "updateProductContainer"}`}>
+         <div className={`${isProductClose ? 'none-display': "updateProductContainer"}`}>
         {/*<div className={`${isUpdateClosed ? 'none-display': 'backdrop'}`} onClick={handleProductClose}></div>*/}
         {/*<div className={`${isUpdateClosed ? 'none-display': "updateProductContainer"}`}>*/}
             <div className="updateProduct-content">
@@ -198,7 +201,7 @@ export const ProductInBag = ({product,index}) => {
                         <div className="updateProduct-detail">
                         <CarouselInBag selectedColorIndex={selectedColorIndex}  className="productImg-update"/>
                         <SelectionInBag onColorChange={handleColorChange}
-                                        ind={index} colorInd={colorIndex} sizeInd={sizeIndex}/>
+                                        ind={index} colorInd={colorIndex} sizeInd={sizeIndex} handleClose = {handleInChildProductClose}/>
 
 
 
