@@ -14,6 +14,7 @@ export const ProductShow = () => {
     return <>
         <div className="productNav">
            <div className="img_container">
+               <img src="http://api-lulu.hibitbyte.com/static/images/productImages/prod9961161/30956/prod9961161_30956_whyWeMadeThis_img1.jpg" alt=""/>
                { gender_filter[1].isChecked === true ? <img src={wproductImg} alt="woman product"/> :
                    <img src={mproductImg} alt="man product"/>
                }
