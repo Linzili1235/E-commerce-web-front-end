@@ -1,5 +1,5 @@
-export const FETCH_ALL_URL = 'https://cors-anywhere.herokuapp.com/http://api-lulu.hibitbyte.com/product/allProducts?mykey=fuM1J1/wOUzyoUbxEYRZ2%2BdRoHepR7z%2BGDfhqB2%2BECqoI99i2RVYZAUcdVpTod96Wyf4wqsh8dR1GTFvHAdJTw=='
-export const GET_FILTERS_URL = 'https://cors-anywhere.herokuapp.com/http://api-lulu.hibitbyte.com/product/filter?mykey=fuM1J1/wOUzyoUbxEYRZ2%2BdRoHepR7z%2BGDfhqB2%2BECqoI99i2RVYZAUcdVpTod96Wyf4wqsh8dR1GTFvHAdJTw=='
+export const FETCH_ALL_URL = 'https://proxy.cors.sh/http://api-lulu.hibitbyte.com/product/allProducts?mykey=fuM1J1/wOUzyoUbxEYRZ2%2BdRoHepR7z%2BGDfhqB2%2BECqoI99i2RVYZAUcdVpTod96Wyf4wqsh8dR1GTFvHAdJTw=='
+export const GET_FILTERS_URL = 'https://proxy.cors.sh/http://api-lulu.hibitbyte.com/product/filter?mykey=fuM1J1/wOUzyoUbxEYRZ2%2BdRoHepR7z%2BGDfhqB2%2BECqoI99i2RVYZAUcdVpTod96Wyf4wqsh8dR1GTFvHAdJTw=='
 export const KEYS_URL = 'mykey=e3athvi4svVimPzlTfMdg1qlI3r0vIgh/7PBdRIFGUe6JWmeiTKe78RO/CbKBGVXQhKq9QGuumv9mRVhHdmkCg==';
 
 export const actionType = {

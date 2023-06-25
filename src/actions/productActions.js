@@ -10,7 +10,7 @@ import axios from "axios";
 //[async dispatch] is provided by redux thunk middleware
 const fetchOneProduct = (productId) => async dispatch => {
     try {
-        const response = await axios.get(`https://cors-anywhere.herokuapp.com/http://api-lulu.hibitbyte.com/product/${productId}?${KEYS_URL}`)
+        const response = await axios.get(`https://proxy.cors.sh/http://api-lulu.hibitbyte.com/product/${productId}?${KEYS_URL}`)
         const data = response?.data?.rs;
         // console.log('[Fetch one product details --- data]', data)
         dispatch({
@@ -41,7 +41,7 @@ const fetchOneProduct = (productId) => async dispatch => {
 const fetchProductsPageSorting = (page, sorting, filters) => async dispatch => {
     try {
         // console.log(`[Action] sortingId=${sorting}&page=${page}`)
-        const response = await axios.post(`https://cors-anywhere.herokuapp.com/http://api-lulu.hibitbyte.com/product/allProducts?sortingId=${sorting}&page=${page}&${KEYS_URL}`, filters)
+        const response = await axios.post(`https://proxy.cors.sh/http://api-lulu.hibitbyte.com/product/allProducts?sortingId=${sorting}&page=${page}&${KEYS_URL}`, filters)
         const data = response?.data?.rs;
         // console.log('[Action] data:',data)
         dispatch({
@@ -58,7 +58,7 @@ const fetchAllProductsWithFilter = (dispatch, page, sorting) => async (filters) 
     // console.log('Fetch all products with filter', page, sorting)
 
     try {
-        const response = await axios.post(`https://cors-anywhere.herokuapp.com/http://api-lulu.hibitbyte.com/product/allProducts?sortingId=${sorting}&page=${page}&${KEYS_URL}`,filters)
+        const response = await axios.post(`https://proxy.cors.sh/http://api-lulu.hibitbyte.com/product/allProducts?sortingId=${sorting}&page=${page}&${KEYS_URL}`,filters)
         const data = response?.data?.rs;
         // console.log('[Fetch All products details]', data)
         dispatch({
