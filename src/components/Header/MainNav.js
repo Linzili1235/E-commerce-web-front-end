@@ -19,10 +19,12 @@ export const MainNav = () => {
     const [isOpen, setIsOpen] = useState(false)
     /////////////////////////   Local storage   //////////////////////////////////
     useEffect(() => {
-        const data = window.localStorage.getItem('Added Products')
+        const data = window.localStorage?.getItem('Added Products') || {}
         const recoveredProduct = JSON.parse(data)
         // when refreshing, data in redux store will lose, then should recover data using localStorage
-        dispatch(actions?.productActions?.addWhenRefresh(recoveredProduct))
+
+            dispatch(actions?.productActions?.addWhenRefresh(recoveredProduct))
+
         // console.log("rendered when refresh")
     },[])
 
