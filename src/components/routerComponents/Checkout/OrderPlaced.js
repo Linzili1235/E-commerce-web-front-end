@@ -115,7 +115,8 @@ export const OrderPlaced = () => {
 
 
 
-    return <>
+    return <div className="order-place-page">
+        <div className="order-place-container">
         <div className="primaryContent">
             <div>
                 <div className="myBag-header">
@@ -151,6 +152,7 @@ export const OrderPlaced = () => {
         <div className="invoice-content" >
 
         </div>
+        </div>
 
-    </>
+    </div>
 }

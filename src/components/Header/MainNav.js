@@ -13,13 +13,13 @@ export const MainNav = () => {
     const navigate = useNavigate();
     const { currTotal } = useSelector(state => state?.productReducer)
     const addedProducts = useSelector(state => state?.productReducer?.addedProducts)
-    // console.log("addedProduct", addedProducts)
+    console.log("addedProduct", addedProducts)
     const allFilters = useSelector(state => state?.productReducer?.filters)
 
     const [isOpen, setIsOpen] = useState(false)
     /////////////////////////   Local storage   //////////////////////////////////
     useEffect(() => {
-        const data = window.localStorage?.getItem('Added Products') || {}
+        const data = window.localStorage?.getItem('Added Products') || JSON.stringify([])
         const recoveredProduct = JSON.parse(data)
         // when refreshing, data in redux store will lose, then should recover data using localStorage
 

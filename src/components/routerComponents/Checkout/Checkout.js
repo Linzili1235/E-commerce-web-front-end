@@ -76,8 +76,8 @@ export const Checkout = () => {
             )}
 
     )
-        dispatch(actions?.productActions?.addWhenRefresh({}))
-        window.localStorage.setItem('Added Products', JSON.stringify({}));
+        dispatch(actions?.productActions?.addWhenRefresh([]))
+        window.localStorage.setItem('Added Products', JSON.stringify([]));
         navigate('/orderPlaced')
     }
 
