@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5c8d5eb1-de04-4747-b01f-1f920644bff7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lululemon.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/filterActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/productActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/axios.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Icon/ShoppingBagWithQ.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreBlack.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreBlackItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreBold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreBoldItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreLight.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreLightItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreMedium.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreMediumItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreRegular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreRegularItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreSemibold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreSemiboldItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreThin.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/font/calibre/CalibreThinItalic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo/invertLogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo/logo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/magnifier/minus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/magnifier/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/productImg/manProduct.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/productImg/womanProduct.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DefaultFooter.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DefaultFooter.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DefaultFooter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DefaultFooter.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/MainNav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/MainNav.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/MainNav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/MainNav.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/TopNav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/TopNav.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/TopNav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/TopNav.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SimpleFooter.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SimpleFooter.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SimpleFooter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SimpleFooter.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/globalStyle-module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/globalStyle-module.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/globalStyle-module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Main.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/MainCarousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/MainCarousel.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/MainCarousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/MainCarousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/NextPage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/NextPage.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/NextPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/NextPage.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/Notification.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductItem.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductItem.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductItem.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductItem.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductList.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductList.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductList.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductShow.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductShow.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductShow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/ProductShow.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/SortingTabs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/SortingTabs.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/SortingTabs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/Product/SortingTabs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/SideBar/SideBar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/SideBar/SideBar.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/SideBar/SideBar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/SideBar/SideBar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/SideBar/SideBarIcon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/SideBar/SideBarItem.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/SideBar/SideBarItem.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/SideBar/SideBarItem.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainPageComponents/SideBar/SideBarItem.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/ArriveDate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/CarouselInBag.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/CarouselInBag.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/CarouselInBag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/CarouselInBag.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/Cart.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/Cart.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/Cart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/Cart.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/CurrentCity.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/CurrentCity.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/CurrentCity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/CurrentCity.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/MyBag.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/MyBag.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/MyBag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/MyBag.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/OrderSummary.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/OrderSummary.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/OrderSummary.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/OrderSummary.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/PayPalButton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/ProductInBag.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/ProductInBag.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/ProductInBag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/ProductInBag.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/SelectionInBag.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/SelectionInBag.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/SelectionInBag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Cart/SelectionInBag.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/Checkout.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/Checkout.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/Checkout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/Checkout.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/CheckoutSummary.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/CheckoutSummary.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/CheckoutSummary.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/CheckoutSummary.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/Login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/Login.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/Login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/Login.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/OrderPlaced.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/OrderPlaced.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/OrderPlaced.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/OrderPlaced.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/OrderedProduct.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/OrderedProduct.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/OrderedProduct.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/OrderedProduct.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/ResetPassword.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/ResetPassword.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/ResetPassword.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Checkout/ResetPassword.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/PageNotFound.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/Review.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/AddToBagSummary.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/AddToBagSummary.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/AddToBagSummary.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/AddToBagSummary.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/Carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/Carousel.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/Carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/Carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/SelectionContainer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/SelectionContainer.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/SelectionContainer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/SelectionContainer.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/SinglePageProduct.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/SinglePageProduct.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/SinglePageProduct.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/SinglePageProduct.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/WhyWeMadeThis.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/WhyWeMadeThis.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/WhyWeMadeThis.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/SinglePageProduct/WhyWeMadeThis.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/UserAccount/CreateUser.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/UserAccount/CreateUser.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/UserAccount/CreateUser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/UserAccount/CreateUser.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/UserAccount/RequireAuth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/UserAccount/SignIn.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/UserAccount/SignIn.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/UserAccount/SignIn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routerComponents/UserAccount/SignIn.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/AuthProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useAuth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useAxiosPrivate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useRefreshToken.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/productReducer.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OKlA0oTQsn0kjES9a5OojvlbRd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/linzili1235/Desktop/Front-end/lulu/lulu-front/lulu-front/lululemon&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/routerComponents/Checkout" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/routerComponents/Checkout" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c8d5eb1-de04-4747-b01f-1f920644bff7" name="Changes" comment="" />
+      <created>1681317006938</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681317006938</updated>
+      <workItem from="1681317008284" duration="2678000" />
+      <workItem from="1681824431383" duration="2086000" />
+      <workItem from="1683041241929" duration="599000" />
+      <workItem from="1683553929913" duration="890000" />
+      <workItem from="1683554839636" duration="8450000" />
+      <workItem from="1684177266844" duration="6730000" />
+      <workItem from="1687471185579" duration="2551000" />
+      <workItem from="1687477488567" duration="142000" />
+      <workItem from="1687477752236" duration="11164000" />
+      <workItem from="1687531115665" duration="27475000" />
+      <workItem from="1687615565627" duration="19643000" />
+      <workItem from="1687648858825" duration="1853000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="shopping-bag" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/routerComponents/UserAccount/RequireAuth.js</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

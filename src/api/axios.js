@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = 'http://localhost:8000'
+const BASE_URL = 'https://nicole-shopping.onrender.com'
 
 export const api_routes = {
     logIn: '/user/login',
